@@ -1,0 +1,22 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "brixon-ai-clients",
+  "description": "Plugins for Brixon AI clients: your brand from Brixon Brand Center in Claude, with skills to use and maintain it.",
+  "owner": {
+    "name": "Brixon Group",
+    "email": "hello@brixongroup.com"
+  },
+  "plugins": [
+    {
+      "name": "brixon-ai-client-core",
+      "description": "Brixon AI Client Core: Brand Center MCP plus skills to load, fill and report on your brand, review work independently and save it to GitHub.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Brixon Group",
+        "email": "hello@brixongroup.com"
+      },
+      "source": "./plugins/brixon-ai-client-core",
+      "category": "productivity"
+    }
+  ]
+}

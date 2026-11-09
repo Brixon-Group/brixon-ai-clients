@@ -1,0 +1,18 @@
+{
+  "name": "brixon-ai-client-core",
+  "version": "0.1.0",
+  "description": "Brixon AI Client Core: Brand Center MCP plus skills to load, fill and report on your brand, review work independently and save it to GitHub.",
+  "author": {
+    "name": "Brixon Group",
+    "email": "hello@brixongroup.com"
+  },
+  "homepage": "https://brand-center.brixongroup.com",
+  "repository": "https://github.com/Brixon-Group/brixon-ai-clients",
+  "keywords": ["brixon", "brand", "brand-center", "mcp"],
+  "mcpServers": {
+    "brixon-brand-center": {
+      "type": "http",
+      "url": "https://brand-center.brixongroup.com/mcp"
+    }
+  }
+}
