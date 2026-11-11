@@ -11,6 +11,7 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 |---|---|
 | `brand-context` | Loads your brand (voice, facts, design tokens, assets, UI components) before brand-facing work |
 | `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center |
+| `build-brandos` | Builds a complete BrandOS from your material: all documents of the Brand Center standard, gaps marked, an evidence list and targeted questions. With the MCP it saves drafts; without it, it writes files in the same structure for you to paste into Brand Center |
 | `off-brand-report` | Turns "that doesn't sound like us" into a change request that Brand Center tries to apply and publish automatically (licence-dependent) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
 | `github-workflow` | Handles Git and GitHub for you: branches, commits, pull requests, merges |

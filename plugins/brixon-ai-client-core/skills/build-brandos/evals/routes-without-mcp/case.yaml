@@ -1,0 +1,9 @@
+schema_version: "1.1"
+name: routes-without-mcp
+expected_outcome: |
+  The answer describes the working mode without MCP (local files or Markdown blocks in the Brand Standard 2
+  layout, evidence list kept separately), the editor paste per document as today's route into Brand Center,
+  and lists what needs MCP: get_brand_draft/save_brand_draft with a licence that allows editing through the AI (contract flag mcp_write), the fill_brand
+  method from the server, sprint status, the server completeness report. It says a whole-package import is not
+  built, that Copilot Studio does not support MCP prompts, and that publishing is done by a person. It invents
+  no tool names.

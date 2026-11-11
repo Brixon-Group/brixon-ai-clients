@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: existing-guide-to-standard
+expected_outcome: |
+  The agent maps the old export into Brand Standard 2 files with English catalog headings: BRAND.md with
+  standard 2, language en and output_languages [de]; absolute rules moved to rules.md; the channel list turned
+  into channel files with a profile; TODO(gap) replaced by GAP lines; the approved claim reduced to ID, title
+  and text in claims.md without status/evidence/approved fields, with the German wording left as a reported
+  gap rather than translated by the agent; typography and color split; fonts and hex values not turned into
+  tokens.css. Nothing is invented beyond the guide.
+context:
+  scaffold_script: place-files.sh
