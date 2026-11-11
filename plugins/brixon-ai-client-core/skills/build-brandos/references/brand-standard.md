@@ -146,7 +146,7 @@ A section counts as **empty** if it is missing, has no text after removing HTML 
 
 **Strict GAP warning** (not a server rule, add it yourself): a block section whose only content is a GAP line passes the server check, so publication is not stopped. List these sections separately as "required, still open in substance", so the person decides knowingly. A GAP line inside frontmatter is never acceptable.
 
-Report the result as two lists, "blocks publication" and "published as gap", each with path, section and GAP ID.
+Report the result as two lists, "blocks publication" and "published as gap". To the person, say it in plain words (which part, what is missing); paths and GAP IDs belong in `handover.md` or the source list.
 
 ## What the editor and MCP can write
 

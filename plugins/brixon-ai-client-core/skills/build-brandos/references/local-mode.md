@@ -1,6 +1,6 @@
 # Working mode without MCP (modes B and C)
 
-Use this when there is no `save_brand_draft`. The output is a set of files in exactly the Brand Standard 2 layout, so the same text can later go into Brand Center unchanged. Label every handover: **"Arbeitsmodus ohne MCP: lokaler Entwurf, nicht im Brand Center gespeichert."**
+Use this when there is no `save_brand_draft`. The output is a set of files in exactly the Brand Standard 2 layout, so the same text can later go into Brand Center unchanged. Every handover says so in plain words, for example: **"Das ist ein lokaler Entwurf. Er ist noch nicht im Brand Center gespeichert oder veröffentlicht."** Do not mention MCP or modes to the person unless they use the terms themselves.
 
 ## Folder layout
 
@@ -25,8 +25,8 @@ Use this when there is no `save_brand_draft`. The output is a set of files in ex
         image-prompts.md
         design-examples/<name>.md
   evidence/                               ← never imported
-    belegliste-<brand-slug>.md            ← evidence list and question list
-  handover.md                             ← never imported: assets to upload, token evidence for Brixon, open decisions
+    quellenliste-<brand-slug>.md          ← source list and open questions
+  handover.md                             ← never imported, read by the person: assets to upload, design evidence for Brixon, open decisions, in plain words
 ```
 
 Rules for `brand/`:
@@ -36,7 +36,7 @@ Rules for `brand/`:
 - File names: lowercase, digits, hyphens, `.md`.
 - Every file complete: frontmatter where required, H1 title, all catalog headings of that document in the brand language, each section with content or a GAP line.
 
-If you have no file system (a chat client), output each file as its own Markdown block with the path on the line directly above it, and only the files changed in this field group. Then output the complete evidence list as one block the person saves and uploads again in the next chat.
+If you have no file system (a chat client), output each file as its own Markdown block with the path on the line directly above it, and only the files changed in this chapter. Then output the complete source list as one block the person saves and uploads again in the next chat.
 
 ## Skeleton
 
@@ -75,11 +75,11 @@ Run the completeness checklist in [brand-standard.md](brand-standard.md#complete
 | Route | Status | How |
 |---|---|---|
 | Editor paste | works today | A person with an editor seat opens "Marke bearbeiten" in Brand Center and pastes each document's text into the document at the same path. The editor saves into the draft with version and base checks and shows per document "missing / required part missing / changed / gap". Publishing: button in the editor; blocking parts prevent it. One document at a time; long, but nothing needs converting. |
-| `save_brand_draft` | needs a licence that allows editing through the AI and a client that signed in | Pass `documents` as a map of path → complete text, taken unchanged from `brand/`, plus `expected_version` and `base_revision` from `get_brand_draft`. One call per field group. Saving never publishes. |
+| `save_brand_draft` | needs a licence that allows editing through the AI and a client that signed in | Pass `documents` as a map of path → complete text, taken unchanged from `brand/`, plus `expected_version` and `base_revision` from `get_brand_draft`. One call per chapter. Saving never publishes. |
 | Package import (whole folder at once) | planned, not built | Do not tell anyone it exists. |
 
-The evidence list, question list and `handover.md` stay with the customer and Brixon; they are never pasted into brand documents.
+The source list, open questions and `handover.md` stay with the customer and Brixon; they are never pasted into brand documents.
 
 ## Continuing later
 
-Without MCP there is no server state. To continue, the person uploads `brand/` (or the last output blocks) and the evidence list again. Read both, then continue with the next open field group. Once the brand is in Brand Center, continue from `get_brand_draft` (mode A) or the published state, not from old local files.
+Without MCP there is no server state. To continue, the person uploads `brand/` (or the last output blocks) and the source list again. Read both, then continue with the next open chapter. Once the brand is in Brand Center, continue from `get_brand_draft` (mode A) or the published state, not from old local files.
