@@ -13,9 +13,9 @@ Brand Center shows team members cards, each with one statement from the publishe
 | Customer brand built by the server generation | Generated automatically when a published revision is read: every bullet marked `*(Interpretation · source)*` becomes one question, topic = nearest heading, at most 40 open at a time, each statement asked once. |
 | Brixon-managed brand | Imported with `import_brand_check_questions` by a personal editor or an explicitly granted service. |
 
-Brand documents written with this skill carry no interpretation markers (inferences stay in the evidence list), so for customer brands they do not produce generated questions. What the skill can do instead:
+Brand documents written with this skill carry no interpretation markers (inferences stay in the source list), so for customer brands they do not produce generated questions. What the skill can do instead:
 
-- Before publication: turn inferred statements and open points into questions in the question list for the owner (the normal route).
+- Before publication: turn inferred statements and open points into questions for the owner, collected with the open questions (the normal route).
 - For Brixon-managed brands after publication: build an import batch, if `import_brand_check_questions` is available and the person may import.
 
 ## What a good question looks like

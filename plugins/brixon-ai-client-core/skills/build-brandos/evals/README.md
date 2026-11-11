@@ -1,14 +1,32 @@
 # Evals for build-brandos
 
-Three test cases in the skill-creator / `claude plugin eval` format. The brands in them (Nordlicht Logistik, Tidewater Analytics) are fictional.
+Four test cases in the skill-creator / `claude plugin eval` format. The brands in them (Nordlicht Logistik, Tidewater Analytics, Kranich Digital) are fictional.
 
 | Case | What it tests |
 |---|---|
 | `local-mode-website-and-email` | Working mode without MCP: a German brand from a website and one customer email, written as local Brand Standard 2 files |
 | `existing-guide-to-standard` | Converting an old English brand guide into Brand Standard 2 without inventing content or translating an approved claim |
 | `routes-without-mcp` | Explaining how a local draft reaches Brand Center when the AI has no write connection |
+| `guides-and-challenges-customer` | Leading a customer without Brand Center knowledge: plain language, pushing back on generic positioning, an "everyone" audience and an unsupported superlative, keeping its own proposals and unapproved figures out of the documents |
 
-## Results, iteration 1 (2026-11-11)
+## Results, iteration 2 (2026-11-11, customer-guidance revision against the previous skill)
+
+One run per configuration. The baseline is the previous version of the skill (0.2.0), on the same prompt and files. Graded against the current `graders/`.
+
+| Case | Revised skill | Previous skill |
+|---|---|---|
+| `guides-and-challenges-customer` | 14/14 | 12/14 |
+| `local-mode-website-and-email` | 12/12 | 11/12 |
+| **Pass rate** | **100 %** | **89 %** |
+
+| Cost (mean) | Revised skill | Previous skill |
+|---|---|---|
+| Time | 473 s | 352 s |
+| Tokens | 258,536 | 233,031 |
+
+The previous skill used internal terms without explaining them ("ohne MCP", "Brand Standard 2", "Claim-Kandidaten K-01", "Design-Tokens", "Belegliste"). It also pushed back on the generic tone words without offering wording from the material, and wrote them into `voice.md` as the decided tone. Structural and claims graders pass for both versions; they guard the file format, not the guidance.
+
+## Results, iteration 1 (2026-11-11, first version of the skill, before the customer-guidance revision)
 
 One run per configuration. The baseline ran the same prompt without the skill. Graded against the files in each case's `graders/` folder.
 

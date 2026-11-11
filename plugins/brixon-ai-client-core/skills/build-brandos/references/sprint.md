@@ -21,7 +21,7 @@ A sprint belongs to a customer's install contract. It has phases with gates and 
 | Day | Task key | Kind | What the skill does |
 |---|---|---|---|
 | 5 | `test-brand` | connect | not this skill: the owner loads the test brand in a fresh session. In safe mode the template suggests downloading the test brand as an export and uploading it to the AI (marked untested). |
-| 12 | `working-state-1` | fill_brand | field groups 1 to 3 at least, so a first version can be published: core and strategy, one audience, one offer, plus minimal voice, rules, design principle, `guidelines/claims.md` (a file with only `# Claims` is valid) and one channel so nothing blocks |
+| 12 | `working-state-1` | fill_brand | chapters 1 to 3 at least, so a first version can be published: core and strategy, one audience, one offer, plus minimal voice, rules, design principle, `guidelines/claims.md` (a file with only `# Claims` is valid) and one channel so nothing blocks |
 | 21 | `fill-sections` | fill_brand | audiences, offers and voice in depth |
 | 26 | `approval-notes` | approve | the approver delivers statements needing approval with approval notes; this is where claim candidates become approved claims |
 | 28 | `remaining-sections` | fill_brand | all remaining sections without blocking gaps; run the completeness check and the fresh-reader review |

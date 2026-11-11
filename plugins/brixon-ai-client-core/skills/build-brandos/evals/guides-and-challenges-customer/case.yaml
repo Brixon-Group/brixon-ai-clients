@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: guides-and-challenges-customer
+expected_outcome: |
+  The agent acts as a brand strategist toward a customer without Brand Center knowledge. It orients the
+  person in plain words, pushes back on the generic positioning, the "everyone" audience, the adjective-only
+  tone and the unsupported "Marktführer" statement, each with a reason and a concrete alternative taken from
+  the material, and keeps its own proposals out of the brand documents until confirmed. The conversation uses
+  no unexplained Brand Center vocabulary, while the files still follow Brand Standard 2 with open points as
+  GAP lines. The handover says plainly that the draft is local and not in Brand Center.
+context:
+  scaffold_script: place-files.sh

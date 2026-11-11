@@ -1,6 +1,6 @@
 # Design, tokens, assets and image prompts
 
-Field group 6. Sources: the Brand Standard 2 catalog, the Brand Center MCP tool descriptions and Brand Center's upload rules.
+Chapter 6. Sources: the Brand Standard 2 catalog, the Brand Center MCP tool descriptions and Brand Center's upload rules.
 
 Design has three different routes. Keep them apart, because only the first one is a brand document you can write.
 
@@ -61,7 +61,7 @@ Write styles only from images the brand actually uses or the person describes. A
 
 ## Tokens, design map, UI library
 
-Not writable through the editor or `save_brand_draft`. Every published snapshot needs tokens and a design map, so Brixon sets them up in the brand's source repository from the confirmed colors and fonts. What this skill does: collect the evidence (screenshots, brand book pages, hex values the person states) in the evidence list and name it in the handover as "for Brixon: token setup". Never write a `tokens.css` into the brand folder as if it were importable.
+Not writable through the editor or `save_brand_draft`. Every published snapshot needs tokens and a design map, so Brixon sets them up in the brand's source repository from the confirmed colors and fonts. What this skill does: collect the evidence (screenshots, brand book pages, hex values the person states) in the source list and name it in the handover as a step for Brixon, in plain words (German: "Für Brixon: genaue Farben und Schriften einrichten"). Never write a `tokens.css` into the brand folder as if it were importable.
 
 ## Assets: logos, fonts, images
 

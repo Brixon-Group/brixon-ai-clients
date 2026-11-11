@@ -4,7 +4,7 @@ Sources: the catalog entry for claims, `fill_brand` point 6 and the Brand Center
 
 ## What a claim is
 
-A checkable statement or price the brand can back up: a figure, a year, a customer name, a result, an award or certificate, a guarantee, a superlative or comparison, any medical or regulatory statement. In Brand Standard 2 a claim has an ID, a title and its text, nothing else. Status, evidence, approver, market or expiry are not part of the document; keep them in the evidence list or the customer's own approval register.
+A checkable statement or price the brand can back up: a figure, a year, a customer name, a result, an award or certificate, a guarantee, a superlative or comparison, any medical or regulatory statement. In Brand Standard 2 a claim has an ID, a title and its text, nothing else. Status, evidence, approver, market or expiry are not part of the document; keep them in the source list or the customer's own approval register.
 
 ## Format of `guidelines/claims.md`
 
@@ -31,8 +31,8 @@ Das Einstiegspaket kostet 4.900 Euro netto.
 
 ## The approval rule while building
 
-1. Every checkable statement you find becomes a **claim candidate** K-01, K-02 … in the evidence list, with its exact wording and source.
-2. A candidate moves into `claims.md` only when someone with authority names it as approved, in the wording of their approval list. Record "approved by role, name, date" in the evidence list.
+1. Every checkable statement you find becomes a **claim candidate** K-01, K-02 … in the source list, with its exact wording and source.
+2. A candidate moves into `claims.md` only when someone with authority names it as approved, in the wording of their approval list. Record "approved by role, name, date" in the source list.
 3. Never reword, shorten or translate an approved claim yourself. If a second language is needed and missing, the `### en`/`### de` wording stays absent (reported as a gap) and becomes a question. (The catalog describes claims as allowing small rewordings in the brand's vocabulary when they are used later; building the register is stricter.)
 4. Other documents never repeat the figure: they cite the ID, for example "Preis: CLM-002".
 5. Regulated topics (health, finance, legal, safety, environmental statements): ask which categories need approval and by whom; take approved wording unchanged; put the approval duty itself into `rules.md` → approval triggers when the owner states it.
