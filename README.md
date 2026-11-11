@@ -28,6 +28,13 @@ In Claude Code:
 /plugin install brixon-ai-client-core@brixon-ai-clients
 ```
 
+In Codex:
+
+```
+codex plugin marketplace add https://github.com/Brixon-Group/brixon-ai-clients.git
+codex plugin add brixon-ai-client-core@brixon-ai-clients
+```
+
 On first use of a Brand Center tool, your browser opens the Brand Center sign-in. Sign in with
 the email address of your Brand Center licence. No API key is needed; nothing secret is stored in
 this repository.
@@ -40,6 +47,8 @@ AI tool by hand.
 ```
 /plugin marketplace update brixon-ai-clients
 ```
+
+In Codex: `codex plugin marketplace upgrade brixon-ai-clients`.
 
 ## Support
 
