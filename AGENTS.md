@@ -11,6 +11,9 @@ This repository is public and installed by Brixon AI clients in Claude Code and 
 | `plugins/<name>/.claude-plugin/plugin.json` | Claude Code manifest; its `version` is authoritative |
 | `plugins/<name>/.codex-plugin/plugin.json` | Codex manifest: same name, version and `mcpServers`, plus `skills` and `interface` |
 | `plugins/<name>/skills/` | Skills, one folder each, `name` in the frontmatter equal to the folder |
+| `plugins/brixon-ai-client-core/rules/CLIENT.md` | Working rules for clients' AI; the only copy of the rules text |
+| `plugins/brixon-ai-client-core/hooks/hooks.json` | Claude Code: prints `rules/CLIENT.md` into context at every session start |
+| `plugins/brixon-ai-client-core/skills/setup-rules/` | Codex (no plugin hooks): writes the rules as a marked block into the client's global `AGENTS.md` |
 | `scripts/check.mjs` | Consistency and public-content check, run by CI on every pull request |
 | `scripts/sync-feedback.mjs` | Builds the Brixon Feedback CLI into a plugin as one file with a provenance record |
 
@@ -19,6 +22,7 @@ This repository is public and installed by Brixon AI clients in Claude Code and 
 - Nothing internal: no local paths, internal repository or service names, customer data, keys or tokens. `scripts/check.mjs` catches the common cases; it is not a full review.
 - MCP servers are plain `https` entries. Customers sign in through the browser (OAuth); never add headers, env values or keys.
 - Add only MCP servers and CLIs that clients can sign in to themselves.
+- Rules in `rules/CLIENT.md` are generic: nothing about Brixon's own repositories, tools or team habits. Every session pays for them, so keep them short; Claude Code cuts hook output above 10,000 characters.
 - Bump the version in the marketplace entry and both manifests together: major for removed features, minor for new ones, patch for fixes.
 - Before a pull request: `node scripts/check.mjs` and `node --test 'scripts/*.test.mjs'`.
 

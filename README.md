@@ -15,6 +15,13 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 | `off-brand-report` | Turns "that doesn't sound like us" into a change request that Brand Center tries to apply and publish automatically (licence-dependent) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
 | `github-workflow` | Handles Git and GitHub for you: branches, commits, pull requests, merges |
+| `setup-rules` | Codex only: writes the working rules into your global Codex instructions |
+
+It also brings working rules for your AI: invent nothing, load your brand before brand-facing
+work, ask before deleting or sending, keep secrets out of files. Claude Code loads them at every
+session start. In Codex, ask once for the `setup-rules` skill ("set up the Brixon rules"); it adds
+them as a marked block to your global `AGENTS.md` and leaves the rest of the file alone. Your own
+instructions win where they conflict.
 
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
@@ -48,7 +55,8 @@ AI tool by hand.
 /plugin marketplace update brixon-ai-clients
 ```
 
-In Codex: `codex plugin marketplace upgrade brixon-ai-clients`.
+In Codex: `codex plugin marketplace upgrade brixon-ai-clients`, then ask for the `setup-rules`
+skill again so the rules block is current.
 
 ## Support
 
