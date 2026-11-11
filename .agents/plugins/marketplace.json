@@ -1,0 +1,20 @@
+{
+  "name": "brixon-ai-clients",
+  "interface": {
+    "displayName": "Brixon AI Clients"
+  },
+  "plugins": [
+    {
+      "name": "brixon-ai-client-core",
+      "source": {
+        "source": "local",
+        "path": "./plugins/brixon-ai-client-core"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_USE"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
