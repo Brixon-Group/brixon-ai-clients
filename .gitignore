@@ -1,0 +1,14 @@
+
+# Video/media files (brixon-core pre-push guard)
+*.mov
+*.mp4
+*.avi
+*.mkv
+*.wmv
+
+# Environment files (brixon-core pre-push guard)
+.env
+.env.*
+!.env.example
+!.env.*.example
+!.env.sample
