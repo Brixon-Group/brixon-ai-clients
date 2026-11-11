@@ -1,0 +1,11 @@
+schema_version: "1.1"
+name: local-mode-website-and-email
+expected_outcome: |
+  The agent works in the labelled local mode and writes Brand Standard 2 files with German catalog headings
+  under output/: BRAND.md with the required frontmatter, the guidelines documents, at least one channel file,
+  and image prompts. Missing facts are GAP lines. Prices, numbers, years, customer counts and superlatives
+  stay out of the brand documents as claim candidates in a separate evidence list; claims.md holds no
+  unapproved claim. The owner's stated rule on customer yield figures appears as a rule. The handover says
+  that nothing was saved or published in Brand Center.
+context:
+  scaffold_script: place-files.sh
