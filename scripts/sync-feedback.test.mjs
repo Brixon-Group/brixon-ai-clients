@@ -1,6 +1,6 @@
 import { before, test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtemp, mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
+import { mkdtemp, mkdir, readFile, writeFile, readdir, rm } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -38,7 +38,9 @@ test('sync owns runtime artifacts only and preserves marketplace skills and refe
   // Modules the CLI shares with the service and the upload command are part of the record.
   assert.ok(upstream.sourceFiles['shared/frame-hosts.json']);
   assert.ok(upstream.sourceFiles['cli/put.mjs']);
+  assert.ok(upstream.sourceFiles['cli/edition.mjs']);
   assert.match(upstream.commit, /^[0-9a-f]{40}$/);
+  assert.equal(upstream.edition, 'client');
 });
 
 test('the package states the Node.js requirement of the source CLI', enabled, async () => {
@@ -65,7 +67,13 @@ test('bundled standalone install and check refuse without project or home writes
   await writeFile(path.join(project, 'owner.txt'), 'Preserve');
   const help = spawnSync(process.execPath, [cli, '--help'], { cwd: project, encoding: 'utf8' });
   assert.equal(help.status, 0, help.stderr);
-  assert.match(help.stdout, /skills install\|check: unavailable in this bundle/);
+  assert.doesNotMatch(help.stdout, /^skills /m);
+  // The fresh build is the client edition, not only the one committed to this repository.
+  assert.doesNotMatch(help.stdout, /--video|--timeline|--captions|--review-copy|ffmpeg|ffprobe/i);
+  const { version } = JSON.parse(await readFile(path.join(destination, 'feedback/package.json'), 'utf8'));
+  assert.equal(spawnSync(process.execPath, [cli, '--version'], { encoding: 'utf8' }).stdout.trim(), `Brixon CLI ${version}`);
+  // Branches of the other edition are removed from the file, not only skipped.
+  assert.doesNotMatch(await readFile(cli, 'utf8'), /workers\.dev/);
   assert.match(help.stdout, /Details: docs\/setup\.md of the brixon-ai-client-core plugin\./);
   assert.match(help.stdout, /^put --file PATH/m);
   for (const action of ['install', 'check']) for (const scope of ['project', 'user']) {
@@ -73,7 +81,7 @@ test('bundled standalone install and check refuse without project or home writes
       cwd: project, env: { PATH: '/usr/bin:/bin', HOME: home }, encoding: 'utf8', timeout: 10000,
     });
     assert.equal(result.status, 1, result.stderr);
-    assert.match(result.stderr, /come with the brixon-ai-client-core plugin/);
+    assert.match(result.stderr, /Skills come with the Brixon plugin/);
     assert.doesNotMatch(result.stderr, /ENOENT/);
     assert.deepEqual(await readdir(project), ['owner.txt']);
     assert.deepEqual(await readdir(home), []);
@@ -101,16 +109,24 @@ test('bundled manifest and mapped target remain usable without network', enabled
 });
 
 // Runs without a source checkout: the build committed to this repository starts and names its commands.
-test('the committed CLI starts and reports the version of its package', async () => {
+test('the committed CLI is the client edition and reports the version of its package', async () => {
   const plugin = fileURLToPath(new URL('../plugins/brixon-ai-client-core/', import.meta.url));
   const { version } = JSON.parse(await readFile(path.join(plugin, 'feedback/package.json'), 'utf8'));
   const run = args => spawnSync(process.execPath, [path.join(plugin, 'cli/index.mjs'), ...args], { encoding: 'utf8', timeout: 10000 });
   const reported = run(['--version']);
   assert.equal(reported.status, 0, reported.stderr);
-  assert.equal(reported.stdout.trim(), version);
+  assert.equal(reported.stdout.trim(), `Brixon CLI ${version}`);
   const help = run(['--help']);
   assert.equal(help.status, 0, help.stderr);
   for (const command of ['upload --manifest', 'doctor', 'put --file PATH']) assert.ok(help.stdout.includes(`\n${command}`), command);
+  assert.doesNotMatch(help.stdout, /--video|--timeline|--captions|--review-copy|ffmpeg|ffprobe/i);
+  // A configuration error ends doctor before it uses the network; the report still names the build.
+  const doctor = spawnSync(process.execPath, [path.join(plugin, 'cli/index.mjs'), 'doctor'], { encoding: 'utf8', timeout: 10000, env: { ...process.env, BRIXON_FEEDBACK_ALLOWED_ORIGINS: 'not-an-origin' } });
+  const report = JSON.parse(doctor.stdout);
+  assert.equal(doctor.status, 2, doctor.stderr);
+  assert.ok(report.config.error);
+  assert.equal(report.cli, `Brixon CLI ${version}`);
+  assert.equal(report.edition, 'client');
 });
 
 // --version and --help return before the Node.js check; this runs a real command of the committed build.
@@ -121,4 +137,5 @@ test('the committed CLI runs a local command in an empty folder', async () => {
   assert.equal(result.status, 0, result.stderr);
   assert.deepEqual(JSON.parse(result.stdout).collections, []);
   assert.deepEqual(await readdir(folder), []);
+  await rm(folder, { recursive: true });
 });

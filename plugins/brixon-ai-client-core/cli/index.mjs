@@ -46,36 +46,9 @@ var UNDEFINED_CODE_POINTS = /* @__PURE__ */ new Set([
   1048575,
   1114110,
   1114111
-]);
-var REPLACEMENT_CHARACTER = "�";
-var CODE_POINTS;
+]), REPLACEMENT_CHARACTER = "�", CODE_POINTS;
 (function(CODE_POINTS2) {
-  CODE_POINTS2[CODE_POINTS2["EOF"] = -1] = "EOF";
-  CODE_POINTS2[CODE_POINTS2["NULL"] = 0] = "NULL";
-  CODE_POINTS2[CODE_POINTS2["TABULATION"] = 9] = "TABULATION";
-  CODE_POINTS2[CODE_POINTS2["CARRIAGE_RETURN"] = 13] = "CARRIAGE_RETURN";
-  CODE_POINTS2[CODE_POINTS2["LINE_FEED"] = 10] = "LINE_FEED";
-  CODE_POINTS2[CODE_POINTS2["FORM_FEED"] = 12] = "FORM_FEED";
-  CODE_POINTS2[CODE_POINTS2["SPACE"] = 32] = "SPACE";
-  CODE_POINTS2[CODE_POINTS2["EXCLAMATION_MARK"] = 33] = "EXCLAMATION_MARK";
-  CODE_POINTS2[CODE_POINTS2["QUOTATION_MARK"] = 34] = "QUOTATION_MARK";
-  CODE_POINTS2[CODE_POINTS2["AMPERSAND"] = 38] = "AMPERSAND";
-  CODE_POINTS2[CODE_POINTS2["APOSTROPHE"] = 39] = "APOSTROPHE";
-  CODE_POINTS2[CODE_POINTS2["HYPHEN_MINUS"] = 45] = "HYPHEN_MINUS";
-  CODE_POINTS2[CODE_POINTS2["SOLIDUS"] = 47] = "SOLIDUS";
-  CODE_POINTS2[CODE_POINTS2["DIGIT_0"] = 48] = "DIGIT_0";
-  CODE_POINTS2[CODE_POINTS2["DIGIT_9"] = 57] = "DIGIT_9";
-  CODE_POINTS2[CODE_POINTS2["SEMICOLON"] = 59] = "SEMICOLON";
-  CODE_POINTS2[CODE_POINTS2["LESS_THAN_SIGN"] = 60] = "LESS_THAN_SIGN";
-  CODE_POINTS2[CODE_POINTS2["EQUALS_SIGN"] = 61] = "EQUALS_SIGN";
-  CODE_POINTS2[CODE_POINTS2["GREATER_THAN_SIGN"] = 62] = "GREATER_THAN_SIGN";
-  CODE_POINTS2[CODE_POINTS2["QUESTION_MARK"] = 63] = "QUESTION_MARK";
-  CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_A"] = 65] = "LATIN_CAPITAL_A";
-  CODE_POINTS2[CODE_POINTS2["LATIN_CAPITAL_Z"] = 90] = "LATIN_CAPITAL_Z";
-  CODE_POINTS2[CODE_POINTS2["RIGHT_SQUARE_BRACKET"] = 93] = "RIGHT_SQUARE_BRACKET";
-  CODE_POINTS2[CODE_POINTS2["GRAVE_ACCENT"] = 96] = "GRAVE_ACCENT";
-  CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_A"] = 97] = "LATIN_SMALL_A";
-  CODE_POINTS2[CODE_POINTS2["LATIN_SMALL_Z"] = 122] = "LATIN_SMALL_Z";
+  CODE_POINTS2[CODE_POINTS2.EOF = -1] = "EOF", CODE_POINTS2[CODE_POINTS2.NULL = 0] = "NULL", CODE_POINTS2[CODE_POINTS2.TABULATION = 9] = "TABULATION", CODE_POINTS2[CODE_POINTS2.CARRIAGE_RETURN = 13] = "CARRIAGE_RETURN", CODE_POINTS2[CODE_POINTS2.LINE_FEED = 10] = "LINE_FEED", CODE_POINTS2[CODE_POINTS2.FORM_FEED = 12] = "FORM_FEED", CODE_POINTS2[CODE_POINTS2.SPACE = 32] = "SPACE", CODE_POINTS2[CODE_POINTS2.EXCLAMATION_MARK = 33] = "EXCLAMATION_MARK", CODE_POINTS2[CODE_POINTS2.QUOTATION_MARK = 34] = "QUOTATION_MARK", CODE_POINTS2[CODE_POINTS2.AMPERSAND = 38] = "AMPERSAND", CODE_POINTS2[CODE_POINTS2.APOSTROPHE = 39] = "APOSTROPHE", CODE_POINTS2[CODE_POINTS2.HYPHEN_MINUS = 45] = "HYPHEN_MINUS", CODE_POINTS2[CODE_POINTS2.SOLIDUS = 47] = "SOLIDUS", CODE_POINTS2[CODE_POINTS2.DIGIT_0 = 48] = "DIGIT_0", CODE_POINTS2[CODE_POINTS2.DIGIT_9 = 57] = "DIGIT_9", CODE_POINTS2[CODE_POINTS2.SEMICOLON = 59] = "SEMICOLON", CODE_POINTS2[CODE_POINTS2.LESS_THAN_SIGN = 60] = "LESS_THAN_SIGN", CODE_POINTS2[CODE_POINTS2.EQUALS_SIGN = 61] = "EQUALS_SIGN", CODE_POINTS2[CODE_POINTS2.GREATER_THAN_SIGN = 62] = "GREATER_THAN_SIGN", CODE_POINTS2[CODE_POINTS2.QUESTION_MARK = 63] = "QUESTION_MARK", CODE_POINTS2[CODE_POINTS2.LATIN_CAPITAL_A = 65] = "LATIN_CAPITAL_A", CODE_POINTS2[CODE_POINTS2.LATIN_CAPITAL_Z = 90] = "LATIN_CAPITAL_Z", CODE_POINTS2[CODE_POINTS2.RIGHT_SQUARE_BRACKET = 93] = "RIGHT_SQUARE_BRACKET", CODE_POINTS2[CODE_POINTS2.GRAVE_ACCENT = 96] = "GRAVE_ACCENT", CODE_POINTS2[CODE_POINTS2.LATIN_SMALL_A = 97] = "LATIN_SMALL_A", CODE_POINTS2[CODE_POINTS2.LATIN_SMALL_Z = 122] = "LATIN_SMALL_Z";
 })(CODE_POINTS || (CODE_POINTS = {}));
 var SEQUENCES = {
   DASH_DASH: "--",
@@ -104,98 +77,23 @@ function isUndefinedCodePoint(cp) {
 // node_modules/parse5/dist/common/error-codes.js
 var ERR;
 (function(ERR2) {
-  ERR2["controlCharacterInInputStream"] = "control-character-in-input-stream";
-  ERR2["noncharacterInInputStream"] = "noncharacter-in-input-stream";
-  ERR2["surrogateInInputStream"] = "surrogate-in-input-stream";
-  ERR2["nonVoidHtmlElementStartTagWithTrailingSolidus"] = "non-void-html-element-start-tag-with-trailing-solidus";
-  ERR2["endTagWithAttributes"] = "end-tag-with-attributes";
-  ERR2["endTagWithTrailingSolidus"] = "end-tag-with-trailing-solidus";
-  ERR2["unexpectedSolidusInTag"] = "unexpected-solidus-in-tag";
-  ERR2["unexpectedNullCharacter"] = "unexpected-null-character";
-  ERR2["unexpectedQuestionMarkInsteadOfTagName"] = "unexpected-question-mark-instead-of-tag-name";
-  ERR2["invalidFirstCharacterOfTagName"] = "invalid-first-character-of-tag-name";
-  ERR2["unexpectedEqualsSignBeforeAttributeName"] = "unexpected-equals-sign-before-attribute-name";
-  ERR2["missingEndTagName"] = "missing-end-tag-name";
-  ERR2["unexpectedCharacterInAttributeName"] = "unexpected-character-in-attribute-name";
-  ERR2["unknownNamedCharacterReference"] = "unknown-named-character-reference";
-  ERR2["missingSemicolonAfterCharacterReference"] = "missing-semicolon-after-character-reference";
-  ERR2["unexpectedCharacterAfterDoctypeSystemIdentifier"] = "unexpected-character-after-doctype-system-identifier";
-  ERR2["unexpectedCharacterInUnquotedAttributeValue"] = "unexpected-character-in-unquoted-attribute-value";
-  ERR2["eofBeforeTagName"] = "eof-before-tag-name";
-  ERR2["eofInTag"] = "eof-in-tag";
-  ERR2["missingAttributeValue"] = "missing-attribute-value";
-  ERR2["missingWhitespaceBetweenAttributes"] = "missing-whitespace-between-attributes";
-  ERR2["missingWhitespaceAfterDoctypePublicKeyword"] = "missing-whitespace-after-doctype-public-keyword";
-  ERR2["missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers"] = "missing-whitespace-between-doctype-public-and-system-identifiers";
-  ERR2["missingWhitespaceAfterDoctypeSystemKeyword"] = "missing-whitespace-after-doctype-system-keyword";
-  ERR2["missingQuoteBeforeDoctypePublicIdentifier"] = "missing-quote-before-doctype-public-identifier";
-  ERR2["missingQuoteBeforeDoctypeSystemIdentifier"] = "missing-quote-before-doctype-system-identifier";
-  ERR2["missingDoctypePublicIdentifier"] = "missing-doctype-public-identifier";
-  ERR2["missingDoctypeSystemIdentifier"] = "missing-doctype-system-identifier";
-  ERR2["abruptDoctypePublicIdentifier"] = "abrupt-doctype-public-identifier";
-  ERR2["abruptDoctypeSystemIdentifier"] = "abrupt-doctype-system-identifier";
-  ERR2["cdataInHtmlContent"] = "cdata-in-html-content";
-  ERR2["incorrectlyOpenedComment"] = "incorrectly-opened-comment";
-  ERR2["eofInScriptHtmlCommentLikeText"] = "eof-in-script-html-comment-like-text";
-  ERR2["eofInDoctype"] = "eof-in-doctype";
-  ERR2["nestedComment"] = "nested-comment";
-  ERR2["abruptClosingOfEmptyComment"] = "abrupt-closing-of-empty-comment";
-  ERR2["eofInComment"] = "eof-in-comment";
-  ERR2["incorrectlyClosedComment"] = "incorrectly-closed-comment";
-  ERR2["eofInCdata"] = "eof-in-cdata";
-  ERR2["absenceOfDigitsInNumericCharacterReference"] = "absence-of-digits-in-numeric-character-reference";
-  ERR2["nullCharacterReference"] = "null-character-reference";
-  ERR2["surrogateCharacterReference"] = "surrogate-character-reference";
-  ERR2["characterReferenceOutsideUnicodeRange"] = "character-reference-outside-unicode-range";
-  ERR2["controlCharacterReference"] = "control-character-reference";
-  ERR2["noncharacterCharacterReference"] = "noncharacter-character-reference";
-  ERR2["missingWhitespaceBeforeDoctypeName"] = "missing-whitespace-before-doctype-name";
-  ERR2["missingDoctypeName"] = "missing-doctype-name";
-  ERR2["invalidCharacterSequenceAfterDoctypeName"] = "invalid-character-sequence-after-doctype-name";
-  ERR2["duplicateAttribute"] = "duplicate-attribute";
-  ERR2["nonConformingDoctype"] = "non-conforming-doctype";
-  ERR2["missingDoctype"] = "missing-doctype";
-  ERR2["misplacedDoctype"] = "misplaced-doctype";
-  ERR2["endTagWithoutMatchingOpenElement"] = "end-tag-without-matching-open-element";
-  ERR2["closingOfElementWithOpenChildElements"] = "closing-of-element-with-open-child-elements";
-  ERR2["disallowedContentInNoscriptInHead"] = "disallowed-content-in-noscript-in-head";
-  ERR2["openElementsLeftAfterEof"] = "open-elements-left-after-eof";
-  ERR2["abandonedHeadElementChild"] = "abandoned-head-element-child";
-  ERR2["misplacedStartTagForHeadElement"] = "misplaced-start-tag-for-head-element";
-  ERR2["nestedNoscriptInHead"] = "nested-noscript-in-head";
-  ERR2["eofInElementThatCanContainOnlyText"] = "eof-in-element-that-can-contain-only-text";
+  ERR2.controlCharacterInInputStream = "control-character-in-input-stream", ERR2.noncharacterInInputStream = "noncharacter-in-input-stream", ERR2.surrogateInInputStream = "surrogate-in-input-stream", ERR2.nonVoidHtmlElementStartTagWithTrailingSolidus = "non-void-html-element-start-tag-with-trailing-solidus", ERR2.endTagWithAttributes = "end-tag-with-attributes", ERR2.endTagWithTrailingSolidus = "end-tag-with-trailing-solidus", ERR2.unexpectedSolidusInTag = "unexpected-solidus-in-tag", ERR2.unexpectedNullCharacter = "unexpected-null-character", ERR2.unexpectedQuestionMarkInsteadOfTagName = "unexpected-question-mark-instead-of-tag-name", ERR2.invalidFirstCharacterOfTagName = "invalid-first-character-of-tag-name", ERR2.unexpectedEqualsSignBeforeAttributeName = "unexpected-equals-sign-before-attribute-name", ERR2.missingEndTagName = "missing-end-tag-name", ERR2.unexpectedCharacterInAttributeName = "unexpected-character-in-attribute-name", ERR2.unknownNamedCharacterReference = "unknown-named-character-reference", ERR2.missingSemicolonAfterCharacterReference = "missing-semicolon-after-character-reference", ERR2.unexpectedCharacterAfterDoctypeSystemIdentifier = "unexpected-character-after-doctype-system-identifier", ERR2.unexpectedCharacterInUnquotedAttributeValue = "unexpected-character-in-unquoted-attribute-value", ERR2.eofBeforeTagName = "eof-before-tag-name", ERR2.eofInTag = "eof-in-tag", ERR2.missingAttributeValue = "missing-attribute-value", ERR2.missingWhitespaceBetweenAttributes = "missing-whitespace-between-attributes", ERR2.missingWhitespaceAfterDoctypePublicKeyword = "missing-whitespace-after-doctype-public-keyword", ERR2.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers = "missing-whitespace-between-doctype-public-and-system-identifiers", ERR2.missingWhitespaceAfterDoctypeSystemKeyword = "missing-whitespace-after-doctype-system-keyword", ERR2.missingQuoteBeforeDoctypePublicIdentifier = "missing-quote-before-doctype-public-identifier", ERR2.missingQuoteBeforeDoctypeSystemIdentifier = "missing-quote-before-doctype-system-identifier", ERR2.missingDoctypePublicIdentifier = "missing-doctype-public-identifier", ERR2.missingDoctypeSystemIdentifier = "missing-doctype-system-identifier", ERR2.abruptDoctypePublicIdentifier = "abrupt-doctype-public-identifier", ERR2.abruptDoctypeSystemIdentifier = "abrupt-doctype-system-identifier", ERR2.cdataInHtmlContent = "cdata-in-html-content", ERR2.incorrectlyOpenedComment = "incorrectly-opened-comment", ERR2.eofInScriptHtmlCommentLikeText = "eof-in-script-html-comment-like-text", ERR2.eofInDoctype = "eof-in-doctype", ERR2.nestedComment = "nested-comment", ERR2.abruptClosingOfEmptyComment = "abrupt-closing-of-empty-comment", ERR2.eofInComment = "eof-in-comment", ERR2.incorrectlyClosedComment = "incorrectly-closed-comment", ERR2.eofInCdata = "eof-in-cdata", ERR2.absenceOfDigitsInNumericCharacterReference = "absence-of-digits-in-numeric-character-reference", ERR2.nullCharacterReference = "null-character-reference", ERR2.surrogateCharacterReference = "surrogate-character-reference", ERR2.characterReferenceOutsideUnicodeRange = "character-reference-outside-unicode-range", ERR2.controlCharacterReference = "control-character-reference", ERR2.noncharacterCharacterReference = "noncharacter-character-reference", ERR2.missingWhitespaceBeforeDoctypeName = "missing-whitespace-before-doctype-name", ERR2.missingDoctypeName = "missing-doctype-name", ERR2.invalidCharacterSequenceAfterDoctypeName = "invalid-character-sequence-after-doctype-name", ERR2.duplicateAttribute = "duplicate-attribute", ERR2.nonConformingDoctype = "non-conforming-doctype", ERR2.missingDoctype = "missing-doctype", ERR2.misplacedDoctype = "misplaced-doctype", ERR2.endTagWithoutMatchingOpenElement = "end-tag-without-matching-open-element", ERR2.closingOfElementWithOpenChildElements = "closing-of-element-with-open-child-elements", ERR2.disallowedContentInNoscriptInHead = "disallowed-content-in-noscript-in-head", ERR2.openElementsLeftAfterEof = "open-elements-left-after-eof", ERR2.abandonedHeadElementChild = "abandoned-head-element-child", ERR2.misplacedStartTagForHeadElement = "misplaced-start-tag-for-head-element", ERR2.nestedNoscriptInHead = "nested-noscript-in-head", ERR2.eofInElementThatCanContainOnlyText = "eof-in-element-that-can-contain-only-text";
 })(ERR || (ERR = {}));
 
 // node_modules/parse5/dist/tokenizer/preprocessor.js
-var DEFAULT_BUFFER_WATERLINE = 1 << 16;
-var Preprocessor = class {
+var DEFAULT_BUFFER_WATERLINE = 65536, Preprocessor = class {
   constructor(handler) {
-    this.handler = handler;
-    this.html = "";
-    this.pos = -1;
-    this.lastGapPos = -2;
-    this.gapStack = [];
-    this.skipNextNewLine = false;
-    this.lastChunkWritten = false;
-    this.endOfChunkHit = false;
-    this.bufferWaterline = DEFAULT_BUFFER_WATERLINE;
-    this.isEol = false;
-    this.lineStartPos = 0;
-    this.droppedBufferSize = 0;
-    this.line = 1;
-    this.lastErrOffset = -1;
+    this.handler = handler, this.html = "", this.pos = -1, this.lastGapPos = -2, this.gapStack = [], this.skipNextNewLine = !1, this.lastChunkWritten = !1, this.endOfChunkHit = !1, this.bufferWaterline = DEFAULT_BUFFER_WATERLINE, this.isEol = !1, this.lineStartPos = 0, this.droppedBufferSize = 0, this.line = 1, this.lastErrOffset = -1;
   }
   /** The column on the current line. If we just saw a gap (eg. a surrogate pair), return the index before. */
   get col() {
-    return this.pos - this.lineStartPos + Number(this.lastGapPos !== this.pos);
+    return this.pos - this.lineStartPos + +(this.lastGapPos !== this.pos);
   }
   get offset() {
     return this.droppedBufferSize + this.pos;
   }
   getError(code, cpOffset) {
-    const { line, col, offset } = this;
-    const startCol = col + cpOffset;
-    const startOffset = offset + cpOffset;
+    let { line, col, offset } = this, startCol = col + cpOffset, startOffset = offset + cpOffset;
     return {
       code,
       startLine: line,
@@ -207,153 +105,74 @@ var Preprocessor = class {
     };
   }
   _err(code) {
-    if (this.handler.onParseError && this.lastErrOffset !== this.offset) {
-      this.lastErrOffset = this.offset;
-      this.handler.onParseError(this.getError(code, 0));
-    }
+    this.handler.onParseError && this.lastErrOffset !== this.offset && (this.lastErrOffset = this.offset, this.handler.onParseError(this.getError(code, 0)));
   }
   _addGap() {
-    this.gapStack.push(this.lastGapPos);
-    this.lastGapPos = this.pos;
+    this.gapStack.push(this.lastGapPos), this.lastGapPos = this.pos;
   }
   _processSurrogate(cp) {
     if (this.pos !== this.html.length - 1) {
-      const nextCp = this.html.charCodeAt(this.pos + 1);
-      if (isSurrogatePair(nextCp)) {
-        this.pos++;
-        this._addGap();
-        return getSurrogatePairCodePoint(cp, nextCp);
-      }
-    } else if (!this.lastChunkWritten) {
-      this.endOfChunkHit = true;
-      return CODE_POINTS.EOF;
-    }
-    this._err(ERR.surrogateInInputStream);
-    return cp;
+      let nextCp = this.html.charCodeAt(this.pos + 1);
+      if (isSurrogatePair(nextCp))
+        return this.pos++, this._addGap(), getSurrogatePairCodePoint(cp, nextCp);
+    } else if (!this.lastChunkWritten)
+      return this.endOfChunkHit = !0, CODE_POINTS.EOF;
+    return this._err(ERR.surrogateInInputStream), cp;
   }
   willDropParsedChunk() {
     return this.pos > this.bufferWaterline;
   }
   dropParsedChunk() {
-    if (this.willDropParsedChunk()) {
-      this.html = this.html.substring(this.pos);
-      this.lineStartPos -= this.pos;
-      this.droppedBufferSize += this.pos;
-      this.pos = 0;
-      this.lastGapPos = -2;
-      this.gapStack.length = 0;
-    }
+    this.willDropParsedChunk() && (this.html = this.html.substring(this.pos), this.lineStartPos -= this.pos, this.droppedBufferSize += this.pos, this.pos = 0, this.lastGapPos = -2, this.gapStack.length = 0);
   }
   write(chunk, isLastChunk) {
-    if (this.html.length > 0) {
-      this.html += chunk;
-    } else {
-      this.html = chunk;
-    }
-    this.endOfChunkHit = false;
-    this.lastChunkWritten = isLastChunk;
+    this.html.length > 0 ? this.html += chunk : this.html = chunk, this.endOfChunkHit = !1, this.lastChunkWritten = isLastChunk;
   }
   insertHtmlAtCurrentPos(chunk) {
-    this.html = this.html.substring(0, this.pos + 1) + chunk + this.html.substring(this.pos + 1);
-    this.endOfChunkHit = false;
+    this.html = this.html.substring(0, this.pos + 1) + chunk + this.html.substring(this.pos + 1), this.endOfChunkHit = !1;
   }
   startsWith(pattern, caseSensitive) {
-    if (this.pos + pattern.length > this.html.length) {
-      this.endOfChunkHit = !this.lastChunkWritten;
-      return false;
-    }
-    if (caseSensitive) {
+    if (this.pos + pattern.length > this.html.length)
+      return this.endOfChunkHit = !this.lastChunkWritten, !1;
+    if (caseSensitive)
       return this.html.startsWith(pattern, this.pos);
-    }
-    for (let i = 0; i < pattern.length; i++) {
-      const cp = this.html.charCodeAt(this.pos + i) | 32;
-      if (cp !== pattern.charCodeAt(i)) {
-        return false;
-      }
-    }
-    return true;
+    for (let i = 0; i < pattern.length; i++)
+      if ((this.html.charCodeAt(this.pos + i) | 32) !== pattern.charCodeAt(i))
+        return !1;
+    return !0;
   }
   peek(offset) {
-    const pos = this.pos + offset;
-    if (pos >= this.html.length) {
-      this.endOfChunkHit = !this.lastChunkWritten;
-      return CODE_POINTS.EOF;
-    }
-    const code = this.html.charCodeAt(pos);
+    let pos = this.pos + offset;
+    if (pos >= this.html.length)
+      return this.endOfChunkHit = !this.lastChunkWritten, CODE_POINTS.EOF;
+    let code = this.html.charCodeAt(pos);
     return code === CODE_POINTS.CARRIAGE_RETURN ? CODE_POINTS.LINE_FEED : code;
   }
   advance() {
-    this.pos++;
-    if (this.isEol) {
-      this.isEol = false;
-      this.line++;
-      this.lineStartPos = this.pos;
-    }
-    if (this.pos >= this.html.length) {
-      this.endOfChunkHit = !this.lastChunkWritten;
-      return CODE_POINTS.EOF;
-    }
+    if (this.pos++, this.isEol && (this.isEol = !1, this.line++, this.lineStartPos = this.pos), this.pos >= this.html.length)
+      return this.endOfChunkHit = !this.lastChunkWritten, CODE_POINTS.EOF;
     let cp = this.html.charCodeAt(this.pos);
-    if (cp === CODE_POINTS.CARRIAGE_RETURN) {
-      this.isEol = true;
-      this.skipNextNewLine = true;
-      return CODE_POINTS.LINE_FEED;
-    }
-    if (cp === CODE_POINTS.LINE_FEED) {
-      this.isEol = true;
-      if (this.skipNextNewLine) {
-        this.line--;
-        this.skipNextNewLine = false;
-        this._addGap();
-        return this.advance();
-      }
-    }
-    this.skipNextNewLine = false;
-    if (isSurrogate(cp)) {
-      cp = this._processSurrogate(cp);
-    }
-    const isCommonValidRange = this.handler.onParseError === null || cp > 31 && cp < 127 || cp === CODE_POINTS.LINE_FEED || cp === CODE_POINTS.CARRIAGE_RETURN || cp > 159 && cp < 64976;
-    if (!isCommonValidRange) {
-      this._checkForProblematicCharacters(cp);
-    }
-    return cp;
+    return cp === CODE_POINTS.CARRIAGE_RETURN ? (this.isEol = !0, this.skipNextNewLine = !0, CODE_POINTS.LINE_FEED) : cp === CODE_POINTS.LINE_FEED && (this.isEol = !0, this.skipNextNewLine) ? (this.line--, this.skipNextNewLine = !1, this._addGap(), this.advance()) : (this.skipNextNewLine = !1, isSurrogate(cp) && (cp = this._processSurrogate(cp)), this.handler.onParseError === null || cp > 31 && cp < 127 || cp === CODE_POINTS.LINE_FEED || cp === CODE_POINTS.CARRIAGE_RETURN || cp > 159 && cp < 64976 || this._checkForProblematicCharacters(cp), cp);
   }
   _checkForProblematicCharacters(cp) {
-    if (isControlCodePoint(cp)) {
-      this._err(ERR.controlCharacterInInputStream);
-    } else if (isUndefinedCodePoint(cp)) {
-      this._err(ERR.noncharacterInInputStream);
-    }
+    isControlCodePoint(cp) ? this._err(ERR.controlCharacterInInputStream) : isUndefinedCodePoint(cp) && this._err(ERR.noncharacterInInputStream);
   }
   retreat(count) {
-    this.pos -= count;
-    while (this.pos < this.lastGapPos) {
-      this.lastGapPos = this.gapStack.pop();
-      this.pos--;
-    }
-    this.isEol = false;
+    for (this.pos -= count; this.pos < this.lastGapPos; )
+      this.lastGapPos = this.gapStack.pop(), this.pos--;
+    this.isEol = !1;
   }
 };
 
 // node_modules/parse5/dist/common/token.js
 var TokenType;
 (function(TokenType2) {
-  TokenType2[TokenType2["CHARACTER"] = 0] = "CHARACTER";
-  TokenType2[TokenType2["NULL_CHARACTER"] = 1] = "NULL_CHARACTER";
-  TokenType2[TokenType2["WHITESPACE_CHARACTER"] = 2] = "WHITESPACE_CHARACTER";
-  TokenType2[TokenType2["START_TAG"] = 3] = "START_TAG";
-  TokenType2[TokenType2["END_TAG"] = 4] = "END_TAG";
-  TokenType2[TokenType2["COMMENT"] = 5] = "COMMENT";
-  TokenType2[TokenType2["DOCTYPE"] = 6] = "DOCTYPE";
-  TokenType2[TokenType2["EOF"] = 7] = "EOF";
-  TokenType2[TokenType2["HIBERNATION"] = 8] = "HIBERNATION";
+  TokenType2[TokenType2.CHARACTER = 0] = "CHARACTER", TokenType2[TokenType2.NULL_CHARACTER = 1] = "NULL_CHARACTER", TokenType2[TokenType2.WHITESPACE_CHARACTER = 2] = "WHITESPACE_CHARACTER", TokenType2[TokenType2.START_TAG = 3] = "START_TAG", TokenType2[TokenType2.END_TAG = 4] = "END_TAG", TokenType2[TokenType2.COMMENT = 5] = "COMMENT", TokenType2[TokenType2.DOCTYPE = 6] = "DOCTYPE", TokenType2[TokenType2.EOF = 7] = "EOF", TokenType2[TokenType2.HIBERNATION = 8] = "HIBERNATION";
 })(TokenType || (TokenType = {}));
 function getTokenAttr(token, attrName) {
-  for (let i = token.attrs.length - 1; i >= 0; i--) {
-    if (token.attrs[i].name === attrName) {
+  for (let i = token.attrs.length - 1; i >= 0; i--)
+    if (token.attrs[i].name === attrName)
       return token.attrs[i].value;
-    }
-  }
   return null;
 }
 
@@ -364,8 +183,7 @@ var htmlDecodeTree = /* @__PURE__ */ new Uint16Array(
 );
 
 // node_modules/entities/dist/esm/decode-codepoint.js
-var _a;
-var decodeMap = /* @__PURE__ */ new Map([
+var _a, decodeMap = /* @__PURE__ */ new Map([
   [0, 65533],
   // C1 Unicode control character reference replacements
   [128, 8364],
@@ -395,50 +213,26 @@ var decodeMap = /* @__PURE__ */ new Map([
   [156, 339],
   [158, 382],
   [159, 376]
-]);
-var fromCodePoint = (
+]), fromCodePoint = (
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition, n/no-unsupported-features/es-builtins
   (_a = String.fromCodePoint) !== null && _a !== void 0 ? _a : function(codePoint) {
     let output = "";
-    if (codePoint > 65535) {
-      codePoint -= 65536;
-      output += String.fromCharCode(codePoint >>> 10 & 1023 | 55296);
-      codePoint = 56320 | codePoint & 1023;
-    }
-    output += String.fromCharCode(codePoint);
-    return output;
+    return codePoint > 65535 && (codePoint -= 65536, output += String.fromCharCode(codePoint >>> 10 & 1023 | 55296), codePoint = 56320 | codePoint & 1023), output += String.fromCharCode(codePoint), output;
   }
 );
 function replaceCodePoint(codePoint) {
   var _a2;
-  if (codePoint >= 55296 && codePoint <= 57343 || codePoint > 1114111) {
-    return 65533;
-  }
-  return (_a2 = decodeMap.get(codePoint)) !== null && _a2 !== void 0 ? _a2 : codePoint;
+  return codePoint >= 55296 && codePoint <= 57343 || codePoint > 1114111 ? 65533 : (_a2 = decodeMap.get(codePoint)) !== null && _a2 !== void 0 ? _a2 : codePoint;
 }
 
 // node_modules/entities/dist/esm/decode.js
 var CharCodes;
 (function(CharCodes2) {
-  CharCodes2[CharCodes2["NUM"] = 35] = "NUM";
-  CharCodes2[CharCodes2["SEMI"] = 59] = "SEMI";
-  CharCodes2[CharCodes2["EQUALS"] = 61] = "EQUALS";
-  CharCodes2[CharCodes2["ZERO"] = 48] = "ZERO";
-  CharCodes2[CharCodes2["NINE"] = 57] = "NINE";
-  CharCodes2[CharCodes2["LOWER_A"] = 97] = "LOWER_A";
-  CharCodes2[CharCodes2["LOWER_F"] = 102] = "LOWER_F";
-  CharCodes2[CharCodes2["LOWER_X"] = 120] = "LOWER_X";
-  CharCodes2[CharCodes2["LOWER_Z"] = 122] = "LOWER_Z";
-  CharCodes2[CharCodes2["UPPER_A"] = 65] = "UPPER_A";
-  CharCodes2[CharCodes2["UPPER_F"] = 70] = "UPPER_F";
-  CharCodes2[CharCodes2["UPPER_Z"] = 90] = "UPPER_Z";
+  CharCodes2[CharCodes2.NUM = 35] = "NUM", CharCodes2[CharCodes2.SEMI = 59] = "SEMI", CharCodes2[CharCodes2.EQUALS = 61] = "EQUALS", CharCodes2[CharCodes2.ZERO = 48] = "ZERO", CharCodes2[CharCodes2.NINE = 57] = "NINE", CharCodes2[CharCodes2.LOWER_A = 97] = "LOWER_A", CharCodes2[CharCodes2.LOWER_F = 102] = "LOWER_F", CharCodes2[CharCodes2.LOWER_X = 120] = "LOWER_X", CharCodes2[CharCodes2.LOWER_Z = 122] = "LOWER_Z", CharCodes2[CharCodes2.UPPER_A = 65] = "UPPER_A", CharCodes2[CharCodes2.UPPER_F = 70] = "UPPER_F", CharCodes2[CharCodes2.UPPER_Z = 90] = "UPPER_Z";
 })(CharCodes || (CharCodes = {}));
-var TO_LOWER_BIT = 32;
-var BinTrieFlags;
+var TO_LOWER_BIT = 32, BinTrieFlags;
 (function(BinTrieFlags2) {
-  BinTrieFlags2[BinTrieFlags2["VALUE_LENGTH"] = 49152] = "VALUE_LENGTH";
-  BinTrieFlags2[BinTrieFlags2["BRANCH_LENGTH"] = 16256] = "BRANCH_LENGTH";
-  BinTrieFlags2[BinTrieFlags2["JUMP_TABLE"] = 127] = "JUMP_TABLE";
+  BinTrieFlags2[BinTrieFlags2.VALUE_LENGTH = 49152] = "VALUE_LENGTH", BinTrieFlags2[BinTrieFlags2.BRANCH_LENGTH = 16256] = "BRANCH_LENGTH", BinTrieFlags2[BinTrieFlags2.JUMP_TABLE = 127] = "JUMP_TABLE";
 })(BinTrieFlags || (BinTrieFlags = {}));
 function isNumber(code) {
   return code >= CharCodes.ZERO && code <= CharCodes.NINE;
@@ -454,38 +248,19 @@ function isEntityInAttributeInvalidEnd(code) {
 }
 var EntityDecoderState;
 (function(EntityDecoderState2) {
-  EntityDecoderState2[EntityDecoderState2["EntityStart"] = 0] = "EntityStart";
-  EntityDecoderState2[EntityDecoderState2["NumericStart"] = 1] = "NumericStart";
-  EntityDecoderState2[EntityDecoderState2["NumericDecimal"] = 2] = "NumericDecimal";
-  EntityDecoderState2[EntityDecoderState2["NumericHex"] = 3] = "NumericHex";
-  EntityDecoderState2[EntityDecoderState2["NamedEntity"] = 4] = "NamedEntity";
+  EntityDecoderState2[EntityDecoderState2.EntityStart = 0] = "EntityStart", EntityDecoderState2[EntityDecoderState2.NumericStart = 1] = "NumericStart", EntityDecoderState2[EntityDecoderState2.NumericDecimal = 2] = "NumericDecimal", EntityDecoderState2[EntityDecoderState2.NumericHex = 3] = "NumericHex", EntityDecoderState2[EntityDecoderState2.NamedEntity = 4] = "NamedEntity";
 })(EntityDecoderState || (EntityDecoderState = {}));
 var DecodingMode;
 (function(DecodingMode2) {
-  DecodingMode2[DecodingMode2["Legacy"] = 0] = "Legacy";
-  DecodingMode2[DecodingMode2["Strict"] = 1] = "Strict";
-  DecodingMode2[DecodingMode2["Attribute"] = 2] = "Attribute";
+  DecodingMode2[DecodingMode2.Legacy = 0] = "Legacy", DecodingMode2[DecodingMode2.Strict = 1] = "Strict", DecodingMode2[DecodingMode2.Attribute = 2] = "Attribute";
 })(DecodingMode || (DecodingMode = {}));
 var EntityDecoder = class {
   constructor(decodeTree, emitCodePoint, errors) {
-    this.decodeTree = decodeTree;
-    this.emitCodePoint = emitCodePoint;
-    this.errors = errors;
-    this.state = EntityDecoderState.EntityStart;
-    this.consumed = 1;
-    this.result = 0;
-    this.treeIndex = 0;
-    this.excess = 1;
-    this.decodeMode = DecodingMode.Strict;
+    this.decodeTree = decodeTree, this.emitCodePoint = emitCodePoint, this.errors = errors, this.state = EntityDecoderState.EntityStart, this.consumed = 1, this.result = 0, this.treeIndex = 0, this.excess = 1, this.decodeMode = DecodingMode.Strict;
   }
   /** Resets the instance to make it reusable. */
   startEntity(decodeMode) {
-    this.decodeMode = decodeMode;
-    this.state = EntityDecoderState.EntityStart;
-    this.result = 0;
-    this.treeIndex = 0;
-    this.excess = 1;
-    this.consumed = 1;
+    this.decodeMode = decodeMode, this.state = EntityDecoderState.EntityStart, this.result = 0, this.treeIndex = 0, this.excess = 1, this.consumed = 1;
   }
   /**
    * Write an entity to the decoder. This can be called multiple times with partial entities.
@@ -500,27 +275,16 @@ var EntityDecoder = class {
    */
   write(input, offset) {
     switch (this.state) {
-      case EntityDecoderState.EntityStart: {
-        if (input.charCodeAt(offset) === CharCodes.NUM) {
-          this.state = EntityDecoderState.NumericStart;
-          this.consumed += 1;
-          return this.stateNumericStart(input, offset + 1);
-        }
-        this.state = EntityDecoderState.NamedEntity;
-        return this.stateNamedEntity(input, offset);
-      }
-      case EntityDecoderState.NumericStart: {
+      case EntityDecoderState.EntityStart:
+        return input.charCodeAt(offset) === CharCodes.NUM ? (this.state = EntityDecoderState.NumericStart, this.consumed += 1, this.stateNumericStart(input, offset + 1)) : (this.state = EntityDecoderState.NamedEntity, this.stateNamedEntity(input, offset));
+      case EntityDecoderState.NumericStart:
         return this.stateNumericStart(input, offset);
-      }
-      case EntityDecoderState.NumericDecimal: {
+      case EntityDecoderState.NumericDecimal:
         return this.stateNumericDecimal(input, offset);
-      }
-      case EntityDecoderState.NumericHex: {
+      case EntityDecoderState.NumericHex:
         return this.stateNumericHex(input, offset);
-      }
-      case EntityDecoderState.NamedEntity: {
+      case EntityDecoderState.NamedEntity:
         return this.stateNamedEntity(input, offset);
-      }
     }
   }
   /**
@@ -533,22 +297,12 @@ var EntityDecoder = class {
    * @returns The number of characters that were consumed, or -1 if the entity is incomplete.
    */
   stateNumericStart(input, offset) {
-    if (offset >= input.length) {
-      return -1;
-    }
-    if ((input.charCodeAt(offset) | TO_LOWER_BIT) === CharCodes.LOWER_X) {
-      this.state = EntityDecoderState.NumericHex;
-      this.consumed += 1;
-      return this.stateNumericHex(input, offset + 1);
-    }
-    this.state = EntityDecoderState.NumericDecimal;
-    return this.stateNumericDecimal(input, offset);
+    return offset >= input.length ? -1 : (input.charCodeAt(offset) | TO_LOWER_BIT) === CharCodes.LOWER_X ? (this.state = EntityDecoderState.NumericHex, this.consumed += 1, this.stateNumericHex(input, offset + 1)) : (this.state = EntityDecoderState.NumericDecimal, this.stateNumericDecimal(input, offset));
   }
   addToNumericResult(input, start, end, base) {
     if (start !== end) {
-      const digitCount = end - start;
-      this.result = this.result * Math.pow(base, digitCount) + Number.parseInt(input.substr(start, digitCount), base);
-      this.consumed += digitCount;
+      let digitCount = end - start;
+      this.result = this.result * Math.pow(base, digitCount) + Number.parseInt(input.substr(start, digitCount), base), this.consumed += digitCount;
     }
   }
   /**
@@ -561,18 +315,15 @@ var EntityDecoder = class {
    * @returns The number of characters that were consumed, or -1 if the entity is incomplete.
    */
   stateNumericHex(input, offset) {
-    const startIndex = offset;
-    while (offset < input.length) {
-      const char = input.charCodeAt(offset);
-      if (isNumber(char) || isHexadecimalCharacter(char)) {
+    let startIndex = offset;
+    for (; offset < input.length; ) {
+      let char = input.charCodeAt(offset);
+      if (isNumber(char) || isHexadecimalCharacter(char))
         offset += 1;
-      } else {
-        this.addToNumericResult(input, startIndex, offset, 16);
-        return this.emitNumericEntity(char, 3);
-      }
+      else
+        return this.addToNumericResult(input, startIndex, offset, 16), this.emitNumericEntity(char, 3);
     }
-    this.addToNumericResult(input, startIndex, offset, 16);
-    return -1;
+    return this.addToNumericResult(input, startIndex, offset, 16), -1;
   }
   /**
    * Parses a decimal numeric entity.
@@ -584,18 +335,15 @@ var EntityDecoder = class {
    * @returns The number of characters that were consumed, or -1 if the entity is incomplete.
    */
   stateNumericDecimal(input, offset) {
-    const startIndex = offset;
-    while (offset < input.length) {
-      const char = input.charCodeAt(offset);
-      if (isNumber(char)) {
+    let startIndex = offset;
+    for (; offset < input.length; ) {
+      let char = input.charCodeAt(offset);
+      if (isNumber(char))
         offset += 1;
-      } else {
-        this.addToNumericResult(input, startIndex, offset, 10);
-        return this.emitNumericEntity(char, 2);
-      }
+      else
+        return this.addToNumericResult(input, startIndex, offset, 10), this.emitNumericEntity(char, 2);
     }
-    this.addToNumericResult(input, startIndex, offset, 10);
-    return -1;
+    return this.addToNumericResult(input, startIndex, offset, 10), -1;
   }
   /**
    * Validate and emit a numeric entity.
@@ -612,23 +360,13 @@ var EntityDecoder = class {
    */
   emitNumericEntity(lastCp, expectedLength) {
     var _a2;
-    if (this.consumed <= expectedLength) {
-      (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.absenceOfDigitsInNumericCharacterReference(this.consumed);
-      return 0;
-    }
-    if (lastCp === CharCodes.SEMI) {
+    if (this.consumed <= expectedLength)
+      return (_a2 = this.errors) === null || _a2 === void 0 || _a2.absenceOfDigitsInNumericCharacterReference(this.consumed), 0;
+    if (lastCp === CharCodes.SEMI)
       this.consumed += 1;
-    } else if (this.decodeMode === DecodingMode.Strict) {
+    else if (this.decodeMode === DecodingMode.Strict)
       return 0;
-    }
-    this.emitCodePoint(replaceCodePoint(this.result), this.consumed);
-    if (this.errors) {
-      if (lastCp !== CharCodes.SEMI) {
-        this.errors.missingSemicolonAfterCharacterReference();
-      }
-      this.errors.validateNumericCharacterReference(this.result);
-    }
-    return this.consumed;
+    return this.emitCodePoint(replaceCodePoint(this.result), this.consumed), this.errors && (lastCp !== CharCodes.SEMI && this.errors.missingSemicolonAfterCharacterReference(), this.errors.validateNumericCharacterReference(this.result)), this.consumed;
   }
   /**
    * Parses a named entity.
@@ -640,29 +378,18 @@ var EntityDecoder = class {
    * @returns The number of characters that were consumed, or -1 if the entity is incomplete.
    */
   stateNamedEntity(input, offset) {
-    const { decodeTree } = this;
-    let current = decodeTree[this.treeIndex];
-    let valueLength = (current & BinTrieFlags.VALUE_LENGTH) >> 14;
+    let { decodeTree } = this, current = decodeTree[this.treeIndex], valueLength = (current & BinTrieFlags.VALUE_LENGTH) >> 14;
     for (; offset < input.length; offset++, this.excess++) {
-      const char = input.charCodeAt(offset);
-      this.treeIndex = determineBranch(decodeTree, current, this.treeIndex + Math.max(1, valueLength), char);
-      if (this.treeIndex < 0) {
+      let char = input.charCodeAt(offset);
+      if (this.treeIndex = determineBranch(decodeTree, current, this.treeIndex + Math.max(1, valueLength), char), this.treeIndex < 0)
         return this.result === 0 || // If we are parsing an attribute
         this.decodeMode === DecodingMode.Attribute && // We shouldn't have consumed any characters after the entity,
         (valueLength === 0 || // And there should be no invalid characters.
         isEntityInAttributeInvalidEnd(char)) ? 0 : this.emitNotTerminatedNamedEntity();
-      }
-      current = decodeTree[this.treeIndex];
-      valueLength = (current & BinTrieFlags.VALUE_LENGTH) >> 14;
-      if (valueLength !== 0) {
-        if (char === CharCodes.SEMI) {
+      if (current = decodeTree[this.treeIndex], valueLength = (current & BinTrieFlags.VALUE_LENGTH) >> 14, valueLength !== 0) {
+        if (char === CharCodes.SEMI)
           return this.emitNamedEntityData(this.treeIndex, valueLength, this.consumed + this.excess);
-        }
-        if (this.decodeMode !== DecodingMode.Strict) {
-          this.result = this.treeIndex;
-          this.consumed += this.excess;
-          this.excess = 0;
-        }
+        this.decodeMode !== DecodingMode.Strict && (this.result = this.treeIndex, this.consumed += this.excess, this.excess = 0);
       }
     }
     return -1;
@@ -674,11 +401,8 @@ var EntityDecoder = class {
    */
   emitNotTerminatedNamedEntity() {
     var _a2;
-    const { result, decodeTree } = this;
-    const valueLength = (decodeTree[result] & BinTrieFlags.VALUE_LENGTH) >> 14;
-    this.emitNamedEntityData(result, valueLength, this.consumed);
-    (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.missingSemicolonAfterCharacterReference();
-    return this.consumed;
+    let { result, decodeTree } = this, valueLength = (decodeTree[result] & BinTrieFlags.VALUE_LENGTH) >> 14;
+    return this.emitNamedEntityData(result, valueLength, this.consumed), (_a2 = this.errors) === null || _a2 === void 0 || _a2.missingSemicolonAfterCharacterReference(), this.consumed;
   }
   /**
    * Emit a named entity.
@@ -690,12 +414,8 @@ var EntityDecoder = class {
    * @returns The number of characters consumed.
    */
   emitNamedEntityData(result, valueLength, consumed) {
-    const { decodeTree } = this;
-    this.emitCodePoint(valueLength === 1 ? decodeTree[result] & ~BinTrieFlags.VALUE_LENGTH : decodeTree[result + 1], consumed);
-    if (valueLength === 3) {
-      this.emitCodePoint(decodeTree[result + 2], consumed);
-    }
-    return consumed;
+    let { decodeTree } = this;
+    return this.emitCodePoint(valueLength === 1 ? decodeTree[result] & ~BinTrieFlags.VALUE_LENGTH : decodeTree[result + 1], consumed), valueLength === 3 && this.emitCodePoint(decodeTree[result + 2], consumed), consumed;
   }
   /**
    * Signal to the parser that the end of the input was reached.
@@ -707,48 +427,37 @@ var EntityDecoder = class {
   end() {
     var _a2;
     switch (this.state) {
-      case EntityDecoderState.NamedEntity: {
+      case EntityDecoderState.NamedEntity:
         return this.result !== 0 && (this.decodeMode !== DecodingMode.Attribute || this.result === this.treeIndex) ? this.emitNotTerminatedNamedEntity() : 0;
-      }
       // Otherwise, emit a numeric entity if we have one.
-      case EntityDecoderState.NumericDecimal: {
+      case EntityDecoderState.NumericDecimal:
         return this.emitNumericEntity(0, 2);
-      }
-      case EntityDecoderState.NumericHex: {
+      case EntityDecoderState.NumericHex:
         return this.emitNumericEntity(0, 3);
-      }
-      case EntityDecoderState.NumericStart: {
-        (_a2 = this.errors) === null || _a2 === void 0 ? void 0 : _a2.absenceOfDigitsInNumericCharacterReference(this.consumed);
+      case EntityDecoderState.NumericStart:
+        return (_a2 = this.errors) === null || _a2 === void 0 || _a2.absenceOfDigitsInNumericCharacterReference(this.consumed), 0;
+      case EntityDecoderState.EntityStart:
         return 0;
-      }
-      case EntityDecoderState.EntityStart: {
-        return 0;
-      }
     }
   }
 };
 function determineBranch(decodeTree, current, nodeIndex, char) {
-  const branchCount = (current & BinTrieFlags.BRANCH_LENGTH) >> 7;
-  const jumpOffset = current & BinTrieFlags.JUMP_TABLE;
-  if (branchCount === 0) {
+  let branchCount = (current & BinTrieFlags.BRANCH_LENGTH) >> 7, jumpOffset = current & BinTrieFlags.JUMP_TABLE;
+  if (branchCount === 0)
     return jumpOffset !== 0 && char === jumpOffset ? nodeIndex : -1;
-  }
   if (jumpOffset) {
-    const value = char - jumpOffset;
+    let value = char - jumpOffset;
     return value < 0 || value >= branchCount ? -1 : decodeTree[nodeIndex + value] - 1;
   }
-  let lo = nodeIndex;
-  let hi = lo + branchCount - 1;
-  while (lo <= hi) {
-    const mid = lo + hi >>> 1;
-    const midValue = decodeTree[mid];
-    if (midValue < char) {
+  let lo = nodeIndex, hi = lo + branchCount - 1;
+  for (; lo <= hi; ) {
+    let mid = lo + hi >>> 1, midValue = decodeTree[mid];
+    if (midValue < char)
       lo = mid + 1;
-    } else if (midValue > char) {
+    else if (midValue > char)
       hi = mid - 1;
-    } else {
+    else
       return decodeTree[mid + branchCount];
-    }
   }
   return -1;
 }
@@ -756,282 +465,23 @@ function determineBranch(decodeTree, current, nodeIndex, char) {
 // node_modules/parse5/dist/common/html.js
 var NS;
 (function(NS2) {
-  NS2["HTML"] = "http://www.w3.org/1999/xhtml";
-  NS2["MATHML"] = "http://www.w3.org/1998/Math/MathML";
-  NS2["SVG"] = "http://www.w3.org/2000/svg";
-  NS2["XLINK"] = "http://www.w3.org/1999/xlink";
-  NS2["XML"] = "http://www.w3.org/XML/1998/namespace";
-  NS2["XMLNS"] = "http://www.w3.org/2000/xmlns/";
+  NS2.HTML = "http://www.w3.org/1999/xhtml", NS2.MATHML = "http://www.w3.org/1998/Math/MathML", NS2.SVG = "http://www.w3.org/2000/svg", NS2.XLINK = "http://www.w3.org/1999/xlink", NS2.XML = "http://www.w3.org/XML/1998/namespace", NS2.XMLNS = "http://www.w3.org/2000/xmlns/";
 })(NS || (NS = {}));
 var ATTRS;
 (function(ATTRS2) {
-  ATTRS2["TYPE"] = "type";
-  ATTRS2["ACTION"] = "action";
-  ATTRS2["ENCODING"] = "encoding";
-  ATTRS2["PROMPT"] = "prompt";
-  ATTRS2["NAME"] = "name";
-  ATTRS2["COLOR"] = "color";
-  ATTRS2["FACE"] = "face";
-  ATTRS2["SIZE"] = "size";
+  ATTRS2.TYPE = "type", ATTRS2.ACTION = "action", ATTRS2.ENCODING = "encoding", ATTRS2.PROMPT = "prompt", ATTRS2.NAME = "name", ATTRS2.COLOR = "color", ATTRS2.FACE = "face", ATTRS2.SIZE = "size";
 })(ATTRS || (ATTRS = {}));
 var DOCUMENT_MODE;
 (function(DOCUMENT_MODE2) {
-  DOCUMENT_MODE2["NO_QUIRKS"] = "no-quirks";
-  DOCUMENT_MODE2["QUIRKS"] = "quirks";
-  DOCUMENT_MODE2["LIMITED_QUIRKS"] = "limited-quirks";
+  DOCUMENT_MODE2.NO_QUIRKS = "no-quirks", DOCUMENT_MODE2.QUIRKS = "quirks", DOCUMENT_MODE2.LIMITED_QUIRKS = "limited-quirks";
 })(DOCUMENT_MODE || (DOCUMENT_MODE = {}));
 var TAG_NAMES;
 (function(TAG_NAMES2) {
-  TAG_NAMES2["A"] = "a";
-  TAG_NAMES2["ADDRESS"] = "address";
-  TAG_NAMES2["ANNOTATION_XML"] = "annotation-xml";
-  TAG_NAMES2["APPLET"] = "applet";
-  TAG_NAMES2["AREA"] = "area";
-  TAG_NAMES2["ARTICLE"] = "article";
-  TAG_NAMES2["ASIDE"] = "aside";
-  TAG_NAMES2["B"] = "b";
-  TAG_NAMES2["BASE"] = "base";
-  TAG_NAMES2["BASEFONT"] = "basefont";
-  TAG_NAMES2["BGSOUND"] = "bgsound";
-  TAG_NAMES2["BIG"] = "big";
-  TAG_NAMES2["BLOCKQUOTE"] = "blockquote";
-  TAG_NAMES2["BODY"] = "body";
-  TAG_NAMES2["BR"] = "br";
-  TAG_NAMES2["BUTTON"] = "button";
-  TAG_NAMES2["CAPTION"] = "caption";
-  TAG_NAMES2["CENTER"] = "center";
-  TAG_NAMES2["CODE"] = "code";
-  TAG_NAMES2["COL"] = "col";
-  TAG_NAMES2["COLGROUP"] = "colgroup";
-  TAG_NAMES2["DD"] = "dd";
-  TAG_NAMES2["DESC"] = "desc";
-  TAG_NAMES2["DETAILS"] = "details";
-  TAG_NAMES2["DIALOG"] = "dialog";
-  TAG_NAMES2["DIR"] = "dir";
-  TAG_NAMES2["DIV"] = "div";
-  TAG_NAMES2["DL"] = "dl";
-  TAG_NAMES2["DT"] = "dt";
-  TAG_NAMES2["EM"] = "em";
-  TAG_NAMES2["EMBED"] = "embed";
-  TAG_NAMES2["FIELDSET"] = "fieldset";
-  TAG_NAMES2["FIGCAPTION"] = "figcaption";
-  TAG_NAMES2["FIGURE"] = "figure";
-  TAG_NAMES2["FONT"] = "font";
-  TAG_NAMES2["FOOTER"] = "footer";
-  TAG_NAMES2["FOREIGN_OBJECT"] = "foreignObject";
-  TAG_NAMES2["FORM"] = "form";
-  TAG_NAMES2["FRAME"] = "frame";
-  TAG_NAMES2["FRAMESET"] = "frameset";
-  TAG_NAMES2["H1"] = "h1";
-  TAG_NAMES2["H2"] = "h2";
-  TAG_NAMES2["H3"] = "h3";
-  TAG_NAMES2["H4"] = "h4";
-  TAG_NAMES2["H5"] = "h5";
-  TAG_NAMES2["H6"] = "h6";
-  TAG_NAMES2["HEAD"] = "head";
-  TAG_NAMES2["HEADER"] = "header";
-  TAG_NAMES2["HGROUP"] = "hgroup";
-  TAG_NAMES2["HR"] = "hr";
-  TAG_NAMES2["HTML"] = "html";
-  TAG_NAMES2["I"] = "i";
-  TAG_NAMES2["IMG"] = "img";
-  TAG_NAMES2["IMAGE"] = "image";
-  TAG_NAMES2["INPUT"] = "input";
-  TAG_NAMES2["IFRAME"] = "iframe";
-  TAG_NAMES2["KEYGEN"] = "keygen";
-  TAG_NAMES2["LABEL"] = "label";
-  TAG_NAMES2["LI"] = "li";
-  TAG_NAMES2["LINK"] = "link";
-  TAG_NAMES2["LISTING"] = "listing";
-  TAG_NAMES2["MAIN"] = "main";
-  TAG_NAMES2["MALIGNMARK"] = "malignmark";
-  TAG_NAMES2["MARQUEE"] = "marquee";
-  TAG_NAMES2["MATH"] = "math";
-  TAG_NAMES2["MENU"] = "menu";
-  TAG_NAMES2["META"] = "meta";
-  TAG_NAMES2["MGLYPH"] = "mglyph";
-  TAG_NAMES2["MI"] = "mi";
-  TAG_NAMES2["MO"] = "mo";
-  TAG_NAMES2["MN"] = "mn";
-  TAG_NAMES2["MS"] = "ms";
-  TAG_NAMES2["MTEXT"] = "mtext";
-  TAG_NAMES2["NAV"] = "nav";
-  TAG_NAMES2["NOBR"] = "nobr";
-  TAG_NAMES2["NOFRAMES"] = "noframes";
-  TAG_NAMES2["NOEMBED"] = "noembed";
-  TAG_NAMES2["NOSCRIPT"] = "noscript";
-  TAG_NAMES2["OBJECT"] = "object";
-  TAG_NAMES2["OL"] = "ol";
-  TAG_NAMES2["OPTGROUP"] = "optgroup";
-  TAG_NAMES2["OPTION"] = "option";
-  TAG_NAMES2["P"] = "p";
-  TAG_NAMES2["PARAM"] = "param";
-  TAG_NAMES2["PLAINTEXT"] = "plaintext";
-  TAG_NAMES2["PRE"] = "pre";
-  TAG_NAMES2["RB"] = "rb";
-  TAG_NAMES2["RP"] = "rp";
-  TAG_NAMES2["RT"] = "rt";
-  TAG_NAMES2["RTC"] = "rtc";
-  TAG_NAMES2["RUBY"] = "ruby";
-  TAG_NAMES2["S"] = "s";
-  TAG_NAMES2["SCRIPT"] = "script";
-  TAG_NAMES2["SEARCH"] = "search";
-  TAG_NAMES2["SECTION"] = "section";
-  TAG_NAMES2["SELECT"] = "select";
-  TAG_NAMES2["SOURCE"] = "source";
-  TAG_NAMES2["SMALL"] = "small";
-  TAG_NAMES2["SPAN"] = "span";
-  TAG_NAMES2["STRIKE"] = "strike";
-  TAG_NAMES2["STRONG"] = "strong";
-  TAG_NAMES2["STYLE"] = "style";
-  TAG_NAMES2["SUB"] = "sub";
-  TAG_NAMES2["SUMMARY"] = "summary";
-  TAG_NAMES2["SUP"] = "sup";
-  TAG_NAMES2["TABLE"] = "table";
-  TAG_NAMES2["TBODY"] = "tbody";
-  TAG_NAMES2["TEMPLATE"] = "template";
-  TAG_NAMES2["TEXTAREA"] = "textarea";
-  TAG_NAMES2["TFOOT"] = "tfoot";
-  TAG_NAMES2["TD"] = "td";
-  TAG_NAMES2["TH"] = "th";
-  TAG_NAMES2["THEAD"] = "thead";
-  TAG_NAMES2["TITLE"] = "title";
-  TAG_NAMES2["TR"] = "tr";
-  TAG_NAMES2["TRACK"] = "track";
-  TAG_NAMES2["TT"] = "tt";
-  TAG_NAMES2["U"] = "u";
-  TAG_NAMES2["UL"] = "ul";
-  TAG_NAMES2["SVG"] = "svg";
-  TAG_NAMES2["VAR"] = "var";
-  TAG_NAMES2["WBR"] = "wbr";
-  TAG_NAMES2["XMP"] = "xmp";
+  TAG_NAMES2.A = "a", TAG_NAMES2.ADDRESS = "address", TAG_NAMES2.ANNOTATION_XML = "annotation-xml", TAG_NAMES2.APPLET = "applet", TAG_NAMES2.AREA = "area", TAG_NAMES2.ARTICLE = "article", TAG_NAMES2.ASIDE = "aside", TAG_NAMES2.B = "b", TAG_NAMES2.BASE = "base", TAG_NAMES2.BASEFONT = "basefont", TAG_NAMES2.BGSOUND = "bgsound", TAG_NAMES2.BIG = "big", TAG_NAMES2.BLOCKQUOTE = "blockquote", TAG_NAMES2.BODY = "body", TAG_NAMES2.BR = "br", TAG_NAMES2.BUTTON = "button", TAG_NAMES2.CAPTION = "caption", TAG_NAMES2.CENTER = "center", TAG_NAMES2.CODE = "code", TAG_NAMES2.COL = "col", TAG_NAMES2.COLGROUP = "colgroup", TAG_NAMES2.DD = "dd", TAG_NAMES2.DESC = "desc", TAG_NAMES2.DETAILS = "details", TAG_NAMES2.DIALOG = "dialog", TAG_NAMES2.DIR = "dir", TAG_NAMES2.DIV = "div", TAG_NAMES2.DL = "dl", TAG_NAMES2.DT = "dt", TAG_NAMES2.EM = "em", TAG_NAMES2.EMBED = "embed", TAG_NAMES2.FIELDSET = "fieldset", TAG_NAMES2.FIGCAPTION = "figcaption", TAG_NAMES2.FIGURE = "figure", TAG_NAMES2.FONT = "font", TAG_NAMES2.FOOTER = "footer", TAG_NAMES2.FOREIGN_OBJECT = "foreignObject", TAG_NAMES2.FORM = "form", TAG_NAMES2.FRAME = "frame", TAG_NAMES2.FRAMESET = "frameset", TAG_NAMES2.H1 = "h1", TAG_NAMES2.H2 = "h2", TAG_NAMES2.H3 = "h3", TAG_NAMES2.H4 = "h4", TAG_NAMES2.H5 = "h5", TAG_NAMES2.H6 = "h6", TAG_NAMES2.HEAD = "head", TAG_NAMES2.HEADER = "header", TAG_NAMES2.HGROUP = "hgroup", TAG_NAMES2.HR = "hr", TAG_NAMES2.HTML = "html", TAG_NAMES2.I = "i", TAG_NAMES2.IMG = "img", TAG_NAMES2.IMAGE = "image", TAG_NAMES2.INPUT = "input", TAG_NAMES2.IFRAME = "iframe", TAG_NAMES2.KEYGEN = "keygen", TAG_NAMES2.LABEL = "label", TAG_NAMES2.LI = "li", TAG_NAMES2.LINK = "link", TAG_NAMES2.LISTING = "listing", TAG_NAMES2.MAIN = "main", TAG_NAMES2.MALIGNMARK = "malignmark", TAG_NAMES2.MARQUEE = "marquee", TAG_NAMES2.MATH = "math", TAG_NAMES2.MENU = "menu", TAG_NAMES2.META = "meta", TAG_NAMES2.MGLYPH = "mglyph", TAG_NAMES2.MI = "mi", TAG_NAMES2.MO = "mo", TAG_NAMES2.MN = "mn", TAG_NAMES2.MS = "ms", TAG_NAMES2.MTEXT = "mtext", TAG_NAMES2.NAV = "nav", TAG_NAMES2.NOBR = "nobr", TAG_NAMES2.NOFRAMES = "noframes", TAG_NAMES2.NOEMBED = "noembed", TAG_NAMES2.NOSCRIPT = "noscript", TAG_NAMES2.OBJECT = "object", TAG_NAMES2.OL = "ol", TAG_NAMES2.OPTGROUP = "optgroup", TAG_NAMES2.OPTION = "option", TAG_NAMES2.P = "p", TAG_NAMES2.PARAM = "param", TAG_NAMES2.PLAINTEXT = "plaintext", TAG_NAMES2.PRE = "pre", TAG_NAMES2.RB = "rb", TAG_NAMES2.RP = "rp", TAG_NAMES2.RT = "rt", TAG_NAMES2.RTC = "rtc", TAG_NAMES2.RUBY = "ruby", TAG_NAMES2.S = "s", TAG_NAMES2.SCRIPT = "script", TAG_NAMES2.SEARCH = "search", TAG_NAMES2.SECTION = "section", TAG_NAMES2.SELECT = "select", TAG_NAMES2.SOURCE = "source", TAG_NAMES2.SMALL = "small", TAG_NAMES2.SPAN = "span", TAG_NAMES2.STRIKE = "strike", TAG_NAMES2.STRONG = "strong", TAG_NAMES2.STYLE = "style", TAG_NAMES2.SUB = "sub", TAG_NAMES2.SUMMARY = "summary", TAG_NAMES2.SUP = "sup", TAG_NAMES2.TABLE = "table", TAG_NAMES2.TBODY = "tbody", TAG_NAMES2.TEMPLATE = "template", TAG_NAMES2.TEXTAREA = "textarea", TAG_NAMES2.TFOOT = "tfoot", TAG_NAMES2.TD = "td", TAG_NAMES2.TH = "th", TAG_NAMES2.THEAD = "thead", TAG_NAMES2.TITLE = "title", TAG_NAMES2.TR = "tr", TAG_NAMES2.TRACK = "track", TAG_NAMES2.TT = "tt", TAG_NAMES2.U = "u", TAG_NAMES2.UL = "ul", TAG_NAMES2.SVG = "svg", TAG_NAMES2.VAR = "var", TAG_NAMES2.WBR = "wbr", TAG_NAMES2.XMP = "xmp";
 })(TAG_NAMES || (TAG_NAMES = {}));
 var TAG_ID;
 (function(TAG_ID2) {
-  TAG_ID2[TAG_ID2["UNKNOWN"] = 0] = "UNKNOWN";
-  TAG_ID2[TAG_ID2["A"] = 1] = "A";
-  TAG_ID2[TAG_ID2["ADDRESS"] = 2] = "ADDRESS";
-  TAG_ID2[TAG_ID2["ANNOTATION_XML"] = 3] = "ANNOTATION_XML";
-  TAG_ID2[TAG_ID2["APPLET"] = 4] = "APPLET";
-  TAG_ID2[TAG_ID2["AREA"] = 5] = "AREA";
-  TAG_ID2[TAG_ID2["ARTICLE"] = 6] = "ARTICLE";
-  TAG_ID2[TAG_ID2["ASIDE"] = 7] = "ASIDE";
-  TAG_ID2[TAG_ID2["B"] = 8] = "B";
-  TAG_ID2[TAG_ID2["BASE"] = 9] = "BASE";
-  TAG_ID2[TAG_ID2["BASEFONT"] = 10] = "BASEFONT";
-  TAG_ID2[TAG_ID2["BGSOUND"] = 11] = "BGSOUND";
-  TAG_ID2[TAG_ID2["BIG"] = 12] = "BIG";
-  TAG_ID2[TAG_ID2["BLOCKQUOTE"] = 13] = "BLOCKQUOTE";
-  TAG_ID2[TAG_ID2["BODY"] = 14] = "BODY";
-  TAG_ID2[TAG_ID2["BR"] = 15] = "BR";
-  TAG_ID2[TAG_ID2["BUTTON"] = 16] = "BUTTON";
-  TAG_ID2[TAG_ID2["CAPTION"] = 17] = "CAPTION";
-  TAG_ID2[TAG_ID2["CENTER"] = 18] = "CENTER";
-  TAG_ID2[TAG_ID2["CODE"] = 19] = "CODE";
-  TAG_ID2[TAG_ID2["COL"] = 20] = "COL";
-  TAG_ID2[TAG_ID2["COLGROUP"] = 21] = "COLGROUP";
-  TAG_ID2[TAG_ID2["DD"] = 22] = "DD";
-  TAG_ID2[TAG_ID2["DESC"] = 23] = "DESC";
-  TAG_ID2[TAG_ID2["DETAILS"] = 24] = "DETAILS";
-  TAG_ID2[TAG_ID2["DIALOG"] = 25] = "DIALOG";
-  TAG_ID2[TAG_ID2["DIR"] = 26] = "DIR";
-  TAG_ID2[TAG_ID2["DIV"] = 27] = "DIV";
-  TAG_ID2[TAG_ID2["DL"] = 28] = "DL";
-  TAG_ID2[TAG_ID2["DT"] = 29] = "DT";
-  TAG_ID2[TAG_ID2["EM"] = 30] = "EM";
-  TAG_ID2[TAG_ID2["EMBED"] = 31] = "EMBED";
-  TAG_ID2[TAG_ID2["FIELDSET"] = 32] = "FIELDSET";
-  TAG_ID2[TAG_ID2["FIGCAPTION"] = 33] = "FIGCAPTION";
-  TAG_ID2[TAG_ID2["FIGURE"] = 34] = "FIGURE";
-  TAG_ID2[TAG_ID2["FONT"] = 35] = "FONT";
-  TAG_ID2[TAG_ID2["FOOTER"] = 36] = "FOOTER";
-  TAG_ID2[TAG_ID2["FOREIGN_OBJECT"] = 37] = "FOREIGN_OBJECT";
-  TAG_ID2[TAG_ID2["FORM"] = 38] = "FORM";
-  TAG_ID2[TAG_ID2["FRAME"] = 39] = "FRAME";
-  TAG_ID2[TAG_ID2["FRAMESET"] = 40] = "FRAMESET";
-  TAG_ID2[TAG_ID2["H1"] = 41] = "H1";
-  TAG_ID2[TAG_ID2["H2"] = 42] = "H2";
-  TAG_ID2[TAG_ID2["H3"] = 43] = "H3";
-  TAG_ID2[TAG_ID2["H4"] = 44] = "H4";
-  TAG_ID2[TAG_ID2["H5"] = 45] = "H5";
-  TAG_ID2[TAG_ID2["H6"] = 46] = "H6";
-  TAG_ID2[TAG_ID2["HEAD"] = 47] = "HEAD";
-  TAG_ID2[TAG_ID2["HEADER"] = 48] = "HEADER";
-  TAG_ID2[TAG_ID2["HGROUP"] = 49] = "HGROUP";
-  TAG_ID2[TAG_ID2["HR"] = 50] = "HR";
-  TAG_ID2[TAG_ID2["HTML"] = 51] = "HTML";
-  TAG_ID2[TAG_ID2["I"] = 52] = "I";
-  TAG_ID2[TAG_ID2["IMG"] = 53] = "IMG";
-  TAG_ID2[TAG_ID2["IMAGE"] = 54] = "IMAGE";
-  TAG_ID2[TAG_ID2["INPUT"] = 55] = "INPUT";
-  TAG_ID2[TAG_ID2["IFRAME"] = 56] = "IFRAME";
-  TAG_ID2[TAG_ID2["KEYGEN"] = 57] = "KEYGEN";
-  TAG_ID2[TAG_ID2["LABEL"] = 58] = "LABEL";
-  TAG_ID2[TAG_ID2["LI"] = 59] = "LI";
-  TAG_ID2[TAG_ID2["LINK"] = 60] = "LINK";
-  TAG_ID2[TAG_ID2["LISTING"] = 61] = "LISTING";
-  TAG_ID2[TAG_ID2["MAIN"] = 62] = "MAIN";
-  TAG_ID2[TAG_ID2["MALIGNMARK"] = 63] = "MALIGNMARK";
-  TAG_ID2[TAG_ID2["MARQUEE"] = 64] = "MARQUEE";
-  TAG_ID2[TAG_ID2["MATH"] = 65] = "MATH";
-  TAG_ID2[TAG_ID2["MENU"] = 66] = "MENU";
-  TAG_ID2[TAG_ID2["META"] = 67] = "META";
-  TAG_ID2[TAG_ID2["MGLYPH"] = 68] = "MGLYPH";
-  TAG_ID2[TAG_ID2["MI"] = 69] = "MI";
-  TAG_ID2[TAG_ID2["MO"] = 70] = "MO";
-  TAG_ID2[TAG_ID2["MN"] = 71] = "MN";
-  TAG_ID2[TAG_ID2["MS"] = 72] = "MS";
-  TAG_ID2[TAG_ID2["MTEXT"] = 73] = "MTEXT";
-  TAG_ID2[TAG_ID2["NAV"] = 74] = "NAV";
-  TAG_ID2[TAG_ID2["NOBR"] = 75] = "NOBR";
-  TAG_ID2[TAG_ID2["NOFRAMES"] = 76] = "NOFRAMES";
-  TAG_ID2[TAG_ID2["NOEMBED"] = 77] = "NOEMBED";
-  TAG_ID2[TAG_ID2["NOSCRIPT"] = 78] = "NOSCRIPT";
-  TAG_ID2[TAG_ID2["OBJECT"] = 79] = "OBJECT";
-  TAG_ID2[TAG_ID2["OL"] = 80] = "OL";
-  TAG_ID2[TAG_ID2["OPTGROUP"] = 81] = "OPTGROUP";
-  TAG_ID2[TAG_ID2["OPTION"] = 82] = "OPTION";
-  TAG_ID2[TAG_ID2["P"] = 83] = "P";
-  TAG_ID2[TAG_ID2["PARAM"] = 84] = "PARAM";
-  TAG_ID2[TAG_ID2["PLAINTEXT"] = 85] = "PLAINTEXT";
-  TAG_ID2[TAG_ID2["PRE"] = 86] = "PRE";
-  TAG_ID2[TAG_ID2["RB"] = 87] = "RB";
-  TAG_ID2[TAG_ID2["RP"] = 88] = "RP";
-  TAG_ID2[TAG_ID2["RT"] = 89] = "RT";
-  TAG_ID2[TAG_ID2["RTC"] = 90] = "RTC";
-  TAG_ID2[TAG_ID2["RUBY"] = 91] = "RUBY";
-  TAG_ID2[TAG_ID2["S"] = 92] = "S";
-  TAG_ID2[TAG_ID2["SCRIPT"] = 93] = "SCRIPT";
-  TAG_ID2[TAG_ID2["SEARCH"] = 94] = "SEARCH";
-  TAG_ID2[TAG_ID2["SECTION"] = 95] = "SECTION";
-  TAG_ID2[TAG_ID2["SELECT"] = 96] = "SELECT";
-  TAG_ID2[TAG_ID2["SOURCE"] = 97] = "SOURCE";
-  TAG_ID2[TAG_ID2["SMALL"] = 98] = "SMALL";
-  TAG_ID2[TAG_ID2["SPAN"] = 99] = "SPAN";
-  TAG_ID2[TAG_ID2["STRIKE"] = 100] = "STRIKE";
-  TAG_ID2[TAG_ID2["STRONG"] = 101] = "STRONG";
-  TAG_ID2[TAG_ID2["STYLE"] = 102] = "STYLE";
-  TAG_ID2[TAG_ID2["SUB"] = 103] = "SUB";
-  TAG_ID2[TAG_ID2["SUMMARY"] = 104] = "SUMMARY";
-  TAG_ID2[TAG_ID2["SUP"] = 105] = "SUP";
-  TAG_ID2[TAG_ID2["TABLE"] = 106] = "TABLE";
-  TAG_ID2[TAG_ID2["TBODY"] = 107] = "TBODY";
-  TAG_ID2[TAG_ID2["TEMPLATE"] = 108] = "TEMPLATE";
-  TAG_ID2[TAG_ID2["TEXTAREA"] = 109] = "TEXTAREA";
-  TAG_ID2[TAG_ID2["TFOOT"] = 110] = "TFOOT";
-  TAG_ID2[TAG_ID2["TD"] = 111] = "TD";
-  TAG_ID2[TAG_ID2["TH"] = 112] = "TH";
-  TAG_ID2[TAG_ID2["THEAD"] = 113] = "THEAD";
-  TAG_ID2[TAG_ID2["TITLE"] = 114] = "TITLE";
-  TAG_ID2[TAG_ID2["TR"] = 115] = "TR";
-  TAG_ID2[TAG_ID2["TRACK"] = 116] = "TRACK";
-  TAG_ID2[TAG_ID2["TT"] = 117] = "TT";
-  TAG_ID2[TAG_ID2["U"] = 118] = "U";
-  TAG_ID2[TAG_ID2["UL"] = 119] = "UL";
-  TAG_ID2[TAG_ID2["SVG"] = 120] = "SVG";
-  TAG_ID2[TAG_ID2["VAR"] = 121] = "VAR";
-  TAG_ID2[TAG_ID2["WBR"] = 122] = "WBR";
-  TAG_ID2[TAG_ID2["XMP"] = 123] = "XMP";
+  TAG_ID2[TAG_ID2.UNKNOWN = 0] = "UNKNOWN", TAG_ID2[TAG_ID2.A = 1] = "A", TAG_ID2[TAG_ID2.ADDRESS = 2] = "ADDRESS", TAG_ID2[TAG_ID2.ANNOTATION_XML = 3] = "ANNOTATION_XML", TAG_ID2[TAG_ID2.APPLET = 4] = "APPLET", TAG_ID2[TAG_ID2.AREA = 5] = "AREA", TAG_ID2[TAG_ID2.ARTICLE = 6] = "ARTICLE", TAG_ID2[TAG_ID2.ASIDE = 7] = "ASIDE", TAG_ID2[TAG_ID2.B = 8] = "B", TAG_ID2[TAG_ID2.BASE = 9] = "BASE", TAG_ID2[TAG_ID2.BASEFONT = 10] = "BASEFONT", TAG_ID2[TAG_ID2.BGSOUND = 11] = "BGSOUND", TAG_ID2[TAG_ID2.BIG = 12] = "BIG", TAG_ID2[TAG_ID2.BLOCKQUOTE = 13] = "BLOCKQUOTE", TAG_ID2[TAG_ID2.BODY = 14] = "BODY", TAG_ID2[TAG_ID2.BR = 15] = "BR", TAG_ID2[TAG_ID2.BUTTON = 16] = "BUTTON", TAG_ID2[TAG_ID2.CAPTION = 17] = "CAPTION", TAG_ID2[TAG_ID2.CENTER = 18] = "CENTER", TAG_ID2[TAG_ID2.CODE = 19] = "CODE", TAG_ID2[TAG_ID2.COL = 20] = "COL", TAG_ID2[TAG_ID2.COLGROUP = 21] = "COLGROUP", TAG_ID2[TAG_ID2.DD = 22] = "DD", TAG_ID2[TAG_ID2.DESC = 23] = "DESC", TAG_ID2[TAG_ID2.DETAILS = 24] = "DETAILS", TAG_ID2[TAG_ID2.DIALOG = 25] = "DIALOG", TAG_ID2[TAG_ID2.DIR = 26] = "DIR", TAG_ID2[TAG_ID2.DIV = 27] = "DIV", TAG_ID2[TAG_ID2.DL = 28] = "DL", TAG_ID2[TAG_ID2.DT = 29] = "DT", TAG_ID2[TAG_ID2.EM = 30] = "EM", TAG_ID2[TAG_ID2.EMBED = 31] = "EMBED", TAG_ID2[TAG_ID2.FIELDSET = 32] = "FIELDSET", TAG_ID2[TAG_ID2.FIGCAPTION = 33] = "FIGCAPTION", TAG_ID2[TAG_ID2.FIGURE = 34] = "FIGURE", TAG_ID2[TAG_ID2.FONT = 35] = "FONT", TAG_ID2[TAG_ID2.FOOTER = 36] = "FOOTER", TAG_ID2[TAG_ID2.FOREIGN_OBJECT = 37] = "FOREIGN_OBJECT", TAG_ID2[TAG_ID2.FORM = 38] = "FORM", TAG_ID2[TAG_ID2.FRAME = 39] = "FRAME", TAG_ID2[TAG_ID2.FRAMESET = 40] = "FRAMESET", TAG_ID2[TAG_ID2.H1 = 41] = "H1", TAG_ID2[TAG_ID2.H2 = 42] = "H2", TAG_ID2[TAG_ID2.H3 = 43] = "H3", TAG_ID2[TAG_ID2.H4 = 44] = "H4", TAG_ID2[TAG_ID2.H5 = 45] = "H5", TAG_ID2[TAG_ID2.H6 = 46] = "H6", TAG_ID2[TAG_ID2.HEAD = 47] = "HEAD", TAG_ID2[TAG_ID2.HEADER = 48] = "HEADER", TAG_ID2[TAG_ID2.HGROUP = 49] = "HGROUP", TAG_ID2[TAG_ID2.HR = 50] = "HR", TAG_ID2[TAG_ID2.HTML = 51] = "HTML", TAG_ID2[TAG_ID2.I = 52] = "I", TAG_ID2[TAG_ID2.IMG = 53] = "IMG", TAG_ID2[TAG_ID2.IMAGE = 54] = "IMAGE", TAG_ID2[TAG_ID2.INPUT = 55] = "INPUT", TAG_ID2[TAG_ID2.IFRAME = 56] = "IFRAME", TAG_ID2[TAG_ID2.KEYGEN = 57] = "KEYGEN", TAG_ID2[TAG_ID2.LABEL = 58] = "LABEL", TAG_ID2[TAG_ID2.LI = 59] = "LI", TAG_ID2[TAG_ID2.LINK = 60] = "LINK", TAG_ID2[TAG_ID2.LISTING = 61] = "LISTING", TAG_ID2[TAG_ID2.MAIN = 62] = "MAIN", TAG_ID2[TAG_ID2.MALIGNMARK = 63] = "MALIGNMARK", TAG_ID2[TAG_ID2.MARQUEE = 64] = "MARQUEE", TAG_ID2[TAG_ID2.MATH = 65] = "MATH", TAG_ID2[TAG_ID2.MENU = 66] = "MENU", TAG_ID2[TAG_ID2.META = 67] = "META", TAG_ID2[TAG_ID2.MGLYPH = 68] = "MGLYPH", TAG_ID2[TAG_ID2.MI = 69] = "MI", TAG_ID2[TAG_ID2.MO = 70] = "MO", TAG_ID2[TAG_ID2.MN = 71] = "MN", TAG_ID2[TAG_ID2.MS = 72] = "MS", TAG_ID2[TAG_ID2.MTEXT = 73] = "MTEXT", TAG_ID2[TAG_ID2.NAV = 74] = "NAV", TAG_ID2[TAG_ID2.NOBR = 75] = "NOBR", TAG_ID2[TAG_ID2.NOFRAMES = 76] = "NOFRAMES", TAG_ID2[TAG_ID2.NOEMBED = 77] = "NOEMBED", TAG_ID2[TAG_ID2.NOSCRIPT = 78] = "NOSCRIPT", TAG_ID2[TAG_ID2.OBJECT = 79] = "OBJECT", TAG_ID2[TAG_ID2.OL = 80] = "OL", TAG_ID2[TAG_ID2.OPTGROUP = 81] = "OPTGROUP", TAG_ID2[TAG_ID2.OPTION = 82] = "OPTION", TAG_ID2[TAG_ID2.P = 83] = "P", TAG_ID2[TAG_ID2.PARAM = 84] = "PARAM", TAG_ID2[TAG_ID2.PLAINTEXT = 85] = "PLAINTEXT", TAG_ID2[TAG_ID2.PRE = 86] = "PRE", TAG_ID2[TAG_ID2.RB = 87] = "RB", TAG_ID2[TAG_ID2.RP = 88] = "RP", TAG_ID2[TAG_ID2.RT = 89] = "RT", TAG_ID2[TAG_ID2.RTC = 90] = "RTC", TAG_ID2[TAG_ID2.RUBY = 91] = "RUBY", TAG_ID2[TAG_ID2.S = 92] = "S", TAG_ID2[TAG_ID2.SCRIPT = 93] = "SCRIPT", TAG_ID2[TAG_ID2.SEARCH = 94] = "SEARCH", TAG_ID2[TAG_ID2.SECTION = 95] = "SECTION", TAG_ID2[TAG_ID2.SELECT = 96] = "SELECT", TAG_ID2[TAG_ID2.SOURCE = 97] = "SOURCE", TAG_ID2[TAG_ID2.SMALL = 98] = "SMALL", TAG_ID2[TAG_ID2.SPAN = 99] = "SPAN", TAG_ID2[TAG_ID2.STRIKE = 100] = "STRIKE", TAG_ID2[TAG_ID2.STRONG = 101] = "STRONG", TAG_ID2[TAG_ID2.STYLE = 102] = "STYLE", TAG_ID2[TAG_ID2.SUB = 103] = "SUB", TAG_ID2[TAG_ID2.SUMMARY = 104] = "SUMMARY", TAG_ID2[TAG_ID2.SUP = 105] = "SUP", TAG_ID2[TAG_ID2.TABLE = 106] = "TABLE", TAG_ID2[TAG_ID2.TBODY = 107] = "TBODY", TAG_ID2[TAG_ID2.TEMPLATE = 108] = "TEMPLATE", TAG_ID2[TAG_ID2.TEXTAREA = 109] = "TEXTAREA", TAG_ID2[TAG_ID2.TFOOT = 110] = "TFOOT", TAG_ID2[TAG_ID2.TD = 111] = "TD", TAG_ID2[TAG_ID2.TH = 112] = "TH", TAG_ID2[TAG_ID2.THEAD = 113] = "THEAD", TAG_ID2[TAG_ID2.TITLE = 114] = "TITLE", TAG_ID2[TAG_ID2.TR = 115] = "TR", TAG_ID2[TAG_ID2.TRACK = 116] = "TRACK", TAG_ID2[TAG_ID2.TT = 117] = "TT", TAG_ID2[TAG_ID2.U = 118] = "U", TAG_ID2[TAG_ID2.UL = 119] = "UL", TAG_ID2[TAG_ID2.SVG = 120] = "SVG", TAG_ID2[TAG_ID2.VAR = 121] = "VAR", TAG_ID2[TAG_ID2.WBR = 122] = "WBR", TAG_ID2[TAG_ID2.XMP = 123] = "XMP";
 })(TAG_ID || (TAG_ID = {}));
 var TAG_NAME_TO_ID = /* @__PURE__ */ new Map([
   [TAG_NAMES.A, TAG_ID.A],
@@ -1162,8 +612,7 @@ function getTagID(tagName) {
   var _a2;
   return (_a2 = TAG_NAME_TO_ID.get(tagName)) !== null && _a2 !== void 0 ? _a2 : TAG_ID.UNKNOWN;
 }
-var $ = TAG_ID;
-var SPECIAL_ELEMENTS = {
+var $ = TAG_ID, SPECIAL_ELEMENTS = {
   [NS.HTML]: /* @__PURE__ */ new Set([
     $.ADDRESS,
     $.APPLET,
@@ -1252,9 +701,7 @@ var SPECIAL_ELEMENTS = {
   [NS.XLINK]: /* @__PURE__ */ new Set(),
   [NS.XML]: /* @__PURE__ */ new Set(),
   [NS.XMLNS]: /* @__PURE__ */ new Set()
-};
-var NUMBERED_HEADERS = /* @__PURE__ */ new Set([$.H1, $.H2, $.H3, $.H4, $.H5, $.H6]);
-var UNESCAPED_TEXT = /* @__PURE__ */ new Set([
+}, NUMBERED_HEADERS = /* @__PURE__ */ new Set([$.H1, $.H2, $.H3, $.H4, $.H5, $.H6]), UNESCAPED_TEXT = /* @__PURE__ */ new Set([
   TAG_NAMES.STYLE,
   TAG_NAMES.SCRIPT,
   TAG_NAMES.XMP,
@@ -1267,79 +714,7 @@ var UNESCAPED_TEXT = /* @__PURE__ */ new Set([
 // node_modules/parse5/dist/tokenizer/index.js
 var State;
 (function(State2) {
-  State2[State2["DATA"] = 0] = "DATA";
-  State2[State2["RCDATA"] = 1] = "RCDATA";
-  State2[State2["RAWTEXT"] = 2] = "RAWTEXT";
-  State2[State2["SCRIPT_DATA"] = 3] = "SCRIPT_DATA";
-  State2[State2["PLAINTEXT"] = 4] = "PLAINTEXT";
-  State2[State2["TAG_OPEN"] = 5] = "TAG_OPEN";
-  State2[State2["END_TAG_OPEN"] = 6] = "END_TAG_OPEN";
-  State2[State2["TAG_NAME"] = 7] = "TAG_NAME";
-  State2[State2["RCDATA_LESS_THAN_SIGN"] = 8] = "RCDATA_LESS_THAN_SIGN";
-  State2[State2["RCDATA_END_TAG_OPEN"] = 9] = "RCDATA_END_TAG_OPEN";
-  State2[State2["RCDATA_END_TAG_NAME"] = 10] = "RCDATA_END_TAG_NAME";
-  State2[State2["RAWTEXT_LESS_THAN_SIGN"] = 11] = "RAWTEXT_LESS_THAN_SIGN";
-  State2[State2["RAWTEXT_END_TAG_OPEN"] = 12] = "RAWTEXT_END_TAG_OPEN";
-  State2[State2["RAWTEXT_END_TAG_NAME"] = 13] = "RAWTEXT_END_TAG_NAME";
-  State2[State2["SCRIPT_DATA_LESS_THAN_SIGN"] = 14] = "SCRIPT_DATA_LESS_THAN_SIGN";
-  State2[State2["SCRIPT_DATA_END_TAG_OPEN"] = 15] = "SCRIPT_DATA_END_TAG_OPEN";
-  State2[State2["SCRIPT_DATA_END_TAG_NAME"] = 16] = "SCRIPT_DATA_END_TAG_NAME";
-  State2[State2["SCRIPT_DATA_ESCAPE_START"] = 17] = "SCRIPT_DATA_ESCAPE_START";
-  State2[State2["SCRIPT_DATA_ESCAPE_START_DASH"] = 18] = "SCRIPT_DATA_ESCAPE_START_DASH";
-  State2[State2["SCRIPT_DATA_ESCAPED"] = 19] = "SCRIPT_DATA_ESCAPED";
-  State2[State2["SCRIPT_DATA_ESCAPED_DASH"] = 20] = "SCRIPT_DATA_ESCAPED_DASH";
-  State2[State2["SCRIPT_DATA_ESCAPED_DASH_DASH"] = 21] = "SCRIPT_DATA_ESCAPED_DASH_DASH";
-  State2[State2["SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN"] = 22] = "SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN";
-  State2[State2["SCRIPT_DATA_ESCAPED_END_TAG_OPEN"] = 23] = "SCRIPT_DATA_ESCAPED_END_TAG_OPEN";
-  State2[State2["SCRIPT_DATA_ESCAPED_END_TAG_NAME"] = 24] = "SCRIPT_DATA_ESCAPED_END_TAG_NAME";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPE_START"] = 25] = "SCRIPT_DATA_DOUBLE_ESCAPE_START";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPED"] = 26] = "SCRIPT_DATA_DOUBLE_ESCAPED";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPED_DASH"] = 27] = "SCRIPT_DATA_DOUBLE_ESCAPED_DASH";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH"] = 28] = "SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN"] = 29] = "SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN";
-  State2[State2["SCRIPT_DATA_DOUBLE_ESCAPE_END"] = 30] = "SCRIPT_DATA_DOUBLE_ESCAPE_END";
-  State2[State2["BEFORE_ATTRIBUTE_NAME"] = 31] = "BEFORE_ATTRIBUTE_NAME";
-  State2[State2["ATTRIBUTE_NAME"] = 32] = "ATTRIBUTE_NAME";
-  State2[State2["AFTER_ATTRIBUTE_NAME"] = 33] = "AFTER_ATTRIBUTE_NAME";
-  State2[State2["BEFORE_ATTRIBUTE_VALUE"] = 34] = "BEFORE_ATTRIBUTE_VALUE";
-  State2[State2["ATTRIBUTE_VALUE_DOUBLE_QUOTED"] = 35] = "ATTRIBUTE_VALUE_DOUBLE_QUOTED";
-  State2[State2["ATTRIBUTE_VALUE_SINGLE_QUOTED"] = 36] = "ATTRIBUTE_VALUE_SINGLE_QUOTED";
-  State2[State2["ATTRIBUTE_VALUE_UNQUOTED"] = 37] = "ATTRIBUTE_VALUE_UNQUOTED";
-  State2[State2["AFTER_ATTRIBUTE_VALUE_QUOTED"] = 38] = "AFTER_ATTRIBUTE_VALUE_QUOTED";
-  State2[State2["SELF_CLOSING_START_TAG"] = 39] = "SELF_CLOSING_START_TAG";
-  State2[State2["BOGUS_COMMENT"] = 40] = "BOGUS_COMMENT";
-  State2[State2["MARKUP_DECLARATION_OPEN"] = 41] = "MARKUP_DECLARATION_OPEN";
-  State2[State2["COMMENT_START"] = 42] = "COMMENT_START";
-  State2[State2["COMMENT_START_DASH"] = 43] = "COMMENT_START_DASH";
-  State2[State2["COMMENT"] = 44] = "COMMENT";
-  State2[State2["COMMENT_LESS_THAN_SIGN"] = 45] = "COMMENT_LESS_THAN_SIGN";
-  State2[State2["COMMENT_LESS_THAN_SIGN_BANG"] = 46] = "COMMENT_LESS_THAN_SIGN_BANG";
-  State2[State2["COMMENT_LESS_THAN_SIGN_BANG_DASH"] = 47] = "COMMENT_LESS_THAN_SIGN_BANG_DASH";
-  State2[State2["COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH"] = 48] = "COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH";
-  State2[State2["COMMENT_END_DASH"] = 49] = "COMMENT_END_DASH";
-  State2[State2["COMMENT_END"] = 50] = "COMMENT_END";
-  State2[State2["COMMENT_END_BANG"] = 51] = "COMMENT_END_BANG";
-  State2[State2["DOCTYPE"] = 52] = "DOCTYPE";
-  State2[State2["BEFORE_DOCTYPE_NAME"] = 53] = "BEFORE_DOCTYPE_NAME";
-  State2[State2["DOCTYPE_NAME"] = 54] = "DOCTYPE_NAME";
-  State2[State2["AFTER_DOCTYPE_NAME"] = 55] = "AFTER_DOCTYPE_NAME";
-  State2[State2["AFTER_DOCTYPE_PUBLIC_KEYWORD"] = 56] = "AFTER_DOCTYPE_PUBLIC_KEYWORD";
-  State2[State2["BEFORE_DOCTYPE_PUBLIC_IDENTIFIER"] = 57] = "BEFORE_DOCTYPE_PUBLIC_IDENTIFIER";
-  State2[State2["DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED"] = 58] = "DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED";
-  State2[State2["DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED"] = 59] = "DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED";
-  State2[State2["AFTER_DOCTYPE_PUBLIC_IDENTIFIER"] = 60] = "AFTER_DOCTYPE_PUBLIC_IDENTIFIER";
-  State2[State2["BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS"] = 61] = "BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS";
-  State2[State2["AFTER_DOCTYPE_SYSTEM_KEYWORD"] = 62] = "AFTER_DOCTYPE_SYSTEM_KEYWORD";
-  State2[State2["BEFORE_DOCTYPE_SYSTEM_IDENTIFIER"] = 63] = "BEFORE_DOCTYPE_SYSTEM_IDENTIFIER";
-  State2[State2["DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED"] = 64] = "DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED";
-  State2[State2["DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED"] = 65] = "DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED";
-  State2[State2["AFTER_DOCTYPE_SYSTEM_IDENTIFIER"] = 66] = "AFTER_DOCTYPE_SYSTEM_IDENTIFIER";
-  State2[State2["BOGUS_DOCTYPE"] = 67] = "BOGUS_DOCTYPE";
-  State2[State2["CDATA_SECTION"] = 68] = "CDATA_SECTION";
-  State2[State2["CDATA_SECTION_BRACKET"] = 69] = "CDATA_SECTION_BRACKET";
-  State2[State2["CDATA_SECTION_END"] = 70] = "CDATA_SECTION_END";
-  State2[State2["CHARACTER_REFERENCE"] = 71] = "CHARACTER_REFERENCE";
-  State2[State2["AMBIGUOUS_AMPERSAND"] = 72] = "AMBIGUOUS_AMPERSAND";
+  State2[State2.DATA = 0] = "DATA", State2[State2.RCDATA = 1] = "RCDATA", State2[State2.RAWTEXT = 2] = "RAWTEXT", State2[State2.SCRIPT_DATA = 3] = "SCRIPT_DATA", State2[State2.PLAINTEXT = 4] = "PLAINTEXT", State2[State2.TAG_OPEN = 5] = "TAG_OPEN", State2[State2.END_TAG_OPEN = 6] = "END_TAG_OPEN", State2[State2.TAG_NAME = 7] = "TAG_NAME", State2[State2.RCDATA_LESS_THAN_SIGN = 8] = "RCDATA_LESS_THAN_SIGN", State2[State2.RCDATA_END_TAG_OPEN = 9] = "RCDATA_END_TAG_OPEN", State2[State2.RCDATA_END_TAG_NAME = 10] = "RCDATA_END_TAG_NAME", State2[State2.RAWTEXT_LESS_THAN_SIGN = 11] = "RAWTEXT_LESS_THAN_SIGN", State2[State2.RAWTEXT_END_TAG_OPEN = 12] = "RAWTEXT_END_TAG_OPEN", State2[State2.RAWTEXT_END_TAG_NAME = 13] = "RAWTEXT_END_TAG_NAME", State2[State2.SCRIPT_DATA_LESS_THAN_SIGN = 14] = "SCRIPT_DATA_LESS_THAN_SIGN", State2[State2.SCRIPT_DATA_END_TAG_OPEN = 15] = "SCRIPT_DATA_END_TAG_OPEN", State2[State2.SCRIPT_DATA_END_TAG_NAME = 16] = "SCRIPT_DATA_END_TAG_NAME", State2[State2.SCRIPT_DATA_ESCAPE_START = 17] = "SCRIPT_DATA_ESCAPE_START", State2[State2.SCRIPT_DATA_ESCAPE_START_DASH = 18] = "SCRIPT_DATA_ESCAPE_START_DASH", State2[State2.SCRIPT_DATA_ESCAPED = 19] = "SCRIPT_DATA_ESCAPED", State2[State2.SCRIPT_DATA_ESCAPED_DASH = 20] = "SCRIPT_DATA_ESCAPED_DASH", State2[State2.SCRIPT_DATA_ESCAPED_DASH_DASH = 21] = "SCRIPT_DATA_ESCAPED_DASH_DASH", State2[State2.SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN = 22] = "SCRIPT_DATA_ESCAPED_LESS_THAN_SIGN", State2[State2.SCRIPT_DATA_ESCAPED_END_TAG_OPEN = 23] = "SCRIPT_DATA_ESCAPED_END_TAG_OPEN", State2[State2.SCRIPT_DATA_ESCAPED_END_TAG_NAME = 24] = "SCRIPT_DATA_ESCAPED_END_TAG_NAME", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPE_START = 25] = "SCRIPT_DATA_DOUBLE_ESCAPE_START", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPED = 26] = "SCRIPT_DATA_DOUBLE_ESCAPED", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPED_DASH = 27] = "SCRIPT_DATA_DOUBLE_ESCAPED_DASH", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH = 28] = "SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN = 29] = "SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN", State2[State2.SCRIPT_DATA_DOUBLE_ESCAPE_END = 30] = "SCRIPT_DATA_DOUBLE_ESCAPE_END", State2[State2.BEFORE_ATTRIBUTE_NAME = 31] = "BEFORE_ATTRIBUTE_NAME", State2[State2.ATTRIBUTE_NAME = 32] = "ATTRIBUTE_NAME", State2[State2.AFTER_ATTRIBUTE_NAME = 33] = "AFTER_ATTRIBUTE_NAME", State2[State2.BEFORE_ATTRIBUTE_VALUE = 34] = "BEFORE_ATTRIBUTE_VALUE", State2[State2.ATTRIBUTE_VALUE_DOUBLE_QUOTED = 35] = "ATTRIBUTE_VALUE_DOUBLE_QUOTED", State2[State2.ATTRIBUTE_VALUE_SINGLE_QUOTED = 36] = "ATTRIBUTE_VALUE_SINGLE_QUOTED", State2[State2.ATTRIBUTE_VALUE_UNQUOTED = 37] = "ATTRIBUTE_VALUE_UNQUOTED", State2[State2.AFTER_ATTRIBUTE_VALUE_QUOTED = 38] = "AFTER_ATTRIBUTE_VALUE_QUOTED", State2[State2.SELF_CLOSING_START_TAG = 39] = "SELF_CLOSING_START_TAG", State2[State2.BOGUS_COMMENT = 40] = "BOGUS_COMMENT", State2[State2.MARKUP_DECLARATION_OPEN = 41] = "MARKUP_DECLARATION_OPEN", State2[State2.COMMENT_START = 42] = "COMMENT_START", State2[State2.COMMENT_START_DASH = 43] = "COMMENT_START_DASH", State2[State2.COMMENT = 44] = "COMMENT", State2[State2.COMMENT_LESS_THAN_SIGN = 45] = "COMMENT_LESS_THAN_SIGN", State2[State2.COMMENT_LESS_THAN_SIGN_BANG = 46] = "COMMENT_LESS_THAN_SIGN_BANG", State2[State2.COMMENT_LESS_THAN_SIGN_BANG_DASH = 47] = "COMMENT_LESS_THAN_SIGN_BANG_DASH", State2[State2.COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH = 48] = "COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH", State2[State2.COMMENT_END_DASH = 49] = "COMMENT_END_DASH", State2[State2.COMMENT_END = 50] = "COMMENT_END", State2[State2.COMMENT_END_BANG = 51] = "COMMENT_END_BANG", State2[State2.DOCTYPE = 52] = "DOCTYPE", State2[State2.BEFORE_DOCTYPE_NAME = 53] = "BEFORE_DOCTYPE_NAME", State2[State2.DOCTYPE_NAME = 54] = "DOCTYPE_NAME", State2[State2.AFTER_DOCTYPE_NAME = 55] = "AFTER_DOCTYPE_NAME", State2[State2.AFTER_DOCTYPE_PUBLIC_KEYWORD = 56] = "AFTER_DOCTYPE_PUBLIC_KEYWORD", State2[State2.BEFORE_DOCTYPE_PUBLIC_IDENTIFIER = 57] = "BEFORE_DOCTYPE_PUBLIC_IDENTIFIER", State2[State2.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED = 58] = "DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED", State2[State2.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED = 59] = "DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED", State2[State2.AFTER_DOCTYPE_PUBLIC_IDENTIFIER = 60] = "AFTER_DOCTYPE_PUBLIC_IDENTIFIER", State2[State2.BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS = 61] = "BETWEEN_DOCTYPE_PUBLIC_AND_SYSTEM_IDENTIFIERS", State2[State2.AFTER_DOCTYPE_SYSTEM_KEYWORD = 62] = "AFTER_DOCTYPE_SYSTEM_KEYWORD", State2[State2.BEFORE_DOCTYPE_SYSTEM_IDENTIFIER = 63] = "BEFORE_DOCTYPE_SYSTEM_IDENTIFIER", State2[State2.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED = 64] = "DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED", State2[State2.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED = 65] = "DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED", State2[State2.AFTER_DOCTYPE_SYSTEM_IDENTIFIER = 66] = "AFTER_DOCTYPE_SYSTEM_IDENTIFIER", State2[State2.BOGUS_DOCTYPE = 67] = "BOGUS_DOCTYPE", State2[State2.CDATA_SECTION = 68] = "CDATA_SECTION", State2[State2.CDATA_SECTION_BRACKET = 69] = "CDATA_SECTION_BRACKET", State2[State2.CDATA_SECTION_END = 70] = "CDATA_SECTION_END", State2[State2.CHARACTER_REFERENCE = 71] = "CHARACTER_REFERENCE", State2[State2.AMBIGUOUS_AMPERSAND = 72] = "AMBIGUOUS_AMPERSAND";
 })(State || (State = {}));
 var TokenizerMode = {
   DATA: State.DATA,
@@ -1374,40 +749,12 @@ function isScriptDataDoubleEscapeSequenceEnd(cp) {
   return isWhitespace(cp) || cp === CODE_POINTS.SOLIDUS || cp === CODE_POINTS.GREATER_THAN_SIGN;
 }
 function getErrorForNumericCharacterReference(code) {
-  if (code === CODE_POINTS.NULL) {
-    return ERR.nullCharacterReference;
-  } else if (code > 1114111) {
-    return ERR.characterReferenceOutsideUnicodeRange;
-  } else if (isSurrogate(code)) {
-    return ERR.surrogateCharacterReference;
-  } else if (isUndefinedCodePoint(code)) {
-    return ERR.noncharacterCharacterReference;
-  } else if (isControlCodePoint(code) || code === CODE_POINTS.CARRIAGE_RETURN) {
-    return ERR.controlCharacterReference;
-  }
-  return null;
+  return code === CODE_POINTS.NULL ? ERR.nullCharacterReference : code > 1114111 ? ERR.characterReferenceOutsideUnicodeRange : isSurrogate(code) ? ERR.surrogateCharacterReference : isUndefinedCodePoint(code) ? ERR.noncharacterCharacterReference : isControlCodePoint(code) || code === CODE_POINTS.CARRIAGE_RETURN ? ERR.controlCharacterReference : null;
 }
 var Tokenizer = class {
   constructor(options2, handler) {
-    this.options = options2;
-    this.handler = handler;
-    this.paused = false;
-    this.inLoop = false;
-    this.inForeignNode = false;
-    this.lastStartTagName = "";
-    this.active = false;
-    this.state = State.DATA;
-    this.returnState = State.DATA;
-    this.entityStartPos = 0;
-    this.consumedAfterSnapshot = -1;
-    this.currentCharacterToken = null;
-    this.currentToken = null;
-    this.currentAttr = { name: "", value: "" };
-    this.preprocessor = new Preprocessor(handler);
-    this.currentLocation = this.getCurrentLocation(-1);
-    this.entityDecoder = new EntityDecoder(htmlDecodeTree, (cp, consumed) => {
-      this.preprocessor.pos = this.entityStartPos + consumed - 1;
-      this._flushCodePointConsumedAsCharacterReference(cp);
+    this.options = options2, this.handler = handler, this.paused = !1, this.inLoop = !1, this.inForeignNode = !1, this.lastStartTagName = "", this.active = !1, this.state = State.DATA, this.returnState = State.DATA, this.entityStartPos = 0, this.consumedAfterSnapshot = -1, this.currentCharacterToken = null, this.currentToken = null, this.currentAttr = { name: "", value: "" }, this.preprocessor = new Preprocessor(handler), this.currentLocation = this.getCurrentLocation(-1), this.entityDecoder = new EntityDecoder(htmlDecodeTree, (cp, consumed) => {
+      this.preprocessor.pos = this.entityStartPos + consumed - 1, this._flushCodePointConsumedAsCharacterReference(cp);
     }, handler.onParseError ? {
       missingSemicolonAfterCharacterReference: () => {
         this._err(ERR.missingSemicolonAfterCharacterReference, 1);
@@ -1416,100 +763,67 @@ var Tokenizer = class {
         this._err(ERR.absenceOfDigitsInNumericCharacterReference, this.entityStartPos - this.preprocessor.pos + consumed);
       },
       validateNumericCharacterReference: (code) => {
-        const error = getErrorForNumericCharacterReference(code);
-        if (error)
-          this._err(error, 1);
+        let error = getErrorForNumericCharacterReference(code);
+        error && this._err(error, 1);
       }
     } : void 0);
   }
   //Errors
   _err(code, cpOffset = 0) {
     var _a2, _b;
-    (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 ? void 0 : _b.call(_a2, this.preprocessor.getError(code, cpOffset));
+    (_b = (_a2 = this.handler).onParseError) === null || _b === void 0 || _b.call(_a2, this.preprocessor.getError(code, cpOffset));
   }
   // NOTE: `offset` may never run across line boundaries.
   getCurrentLocation(offset) {
-    if (!this.options.sourceCodeLocationInfo) {
-      return null;
-    }
-    return {
+    return this.options.sourceCodeLocationInfo ? {
       startLine: this.preprocessor.line,
       startCol: this.preprocessor.col - offset,
       startOffset: this.preprocessor.offset - offset,
       endLine: -1,
       endCol: -1,
       endOffset: -1
-    };
+    } : null;
   }
   _runParsingLoop() {
-    if (this.inLoop)
-      return;
-    this.inLoop = true;
-    while (this.active && !this.paused) {
-      this.consumedAfterSnapshot = 0;
-      const cp = this._consume();
-      if (!this._ensureHibernation()) {
-        this._callState(cp);
+    if (!this.inLoop) {
+      for (this.inLoop = !0; this.active && !this.paused; ) {
+        this.consumedAfterSnapshot = 0;
+        let cp = this._consume();
+        this._ensureHibernation() || this._callState(cp);
       }
+      this.inLoop = !1;
     }
-    this.inLoop = false;
   }
   //API
   pause() {
-    this.paused = true;
+    this.paused = !0;
   }
   resume(writeCallback) {
-    if (!this.paused) {
+    if (!this.paused)
       throw new Error("Parser was already resumed");
-    }
-    this.paused = false;
-    if (this.inLoop)
-      return;
-    this._runParsingLoop();
-    if (!this.paused) {
-      writeCallback === null || writeCallback === void 0 ? void 0 : writeCallback();
-    }
+    this.paused = !1, !this.inLoop && (this._runParsingLoop(), this.paused || writeCallback?.());
   }
   write(chunk, isLastChunk, writeCallback) {
-    this.active = true;
-    this.preprocessor.write(chunk, isLastChunk);
-    this._runParsingLoop();
-    if (!this.paused) {
-      writeCallback === null || writeCallback === void 0 ? void 0 : writeCallback();
-    }
+    this.active = !0, this.preprocessor.write(chunk, isLastChunk), this._runParsingLoop(), this.paused || writeCallback?.();
   }
   insertHtmlAtCurrentPos(chunk) {
-    this.active = true;
-    this.preprocessor.insertHtmlAtCurrentPos(chunk);
-    this._runParsingLoop();
+    this.active = !0, this.preprocessor.insertHtmlAtCurrentPos(chunk), this._runParsingLoop();
   }
   //Hibernation
   _ensureHibernation() {
-    if (this.preprocessor.endOfChunkHit) {
-      this.preprocessor.retreat(this.consumedAfterSnapshot);
-      this.consumedAfterSnapshot = 0;
-      this.active = false;
-      return true;
-    }
-    return false;
+    return this.preprocessor.endOfChunkHit ? (this.preprocessor.retreat(this.consumedAfterSnapshot), this.consumedAfterSnapshot = 0, this.active = !1, !0) : !1;
   }
   //Consumption
   _consume() {
-    this.consumedAfterSnapshot++;
-    return this.preprocessor.advance();
+    return this.consumedAfterSnapshot++, this.preprocessor.advance();
   }
   _advanceBy(count) {
     this.consumedAfterSnapshot += count;
-    for (let i = 0; i < count; i++) {
+    for (let i = 0; i < count; i++)
       this.preprocessor.advance();
-    }
   }
   _consumeSequenceIfMatch(pattern, caseSensitive) {
-    if (this.preprocessor.startsWith(pattern, caseSensitive)) {
-      this._advanceBy(pattern.length - 1);
-      return true;
-    }
-    return false;
+    return this.preprocessor.startsWith(pattern, caseSensitive) ? (this._advanceBy(pattern.length - 1), !0) : !1;
   }
   //Token creation
   _createStartTagToken() {
@@ -1517,8 +831,8 @@ var Tokenizer = class {
       type: TokenType.START_TAG,
       tagName: "",
       tagID: TAG_ID.UNKNOWN,
-      selfClosing: false,
-      ackSelfClosing: false,
+      selfClosing: !1,
+      ackSelfClosing: !1,
       attrs: [],
       location: this.getCurrentLocation(1)
     };
@@ -1528,8 +842,8 @@ var Tokenizer = class {
       type: TokenType.END_TAG,
       tagName: "",
       tagID: TAG_ID.UNKNOWN,
-      selfClosing: false,
-      ackSelfClosing: false,
+      selfClosing: !1,
+      ackSelfClosing: !1,
       attrs: [],
       location: this.getCurrentLocation(2)
     };
@@ -1545,7 +859,7 @@ var Tokenizer = class {
     this.currentToken = {
       type: TokenType.DOCTYPE,
       name: initialName,
-      forceQuirks: false,
+      forceQuirks: !1,
       publicId: null,
       systemId: null,
       location: this.currentLocation
@@ -1563,78 +877,39 @@ var Tokenizer = class {
     this.currentAttr = {
       name: attrNameFirstCh,
       value: ""
-    };
-    this.currentLocation = this.getCurrentLocation(0);
+    }, this.currentLocation = this.getCurrentLocation(0);
   }
   _leaveAttrName() {
-    var _a2;
-    var _b;
-    const token = this.currentToken;
+    var _a2, _b;
+    let token = this.currentToken;
     if (getTokenAttr(token, this.currentAttr.name) === null) {
-      token.attrs.push(this.currentAttr);
-      if (token.location && this.currentLocation) {
-        const attrLocations = (_a2 = (_b = token.location).attrs) !== null && _a2 !== void 0 ? _a2 : _b.attrs = /* @__PURE__ */ Object.create(null);
-        attrLocations[this.currentAttr.name] = this.currentLocation;
-        this._leaveAttrValue();
+      if (token.attrs.push(this.currentAttr), token.location && this.currentLocation) {
+        let attrLocations = (_a2 = (_b = token.location).attrs) !== null && _a2 !== void 0 ? _a2 : _b.attrs = /* @__PURE__ */ Object.create(null);
+        attrLocations[this.currentAttr.name] = this.currentLocation, this._leaveAttrValue();
       }
-    } else {
+    } else
       this._err(ERR.duplicateAttribute);
-    }
   }
   _leaveAttrValue() {
-    if (this.currentLocation) {
-      this.currentLocation.endLine = this.preprocessor.line;
-      this.currentLocation.endCol = this.preprocessor.col;
-      this.currentLocation.endOffset = this.preprocessor.offset;
-    }
+    this.currentLocation && (this.currentLocation.endLine = this.preprocessor.line, this.currentLocation.endCol = this.preprocessor.col, this.currentLocation.endOffset = this.preprocessor.offset);
   }
   //Token emission
   prepareToken(ct) {
-    this._emitCurrentCharacterToken(ct.location);
-    this.currentToken = null;
-    if (ct.location) {
-      ct.location.endLine = this.preprocessor.line;
-      ct.location.endCol = this.preprocessor.col + 1;
-      ct.location.endOffset = this.preprocessor.offset + 1;
-    }
-    this.currentLocation = this.getCurrentLocation(-1);
+    this._emitCurrentCharacterToken(ct.location), this.currentToken = null, ct.location && (ct.location.endLine = this.preprocessor.line, ct.location.endCol = this.preprocessor.col + 1, ct.location.endOffset = this.preprocessor.offset + 1), this.currentLocation = this.getCurrentLocation(-1);
   }
   emitCurrentTagToken() {
-    const ct = this.currentToken;
-    this.prepareToken(ct);
-    ct.tagID = getTagID(ct.tagName);
-    if (ct.type === TokenType.START_TAG) {
-      this.lastStartTagName = ct.tagName;
-      this.handler.onStartTag(ct);
-    } else {
-      if (ct.attrs.length > 0) {
-        this._err(ERR.endTagWithAttributes);
-      }
-      if (ct.selfClosing) {
-        this._err(ERR.endTagWithTrailingSolidus);
-      }
-      this.handler.onEndTag(ct);
-    }
-    this.preprocessor.dropParsedChunk();
+    let ct = this.currentToken;
+    this.prepareToken(ct), ct.tagID = getTagID(ct.tagName), ct.type === TokenType.START_TAG ? (this.lastStartTagName = ct.tagName, this.handler.onStartTag(ct)) : (ct.attrs.length > 0 && this._err(ERR.endTagWithAttributes), ct.selfClosing && this._err(ERR.endTagWithTrailingSolidus), this.handler.onEndTag(ct)), this.preprocessor.dropParsedChunk();
   }
   emitCurrentComment(ct) {
-    this.prepareToken(ct);
-    this.handler.onComment(ct);
-    this.preprocessor.dropParsedChunk();
+    this.prepareToken(ct), this.handler.onComment(ct), this.preprocessor.dropParsedChunk();
   }
   emitCurrentDoctype(ct) {
-    this.prepareToken(ct);
-    this.handler.onDoctype(ct);
-    this.preprocessor.dropParsedChunk();
+    this.prepareToken(ct), this.handler.onDoctype(ct), this.preprocessor.dropParsedChunk();
   }
   _emitCurrentCharacterToken(nextLocation) {
     if (this.currentCharacterToken) {
-      if (nextLocation && this.currentCharacterToken.location) {
-        this.currentCharacterToken.location.endLine = nextLocation.startLine;
-        this.currentCharacterToken.location.endCol = nextLocation.startCol;
-        this.currentCharacterToken.location.endOffset = nextLocation.startOffset;
-      }
-      switch (this.currentCharacterToken.type) {
+      switch (nextLocation && this.currentCharacterToken.location && (this.currentCharacterToken.location.endLine = nextLocation.startLine, this.currentCharacterToken.location.endCol = nextLocation.startCol, this.currentCharacterToken.location.endOffset = nextLocation.startOffset), this.currentCharacterToken.type) {
         case TokenType.CHARACTER: {
           this.handler.onCharacter(this.currentCharacterToken);
           break;
@@ -1652,15 +927,8 @@ var Tokenizer = class {
     }
   }
   _emitEOFToken() {
-    const location = this.getCurrentLocation(0);
-    if (location) {
-      location.endLine = location.startLine;
-      location.endCol = location.startCol;
-      location.endOffset = location.startOffset;
-    }
-    this._emitCurrentCharacterToken(location);
-    this.handler.onEof({ type: TokenType.EOF, location });
-    this.active = false;
+    let location = this.getCurrentLocation(0);
+    location && (location.endLine = location.startLine, location.endCol = location.startCol, location.endOffset = location.startOffset), this._emitCurrentCharacterToken(location), this.handler.onEof({ type: TokenType.EOF, location }), this.active = !1;
   }
   //Characters emission
   //OPTIMIZATION: The specification uses only one type of character token (one token per character).
@@ -1672,20 +940,16 @@ var Tokenizer = class {
   //2)TokenType.WHITESPACE_CHARACTER - any whitespace/new-line character sequences (e.g. '\n  \r\t   \f')
   //3)TokenType.CHARACTER - any character sequence which don't belong to groups 1 and 2 (e.g. 'abcdef1234@@#$%^')
   _appendCharToCurrentCharacterToken(type, ch) {
-    if (this.currentCharacterToken) {
+    if (this.currentCharacterToken)
       if (this.currentCharacterToken.type === type) {
         this.currentCharacterToken.chars += ch;
         return;
-      } else {
-        this.currentLocation = this.getCurrentLocation(0);
-        this._emitCurrentCharacterToken(this.currentLocation);
-        this.preprocessor.dropParsedChunk();
-      }
-    }
+      } else
+        this.currentLocation = this.getCurrentLocation(0), this._emitCurrentCharacterToken(this.currentLocation), this.preprocessor.dropParsedChunk();
     this._createCharacterToken(type, ch);
   }
   _emitCodePoint(cp) {
-    const type = isWhitespace(cp) ? TokenType.WHITESPACE_CHARACTER : cp === CODE_POINTS.NULL ? TokenType.NULL_CHARACTER : TokenType.CHARACTER;
+    let type = isWhitespace(cp) ? TokenType.WHITESPACE_CHARACTER : cp === CODE_POINTS.NULL ? TokenType.NULL_CHARACTER : TokenType.CHARACTER;
     this._appendCharToCurrentCharacterToken(type, String.fromCodePoint(cp));
   }
   //NOTE: used when we emit characters explicitly.
@@ -1695,20 +959,13 @@ var Tokenizer = class {
   }
   // Character reference helpers
   _startCharacterReference() {
-    this.returnState = this.state;
-    this.state = State.CHARACTER_REFERENCE;
-    this.entityStartPos = this.preprocessor.pos;
-    this.entityDecoder.startEntity(this._isCharacterReferenceInAttribute() ? DecodingMode.Attribute : DecodingMode.Legacy);
+    this.returnState = this.state, this.state = State.CHARACTER_REFERENCE, this.entityStartPos = this.preprocessor.pos, this.entityDecoder.startEntity(this._isCharacterReferenceInAttribute() ? DecodingMode.Attribute : DecodingMode.Legacy);
   }
   _isCharacterReferenceInAttribute() {
     return this.returnState === State.ATTRIBUTE_VALUE_DOUBLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_SINGLE_QUOTED || this.returnState === State.ATTRIBUTE_VALUE_UNQUOTED;
   }
   _flushCodePointConsumedAsCharacterReference(cp) {
-    if (this._isCharacterReferenceInAttribute()) {
-      this.currentAttr.value += String.fromCodePoint(cp);
-    } else {
-      this._emitCodePoint(cp);
-    }
+    this._isCharacterReferenceInAttribute() ? this.currentAttr.value += String.fromCodePoint(cp) : this._emitCodePoint(cp);
   }
   // Calling states this way turns out to be much faster than any other approach.
   _callState(cp) {
@@ -2005,9 +1262,8 @@ var Tokenizer = class {
         this._stateAmbiguousAmpersand(cp);
         break;
       }
-      default: {
+      default:
         throw new Error("Unknown state");
-      }
     }
   }
   // State machine
@@ -2024,17 +1280,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitCodePoint(cp);
+        this._err(ERR.unexpectedNullCharacter), this._emitCodePoint(cp);
         break;
       }
       case CODE_POINTS.EOF: {
         this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   //  RCDATA state
@@ -2050,17 +1304,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
         this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // RAWTEXT state
@@ -2072,17 +1324,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
         this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // Script data state
@@ -2094,17 +1344,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
         this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // PLAINTEXT state
@@ -2112,27 +1360,23 @@ var Tokenizer = class {
   _statePlaintext(cp) {
     switch (cp) {
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
         this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // Tag open state
   //------------------------------------------------------------------
   _stateTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this._createStartTagToken();
-      this.state = State.TAG_NAME;
-      this._stateTagName(cp);
-    } else
+    if (isAsciiLetter(cp))
+      this._createStartTagToken(), this.state = State.TAG_NAME, this._stateTagName(cp);
+    else
       switch (cp) {
         case CODE_POINTS.EXCLAMATION_MARK: {
           this.state = State.MARKUP_DECLARATION_OPEN;
@@ -2143,58 +1387,40 @@ var Tokenizer = class {
           break;
         }
         case CODE_POINTS.QUESTION_MARK: {
-          this._err(ERR.unexpectedQuestionMarkInsteadOfTagName);
-          this._createCommentToken(1);
-          this.state = State.BOGUS_COMMENT;
-          this._stateBogusComment(cp);
+          this._err(ERR.unexpectedQuestionMarkInsteadOfTagName), this._createCommentToken(1), this.state = State.BOGUS_COMMENT, this._stateBogusComment(cp);
           break;
         }
         case CODE_POINTS.EOF: {
-          this._err(ERR.eofBeforeTagName);
-          this._emitChars("<");
-          this._emitEOFToken();
+          this._err(ERR.eofBeforeTagName), this._emitChars("<"), this._emitEOFToken();
           break;
         }
-        default: {
-          this._err(ERR.invalidFirstCharacterOfTagName);
-          this._emitChars("<");
-          this.state = State.DATA;
-          this._stateData(cp);
-        }
+        default:
+          this._err(ERR.invalidFirstCharacterOfTagName), this._emitChars("<"), this.state = State.DATA, this._stateData(cp);
       }
   }
   // End tag open state
   //------------------------------------------------------------------
   _stateEndTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this._createEndTagToken();
-      this.state = State.TAG_NAME;
-      this._stateTagName(cp);
-    } else
+    if (isAsciiLetter(cp))
+      this._createEndTagToken(), this.state = State.TAG_NAME, this._stateTagName(cp);
+    else
       switch (cp) {
         case CODE_POINTS.GREATER_THAN_SIGN: {
-          this._err(ERR.missingEndTagName);
-          this.state = State.DATA;
+          this._err(ERR.missingEndTagName), this.state = State.DATA;
           break;
         }
         case CODE_POINTS.EOF: {
-          this._err(ERR.eofBeforeTagName);
-          this._emitChars("</");
-          this._emitEOFToken();
+          this._err(ERR.eofBeforeTagName), this._emitChars("</"), this._emitEOFToken();
           break;
         }
-        default: {
-          this._err(ERR.invalidFirstCharacterOfTagName);
-          this._createCommentToken(2);
-          this.state = State.BOGUS_COMMENT;
-          this._stateBogusComment(cp);
-        }
+        default:
+          this._err(ERR.invalidFirstCharacterOfTagName), this._createCommentToken(2), this.state = State.BOGUS_COMMENT, this._stateBogusComment(cp);
       }
   }
   // Tag name state
   //------------------------------------------------------------------
   _stateTagName(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
@@ -2208,121 +1434,69 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.tagName += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.tagName += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.tagName += String.fromCodePoint(isAsciiUpper(cp) ? toAsciiLower(cp) : cp);
-      }
     }
   }
   // RCDATA less-than sign state
   //------------------------------------------------------------------
   _stateRcdataLessThanSign(cp) {
-    if (cp === CODE_POINTS.SOLIDUS) {
-      this.state = State.RCDATA_END_TAG_OPEN;
-    } else {
-      this._emitChars("<");
-      this.state = State.RCDATA;
-      this._stateRcdata(cp);
-    }
+    cp === CODE_POINTS.SOLIDUS ? this.state = State.RCDATA_END_TAG_OPEN : (this._emitChars("<"), this.state = State.RCDATA, this._stateRcdata(cp));
   }
   // RCDATA end tag open state
   //------------------------------------------------------------------
   _stateRcdataEndTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this.state = State.RCDATA_END_TAG_NAME;
-      this._stateRcdataEndTagName(cp);
-    } else {
-      this._emitChars("</");
-      this.state = State.RCDATA;
-      this._stateRcdata(cp);
-    }
+    isAsciiLetter(cp) ? (this.state = State.RCDATA_END_TAG_NAME, this._stateRcdataEndTagName(cp)) : (this._emitChars("</"), this.state = State.RCDATA, this._stateRcdata(cp));
   }
   handleSpecialEndTag(_cp) {
-    if (!this.preprocessor.startsWith(this.lastStartTagName, false)) {
+    if (!this.preprocessor.startsWith(this.lastStartTagName, !1))
       return !this._ensureHibernation();
-    }
     this._createEndTagToken();
-    const token = this.currentToken;
-    token.tagName = this.lastStartTagName;
-    const cp = this.preprocessor.peek(this.lastStartTagName.length);
-    switch (cp) {
+    let token = this.currentToken;
+    switch (token.tagName = this.lastStartTagName, this.preprocessor.peek(this.lastStartTagName.length)) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
-        this._advanceBy(this.lastStartTagName.length);
-        this.state = State.BEFORE_ATTRIBUTE_NAME;
-        return false;
-      }
-      case CODE_POINTS.SOLIDUS: {
-        this._advanceBy(this.lastStartTagName.length);
-        this.state = State.SELF_CLOSING_START_TAG;
-        return false;
-      }
-      case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._advanceBy(this.lastStartTagName.length);
-        this.emitCurrentTagToken();
-        this.state = State.DATA;
-        return false;
-      }
-      default: {
+      case CODE_POINTS.FORM_FEED:
+        return this._advanceBy(this.lastStartTagName.length), this.state = State.BEFORE_ATTRIBUTE_NAME, !1;
+      case CODE_POINTS.SOLIDUS:
+        return this._advanceBy(this.lastStartTagName.length), this.state = State.SELF_CLOSING_START_TAG, !1;
+      case CODE_POINTS.GREATER_THAN_SIGN:
+        return this._advanceBy(this.lastStartTagName.length), this.emitCurrentTagToken(), this.state = State.DATA, !1;
+      default:
         return !this._ensureHibernation();
-      }
     }
   }
   // RCDATA end tag name state
   //------------------------------------------------------------------
   _stateRcdataEndTagName(cp) {
-    if (this.handleSpecialEndTag(cp)) {
-      this._emitChars("</");
-      this.state = State.RCDATA;
-      this._stateRcdata(cp);
-    }
+    this.handleSpecialEndTag(cp) && (this._emitChars("</"), this.state = State.RCDATA, this._stateRcdata(cp));
   }
   // RAWTEXT less-than sign state
   //------------------------------------------------------------------
   _stateRawtextLessThanSign(cp) {
-    if (cp === CODE_POINTS.SOLIDUS) {
-      this.state = State.RAWTEXT_END_TAG_OPEN;
-    } else {
-      this._emitChars("<");
-      this.state = State.RAWTEXT;
-      this._stateRawtext(cp);
-    }
+    cp === CODE_POINTS.SOLIDUS ? this.state = State.RAWTEXT_END_TAG_OPEN : (this._emitChars("<"), this.state = State.RAWTEXT, this._stateRawtext(cp));
   }
   // RAWTEXT end tag open state
   //------------------------------------------------------------------
   _stateRawtextEndTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this.state = State.RAWTEXT_END_TAG_NAME;
-      this._stateRawtextEndTagName(cp);
-    } else {
-      this._emitChars("</");
-      this.state = State.RAWTEXT;
-      this._stateRawtext(cp);
-    }
+    isAsciiLetter(cp) ? (this.state = State.RAWTEXT_END_TAG_NAME, this._stateRawtextEndTagName(cp)) : (this._emitChars("</"), this.state = State.RAWTEXT, this._stateRawtext(cp));
   }
   // RAWTEXT end tag name state
   //------------------------------------------------------------------
   _stateRawtextEndTagName(cp) {
-    if (this.handleSpecialEndTag(cp)) {
-      this._emitChars("</");
-      this.state = State.RAWTEXT;
-      this._stateRawtext(cp);
-    }
+    this.handleSpecialEndTag(cp) && (this._emitChars("</"), this.state = State.RAWTEXT, this._stateRawtext(cp));
   }
   // Script data less-than sign state
   //------------------------------------------------------------------
@@ -2333,67 +1507,39 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.EXCLAMATION_MARK: {
-        this.state = State.SCRIPT_DATA_ESCAPE_START;
-        this._emitChars("<!");
+        this.state = State.SCRIPT_DATA_ESCAPE_START, this._emitChars("<!");
         break;
       }
-      default: {
-        this._emitChars("<");
-        this.state = State.SCRIPT_DATA;
-        this._stateScriptData(cp);
-      }
+      default:
+        this._emitChars("<"), this.state = State.SCRIPT_DATA, this._stateScriptData(cp);
     }
   }
   // Script data end tag open state
   //------------------------------------------------------------------
   _stateScriptDataEndTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this.state = State.SCRIPT_DATA_END_TAG_NAME;
-      this._stateScriptDataEndTagName(cp);
-    } else {
-      this._emitChars("</");
-      this.state = State.SCRIPT_DATA;
-      this._stateScriptData(cp);
-    }
+    isAsciiLetter(cp) ? (this.state = State.SCRIPT_DATA_END_TAG_NAME, this._stateScriptDataEndTagName(cp)) : (this._emitChars("</"), this.state = State.SCRIPT_DATA, this._stateScriptData(cp));
   }
   // Script data end tag name state
   //------------------------------------------------------------------
   _stateScriptDataEndTagName(cp) {
-    if (this.handleSpecialEndTag(cp)) {
-      this._emitChars("</");
-      this.state = State.SCRIPT_DATA;
-      this._stateScriptData(cp);
-    }
+    this.handleSpecialEndTag(cp) && (this._emitChars("</"), this.state = State.SCRIPT_DATA, this._stateScriptData(cp));
   }
   // Script data escape start state
   //------------------------------------------------------------------
   _stateScriptDataEscapeStart(cp) {
-    if (cp === CODE_POINTS.HYPHEN_MINUS) {
-      this.state = State.SCRIPT_DATA_ESCAPE_START_DASH;
-      this._emitChars("-");
-    } else {
-      this.state = State.SCRIPT_DATA;
-      this._stateScriptData(cp);
-    }
+    cp === CODE_POINTS.HYPHEN_MINUS ? (this.state = State.SCRIPT_DATA_ESCAPE_START_DASH, this._emitChars("-")) : (this.state = State.SCRIPT_DATA, this._stateScriptData(cp));
   }
   // Script data escape start dash state
   //------------------------------------------------------------------
   _stateScriptDataEscapeStartDash(cp) {
-    if (cp === CODE_POINTS.HYPHEN_MINUS) {
-      this.state = State.SCRIPT_DATA_ESCAPED_DASH_DASH;
-      this._emitChars("-");
-    } else {
-      this.state = State.SCRIPT_DATA;
-      this._stateScriptData(cp);
-    }
+    cp === CODE_POINTS.HYPHEN_MINUS ? (this.state = State.SCRIPT_DATA_ESCAPED_DASH_DASH, this._emitChars("-")) : (this.state = State.SCRIPT_DATA, this._stateScriptData(cp));
   }
   // Script data escaped state
   //------------------------------------------------------------------
   _stateScriptDataEscaped(cp) {
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
-        this.state = State.SCRIPT_DATA_ESCAPED_DASH;
-        this._emitChars("-");
+        this.state = State.SCRIPT_DATA_ESCAPED_DASH, this._emitChars("-");
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
@@ -2401,18 +1547,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // Script data escaped dash state
@@ -2420,8 +1563,7 @@ var Tokenizer = class {
   _stateScriptDataEscapedDash(cp) {
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
-        this.state = State.SCRIPT_DATA_ESCAPED_DASH_DASH;
-        this._emitChars("-");
+        this.state = State.SCRIPT_DATA_ESCAPED_DASH_DASH, this._emitChars("-");
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
@@ -2429,20 +1571,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.state = State.SCRIPT_DATA_ESCAPED;
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this.state = State.SCRIPT_DATA_ESCAPED, this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
-        this.state = State.SCRIPT_DATA_ESCAPED;
-        this._emitCodePoint(cp);
-      }
+      default:
+        this.state = State.SCRIPT_DATA_ESCAPED, this._emitCodePoint(cp);
     }
   }
   // Script data escaped dash dash state
@@ -2458,104 +1595,68 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.SCRIPT_DATA;
-        this._emitChars(">");
+        this.state = State.SCRIPT_DATA, this._emitChars(">");
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.state = State.SCRIPT_DATA_ESCAPED;
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this.state = State.SCRIPT_DATA_ESCAPED, this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
-        this.state = State.SCRIPT_DATA_ESCAPED;
-        this._emitCodePoint(cp);
-      }
+      default:
+        this.state = State.SCRIPT_DATA_ESCAPED, this._emitCodePoint(cp);
     }
   }
   // Script data escaped less-than sign state
   //------------------------------------------------------------------
   _stateScriptDataEscapedLessThanSign(cp) {
-    if (cp === CODE_POINTS.SOLIDUS) {
-      this.state = State.SCRIPT_DATA_ESCAPED_END_TAG_OPEN;
-    } else if (isAsciiLetter(cp)) {
-      this._emitChars("<");
-      this.state = State.SCRIPT_DATA_DOUBLE_ESCAPE_START;
-      this._stateScriptDataDoubleEscapeStart(cp);
-    } else {
-      this._emitChars("<");
-      this.state = State.SCRIPT_DATA_ESCAPED;
-      this._stateScriptDataEscaped(cp);
-    }
+    cp === CODE_POINTS.SOLIDUS ? this.state = State.SCRIPT_DATA_ESCAPED_END_TAG_OPEN : isAsciiLetter(cp) ? (this._emitChars("<"), this.state = State.SCRIPT_DATA_DOUBLE_ESCAPE_START, this._stateScriptDataDoubleEscapeStart(cp)) : (this._emitChars("<"), this.state = State.SCRIPT_DATA_ESCAPED, this._stateScriptDataEscaped(cp));
   }
   // Script data escaped end tag open state
   //------------------------------------------------------------------
   _stateScriptDataEscapedEndTagOpen(cp) {
-    if (isAsciiLetter(cp)) {
-      this.state = State.SCRIPT_DATA_ESCAPED_END_TAG_NAME;
-      this._stateScriptDataEscapedEndTagName(cp);
-    } else {
-      this._emitChars("</");
-      this.state = State.SCRIPT_DATA_ESCAPED;
-      this._stateScriptDataEscaped(cp);
-    }
+    isAsciiLetter(cp) ? (this.state = State.SCRIPT_DATA_ESCAPED_END_TAG_NAME, this._stateScriptDataEscapedEndTagName(cp)) : (this._emitChars("</"), this.state = State.SCRIPT_DATA_ESCAPED, this._stateScriptDataEscaped(cp));
   }
   // Script data escaped end tag name state
   //------------------------------------------------------------------
   _stateScriptDataEscapedEndTagName(cp) {
-    if (this.handleSpecialEndTag(cp)) {
-      this._emitChars("</");
-      this.state = State.SCRIPT_DATA_ESCAPED;
-      this._stateScriptDataEscaped(cp);
-    }
+    this.handleSpecialEndTag(cp) && (this._emitChars("</"), this.state = State.SCRIPT_DATA_ESCAPED, this._stateScriptDataEscaped(cp));
   }
   // Script data double escape start state
   //------------------------------------------------------------------
   _stateScriptDataDoubleEscapeStart(cp) {
-    if (this.preprocessor.startsWith(SEQUENCES.SCRIPT, false) && isScriptDataDoubleEscapeSequenceEnd(this.preprocessor.peek(SEQUENCES.SCRIPT.length))) {
+    if (this.preprocessor.startsWith(SEQUENCES.SCRIPT, !1) && isScriptDataDoubleEscapeSequenceEnd(this.preprocessor.peek(SEQUENCES.SCRIPT.length))) {
       this._emitCodePoint(cp);
-      for (let i = 0; i < SEQUENCES.SCRIPT.length; i++) {
+      for (let i = 0; i < SEQUENCES.SCRIPT.length; i++)
         this._emitCodePoint(this._consume());
-      }
       this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-    } else if (!this._ensureHibernation()) {
-      this.state = State.SCRIPT_DATA_ESCAPED;
-      this._stateScriptDataEscaped(cp);
-    }
+    } else this._ensureHibernation() || (this.state = State.SCRIPT_DATA_ESCAPED, this._stateScriptDataEscaped(cp));
   }
   // Script data double escaped state
   //------------------------------------------------------------------
   _stateScriptDataDoubleEscaped(cp) {
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH;
-        this._emitChars("-");
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH, this._emitChars("-");
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN;
-        this._emitChars("<");
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN, this._emitChars("<");
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // Script data double escaped dash state
@@ -2563,30 +1664,23 @@ var Tokenizer = class {
   _stateScriptDataDoubleEscapedDash(cp) {
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH;
-        this._emitChars("-");
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_DASH_DASH, this._emitChars("-");
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN;
-        this._emitChars("<");
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN, this._emitChars("<");
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-        this._emitCodePoint(cp);
-      }
+      default:
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._emitCodePoint(cp);
     }
   }
   // Script data double escaped dash dash state
@@ -2598,56 +1692,39 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN;
-        this._emitChars("<");
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED_LESS_THAN_SIGN, this._emitChars("<");
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.SCRIPT_DATA;
-        this._emitChars(">");
+        this.state = State.SCRIPT_DATA, this._emitChars(">");
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-        this._emitChars(REPLACEMENT_CHARACTER);
+        this._err(ERR.unexpectedNullCharacter), this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._emitChars(REPLACEMENT_CHARACTER);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInScriptHtmlCommentLikeText);
-        this._emitEOFToken();
+        this._err(ERR.eofInScriptHtmlCommentLikeText), this._emitEOFToken();
         break;
       }
-      default: {
-        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-        this._emitCodePoint(cp);
-      }
+      default:
+        this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._emitCodePoint(cp);
     }
   }
   // Script data double escaped less-than sign state
   //------------------------------------------------------------------
   _stateScriptDataDoubleEscapedLessThanSign(cp) {
-    if (cp === CODE_POINTS.SOLIDUS) {
-      this.state = State.SCRIPT_DATA_DOUBLE_ESCAPE_END;
-      this._emitChars("/");
-    } else {
-      this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-      this._stateScriptDataDoubleEscaped(cp);
-    }
+    cp === CODE_POINTS.SOLIDUS ? (this.state = State.SCRIPT_DATA_DOUBLE_ESCAPE_END, this._emitChars("/")) : (this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._stateScriptDataDoubleEscaped(cp));
   }
   // Script data double escape end state
   //------------------------------------------------------------------
   _stateScriptDataDoubleEscapeEnd(cp) {
-    if (this.preprocessor.startsWith(SEQUENCES.SCRIPT, false) && isScriptDataDoubleEscapeSequenceEnd(this.preprocessor.peek(SEQUENCES.SCRIPT.length))) {
+    if (this.preprocessor.startsWith(SEQUENCES.SCRIPT, !1) && isScriptDataDoubleEscapeSequenceEnd(this.preprocessor.peek(SEQUENCES.SCRIPT.length))) {
       this._emitCodePoint(cp);
-      for (let i = 0; i < SEQUENCES.SCRIPT.length; i++) {
+      for (let i = 0; i < SEQUENCES.SCRIPT.length; i++)
         this._emitCodePoint(this._consume());
-      }
       this.state = State.SCRIPT_DATA_ESCAPED;
-    } else if (!this._ensureHibernation()) {
-      this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED;
-      this._stateScriptDataDoubleEscaped(cp);
-    }
+    } else this._ensureHibernation() || (this.state = State.SCRIPT_DATA_DOUBLE_ESCAPED, this._stateScriptDataDoubleEscaped(cp));
   }
   // Before attribute name state
   //------------------------------------------------------------------
@@ -2656,27 +1733,20 @@ var Tokenizer = class {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.SOLIDUS:
       case CODE_POINTS.GREATER_THAN_SIGN:
       case CODE_POINTS.EOF: {
-        this.state = State.AFTER_ATTRIBUTE_NAME;
-        this._stateAfterAttributeName(cp);
+        this.state = State.AFTER_ATTRIBUTE_NAME, this._stateAfterAttributeName(cp);
         break;
       }
       case CODE_POINTS.EQUALS_SIGN: {
-        this._err(ERR.unexpectedEqualsSignBeforeAttributeName);
-        this._createAttr("=");
-        this.state = State.ATTRIBUTE_NAME;
+        this._err(ERR.unexpectedEqualsSignBeforeAttributeName), this._createAttr("="), this.state = State.ATTRIBUTE_NAME;
         break;
       }
-      default: {
-        this._createAttr("");
-        this.state = State.ATTRIBUTE_NAME;
-        this._stateAttributeName(cp);
-      }
+      default:
+        this._createAttr(""), this.state = State.ATTRIBUTE_NAME, this._stateAttributeName(cp);
     }
   }
   // Attribute name state
@@ -2690,31 +1760,25 @@ var Tokenizer = class {
       case CODE_POINTS.SOLIDUS:
       case CODE_POINTS.GREATER_THAN_SIGN:
       case CODE_POINTS.EOF: {
-        this._leaveAttrName();
-        this.state = State.AFTER_ATTRIBUTE_NAME;
-        this._stateAfterAttributeName(cp);
+        this._leaveAttrName(), this.state = State.AFTER_ATTRIBUTE_NAME, this._stateAfterAttributeName(cp);
         break;
       }
       case CODE_POINTS.EQUALS_SIGN: {
-        this._leaveAttrName();
-        this.state = State.BEFORE_ATTRIBUTE_VALUE;
+        this._leaveAttrName(), this.state = State.BEFORE_ATTRIBUTE_VALUE;
         break;
       }
       case CODE_POINTS.QUOTATION_MARK:
       case CODE_POINTS.APOSTROPHE:
       case CODE_POINTS.LESS_THAN_SIGN: {
-        this._err(ERR.unexpectedCharacterInAttributeName);
-        this.currentAttr.name += String.fromCodePoint(cp);
+        this._err(ERR.unexpectedCharacterInAttributeName), this.currentAttr.name += String.fromCodePoint(cp);
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.currentAttr.name += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), this.currentAttr.name += REPLACEMENT_CHARACTER;
         break;
       }
-      default: {
+      default:
         this.currentAttr.name += String.fromCodePoint(isAsciiUpper(cp) ? toAsciiLower(cp) : cp);
-      }
     }
   }
   // After attribute name state
@@ -2724,9 +1788,8 @@ var Tokenizer = class {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.SOLIDUS: {
         this.state = State.SELF_CLOSING_START_TAG;
         break;
@@ -2736,20 +1799,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
-        this._createAttr("");
-        this.state = State.ATTRIBUTE_NAME;
-        this._stateAttributeName(cp);
-      }
+      default:
+        this._createAttr(""), this.state = State.ATTRIBUTE_NAME, this._stateAttributeName(cp);
     }
   }
   // Before attribute value state
@@ -2759,9 +1817,8 @@ var Tokenizer = class {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.QUOTATION_MARK: {
         this.state = State.ATTRIBUTE_VALUE_DOUBLE_QUOTED;
         break;
@@ -2771,15 +1828,11 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.missingAttributeValue);
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        this._err(ERR.missingAttributeValue), this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
-      default: {
-        this.state = State.ATTRIBUTE_VALUE_UNQUOTED;
-        this._stateAttributeValueUnquoted(cp);
-      }
+      default:
+        this.state = State.ATTRIBUTE_VALUE_UNQUOTED, this._stateAttributeValueUnquoted(cp);
     }
   }
   // Attribute value (double-quoted) state
@@ -2795,18 +1848,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.currentAttr.value += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), this.currentAttr.value += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this.currentAttr.value += String.fromCodePoint(cp);
-      }
     }
   }
   // Attribute value (single-quoted) state
@@ -2822,18 +1872,15 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.currentAttr.value += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), this.currentAttr.value += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this.currentAttr.value += String.fromCodePoint(cp);
-      }
     }
   }
   // Attribute value (unquoted) state
@@ -2844,8 +1891,7 @@ var Tokenizer = class {
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
       case CODE_POINTS.FORM_FEED: {
-        this._leaveAttrValue();
-        this.state = State.BEFORE_ATTRIBUTE_NAME;
+        this._leaveAttrValue(), this.state = State.BEFORE_ATTRIBUTE_NAME;
         break;
       }
       case CODE_POINTS.AMPERSAND: {
@@ -2853,14 +1899,11 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._leaveAttrValue();
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        this._leaveAttrValue(), this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        this.currentAttr.value += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), this.currentAttr.value += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.QUOTATION_MARK:
@@ -2868,18 +1911,15 @@ var Tokenizer = class {
       case CODE_POINTS.LESS_THAN_SIGN:
       case CODE_POINTS.EQUALS_SIGN:
       case CODE_POINTS.GRAVE_ACCENT: {
-        this._err(ERR.unexpectedCharacterInUnquotedAttributeValue);
-        this.currentAttr.value += String.fromCodePoint(cp);
+        this._err(ERR.unexpectedCharacterInUnquotedAttributeValue), this.currentAttr.value += String.fromCodePoint(cp);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this.currentAttr.value += String.fromCodePoint(cp);
-      }
     }
   }
   // After attribute value (quoted) state
@@ -2890,31 +1930,23 @@ var Tokenizer = class {
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
       case CODE_POINTS.FORM_FEED: {
-        this._leaveAttrValue();
-        this.state = State.BEFORE_ATTRIBUTE_NAME;
+        this._leaveAttrValue(), this.state = State.BEFORE_ATTRIBUTE_NAME;
         break;
       }
       case CODE_POINTS.SOLIDUS: {
-        this._leaveAttrValue();
-        this.state = State.SELF_CLOSING_START_TAG;
+        this._leaveAttrValue(), this.state = State.SELF_CLOSING_START_TAG;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._leaveAttrValue();
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        this._leaveAttrValue(), this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingWhitespaceBetweenAttributes);
-        this.state = State.BEFORE_ATTRIBUTE_NAME;
-        this._stateBeforeAttributeName(cp);
-      }
+      default:
+        this._err(ERR.missingWhitespaceBetweenAttributes), this.state = State.BEFORE_ATTRIBUTE_NAME, this._stateBeforeAttributeName(cp);
     }
   }
   // Self-closing start tag state
@@ -2922,73 +1954,43 @@ var Tokenizer = class {
   _stateSelfClosingStartTag(cp) {
     switch (cp) {
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        const token = this.currentToken;
-        token.selfClosing = true;
-        this.state = State.DATA;
-        this.emitCurrentTagToken();
+        let token = this.currentToken;
+        token.selfClosing = !0, this.state = State.DATA, this.emitCurrentTagToken();
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInTag);
-        this._emitEOFToken();
+        this._err(ERR.eofInTag), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.unexpectedSolidusInTag);
-        this.state = State.BEFORE_ATTRIBUTE_NAME;
-        this._stateBeforeAttributeName(cp);
-      }
+      default:
+        this._err(ERR.unexpectedSolidusInTag), this.state = State.BEFORE_ATTRIBUTE_NAME, this._stateBeforeAttributeName(cp);
     }
   }
   // Bogus comment state
   //------------------------------------------------------------------
   _stateBogusComment(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentComment(token);
+        this.state = State.DATA, this.emitCurrentComment(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.data += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.data += REPLACEMENT_CHARACTER;
         break;
       }
-      default: {
+      default:
         token.data += String.fromCodePoint(cp);
-      }
     }
   }
   // Markup declaration open state
   //------------------------------------------------------------------
   _stateMarkupDeclarationOpen(cp) {
-    if (this._consumeSequenceIfMatch(SEQUENCES.DASH_DASH, true)) {
-      this._createCommentToken(SEQUENCES.DASH_DASH.length + 1);
-      this.state = State.COMMENT_START;
-    } else if (this._consumeSequenceIfMatch(SEQUENCES.DOCTYPE, false)) {
-      this.currentLocation = this.getCurrentLocation(SEQUENCES.DOCTYPE.length + 1);
-      this.state = State.DOCTYPE;
-    } else if (this._consumeSequenceIfMatch(SEQUENCES.CDATA_START, true)) {
-      if (this.inForeignNode) {
-        this.state = State.CDATA_SECTION;
-      } else {
-        this._err(ERR.cdataInHtmlContent);
-        this._createCommentToken(SEQUENCES.CDATA_START.length + 1);
-        this.currentToken.data = "[CDATA[";
-        this.state = State.BOGUS_COMMENT;
-      }
-    } else if (!this._ensureHibernation()) {
-      this._err(ERR.incorrectlyOpenedComment);
-      this._createCommentToken(2);
-      this.state = State.BOGUS_COMMENT;
-      this._stateBogusComment(cp);
-    }
+    this._consumeSequenceIfMatch(SEQUENCES.DASH_DASH, !0) ? (this._createCommentToken(SEQUENCES.DASH_DASH.length + 1), this.state = State.COMMENT_START) : this._consumeSequenceIfMatch(SEQUENCES.DOCTYPE, !1) ? (this.currentLocation = this.getCurrentLocation(SEQUENCES.DOCTYPE.length + 1), this.state = State.DOCTYPE) : this._consumeSequenceIfMatch(SEQUENCES.CDATA_START, !0) ? this.inForeignNode ? this.state = State.CDATA_SECTION : (this._err(ERR.cdataInHtmlContent), this._createCommentToken(SEQUENCES.CDATA_START.length + 1), this.currentToken.data = "[CDATA[", this.state = State.BOGUS_COMMENT) : this._ensureHibernation() || (this._err(ERR.incorrectlyOpenedComment), this._createCommentToken(2), this.state = State.BOGUS_COMMENT, this._stateBogusComment(cp));
   }
   // Comment start state
   //------------------------------------------------------------------
@@ -2999,155 +2001,117 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptClosingOfEmptyComment);
-        this.state = State.DATA;
-        const token = this.currentToken;
+        this._err(ERR.abruptClosingOfEmptyComment), this.state = State.DATA;
+        let token = this.currentToken;
         this.emitCurrentComment(token);
         break;
       }
-      default: {
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // Comment start dash state
   //------------------------------------------------------------------
   _stateCommentStartDash(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
         this.state = State.COMMENT_END;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptClosingOfEmptyComment);
-        this.state = State.DATA;
-        this.emitCurrentComment(token);
+        this._err(ERR.abruptClosingOfEmptyComment), this.state = State.DATA, this.emitCurrentComment(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInComment);
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInComment), this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
-      default: {
-        token.data += "-";
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        token.data += "-", this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // Comment state
   //------------------------------------------------------------------
   _stateComment(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
         this.state = State.COMMENT_END_DASH;
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
-        token.data += "<";
-        this.state = State.COMMENT_LESS_THAN_SIGN;
+        token.data += "<", this.state = State.COMMENT_LESS_THAN_SIGN;
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.data += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.data += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInComment);
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInComment), this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.data += String.fromCodePoint(cp);
-      }
     }
   }
   // Comment less-than sign state
   //------------------------------------------------------------------
   _stateCommentLessThanSign(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.EXCLAMATION_MARK: {
-        token.data += "!";
-        this.state = State.COMMENT_LESS_THAN_SIGN_BANG;
+        token.data += "!", this.state = State.COMMENT_LESS_THAN_SIGN_BANG;
         break;
       }
       case CODE_POINTS.LESS_THAN_SIGN: {
         token.data += "<";
         break;
       }
-      default: {
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // Comment less-than sign bang state
   //------------------------------------------------------------------
   _stateCommentLessThanSignBang(cp) {
-    if (cp === CODE_POINTS.HYPHEN_MINUS) {
-      this.state = State.COMMENT_LESS_THAN_SIGN_BANG_DASH;
-    } else {
-      this.state = State.COMMENT;
-      this._stateComment(cp);
-    }
+    cp === CODE_POINTS.HYPHEN_MINUS ? this.state = State.COMMENT_LESS_THAN_SIGN_BANG_DASH : (this.state = State.COMMENT, this._stateComment(cp));
   }
   // Comment less-than sign bang dash state
   //------------------------------------------------------------------
   _stateCommentLessThanSignBangDash(cp) {
-    if (cp === CODE_POINTS.HYPHEN_MINUS) {
-      this.state = State.COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH;
-    } else {
-      this.state = State.COMMENT_END_DASH;
-      this._stateCommentEndDash(cp);
-    }
+    cp === CODE_POINTS.HYPHEN_MINUS ? this.state = State.COMMENT_LESS_THAN_SIGN_BANG_DASH_DASH : (this.state = State.COMMENT_END_DASH, this._stateCommentEndDash(cp));
   }
   // Comment less-than sign bang dash dash state
   //------------------------------------------------------------------
   _stateCommentLessThanSignBangDashDash(cp) {
-    if (cp !== CODE_POINTS.GREATER_THAN_SIGN && cp !== CODE_POINTS.EOF) {
-      this._err(ERR.nestedComment);
-    }
-    this.state = State.COMMENT_END;
-    this._stateCommentEnd(cp);
+    cp !== CODE_POINTS.GREATER_THAN_SIGN && cp !== CODE_POINTS.EOF && this._err(ERR.nestedComment), this.state = State.COMMENT_END, this._stateCommentEnd(cp);
   }
   // Comment end dash state
   //------------------------------------------------------------------
   _stateCommentEndDash(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
         this.state = State.COMMENT_END;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInComment);
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInComment), this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
-      default: {
-        token.data += "-";
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        token.data += "-", this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // Comment end state
   //------------------------------------------------------------------
   _stateCommentEnd(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentComment(token);
+        this.state = State.DATA, this.emitCurrentComment(token);
         break;
       }
       case CODE_POINTS.EXCLAMATION_MARK: {
@@ -3159,45 +2123,32 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInComment);
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInComment), this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
-      default: {
-        token.data += "--";
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        token.data += "--", this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // Comment end bang state
   //------------------------------------------------------------------
   _stateCommentEndBang(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.HYPHEN_MINUS: {
-        token.data += "--!";
-        this.state = State.COMMENT_END_DASH;
+        token.data += "--!", this.state = State.COMMENT_END_DASH;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.incorrectlyClosedComment);
-        this.state = State.DATA;
-        this.emitCurrentComment(token);
+        this._err(ERR.incorrectlyClosedComment), this.state = State.DATA, this.emitCurrentComment(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInComment);
-        this.emitCurrentComment(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInComment), this.emitCurrentComment(token), this._emitEOFToken();
         break;
       }
-      default: {
-        token.data += "--!";
-        this.state = State.COMMENT;
-        this._stateComment(cp);
-      }
+      default:
+        token.data += "--!", this.state = State.COMMENT, this._stateComment(cp);
     }
   }
   // DOCTYPE state
@@ -3212,74 +2163,55 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.BEFORE_DOCTYPE_NAME;
-        this._stateBeforeDoctypeName(cp);
+        this.state = State.BEFORE_DOCTYPE_NAME, this._stateBeforeDoctypeName(cp);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        this._createDoctypeToken(null);
-        const token = this.currentToken;
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), this._createDoctypeToken(null);
+        let token = this.currentToken;
+        token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingWhitespaceBeforeDoctypeName);
-        this.state = State.BEFORE_DOCTYPE_NAME;
-        this._stateBeforeDoctypeName(cp);
-      }
+      default:
+        this._err(ERR.missingWhitespaceBeforeDoctypeName), this.state = State.BEFORE_DOCTYPE_NAME, this._stateBeforeDoctypeName(cp);
     }
   }
   // Before DOCTYPE name state
   //------------------------------------------------------------------
   _stateBeforeDoctypeName(cp) {
-    if (isAsciiUpper(cp)) {
-      this._createDoctypeToken(String.fromCharCode(toAsciiLower(cp)));
-      this.state = State.DOCTYPE_NAME;
-    } else
+    if (isAsciiUpper(cp))
+      this._createDoctypeToken(String.fromCharCode(toAsciiLower(cp))), this.state = State.DOCTYPE_NAME;
+    else
       switch (cp) {
         case CODE_POINTS.SPACE:
         case CODE_POINTS.LINE_FEED:
         case CODE_POINTS.TABULATION:
-        case CODE_POINTS.FORM_FEED: {
+        case CODE_POINTS.FORM_FEED:
           break;
-        }
         case CODE_POINTS.NULL: {
-          this._err(ERR.unexpectedNullCharacter);
-          this._createDoctypeToken(REPLACEMENT_CHARACTER);
-          this.state = State.DOCTYPE_NAME;
+          this._err(ERR.unexpectedNullCharacter), this._createDoctypeToken(REPLACEMENT_CHARACTER), this.state = State.DOCTYPE_NAME;
           break;
         }
         case CODE_POINTS.GREATER_THAN_SIGN: {
-          this._err(ERR.missingDoctypeName);
-          this._createDoctypeToken(null);
-          const token = this.currentToken;
-          token.forceQuirks = true;
-          this.emitCurrentDoctype(token);
-          this.state = State.DATA;
+          this._err(ERR.missingDoctypeName), this._createDoctypeToken(null);
+          let token = this.currentToken;
+          token.forceQuirks = !0, this.emitCurrentDoctype(token), this.state = State.DATA;
           break;
         }
         case CODE_POINTS.EOF: {
-          this._err(ERR.eofInDoctype);
-          this._createDoctypeToken(null);
-          const token = this.currentToken;
-          token.forceQuirks = true;
-          this.emitCurrentDoctype(token);
-          this._emitEOFToken();
+          this._err(ERR.eofInDoctype), this._createDoctypeToken(null);
+          let token = this.currentToken;
+          token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
           break;
         }
-        default: {
-          this._createDoctypeToken(String.fromCodePoint(cp));
-          this.state = State.DOCTYPE_NAME;
-        }
+        default:
+          this._createDoctypeToken(String.fromCodePoint(cp)), this.state = State.DOCTYPE_NAME;
       }
   }
   // DOCTYPE name state
   //------------------------------------------------------------------
   _stateDoctypeName(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
@@ -3289,68 +2221,47 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.name += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.name += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.name += String.fromCodePoint(isAsciiUpper(cp) ? toAsciiLower(cp) : cp);
-      }
     }
   }
   // After DOCTYPE name state
   //------------------------------------------------------------------
   _stateAfterDoctypeName(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        if (this._consumeSequenceIfMatch(SEQUENCES.PUBLIC, false)) {
-          this.state = State.AFTER_DOCTYPE_PUBLIC_KEYWORD;
-        } else if (this._consumeSequenceIfMatch(SEQUENCES.SYSTEM, false)) {
-          this.state = State.AFTER_DOCTYPE_SYSTEM_KEYWORD;
-        } else if (!this._ensureHibernation()) {
-          this._err(ERR.invalidCharacterSequenceAfterDoctypeName);
-          token.forceQuirks = true;
-          this.state = State.BOGUS_DOCTYPE;
-          this._stateBogusDoctype(cp);
-        }
-      }
+      default:
+        this._consumeSequenceIfMatch(SEQUENCES.PUBLIC, !1) ? this.state = State.AFTER_DOCTYPE_PUBLIC_KEYWORD : this._consumeSequenceIfMatch(SEQUENCES.SYSTEM, !1) ? this.state = State.AFTER_DOCTYPE_SYSTEM_KEYWORD : this._ensureHibernation() || (this._err(ERR.invalidCharacterSequenceAfterDoctypeName), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp));
     }
   }
   // After DOCTYPE public keyword state
   //------------------------------------------------------------------
   _stateAfterDoctypePublicKeyword(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
@@ -3360,152 +2271,109 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.QUOTATION_MARK: {
-        this._err(ERR.missingWhitespaceAfterDoctypePublicKeyword);
-        token.publicId = "";
-        this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED;
+        this._err(ERR.missingWhitespaceAfterDoctypePublicKeyword), token.publicId = "", this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        this._err(ERR.missingWhitespaceAfterDoctypePublicKeyword);
-        token.publicId = "";
-        this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED;
+        this._err(ERR.missingWhitespaceAfterDoctypePublicKeyword), token.publicId = "", this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.missingDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this._err(ERR.missingDoctypePublicIdentifier), token.forceQuirks = !0, this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypePublicIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // Before DOCTYPE public identifier state
   //------------------------------------------------------------------
   _stateBeforeDoctypePublicIdentifier(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.QUOTATION_MARK: {
-        token.publicId = "";
-        this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED;
+        token.publicId = "", this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        token.publicId = "";
-        this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED;
+        token.publicId = "", this.state = State.DOCTYPE_PUBLIC_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.missingDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this._err(ERR.missingDoctypePublicIdentifier), token.forceQuirks = !0, this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypePublicIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // DOCTYPE public identifier (double-quoted) state
   //------------------------------------------------------------------
   _stateDoctypePublicIdentifierDoubleQuoted(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.QUOTATION_MARK: {
         this.state = State.AFTER_DOCTYPE_PUBLIC_IDENTIFIER;
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.publicId += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.publicId += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this._err(ERR.abruptDoctypePublicIdentifier), token.forceQuirks = !0, this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.publicId += String.fromCodePoint(cp);
-      }
     }
   }
   // DOCTYPE public identifier (single-quoted) state
   //------------------------------------------------------------------
   _stateDoctypePublicIdentifierSingleQuoted(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.APOSTROPHE: {
         this.state = State.AFTER_DOCTYPE_PUBLIC_IDENTIFIER;
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.publicId += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.publicId += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptDoctypePublicIdentifier);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this._err(ERR.abruptDoctypePublicIdentifier), token.forceQuirks = !0, this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.publicId += String.fromCodePoint(cp);
-      }
     }
   }
   // After DOCTYPE public identifier state
   //------------------------------------------------------------------
   _stateAfterDoctypePublicIdentifier(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
@@ -3515,82 +2383,59 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.QUOTATION_MARK: {
-        this._err(ERR.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers);
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
+        this._err(ERR.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers), token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        this._err(ERR.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers);
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
+        this._err(ERR.missingWhitespaceBetweenDoctypePublicAndSystemIdentifiers), token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // Between DOCTYPE public and system identifiers state
   //------------------------------------------------------------------
   _stateBetweenDoctypePublicAndSystemIdentifiers(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.QUOTATION_MARK: {
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
+        token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
+        token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // After DOCTYPE system keyword state
   //------------------------------------------------------------------
   _stateAfterDoctypeSystemKeyword(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
@@ -3600,186 +2445,134 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.QUOTATION_MARK: {
-        this._err(ERR.missingWhitespaceAfterDoctypeSystemKeyword);
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
+        this._err(ERR.missingWhitespaceAfterDoctypeSystemKeyword), token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        this._err(ERR.missingWhitespaceAfterDoctypeSystemKeyword);
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
+        this._err(ERR.missingWhitespaceAfterDoctypeSystemKeyword), token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.missingDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this._err(ERR.missingDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // Before DOCTYPE system identifier state
   //------------------------------------------------------------------
   _stateBeforeDoctypeSystemIdentifier(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.QUOTATION_MARK: {
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
+        token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_DOUBLE_QUOTED;
         break;
       }
       case CODE_POINTS.APOSTROPHE: {
-        token.systemId = "";
-        this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
+        token.systemId = "", this.state = State.DOCTYPE_SYSTEM_IDENTIFIER_SINGLE_QUOTED;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.missingDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.DATA;
-        this.emitCurrentDoctype(token);
+        this._err(ERR.missingDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.DATA, this.emitCurrentDoctype(token);
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.missingQuoteBeforeDoctypeSystemIdentifier), token.forceQuirks = !0, this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // DOCTYPE system identifier (double-quoted) state
   //------------------------------------------------------------------
   _stateDoctypeSystemIdentifierDoubleQuoted(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.QUOTATION_MARK: {
         this.state = State.AFTER_DOCTYPE_SYSTEM_IDENTIFIER;
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.systemId += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.systemId += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this._err(ERR.abruptDoctypeSystemIdentifier), token.forceQuirks = !0, this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.systemId += String.fromCodePoint(cp);
-      }
     }
   }
   // DOCTYPE system identifier (single-quoted) state
   //------------------------------------------------------------------
   _stateDoctypeSystemIdentifierSingleQuoted(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.APOSTROPHE: {
         this.state = State.AFTER_DOCTYPE_SYSTEM_IDENTIFIER;
         break;
       }
       case CODE_POINTS.NULL: {
-        this._err(ERR.unexpectedNullCharacter);
-        token.systemId += REPLACEMENT_CHARACTER;
+        this._err(ERR.unexpectedNullCharacter), token.systemId += REPLACEMENT_CHARACTER;
         break;
       }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this._err(ERR.abruptDoctypeSystemIdentifier);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this._err(ERR.abruptDoctypeSystemIdentifier), token.forceQuirks = !0, this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         token.systemId += String.fromCodePoint(cp);
-      }
     }
   }
   // After DOCTYPE system identifier state
   //------------------------------------------------------------------
   _stateAfterDoctypeSystemIdentifier(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.SPACE:
       case CODE_POINTS.LINE_FEED:
       case CODE_POINTS.TABULATION:
-      case CODE_POINTS.FORM_FEED: {
+      case CODE_POINTS.FORM_FEED:
         break;
-      }
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInDoctype);
-        token.forceQuirks = true;
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this._err(ERR.eofInDoctype), token.forceQuirks = !0, this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
-      default: {
-        this._err(ERR.unexpectedCharacterAfterDoctypeSystemIdentifier);
-        this.state = State.BOGUS_DOCTYPE;
-        this._stateBogusDoctype(cp);
-      }
+      default:
+        this._err(ERR.unexpectedCharacterAfterDoctypeSystemIdentifier), this.state = State.BOGUS_DOCTYPE, this._stateBogusDoctype(cp);
     }
   }
   // Bogus DOCTYPE state
   //------------------------------------------------------------------
   _stateBogusDoctype(cp) {
-    const token = this.currentToken;
+    let token = this.currentToken;
     switch (cp) {
       case CODE_POINTS.GREATER_THAN_SIGN: {
-        this.emitCurrentDoctype(token);
-        this.state = State.DATA;
+        this.emitCurrentDoctype(token), this.state = State.DATA;
         break;
       }
       case CODE_POINTS.NULL: {
@@ -3787,8 +2580,7 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.EOF: {
-        this.emitCurrentDoctype(token);
-        this._emitEOFToken();
+        this.emitCurrentDoctype(token), this._emitEOFToken();
         break;
       }
       default:
@@ -3803,25 +2595,17 @@ var Tokenizer = class {
         break;
       }
       case CODE_POINTS.EOF: {
-        this._err(ERR.eofInCdata);
-        this._emitEOFToken();
+        this._err(ERR.eofInCdata), this._emitEOFToken();
         break;
       }
-      default: {
+      default:
         this._emitCodePoint(cp);
-      }
     }
   }
   // CDATA section bracket state
   //------------------------------------------------------------------
   _stateCdataSectionBracket(cp) {
-    if (cp === CODE_POINTS.RIGHT_SQUARE_BRACKET) {
-      this.state = State.CDATA_SECTION_END;
-    } else {
-      this._emitChars("]");
-      this.state = State.CDATA_SECTION;
-      this._stateCdataSection(cp);
-    }
+    cp === CODE_POINTS.RIGHT_SQUARE_BRACKET ? this.state = State.CDATA_SECTION_END : (this._emitChars("]"), this.state = State.CDATA_SECTION, this._stateCdataSection(cp));
   }
   // CDATA section end state
   //------------------------------------------------------------------
@@ -3835,54 +2619,32 @@ var Tokenizer = class {
         this._emitChars("]");
         break;
       }
-      default: {
-        this._emitChars("]]");
-        this.state = State.CDATA_SECTION;
-        this._stateCdataSection(cp);
-      }
+      default:
+        this._emitChars("]]"), this.state = State.CDATA_SECTION, this._stateCdataSection(cp);
     }
   }
   // Character reference state
   //------------------------------------------------------------------
   _stateCharacterReference() {
     let length = this.entityDecoder.write(this.preprocessor.html, this.preprocessor.pos);
-    if (length < 0) {
-      if (this.preprocessor.lastChunkWritten) {
+    if (length < 0)
+      if (this.preprocessor.lastChunkWritten)
         length = this.entityDecoder.end();
-      } else {
-        this.active = false;
-        this.preprocessor.pos = this.preprocessor.html.length - 1;
-        this.consumedAfterSnapshot = 0;
-        this.preprocessor.endOfChunkHit = true;
+      else {
+        this.active = !1, this.preprocessor.pos = this.preprocessor.html.length - 1, this.consumedAfterSnapshot = 0, this.preprocessor.endOfChunkHit = !0;
         return;
       }
-    }
-    if (length === 0) {
-      this.preprocessor.pos = this.entityStartPos;
-      this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND);
-      this.state = !this._isCharacterReferenceInAttribute() && isAsciiAlphaNumeric2(this.preprocessor.peek(1)) ? State.AMBIGUOUS_AMPERSAND : this.returnState;
-    } else {
-      this.state = this.returnState;
-    }
+    length === 0 ? (this.preprocessor.pos = this.entityStartPos, this._flushCodePointConsumedAsCharacterReference(CODE_POINTS.AMPERSAND), this.state = !this._isCharacterReferenceInAttribute() && isAsciiAlphaNumeric2(this.preprocessor.peek(1)) ? State.AMBIGUOUS_AMPERSAND : this.returnState) : this.state = this.returnState;
   }
   // Ambiguos ampersand state
   //------------------------------------------------------------------
   _stateAmbiguousAmpersand(cp) {
-    if (isAsciiAlphaNumeric2(cp)) {
-      this._flushCodePointConsumedAsCharacterReference(cp);
-    } else {
-      if (cp === CODE_POINTS.SEMICOLON) {
-        this._err(ERR.unknownNamedCharacterReference);
-      }
-      this.state = this.returnState;
-      this._callState(cp);
-    }
+    isAsciiAlphaNumeric2(cp) ? this._flushCodePointConsumedAsCharacterReference(cp) : (cp === CODE_POINTS.SEMICOLON && this._err(ERR.unknownNamedCharacterReference), this.state = this.returnState, this._callState(cp));
   }
 };
 
 // node_modules/parse5/dist/parser/open-element-stack.js
-var IMPLICIT_END_TAG_REQUIRED = /* @__PURE__ */ new Set([TAG_ID.DD, TAG_ID.DT, TAG_ID.LI, TAG_ID.OPTGROUP, TAG_ID.OPTION, TAG_ID.P, TAG_ID.RB, TAG_ID.RP, TAG_ID.RT, TAG_ID.RTC]);
-var IMPLICIT_END_TAG_REQUIRED_THOROUGHLY = /* @__PURE__ */ new Set([
+var IMPLICIT_END_TAG_REQUIRED = /* @__PURE__ */ new Set([TAG_ID.DD, TAG_ID.DT, TAG_ID.LI, TAG_ID.OPTGROUP, TAG_ID.OPTION, TAG_ID.P, TAG_ID.RB, TAG_ID.RP, TAG_ID.RT, TAG_ID.RTC]), IMPLICIT_END_TAG_REQUIRED_THOROUGHLY = /* @__PURE__ */ new Set([
   ...IMPLICIT_END_TAG_REQUIRED,
   TAG_ID.CAPTION,
   TAG_ID.COLGROUP,
@@ -3892,8 +2654,7 @@ var IMPLICIT_END_TAG_REQUIRED_THOROUGHLY = /* @__PURE__ */ new Set([
   TAG_ID.TH,
   TAG_ID.THEAD,
   TAG_ID.TR
-]);
-var SCOPING_ELEMENTS_HTML = /* @__PURE__ */ new Set([
+]), SCOPING_ELEMENTS_HTML = /* @__PURE__ */ new Set([
   TAG_ID.APPLET,
   TAG_ID.CAPTION,
   TAG_ID.HTML,
@@ -3903,28 +2664,12 @@ var SCOPING_ELEMENTS_HTML = /* @__PURE__ */ new Set([
   TAG_ID.TD,
   TAG_ID.TEMPLATE,
   TAG_ID.TH
-]);
-var SCOPING_ELEMENTS_HTML_LIST = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.OL, TAG_ID.UL]);
-var SCOPING_ELEMENTS_HTML_BUTTON = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.BUTTON]);
-var SCOPING_ELEMENTS_MATHML = /* @__PURE__ */ new Set([TAG_ID.ANNOTATION_XML, TAG_ID.MI, TAG_ID.MN, TAG_ID.MO, TAG_ID.MS, TAG_ID.MTEXT]);
-var SCOPING_ELEMENTS_SVG = /* @__PURE__ */ new Set([TAG_ID.DESC, TAG_ID.FOREIGN_OBJECT, TAG_ID.TITLE]);
-var TABLE_ROW_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML]);
-var TABLE_BODY_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML]);
-var TABLE_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML]);
-var TABLE_CELLS = /* @__PURE__ */ new Set([TAG_ID.TD, TAG_ID.TH]);
-var OpenElementStack = class {
+]), SCOPING_ELEMENTS_HTML_LIST = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.OL, TAG_ID.UL]), SCOPING_ELEMENTS_HTML_BUTTON = /* @__PURE__ */ new Set([...SCOPING_ELEMENTS_HTML, TAG_ID.BUTTON]), SCOPING_ELEMENTS_MATHML = /* @__PURE__ */ new Set([TAG_ID.ANNOTATION_XML, TAG_ID.MI, TAG_ID.MN, TAG_ID.MO, TAG_ID.MS, TAG_ID.MTEXT]), SCOPING_ELEMENTS_SVG = /* @__PURE__ */ new Set([TAG_ID.DESC, TAG_ID.FOREIGN_OBJECT, TAG_ID.TITLE]), TABLE_ROW_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TR, TAG_ID.TEMPLATE, TAG_ID.HTML]), TABLE_BODY_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TEMPLATE, TAG_ID.HTML]), TABLE_CONTEXT = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TEMPLATE, TAG_ID.HTML]), TABLE_CELLS = /* @__PURE__ */ new Set([TAG_ID.TD, TAG_ID.TH]), OpenElementStack = class {
   get currentTmplContentOrNode() {
     return this._isInTemplate() ? this.treeAdapter.getTemplateContent(this.current) : this.current;
   }
   constructor(document, treeAdapter, handler) {
-    this.treeAdapter = treeAdapter;
-    this.handler = handler;
-    this.items = [];
-    this.tagIDs = [];
-    this.stackTop = -1;
-    this.tmplCount = 0;
-    this.currentTagId = TAG_ID.UNKNOWN;
-    this.current = document;
+    this.treeAdapter = treeAdapter, this.handler = handler, this.items = [], this.tagIDs = [], this.stackTop = -1, this.tmplCount = 0, this.currentTagId = TAG_ID.UNKNOWN, this.current = document;
   }
   //Index of element
   _indexOf(element) {
@@ -3935,73 +2680,43 @@ var OpenElementStack = class {
     return this.currentTagId === TAG_ID.TEMPLATE && this.treeAdapter.getNamespaceURI(this.current) === NS.HTML;
   }
   _updateCurrentElement() {
-    this.current = this.items[this.stackTop];
-    this.currentTagId = this.tagIDs[this.stackTop];
+    this.current = this.items[this.stackTop], this.currentTagId = this.tagIDs[this.stackTop];
   }
   //Mutations
   push(element, tagID) {
-    this.stackTop++;
-    this.items[this.stackTop] = element;
-    this.current = element;
-    this.tagIDs[this.stackTop] = tagID;
-    this.currentTagId = tagID;
-    if (this._isInTemplate()) {
-      this.tmplCount++;
-    }
-    this.handler.onItemPush(element, tagID, true);
+    this.stackTop++, this.items[this.stackTop] = element, this.current = element, this.tagIDs[this.stackTop] = tagID, this.currentTagId = tagID, this._isInTemplate() && this.tmplCount++, this.handler.onItemPush(element, tagID, !0);
   }
   pop() {
-    const popped = this.current;
-    if (this.tmplCount > 0 && this._isInTemplate()) {
-      this.tmplCount--;
-    }
-    this.stackTop--;
-    this._updateCurrentElement();
-    this.handler.onItemPop(popped, true);
+    let popped = this.current;
+    this.tmplCount > 0 && this._isInTemplate() && this.tmplCount--, this.stackTop--, this._updateCurrentElement(), this.handler.onItemPop(popped, !0);
   }
   replace(oldElement, newElement) {
-    const idx = this._indexOf(oldElement);
-    this.items[idx] = newElement;
-    if (idx === this.stackTop) {
-      this.current = newElement;
-    }
+    let idx = this._indexOf(oldElement);
+    this.items[idx] = newElement, idx === this.stackTop && (this.current = newElement);
   }
   insertAfter(referenceElement, newElement, newElementID) {
-    const insertionIdx = this._indexOf(referenceElement) + 1;
-    this.items.splice(insertionIdx, 0, newElement);
-    this.tagIDs.splice(insertionIdx, 0, newElementID);
-    this.stackTop++;
-    if (insertionIdx === this.stackTop) {
-      this._updateCurrentElement();
-    }
-    if (this.current && this.currentTagId !== void 0) {
-      this.handler.onItemPush(this.current, this.currentTagId, insertionIdx === this.stackTop);
-    }
+    let insertionIdx = this._indexOf(referenceElement) + 1;
+    this.items.splice(insertionIdx, 0, newElement), this.tagIDs.splice(insertionIdx, 0, newElementID), this.stackTop++, insertionIdx === this.stackTop && this._updateCurrentElement(), this.current && this.currentTagId !== void 0 && this.handler.onItemPush(this.current, this.currentTagId, insertionIdx === this.stackTop);
   }
   popUntilTagNamePopped(tagName) {
     let targetIdx = this.stackTop + 1;
-    do {
+    do
       targetIdx = this.tagIDs.lastIndexOf(tagName, targetIdx - 1);
-    } while (targetIdx > 0 && this.treeAdapter.getNamespaceURI(this.items[targetIdx]) !== NS.HTML);
+    while (targetIdx > 0 && this.treeAdapter.getNamespaceURI(this.items[targetIdx]) !== NS.HTML);
     this.shortenToLength(Math.max(targetIdx, 0));
   }
   shortenToLength(idx) {
-    while (this.stackTop >= idx) {
-      const popped = this.current;
-      if (this.tmplCount > 0 && this._isInTemplate()) {
-        this.tmplCount -= 1;
-      }
-      this.stackTop--;
-      this._updateCurrentElement();
-      this.handler.onItemPop(popped, this.stackTop < idx);
+    for (; this.stackTop >= idx; ) {
+      let popped = this.current;
+      this.tmplCount > 0 && this._isInTemplate() && (this.tmplCount -= 1), this.stackTop--, this._updateCurrentElement(), this.handler.onItemPop(popped, this.stackTop < idx);
     }
   }
   popUntilElementPopped(element) {
-    const idx = this._indexOf(element);
+    let idx = this._indexOf(element);
     this.shortenToLength(Math.max(idx, 0));
   }
   popUntilPopped(tagNames, targetNS) {
-    const idx = this._indexOfTagNames(tagNames, targetNS);
+    let idx = this._indexOfTagNames(tagNames, targetNS);
     this.shortenToLength(Math.max(idx, 0));
   }
   popUntilNumberedHeaderPopped() {
@@ -4011,19 +2726,16 @@ var OpenElementStack = class {
     this.popUntilPopped(TABLE_CELLS, NS.HTML);
   }
   popAllUpToHtmlElement() {
-    this.tmplCount = 0;
-    this.shortenToLength(1);
+    this.tmplCount = 0, this.shortenToLength(1);
   }
   _indexOfTagNames(tagNames, namespace) {
-    for (let i = this.stackTop; i >= 0; i--) {
-      if (tagNames.has(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace) {
+    for (let i = this.stackTop; i >= 0; i--)
+      if (tagNames.has(this.tagIDs[i]) && this.treeAdapter.getNamespaceURI(this.items[i]) === namespace)
         return i;
-      }
-    }
     return -1;
   }
   clearBackTo(tagNames, targetNS) {
-    const idx = this._indexOfTagNames(tagNames, targetNS);
+    let idx = this._indexOfTagNames(tagNames, targetNS);
     this.shortenToLength(idx + 1);
   }
   clearBackToTableContext() {
@@ -4036,18 +2748,8 @@ var OpenElementStack = class {
     this.clearBackTo(TABLE_ROW_CONTEXT, NS.HTML);
   }
   remove(element) {
-    const idx = this._indexOf(element);
-    if (idx >= 0) {
-      if (idx === this.stackTop) {
-        this.pop();
-      } else {
-        this.items.splice(idx, 1);
-        this.tagIDs.splice(idx, 1);
-        this.stackTop--;
-        this._updateCurrentElement();
-        this.handler.onItemPop(element, false);
-      }
-    }
+    let idx = this._indexOf(element);
+    idx >= 0 && (idx === this.stackTop ? this.pop() : (this.items.splice(idx, 1), this.tagIDs.splice(idx, 1), this.stackTop--, this._updateCurrentElement(), this.handler.onItemPop(element, !1)));
   }
   //Search
   tryPeekProperlyNestedBodyElement() {
@@ -4057,7 +2759,7 @@ var OpenElementStack = class {
     return this._indexOf(element) > -1;
   }
   getCommonAncestor(element) {
-    const elementIdx = this._indexOf(element) - 1;
+    let elementIdx = this._indexOf(element) - 1;
     return elementIdx >= 0 ? this.items[elementIdx] : null;
   }
   isRootHtmlElementCurrent() {
@@ -4066,28 +2768,28 @@ var OpenElementStack = class {
   //Element in scope
   hasInDynamicScope(tagName, htmlScope) {
     for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
+      let tn = this.tagIDs[i];
       switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
         case NS.HTML: {
           if (tn === tagName)
-            return true;
+            return !0;
           if (htmlScope.has(tn))
-            return false;
+            return !1;
           break;
         }
         case NS.SVG: {
           if (SCOPING_ELEMENTS_SVG.has(tn))
-            return false;
+            return !1;
           break;
         }
         case NS.MATHML: {
           if (SCOPING_ELEMENTS_MATHML.has(tn))
-            return false;
+            return !1;
           break;
         }
       }
     }
-    return true;
+    return !0;
   }
   hasInScope(tagName) {
     return this.hasInDynamicScope(tagName, SCOPING_ELEMENTS_HTML);
@@ -4100,157 +2802,120 @@ var OpenElementStack = class {
   }
   hasNumberedHeaderInScope() {
     for (let i = this.stackTop; i >= 0; i--) {
-      const tn = this.tagIDs[i];
+      let tn = this.tagIDs[i];
       switch (this.treeAdapter.getNamespaceURI(this.items[i])) {
         case NS.HTML: {
           if (NUMBERED_HEADERS.has(tn))
-            return true;
+            return !0;
           if (SCOPING_ELEMENTS_HTML.has(tn))
-            return false;
+            return !1;
           break;
         }
         case NS.SVG: {
           if (SCOPING_ELEMENTS_SVG.has(tn))
-            return false;
+            return !1;
           break;
         }
         case NS.MATHML: {
           if (SCOPING_ELEMENTS_MATHML.has(tn))
-            return false;
+            return !1;
           break;
         }
       }
     }
-    return true;
+    return !0;
   }
   hasInTableScope(tagName) {
-    for (let i = this.stackTop; i >= 0; i--) {
-      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
-        continue;
-      }
-      switch (this.tagIDs[i]) {
-        case tagName: {
-          return true;
+    for (let i = this.stackTop; i >= 0; i--)
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) === NS.HTML)
+        switch (this.tagIDs[i]) {
+          case tagName:
+            return !0;
+          case TAG_ID.TABLE:
+          case TAG_ID.HTML:
+            return !1;
         }
-        case TAG_ID.TABLE:
-        case TAG_ID.HTML: {
-          return false;
-        }
-      }
-    }
-    return true;
+    return !0;
   }
   hasTableBodyContextInTableScope() {
-    for (let i = this.stackTop; i >= 0; i--) {
-      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
-        continue;
-      }
-      switch (this.tagIDs[i]) {
-        case TAG_ID.TBODY:
-        case TAG_ID.THEAD:
-        case TAG_ID.TFOOT: {
-          return true;
+    for (let i = this.stackTop; i >= 0; i--)
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) === NS.HTML)
+        switch (this.tagIDs[i]) {
+          case TAG_ID.TBODY:
+          case TAG_ID.THEAD:
+          case TAG_ID.TFOOT:
+            return !0;
+          case TAG_ID.TABLE:
+          case TAG_ID.HTML:
+            return !1;
         }
-        case TAG_ID.TABLE:
-        case TAG_ID.HTML: {
-          return false;
-        }
-      }
-    }
-    return true;
+    return !0;
   }
   hasInSelectScope(tagName) {
-    for (let i = this.stackTop; i >= 0; i--) {
-      if (this.treeAdapter.getNamespaceURI(this.items[i]) !== NS.HTML) {
-        continue;
-      }
-      switch (this.tagIDs[i]) {
-        case tagName: {
-          return true;
+    for (let i = this.stackTop; i >= 0; i--)
+      if (this.treeAdapter.getNamespaceURI(this.items[i]) === NS.HTML)
+        switch (this.tagIDs[i]) {
+          case tagName:
+            return !0;
+          case TAG_ID.OPTION:
+          case TAG_ID.OPTGROUP:
+            break;
+          default:
+            return !1;
         }
-        case TAG_ID.OPTION:
-        case TAG_ID.OPTGROUP: {
-          break;
-        }
-        default: {
-          return false;
-        }
-      }
-    }
-    return true;
+    return !0;
   }
   //Implied end tags
   generateImpliedEndTags() {
-    while (this.currentTagId !== void 0 && IMPLICIT_END_TAG_REQUIRED.has(this.currentTagId)) {
+    for (; this.currentTagId !== void 0 && IMPLICIT_END_TAG_REQUIRED.has(this.currentTagId); )
       this.pop();
-    }
   }
   generateImpliedEndTagsThoroughly() {
-    while (this.currentTagId !== void 0 && IMPLICIT_END_TAG_REQUIRED_THOROUGHLY.has(this.currentTagId)) {
+    for (; this.currentTagId !== void 0 && IMPLICIT_END_TAG_REQUIRED_THOROUGHLY.has(this.currentTagId); )
       this.pop();
-    }
   }
   generateImpliedEndTagsWithExclusion(exclusionId) {
-    while (this.currentTagId !== void 0 && this.currentTagId !== exclusionId && IMPLICIT_END_TAG_REQUIRED_THOROUGHLY.has(this.currentTagId)) {
+    for (; this.currentTagId !== void 0 && this.currentTagId !== exclusionId && IMPLICIT_END_TAG_REQUIRED_THOROUGHLY.has(this.currentTagId); )
       this.pop();
-    }
   }
 };
 
 // node_modules/parse5/dist/parser/formatting-element-list.js
-var NOAH_ARK_CAPACITY = 3;
 var EntryType;
 (function(EntryType2) {
-  EntryType2[EntryType2["Marker"] = 0] = "Marker";
-  EntryType2[EntryType2["Element"] = 1] = "Element";
+  EntryType2[EntryType2.Marker = 0] = "Marker", EntryType2[EntryType2.Element = 1] = "Element";
 })(EntryType || (EntryType = {}));
-var MARKER = { type: EntryType.Marker };
-var FormattingElementList = class {
+var MARKER = { type: EntryType.Marker }, FormattingElementList = class {
   constructor(treeAdapter) {
-    this.treeAdapter = treeAdapter;
-    this.entries = [];
-    this.bookmark = null;
+    this.treeAdapter = treeAdapter, this.entries = [], this.bookmark = null;
   }
   //Noah Ark's condition
   //OPTIMIZATION: at first we try to find possible candidates for exclusion using
   //lightweight heuristics without thorough attributes check.
   _getNoahArkConditionCandidates(newElement, neAttrs) {
-    const candidates = [];
-    const neAttrsLength = neAttrs.length;
-    const neTagName = this.treeAdapter.getTagName(newElement);
-    const neNamespaceURI = this.treeAdapter.getNamespaceURI(newElement);
+    let candidates = [], neAttrsLength = neAttrs.length, neTagName = this.treeAdapter.getTagName(newElement), neNamespaceURI = this.treeAdapter.getNamespaceURI(newElement);
     for (let i = 0; i < this.entries.length; i++) {
-      const entry = this.entries[i];
-      if (entry.type === EntryType.Marker) {
+      let entry = this.entries[i];
+      if (entry.type === EntryType.Marker)
         break;
-      }
-      const { element } = entry;
+      let { element } = entry;
       if (this.treeAdapter.getTagName(element) === neTagName && this.treeAdapter.getNamespaceURI(element) === neNamespaceURI) {
-        const elementAttrs = this.treeAdapter.getAttrList(element);
-        if (elementAttrs.length === neAttrsLength) {
-          candidates.push({ idx: i, attrs: elementAttrs });
-        }
+        let elementAttrs = this.treeAdapter.getAttrList(element);
+        elementAttrs.length === neAttrsLength && candidates.push({ idx: i, attrs: elementAttrs });
       }
     }
     return candidates;
   }
   _ensureNoahArkCondition(newElement) {
-    if (this.entries.length < NOAH_ARK_CAPACITY)
+    if (this.entries.length < 3)
       return;
-    const neAttrs = this.treeAdapter.getAttrList(newElement);
-    const candidates = this._getNoahArkConditionCandidates(newElement, neAttrs);
-    if (candidates.length < NOAH_ARK_CAPACITY)
+    let neAttrs = this.treeAdapter.getAttrList(newElement), candidates = this._getNoahArkConditionCandidates(newElement, neAttrs);
+    if (candidates.length < 3)
       return;
-    const neAttrsMap = new Map(neAttrs.map((neAttr) => [neAttr.name, neAttr.value]));
-    let validCandidates = 0;
+    let neAttrsMap = new Map(neAttrs.map((neAttr) => [neAttr.name, neAttr.value])), validCandidates = 0;
     for (let i = 0; i < candidates.length; i++) {
-      const candidate = candidates[i];
-      if (candidate.attrs.every((cAttr) => neAttrsMap.get(cAttr.name) === cAttr.value)) {
-        validCandidates += 1;
-        if (validCandidates >= NOAH_ARK_CAPACITY) {
-          this.entries.splice(candidate.idx, 1);
-        }
-      }
+      let candidate = candidates[i];
+      candidate.attrs.every((cAttr) => neAttrsMap.get(cAttr.name) === cAttr.value) && (validCandidates += 1, validCandidates >= 3 && this.entries.splice(candidate.idx, 1));
     }
   }
   //Mutations
@@ -4258,15 +2923,14 @@ var FormattingElementList = class {
     this.entries.unshift(MARKER);
   }
   pushElement(element, token) {
-    this._ensureNoahArkCondition(element);
-    this.entries.unshift({
+    this._ensureNoahArkCondition(element), this.entries.unshift({
       type: EntryType.Element,
       element,
       token
     });
   }
   insertElementAfterBookmark(element, token) {
-    const bookmarkIdx = this.entries.indexOf(this.bookmark);
+    let bookmarkIdx = this.entries.indexOf(this.bookmark);
     this.entries.splice(bookmarkIdx, 0, {
       type: EntryType.Element,
       element,
@@ -4274,10 +2938,8 @@ var FormattingElementList = class {
     });
   }
   removeEntry(entry) {
-    const entryIndex = this.entries.indexOf(entry);
-    if (entryIndex !== -1) {
-      this.entries.splice(entryIndex, 1);
-    }
+    let entryIndex = this.entries.indexOf(entry);
+    entryIndex !== -1 && this.entries.splice(entryIndex, 1);
   }
   /**
    * Clears the list of formatting elements up to the last marker.
@@ -4285,16 +2947,12 @@ var FormattingElementList = class {
    * @see https://html.spec.whatwg.org/multipage/parsing.html#clear-the-list-of-active-formatting-elements-up-to-the-last-marker
    */
   clearToLastMarker() {
-    const markerIdx = this.entries.indexOf(MARKER);
-    if (markerIdx === -1) {
-      this.entries.length = 0;
-    } else {
-      this.entries.splice(0, markerIdx + 1);
-    }
+    let markerIdx = this.entries.indexOf(MARKER);
+    markerIdx === -1 ? this.entries.length = 0 : this.entries.splice(0, markerIdx + 1);
   }
   //Search
   getElementEntryInScopeWithTagName(tagName) {
-    const entry = this.entries.find((entry2) => entry2.type === EntryType.Marker || this.treeAdapter.getTagName(entry2.element) === tagName);
+    let entry = this.entries.find((entry2) => entry2.type === EntryType.Marker || this.treeAdapter.getTagName(entry2.element) === tagName);
     return entry && entry.type === EntryType.Element ? entry : null;
   }
   getElementEntry(element) {
@@ -4344,13 +3002,11 @@ var defaultTreeAdapter = {
   },
   //Tree mutation
   appendChild(parentNode, newNode) {
-    parentNode.childNodes.push(newNode);
-    newNode.parentNode = parentNode;
+    parentNode.childNodes.push(newNode), newNode.parentNode = parentNode;
   },
   insertBefore(parentNode, newNode, referenceNode) {
-    const insertionIdx = parentNode.childNodes.indexOf(referenceNode);
-    parentNode.childNodes.splice(insertionIdx, 0, newNode);
-    newNode.parentNode = parentNode;
+    let insertionIdx = parentNode.childNodes.indexOf(referenceNode);
+    parentNode.childNodes.splice(insertionIdx, 0, newNode), newNode.parentNode = parentNode;
   },
   setTemplateContent(templateElement, contentElement) {
     templateElement.content = contentElement;
@@ -4359,13 +3015,11 @@ var defaultTreeAdapter = {
     return templateElement.content;
   },
   setDocumentType(document, name, publicId, systemId) {
-    const doctypeNode = document.childNodes.find((node) => node.nodeName === "#documentType");
-    if (doctypeNode) {
-      doctypeNode.name = name;
-      doctypeNode.publicId = publicId;
-      doctypeNode.systemId = systemId;
-    } else {
-      const node = {
+    let doctypeNode = document.childNodes.find((node) => node.nodeName === "#documentType");
+    if (doctypeNode)
+      doctypeNode.name = name, doctypeNode.publicId = publicId, doctypeNode.systemId = systemId;
+    else {
+      let node = {
         nodeName: "#documentType",
         name,
         publicId,
@@ -4383,14 +3037,13 @@ var defaultTreeAdapter = {
   },
   detachNode(node) {
     if (node.parentNode) {
-      const idx = node.parentNode.childNodes.indexOf(node);
-      node.parentNode.childNodes.splice(idx, 1);
-      node.parentNode = null;
+      let idx = node.parentNode.childNodes.indexOf(node);
+      node.parentNode.childNodes.splice(idx, 1), node.parentNode = null;
     }
   },
   insertText(parentNode, text2) {
     if (parentNode.childNodes.length > 0) {
-      const prevNode = parentNode.childNodes[parentNode.childNodes.length - 1];
+      let prevNode = parentNode.childNodes[parentNode.childNodes.length - 1];
       if (defaultTreeAdapter.isTextNode(prevNode)) {
         prevNode.value += text2;
         return;
@@ -4399,20 +3052,13 @@ var defaultTreeAdapter = {
     defaultTreeAdapter.appendChild(parentNode, defaultTreeAdapter.createTextNode(text2));
   },
   insertTextBefore(parentNode, text2, referenceNode) {
-    const prevNode = parentNode.childNodes[parentNode.childNodes.indexOf(referenceNode) - 1];
-    if (prevNode && defaultTreeAdapter.isTextNode(prevNode)) {
-      prevNode.value += text2;
-    } else {
-      defaultTreeAdapter.insertBefore(parentNode, defaultTreeAdapter.createTextNode(text2), referenceNode);
-    }
+    let prevNode = parentNode.childNodes[parentNode.childNodes.indexOf(referenceNode) - 1];
+    prevNode && defaultTreeAdapter.isTextNode(prevNode) ? prevNode.value += text2 : defaultTreeAdapter.insertBefore(parentNode, defaultTreeAdapter.createTextNode(text2), referenceNode);
   },
   adoptAttributes(recipient, attrs) {
-    const recipientAttrsMap = new Set(recipient.attrs.map((attr) => attr.name));
-    for (let j = 0; j < attrs.length; j++) {
-      if (!recipientAttrsMap.has(attrs[j].name)) {
-        recipient.attrs.push(attrs[j]);
-      }
-    }
+    let recipientAttrsMap = new Set(recipient.attrs.map((attr) => attr.name));
+    for (let j = 0; j < attrs.length; j++)
+      recipientAttrsMap.has(attrs[j].name) || recipient.attrs.push(attrs[j]);
   },
   //Tree traversing
   getFirstChild(node) {
@@ -4475,10 +3121,7 @@ var defaultTreeAdapter = {
 };
 
 // node_modules/parse5/dist/common/doctype.js
-var VALID_DOCTYPE_NAME = "html";
-var VALID_SYSTEM_ID = "about:legacy-compat";
-var QUIRKS_MODE_SYSTEM_ID = "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd";
-var QUIRKS_MODE_PUBLIC_ID_PREFIXES = [
+var VALID_DOCTYPE_NAME = "html", VALID_SYSTEM_ID = "about:legacy-compat", QUIRKS_MODE_SYSTEM_ID = "http://www.ibm.com/data/dtd/v11/ibmxhtml1-transitional.dtd", QUIRKS_MODE_PUBLIC_ID_PREFIXES = [
   "+//silmaril//dtd html pro v0r11 19970101//",
   "-//as//dtd html 3.0 aswedit + extensions//",
   "-//advasoft ltd//dtd html 3.0 aswedit + extensions//",
@@ -4534,19 +3177,15 @@ var QUIRKS_MODE_PUBLIC_ID_PREFIXES = [
   "-//w3o//dtd w3 html 3.0//",
   "-//webtechs//dtd mozilla html 2.0//",
   "-//webtechs//dtd mozilla html//"
-];
-var QUIRKS_MODE_NO_SYSTEM_ID_PUBLIC_ID_PREFIXES = [
+], QUIRKS_MODE_NO_SYSTEM_ID_PUBLIC_ID_PREFIXES = [
   ...QUIRKS_MODE_PUBLIC_ID_PREFIXES,
   "-//w3c//dtd html 4.01 frameset//",
   "-//w3c//dtd html 4.01 transitional//"
-];
-var QUIRKS_MODE_PUBLIC_IDS = /* @__PURE__ */ new Set([
+], QUIRKS_MODE_PUBLIC_IDS = /* @__PURE__ */ new Set([
   "-//w3o//dtd w3 html strict 3.0//en//",
   "-/w3c/dtd html 4.0 transitional/en",
   "html"
-]);
-var LIMITED_QUIRKS_PUBLIC_ID_PREFIXES = ["-//w3c//dtd xhtml 1.0 frameset//", "-//w3c//dtd xhtml 1.0 transitional//"];
-var LIMITED_QUIRKS_WITH_SYSTEM_ID_PUBLIC_ID_PREFIXES = [
+]), LIMITED_QUIRKS_PUBLIC_ID_PREFIXES = ["-//w3c//dtd xhtml 1.0 frameset//", "-//w3c//dtd xhtml 1.0 transitional//"], LIMITED_QUIRKS_WITH_SYSTEM_ID_PUBLIC_ID_PREFIXES = [
   ...LIMITED_QUIRKS_PUBLIC_ID_PREFIXES,
   "-//w3c//dtd html 4.01 frameset//",
   "-//w3c//dtd html 4.01 transitional//"
@@ -4558,27 +3197,20 @@ function isConforming(token) {
   return token.name === VALID_DOCTYPE_NAME && token.publicId === null && (token.systemId === null || token.systemId === VALID_SYSTEM_ID);
 }
 function getDocumentMode(token) {
-  if (token.name !== VALID_DOCTYPE_NAME) {
+  if (token.name !== VALID_DOCTYPE_NAME)
     return DOCUMENT_MODE.QUIRKS;
-  }
-  const { systemId } = token;
-  if (systemId && systemId.toLowerCase() === QUIRKS_MODE_SYSTEM_ID) {
+  let { systemId } = token;
+  if (systemId && systemId.toLowerCase() === QUIRKS_MODE_SYSTEM_ID)
     return DOCUMENT_MODE.QUIRKS;
-  }
   let { publicId } = token;
   if (publicId !== null) {
-    publicId = publicId.toLowerCase();
-    if (QUIRKS_MODE_PUBLIC_IDS.has(publicId)) {
+    if (publicId = publicId.toLowerCase(), QUIRKS_MODE_PUBLIC_IDS.has(publicId))
       return DOCUMENT_MODE.QUIRKS;
-    }
     let prefixes = systemId === null ? QUIRKS_MODE_NO_SYSTEM_ID_PUBLIC_ID_PREFIXES : QUIRKS_MODE_PUBLIC_ID_PREFIXES;
-    if (hasPrefix(publicId, prefixes)) {
+    if (hasPrefix(publicId, prefixes))
       return DOCUMENT_MODE.QUIRKS;
-    }
-    prefixes = systemId === null ? LIMITED_QUIRKS_PUBLIC_ID_PREFIXES : LIMITED_QUIRKS_WITH_SYSTEM_ID_PUBLIC_ID_PREFIXES;
-    if (hasPrefix(publicId, prefixes)) {
+    if (prefixes = systemId === null ? LIMITED_QUIRKS_PUBLIC_ID_PREFIXES : LIMITED_QUIRKS_WITH_SYSTEM_ID_PUBLIC_ID_PREFIXES, hasPrefix(publicId, prefixes))
       return DOCUMENT_MODE.LIMITED_QUIRKS;
-    }
   }
   return DOCUMENT_MODE.NO_QUIRKS;
 }
@@ -4587,10 +3219,7 @@ function getDocumentMode(token) {
 var MIME_TYPES = {
   TEXT_HTML: "text/html",
   APPLICATION_XML: "application/xhtml+xml"
-};
-var DEFINITION_URL_ATTR = "definitionurl";
-var ADJUSTED_DEFINITION_URL_ATTR = "definitionURL";
-var SVG_ATTRS_ADJUSTMENT_MAP = new Map([
+}, DEFINITION_URL_ATTR = "definitionurl", ADJUSTED_DEFINITION_URL_ATTR = "definitionURL", SVG_ATTRS_ADJUSTMENT_MAP = new Map([
   "attributeName",
   "attributeType",
   "baseFrequency",
@@ -4649,8 +3278,7 @@ var SVG_ATTRS_ADJUSTMENT_MAP = new Map([
   "xChannelSelector",
   "yChannelSelector",
   "zoomAndPan"
-].map((attr) => [attr.toLowerCase(), attr]));
-var XML_ATTRS_ADJUSTMENT_MAP = /* @__PURE__ */ new Map([
+].map((attr) => [attr.toLowerCase(), attr])), XML_ATTRS_ADJUSTMENT_MAP = /* @__PURE__ */ new Map([
   ["xlink:actuate", { prefix: "xlink", name: "actuate", namespace: NS.XLINK }],
   ["xlink:arcrole", { prefix: "xlink", name: "arcrole", namespace: NS.XLINK }],
   ["xlink:href", { prefix: "xlink", name: "href", namespace: NS.XLINK }],
@@ -4662,8 +3290,7 @@ var XML_ATTRS_ADJUSTMENT_MAP = /* @__PURE__ */ new Map([
   ["xml:space", { prefix: "xml", name: "space", namespace: NS.XML }],
   ["xmlns", { prefix: "", name: "xmlns", namespace: NS.XMLNS }],
   ["xmlns:xlink", { prefix: "xmlns", name: "xlink", namespace: NS.XMLNS }]
-]);
-var SVG_TAG_NAMES_ADJUSTMENT_MAP = new Map([
+]), SVG_TAG_NAMES_ADJUSTMENT_MAP = new Map([
   "altGlyph",
   "altGlyphDef",
   "altGlyphItem",
@@ -4700,8 +3327,7 @@ var SVG_TAG_NAMES_ADJUSTMENT_MAP = new Map([
   "linearGradient",
   "radialGradient",
   "textPath"
-].map((tn) => [tn.toLowerCase(), tn]));
-var EXITS_FOREIGN_CONTENT = /* @__PURE__ */ new Set([
+].map((tn) => [tn.toLowerCase(), tn])), EXITS_FOREIGN_CONTENT = /* @__PURE__ */ new Set([
   TAG_ID.B,
   TAG_ID.BIG,
   TAG_ID.BLOCKQUOTE,
@@ -4748,54 +3374,42 @@ var EXITS_FOREIGN_CONTENT = /* @__PURE__ */ new Set([
   TAG_ID.VAR
 ]);
 function causesExit(startTagToken) {
-  const tn = startTagToken.tagID;
-  const isFontWithAttrs = tn === TAG_ID.FONT && startTagToken.attrs.some(({ name }) => name === ATTRS.COLOR || name === ATTRS.SIZE || name === ATTRS.FACE);
-  return isFontWithAttrs || EXITS_FOREIGN_CONTENT.has(tn);
+  let tn = startTagToken.tagID;
+  return tn === TAG_ID.FONT && startTagToken.attrs.some(({ name }) => name === ATTRS.COLOR || name === ATTRS.SIZE || name === ATTRS.FACE) || EXITS_FOREIGN_CONTENT.has(tn);
 }
 function adjustTokenMathMLAttrs(token) {
-  for (let i = 0; i < token.attrs.length; i++) {
+  for (let i = 0; i < token.attrs.length; i++)
     if (token.attrs[i].name === DEFINITION_URL_ATTR) {
       token.attrs[i].name = ADJUSTED_DEFINITION_URL_ATTR;
       break;
     }
-  }
 }
 function adjustTokenSVGAttrs(token) {
   for (let i = 0; i < token.attrs.length; i++) {
-    const adjustedAttrName = SVG_ATTRS_ADJUSTMENT_MAP.get(token.attrs[i].name);
-    if (adjustedAttrName != null) {
-      token.attrs[i].name = adjustedAttrName;
-    }
+    let adjustedAttrName = SVG_ATTRS_ADJUSTMENT_MAP.get(token.attrs[i].name);
+    adjustedAttrName != null && (token.attrs[i].name = adjustedAttrName);
   }
 }
 function adjustTokenXMLAttrs(token) {
   for (let i = 0; i < token.attrs.length; i++) {
-    const adjustedAttrEntry = XML_ATTRS_ADJUSTMENT_MAP.get(token.attrs[i].name);
-    if (adjustedAttrEntry) {
-      token.attrs[i].prefix = adjustedAttrEntry.prefix;
-      token.attrs[i].name = adjustedAttrEntry.name;
-      token.attrs[i].namespace = adjustedAttrEntry.namespace;
-    }
+    let adjustedAttrEntry = XML_ATTRS_ADJUSTMENT_MAP.get(token.attrs[i].name);
+    adjustedAttrEntry && (token.attrs[i].prefix = adjustedAttrEntry.prefix, token.attrs[i].name = adjustedAttrEntry.name, token.attrs[i].namespace = adjustedAttrEntry.namespace);
   }
 }
 function adjustTokenSVGTagName(token) {
-  const adjustedTagName = SVG_TAG_NAMES_ADJUSTMENT_MAP.get(token.tagName);
-  if (adjustedTagName != null) {
-    token.tagName = adjustedTagName;
-    token.tagID = getTagID(token.tagName);
-  }
+  let adjustedTagName = SVG_TAG_NAMES_ADJUSTMENT_MAP.get(token.tagName);
+  adjustedTagName != null && (token.tagName = adjustedTagName, token.tagID = getTagID(token.tagName));
 }
 function isMathMLTextIntegrationPoint(tn, ns) {
   return ns === NS.MATHML && (tn === TAG_ID.MI || tn === TAG_ID.MO || tn === TAG_ID.MN || tn === TAG_ID.MS || tn === TAG_ID.MTEXT);
 }
 function isHtmlIntegrationPoint(tn, ns, attrs) {
   if (ns === NS.MATHML && tn === TAG_ID.ANNOTATION_XML) {
-    for (let i = 0; i < attrs.length; i++) {
+    for (let i = 0; i < attrs.length; i++)
       if (attrs[i].name === ATTRS.ENCODING) {
-        const value = attrs[i].value.toLowerCase();
+        let value = attrs[i].value.toLowerCase();
         return value === MIME_TYPES.TEXT_HTML || value === MIME_TYPES.APPLICATION_XML;
       }
-    }
   }
   return ns === NS.SVG && (tn === TAG_ID.FOREIGN_OBJECT || tn === TAG_ID.DESC || tn === TAG_ID.TITLE);
 }
@@ -4804,34 +3418,9 @@ function isIntegrationPoint(tn, ns, attrs, foreignNS) {
 }
 
 // node_modules/parse5/dist/parser/index.js
-var HIDDEN_INPUT_TYPE = "hidden";
-var AA_OUTER_LOOP_ITER = 8;
-var AA_INNER_LOOP_ITER = 3;
-var InsertionMode;
+var HIDDEN_INPUT_TYPE = "hidden", AA_OUTER_LOOP_ITER = 8, AA_INNER_LOOP_ITER = 3, InsertionMode;
 (function(InsertionMode2) {
-  InsertionMode2[InsertionMode2["INITIAL"] = 0] = "INITIAL";
-  InsertionMode2[InsertionMode2["BEFORE_HTML"] = 1] = "BEFORE_HTML";
-  InsertionMode2[InsertionMode2["BEFORE_HEAD"] = 2] = "BEFORE_HEAD";
-  InsertionMode2[InsertionMode2["IN_HEAD"] = 3] = "IN_HEAD";
-  InsertionMode2[InsertionMode2["IN_HEAD_NO_SCRIPT"] = 4] = "IN_HEAD_NO_SCRIPT";
-  InsertionMode2[InsertionMode2["AFTER_HEAD"] = 5] = "AFTER_HEAD";
-  InsertionMode2[InsertionMode2["IN_BODY"] = 6] = "IN_BODY";
-  InsertionMode2[InsertionMode2["TEXT"] = 7] = "TEXT";
-  InsertionMode2[InsertionMode2["IN_TABLE"] = 8] = "IN_TABLE";
-  InsertionMode2[InsertionMode2["IN_TABLE_TEXT"] = 9] = "IN_TABLE_TEXT";
-  InsertionMode2[InsertionMode2["IN_CAPTION"] = 10] = "IN_CAPTION";
-  InsertionMode2[InsertionMode2["IN_COLUMN_GROUP"] = 11] = "IN_COLUMN_GROUP";
-  InsertionMode2[InsertionMode2["IN_TABLE_BODY"] = 12] = "IN_TABLE_BODY";
-  InsertionMode2[InsertionMode2["IN_ROW"] = 13] = "IN_ROW";
-  InsertionMode2[InsertionMode2["IN_CELL"] = 14] = "IN_CELL";
-  InsertionMode2[InsertionMode2["IN_SELECT"] = 15] = "IN_SELECT";
-  InsertionMode2[InsertionMode2["IN_SELECT_IN_TABLE"] = 16] = "IN_SELECT_IN_TABLE";
-  InsertionMode2[InsertionMode2["IN_TEMPLATE"] = 17] = "IN_TEMPLATE";
-  InsertionMode2[InsertionMode2["AFTER_BODY"] = 18] = "AFTER_BODY";
-  InsertionMode2[InsertionMode2["IN_FRAMESET"] = 19] = "IN_FRAMESET";
-  InsertionMode2[InsertionMode2["AFTER_FRAMESET"] = 20] = "AFTER_FRAMESET";
-  InsertionMode2[InsertionMode2["AFTER_AFTER_BODY"] = 21] = "AFTER_AFTER_BODY";
-  InsertionMode2[InsertionMode2["AFTER_AFTER_FRAMESET"] = 22] = "AFTER_AFTER_FRAMESET";
+  InsertionMode2[InsertionMode2.INITIAL = 0] = "INITIAL", InsertionMode2[InsertionMode2.BEFORE_HTML = 1] = "BEFORE_HTML", InsertionMode2[InsertionMode2.BEFORE_HEAD = 2] = "BEFORE_HEAD", InsertionMode2[InsertionMode2.IN_HEAD = 3] = "IN_HEAD", InsertionMode2[InsertionMode2.IN_HEAD_NO_SCRIPT = 4] = "IN_HEAD_NO_SCRIPT", InsertionMode2[InsertionMode2.AFTER_HEAD = 5] = "AFTER_HEAD", InsertionMode2[InsertionMode2.IN_BODY = 6] = "IN_BODY", InsertionMode2[InsertionMode2.TEXT = 7] = "TEXT", InsertionMode2[InsertionMode2.IN_TABLE = 8] = "IN_TABLE", InsertionMode2[InsertionMode2.IN_TABLE_TEXT = 9] = "IN_TABLE_TEXT", InsertionMode2[InsertionMode2.IN_CAPTION = 10] = "IN_CAPTION", InsertionMode2[InsertionMode2.IN_COLUMN_GROUP = 11] = "IN_COLUMN_GROUP", InsertionMode2[InsertionMode2.IN_TABLE_BODY = 12] = "IN_TABLE_BODY", InsertionMode2[InsertionMode2.IN_ROW = 13] = "IN_ROW", InsertionMode2[InsertionMode2.IN_CELL = 14] = "IN_CELL", InsertionMode2[InsertionMode2.IN_SELECT = 15] = "IN_SELECT", InsertionMode2[InsertionMode2.IN_SELECT_IN_TABLE = 16] = "IN_SELECT_IN_TABLE", InsertionMode2[InsertionMode2.IN_TEMPLATE = 17] = "IN_TEMPLATE", InsertionMode2[InsertionMode2.AFTER_BODY = 18] = "AFTER_BODY", InsertionMode2[InsertionMode2.IN_FRAMESET = 19] = "IN_FRAMESET", InsertionMode2[InsertionMode2.AFTER_FRAMESET = 20] = "AFTER_FRAMESET", InsertionMode2[InsertionMode2.AFTER_AFTER_BODY = 21] = "AFTER_AFTER_BODY", InsertionMode2[InsertionMode2.AFTER_AFTER_FRAMESET = 22] = "AFTER_AFTER_FRAMESET";
 })(InsertionMode || (InsertionMode = {}));
 var BASE_LOC = {
   startLine: -1,
@@ -4840,75 +3429,35 @@ var BASE_LOC = {
   endLine: -1,
   endCol: -1,
   endOffset: -1
-};
-var TABLE_STRUCTURE_TAGS = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TR]);
-var defaultParserOptions = {
-  scriptingEnabled: true,
-  sourceCodeLocationInfo: false,
+}, TABLE_STRUCTURE_TAGS = /* @__PURE__ */ new Set([TAG_ID.TABLE, TAG_ID.TBODY, TAG_ID.TFOOT, TAG_ID.THEAD, TAG_ID.TR]), defaultParserOptions = {
+  scriptingEnabled: !0,
+  sourceCodeLocationInfo: !1,
   treeAdapter: defaultTreeAdapter,
   onParseError: null
-};
-var Parser = class {
+}, Parser = class {
   constructor(options2, document, fragmentContext = null, scriptHandler = null) {
-    this.fragmentContext = fragmentContext;
-    this.scriptHandler = scriptHandler;
-    this.currentToken = null;
-    this.stopped = false;
-    this.insertionMode = InsertionMode.INITIAL;
-    this.originalInsertionMode = InsertionMode.INITIAL;
-    this.headElement = null;
-    this.formElement = null;
-    this.currentNotInHTML = false;
-    this.tmplInsertionModeStack = [];
-    this.pendingCharacterTokens = [];
-    this.hasNonWhitespacePendingCharacterToken = false;
-    this.framesetOk = true;
-    this.skipNextNewLine = false;
-    this.fosterParentingEnabled = false;
-    this.options = {
+    this.fragmentContext = fragmentContext, this.scriptHandler = scriptHandler, this.currentToken = null, this.stopped = !1, this.insertionMode = InsertionMode.INITIAL, this.originalInsertionMode = InsertionMode.INITIAL, this.headElement = null, this.formElement = null, this.currentNotInHTML = !1, this.tmplInsertionModeStack = [], this.pendingCharacterTokens = [], this.hasNonWhitespacePendingCharacterToken = !1, this.framesetOk = !0, this.skipNextNewLine = !1, this.fosterParentingEnabled = !1, this.options = {
       ...defaultParserOptions,
       ...options2
-    };
-    this.treeAdapter = this.options.treeAdapter;
-    this.onParseError = this.options.onParseError;
-    if (this.onParseError) {
-      this.options.sourceCodeLocationInfo = true;
-    }
-    this.document = document !== null && document !== void 0 ? document : this.treeAdapter.createDocument();
-    this.tokenizer = new Tokenizer(this.options, this);
-    this.activeFormattingElements = new FormattingElementList(this.treeAdapter);
-    this.fragmentContextID = fragmentContext ? getTagID(this.treeAdapter.getTagName(fragmentContext)) : TAG_ID.UNKNOWN;
-    this._setContextModes(fragmentContext !== null && fragmentContext !== void 0 ? fragmentContext : this.document, this.fragmentContextID);
-    this.openElements = new OpenElementStack(this.document, this.treeAdapter, this);
+    }, this.treeAdapter = this.options.treeAdapter, this.onParseError = this.options.onParseError, this.onParseError && (this.options.sourceCodeLocationInfo = !0), this.document = document ?? this.treeAdapter.createDocument(), this.tokenizer = new Tokenizer(this.options, this), this.activeFormattingElements = new FormattingElementList(this.treeAdapter), this.fragmentContextID = fragmentContext ? getTagID(this.treeAdapter.getTagName(fragmentContext)) : TAG_ID.UNKNOWN, this._setContextModes(fragmentContext ?? this.document, this.fragmentContextID), this.openElements = new OpenElementStack(this.document, this.treeAdapter, this);
   }
   // API
   static parse(html, options2) {
-    const parser = new this(options2);
-    parser.tokenizer.write(html, true);
-    return parser.document;
+    let parser = new this(options2);
+    return parser.tokenizer.write(html, !0), parser.document;
   }
   static getFragmentParser(fragmentContext, options2) {
-    const opts = {
+    let opts = {
       ...defaultParserOptions,
       ...options2
     };
-    fragmentContext !== null && fragmentContext !== void 0 ? fragmentContext : fragmentContext = opts.treeAdapter.createElement(TAG_NAMES.TEMPLATE, NS.HTML, []);
-    const documentMock = opts.treeAdapter.createElement("documentmock", NS.HTML, []);
-    const parser = new this(opts, documentMock, fragmentContext);
-    if (parser.fragmentContextID === TAG_ID.TEMPLATE) {
-      parser.tmplInsertionModeStack.unshift(InsertionMode.IN_TEMPLATE);
-    }
-    parser._initTokenizerForFragmentParsing();
-    parser._insertFakeRootElement();
-    parser._resetInsertionMode();
-    parser._findFormInFragmentContext();
-    return parser;
+    fragmentContext ?? (fragmentContext = opts.treeAdapter.createElement(TAG_NAMES.TEMPLATE, NS.HTML, []));
+    let documentMock = opts.treeAdapter.createElement("documentmock", NS.HTML, []), parser = new this(opts, documentMock, fragmentContext);
+    return parser.fragmentContextID === TAG_ID.TEMPLATE && parser.tmplInsertionModeStack.unshift(InsertionMode.IN_TEMPLATE), parser._initTokenizerForFragmentParsing(), parser._insertFakeRootElement(), parser._resetInsertionMode(), parser._findFormInFragmentContext(), parser;
   }
   getFragment() {
-    const rootElement = this.treeAdapter.getFirstChild(this.document);
-    const fragment = this.treeAdapter.createDocumentFragment();
-    this._adoptNodes(rootElement, fragment);
-    return fragment;
+    let rootElement = this.treeAdapter.getFirstChild(this.document), fragment = this.treeAdapter.createDocumentFragment();
+    return this._adoptNodes(rootElement, fragment), fragment;
   }
   //Errors
   /** @internal */
@@ -4916,8 +3465,7 @@ var Parser = class {
     var _a2;
     if (!this.onParseError)
       return;
-    const loc = (_a2 = token.location) !== null && _a2 !== void 0 ? _a2 : BASE_LOC;
-    const err = {
+    let loc = (_a2 = token.location) !== null && _a2 !== void 0 ? _a2 : BASE_LOC, err = {
       code,
       startLine: loc.startLine,
       startCol: loc.startCol,
@@ -4932,45 +3480,26 @@ var Parser = class {
   /** @internal */
   onItemPush(node, tid, isTop) {
     var _a2, _b;
-    (_b = (_a2 = this.treeAdapter).onItemPush) === null || _b === void 0 ? void 0 : _b.call(_a2, node);
-    if (isTop && this.openElements.stackTop > 0)
-      this._setContextModes(node, tid);
+    (_b = (_a2 = this.treeAdapter).onItemPush) === null || _b === void 0 || _b.call(_a2, node), isTop && this.openElements.stackTop > 0 && this._setContextModes(node, tid);
   }
   /** @internal */
   onItemPop(node, isTop) {
     var _a2, _b;
-    if (this.options.sourceCodeLocationInfo) {
-      this._setEndLocation(node, this.currentToken);
-    }
-    (_b = (_a2 = this.treeAdapter).onItemPop) === null || _b === void 0 ? void 0 : _b.call(_a2, node, this.openElements.current);
-    if (isTop) {
-      let current;
-      let currentTagId;
-      if (this.openElements.stackTop === 0 && this.fragmentContext) {
-        current = this.fragmentContext;
-        currentTagId = this.fragmentContextID;
-      } else {
-        ({ current, currentTagId } = this.openElements);
-      }
-      this._setContextModes(current, currentTagId);
+    if (this.options.sourceCodeLocationInfo && this._setEndLocation(node, this.currentToken), (_b = (_a2 = this.treeAdapter).onItemPop) === null || _b === void 0 || _b.call(_a2, node, this.openElements.current), isTop) {
+      let current, currentTagId;
+      this.openElements.stackTop === 0 && this.fragmentContext ? (current = this.fragmentContext, currentTagId = this.fragmentContextID) : { current, currentTagId } = this.openElements, this._setContextModes(current, currentTagId);
     }
   }
   _setContextModes(current, tid) {
-    const isHTML = current === this.document || current && this.treeAdapter.getNamespaceURI(current) === NS.HTML;
-    this.currentNotInHTML = !isHTML;
-    this.tokenizer.inForeignNode = !isHTML && current !== void 0 && tid !== void 0 && !this._isIntegrationPoint(tid, current);
+    let isHTML = current === this.document || current && this.treeAdapter.getNamespaceURI(current) === NS.HTML;
+    this.currentNotInHTML = !isHTML, this.tokenizer.inForeignNode = !isHTML && current !== void 0 && tid !== void 0 && !this._isIntegrationPoint(tid, current);
   }
   /** @protected */
   _switchToTextParsing(currentToken, nextTokenizerState) {
-    this._insertElement(currentToken, NS.HTML);
-    this.tokenizer.state = nextTokenizerState;
-    this.originalInsertionMode = this.insertionMode;
-    this.insertionMode = InsertionMode.TEXT;
+    this._insertElement(currentToken, NS.HTML), this.tokenizer.state = nextTokenizerState, this.originalInsertionMode = this.insertionMode, this.insertionMode = InsertionMode.TEXT;
   }
   switchToPlaintextParsing() {
-    this.insertionMode = InsertionMode.TEXT;
-    this.originalInsertionMode = InsertionMode.IN_BODY;
-    this.tokenizer.state = TokenizerMode.PLAINTEXT;
+    this.insertionMode = InsertionMode.TEXT, this.originalInsertionMode = InsertionMode.IN_BODY, this.tokenizer.state = TokenizerMode.PLAINTEXT;
   }
   //Fragment parsing
   /** @protected */
@@ -4980,7 +3509,7 @@ var Parser = class {
   /** @protected */
   _findFormInFragmentContext() {
     let node = this.fragmentContext;
-    while (node) {
+    for (; node; ) {
       if (this.treeAdapter.getTagName(node) === TAG_NAMES.FORM) {
         this.formElement = node;
         break;
@@ -4989,64 +3518,56 @@ var Parser = class {
     }
   }
   _initTokenizerForFragmentParsing() {
-    if (!this.fragmentContext || this.treeAdapter.getNamespaceURI(this.fragmentContext) !== NS.HTML) {
-      return;
-    }
-    switch (this.fragmentContextID) {
-      case TAG_ID.TITLE:
-      case TAG_ID.TEXTAREA: {
-        this.tokenizer.state = TokenizerMode.RCDATA;
-        break;
+    if (!(!this.fragmentContext || this.treeAdapter.getNamespaceURI(this.fragmentContext) !== NS.HTML))
+      switch (this.fragmentContextID) {
+        case TAG_ID.TITLE:
+        case TAG_ID.TEXTAREA: {
+          this.tokenizer.state = TokenizerMode.RCDATA;
+          break;
+        }
+        case TAG_ID.STYLE:
+        case TAG_ID.XMP:
+        case TAG_ID.IFRAME:
+        case TAG_ID.NOEMBED:
+        case TAG_ID.NOFRAMES:
+        case TAG_ID.NOSCRIPT: {
+          this.tokenizer.state = TokenizerMode.RAWTEXT;
+          break;
+        }
+        case TAG_ID.SCRIPT: {
+          this.tokenizer.state = TokenizerMode.SCRIPT_DATA;
+          break;
+        }
+        case TAG_ID.PLAINTEXT: {
+          this.tokenizer.state = TokenizerMode.PLAINTEXT;
+          break;
+        }
+        default:
       }
-      case TAG_ID.STYLE:
-      case TAG_ID.XMP:
-      case TAG_ID.IFRAME:
-      case TAG_ID.NOEMBED:
-      case TAG_ID.NOFRAMES:
-      case TAG_ID.NOSCRIPT: {
-        this.tokenizer.state = TokenizerMode.RAWTEXT;
-        break;
-      }
-      case TAG_ID.SCRIPT: {
-        this.tokenizer.state = TokenizerMode.SCRIPT_DATA;
-        break;
-      }
-      case TAG_ID.PLAINTEXT: {
-        this.tokenizer.state = TokenizerMode.PLAINTEXT;
-        break;
-      }
-      default:
-    }
   }
   //Tree mutation
   /** @protected */
   _setDocumentType(token) {
-    const name = token.name || "";
-    const publicId = token.publicId || "";
-    const systemId = token.systemId || "";
-    this.treeAdapter.setDocumentType(this.document, name, publicId, systemId);
-    if (token.location) {
-      const documentChildren = this.treeAdapter.getChildNodes(this.document);
-      const docTypeNode = documentChildren.find((node) => this.treeAdapter.isDocumentTypeNode(node));
-      if (docTypeNode) {
-        this.treeAdapter.setNodeSourceCodeLocation(docTypeNode, token.location);
-      }
+    let name = token.name || "", publicId = token.publicId || "", systemId = token.systemId || "";
+    if (this.treeAdapter.setDocumentType(this.document, name, publicId, systemId), token.location) {
+      let docTypeNode = this.treeAdapter.getChildNodes(this.document).find((node) => this.treeAdapter.isDocumentTypeNode(node));
+      docTypeNode && this.treeAdapter.setNodeSourceCodeLocation(docTypeNode, token.location);
     }
   }
   /** @protected */
   _attachElementToTree(element, location) {
     if (this.options.sourceCodeLocationInfo) {
-      const loc = location && {
+      let loc = location && {
         ...location,
         startTag: location
       };
       this.treeAdapter.setNodeSourceCodeLocation(element, loc);
     }
-    if (this._shouldFosterParentOnInsertion()) {
+    if (this._shouldFosterParentOnInsertion())
       this._fosterParentElement(element);
-    } else {
-      const parent = this.openElements.currentTmplContentOrNode;
-      this.treeAdapter.appendChild(parent !== null && parent !== void 0 ? parent : this.document, element);
+    else {
+      let parent = this.openElements.currentTmplContentOrNode;
+      this.treeAdapter.appendChild(parent ?? this.document, element);
     }
   }
   /**
@@ -5055,88 +3576,54 @@ var Parser = class {
    */
   /** @protected */
   _appendElement(token, namespaceURI) {
-    const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
+    let element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
     this._attachElementToTree(element, token.location);
   }
   /** @protected */
   _insertElement(token, namespaceURI) {
-    const element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
-    this._attachElementToTree(element, token.location);
-    this.openElements.push(element, token.tagID);
+    let element = this.treeAdapter.createElement(token.tagName, namespaceURI, token.attrs);
+    this._attachElementToTree(element, token.location), this.openElements.push(element, token.tagID);
   }
   /** @protected */
   _insertFakeElement(tagName, tagID) {
-    const element = this.treeAdapter.createElement(tagName, NS.HTML, []);
-    this._attachElementToTree(element, null);
-    this.openElements.push(element, tagID);
+    let element = this.treeAdapter.createElement(tagName, NS.HTML, []);
+    this._attachElementToTree(element, null), this.openElements.push(element, tagID);
   }
   /** @protected */
   _insertTemplate(token) {
-    const tmpl = this.treeAdapter.createElement(token.tagName, NS.HTML, token.attrs);
-    const content = this.treeAdapter.createDocumentFragment();
-    this.treeAdapter.setTemplateContent(tmpl, content);
-    this._attachElementToTree(tmpl, token.location);
-    this.openElements.push(tmpl, token.tagID);
-    if (this.options.sourceCodeLocationInfo)
-      this.treeAdapter.setNodeSourceCodeLocation(content, null);
+    let tmpl = this.treeAdapter.createElement(token.tagName, NS.HTML, token.attrs), content = this.treeAdapter.createDocumentFragment();
+    this.treeAdapter.setTemplateContent(tmpl, content), this._attachElementToTree(tmpl, token.location), this.openElements.push(tmpl, token.tagID), this.options.sourceCodeLocationInfo && this.treeAdapter.setNodeSourceCodeLocation(content, null);
   }
   /** @protected */
   _insertFakeRootElement() {
-    const element = this.treeAdapter.createElement(TAG_NAMES.HTML, NS.HTML, []);
-    if (this.options.sourceCodeLocationInfo)
-      this.treeAdapter.setNodeSourceCodeLocation(element, null);
-    this.treeAdapter.appendChild(this.openElements.current, element);
-    this.openElements.push(element, TAG_ID.HTML);
+    let element = this.treeAdapter.createElement(TAG_NAMES.HTML, NS.HTML, []);
+    this.options.sourceCodeLocationInfo && this.treeAdapter.setNodeSourceCodeLocation(element, null), this.treeAdapter.appendChild(this.openElements.current, element), this.openElements.push(element, TAG_ID.HTML);
   }
   /** @protected */
   _appendCommentNode(token, parent) {
-    const commentNode = this.treeAdapter.createCommentNode(token.data);
-    this.treeAdapter.appendChild(parent, commentNode);
-    if (this.options.sourceCodeLocationInfo) {
-      this.treeAdapter.setNodeSourceCodeLocation(commentNode, token.location);
-    }
+    let commentNode = this.treeAdapter.createCommentNode(token.data);
+    this.treeAdapter.appendChild(parent, commentNode), this.options.sourceCodeLocationInfo && this.treeAdapter.setNodeSourceCodeLocation(commentNode, token.location);
   }
   /** @protected */
   _insertCharacters(token) {
-    let parent;
-    let beforeElement;
-    if (this._shouldFosterParentOnInsertion()) {
-      ({ parent, beforeElement } = this._findFosterParentingLocation());
-      if (beforeElement) {
-        this.treeAdapter.insertTextBefore(parent, token.chars, beforeElement);
-      } else {
-        this.treeAdapter.insertText(parent, token.chars);
-      }
-    } else {
-      parent = this.openElements.currentTmplContentOrNode;
-      this.treeAdapter.insertText(parent, token.chars);
-    }
-    if (!token.location)
+    let parent, beforeElement;
+    if (this._shouldFosterParentOnInsertion() ? ({ parent, beforeElement } = this._findFosterParentingLocation(), beforeElement ? this.treeAdapter.insertTextBefore(parent, token.chars, beforeElement) : this.treeAdapter.insertText(parent, token.chars)) : (parent = this.openElements.currentTmplContentOrNode, this.treeAdapter.insertText(parent, token.chars)), !token.location)
       return;
-    const siblings = this.treeAdapter.getChildNodes(parent);
-    const textNodeIdx = beforeElement ? siblings.lastIndexOf(beforeElement) : siblings.length;
-    const textNode = siblings[textNodeIdx - 1];
-    const tnLoc = this.treeAdapter.getNodeSourceCodeLocation(textNode);
-    if (tnLoc) {
-      const { endLine, endCol, endOffset } = token.location;
+    let siblings = this.treeAdapter.getChildNodes(parent), textNodeIdx = beforeElement ? siblings.lastIndexOf(beforeElement) : siblings.length, textNode = siblings[textNodeIdx - 1];
+    if (this.treeAdapter.getNodeSourceCodeLocation(textNode)) {
+      let { endLine, endCol, endOffset } = token.location;
       this.treeAdapter.updateNodeSourceCodeLocation(textNode, { endLine, endCol, endOffset });
-    } else if (this.options.sourceCodeLocationInfo) {
-      this.treeAdapter.setNodeSourceCodeLocation(textNode, token.location);
-    }
+    } else this.options.sourceCodeLocationInfo && this.treeAdapter.setNodeSourceCodeLocation(textNode, token.location);
   }
   /** @protected */
   _adoptNodes(donor, recipient) {
-    for (let child = this.treeAdapter.getFirstChild(donor); child; child = this.treeAdapter.getFirstChild(donor)) {
-      this.treeAdapter.detachNode(child);
-      this.treeAdapter.appendChild(recipient, child);
-    }
+    for (let child = this.treeAdapter.getFirstChild(donor); child; child = this.treeAdapter.getFirstChild(donor))
+      this.treeAdapter.detachNode(child), this.treeAdapter.appendChild(recipient, child);
   }
   /** @protected */
   _setEndLocation(element, closingToken) {
     if (this.treeAdapter.getNodeSourceCodeLocation(element) && closingToken.location) {
-      const ctLoc = closingToken.location;
-      const tn = this.treeAdapter.getTagName(element);
-      const endLoc = (
+      let ctLoc = closingToken.location, tn = this.treeAdapter.getTagName(element), endLoc = (
         // NOTE: For cases like <p> <p> </p> - First 'p' closes without a closing
         // tag and for cases like <td> <p> </td> - 'p' closes without a closing tag.
         closingToken.type === TokenType.END_TAG && tn === closingToken.tagName ? {
@@ -5156,19 +3643,9 @@ var Parser = class {
   //Token processing
   shouldProcessStartTagTokenInForeignContent(token) {
     if (!this.currentNotInHTML)
-      return false;
-    let current;
-    let currentTagId;
-    if (this.openElements.stackTop === 0 && this.fragmentContext) {
-      current = this.fragmentContext;
-      currentTagId = this.fragmentContextID;
-    } else {
-      ({ current, currentTagId } = this.openElements);
-    }
-    if (token.tagID === TAG_ID.SVG && this.treeAdapter.getTagName(current) === TAG_NAMES.ANNOTATION_XML && this.treeAdapter.getNamespaceURI(current) === NS.MATHML) {
-      return false;
-    }
-    return (
+      return !1;
+    let current, currentTagId;
+    return this.openElements.stackTop === 0 && this.fragmentContext ? (current = this.fragmentContext, currentTagId = this.fragmentContextID) : { current, currentTagId } = this.openElements, token.tagID === TAG_ID.SVG && this.treeAdapter.getTagName(current) === TAG_NAMES.ANNOTATION_XML && this.treeAdapter.getNamespaceURI(current) === NS.MATHML ? !1 : (
       // Check that `current` is not an integration point for HTML or MathML elements.
       this.tokenizer.inForeignNode || // If it _is_ an integration point, then we might have to check that it is not an HTML
       // integration point.
@@ -5215,41 +3692,34 @@ var Parser = class {
   //Integration points
   /** @protected */
   _isIntegrationPoint(tid, element, foreignNS) {
-    const ns = this.treeAdapter.getNamespaceURI(element);
-    const attrs = this.treeAdapter.getAttrList(element);
+    let ns = this.treeAdapter.getNamespaceURI(element), attrs = this.treeAdapter.getAttrList(element);
     return isIntegrationPoint(tid, ns, attrs, foreignNS);
   }
   //Active formatting elements reconstruction
   /** @protected */
   _reconstructActiveFormattingElements() {
-    const listLength = this.activeFormattingElements.entries.length;
+    let listLength = this.activeFormattingElements.entries.length;
     if (listLength) {
-      const endIndex = this.activeFormattingElements.entries.findIndex((entry) => entry.type === EntryType.Marker || this.openElements.contains(entry.element));
-      const unopenIdx = endIndex === -1 ? listLength - 1 : endIndex - 1;
+      let endIndex = this.activeFormattingElements.entries.findIndex((entry) => entry.type === EntryType.Marker || this.openElements.contains(entry.element)), unopenIdx = endIndex === -1 ? listLength - 1 : endIndex - 1;
       for (let i = unopenIdx; i >= 0; i--) {
-        const entry = this.activeFormattingElements.entries[i];
-        this._insertElement(entry.token, this.treeAdapter.getNamespaceURI(entry.element));
-        entry.element = this.openElements.current;
+        let entry = this.activeFormattingElements.entries[i];
+        this._insertElement(entry.token, this.treeAdapter.getNamespaceURI(entry.element)), entry.element = this.openElements.current;
       }
     }
   }
   //Close elements
   /** @protected */
   _closeTableCell() {
-    this.openElements.generateImpliedEndTags();
-    this.openElements.popUntilTableCellPopped();
-    this.activeFormattingElements.clearToLastMarker();
-    this.insertionMode = InsertionMode.IN_ROW;
+    this.openElements.generateImpliedEndTags(), this.openElements.popUntilTableCellPopped(), this.activeFormattingElements.clearToLastMarker(), this.insertionMode = InsertionMode.IN_ROW;
   }
   /** @protected */
   _closePElement() {
-    this.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.P);
-    this.openElements.popUntilTagNamePopped(TAG_ID.P);
+    this.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.P), this.openElements.popUntilTagNamePopped(TAG_ID.P);
   }
   //Insertion modes
   /** @protected */
   _resetInsertionMode() {
-    for (let i = this.openElements.stackTop; i >= 0; i--) {
+    for (let i = this.openElements.stackTop; i >= 0; i--)
       switch (i === 0 && this.fragmentContext ? this.fragmentContextID : this.openElements.tagIDs[i]) {
         case TAG_ID.TR: {
           this.insertionMode = InsertionMode.IN_ROW;
@@ -5309,22 +3779,20 @@ var Parser = class {
           break;
         }
       }
-    }
     this.insertionMode = InsertionMode.IN_BODY;
   }
   /** @protected */
   _resetInsertionModeForSelect(selectIdx) {
-    if (selectIdx > 0) {
+    if (selectIdx > 0)
       for (let i = selectIdx - 1; i > 0; i--) {
-        const tn = this.openElements.tagIDs[i];
-        if (tn === TAG_ID.TEMPLATE) {
+        let tn = this.openElements.tagIDs[i];
+        if (tn === TAG_ID.TEMPLATE)
           break;
-        } else if (tn === TAG_ID.TABLE) {
+        if (tn === TAG_ID.TABLE) {
           this.insertionMode = InsertionMode.IN_SELECT_IN_TABLE;
           return;
         }
       }
-    }
     this.insertionMode = InsertionMode.IN_SELECT;
   }
   //Foster parenting
@@ -5339,20 +3807,16 @@ var Parser = class {
   /** @protected */
   _findFosterParentingLocation() {
     for (let i = this.openElements.stackTop; i >= 0; i--) {
-      const openElement = this.openElements.items[i];
+      let openElement = this.openElements.items[i];
       switch (this.openElements.tagIDs[i]) {
         case TAG_ID.TEMPLATE: {
-          if (this.treeAdapter.getNamespaceURI(openElement) === NS.HTML) {
+          if (this.treeAdapter.getNamespaceURI(openElement) === NS.HTML)
             return { parent: this.treeAdapter.getTemplateContent(openElement), beforeElement: null };
-          }
           break;
         }
         case TAG_ID.TABLE: {
-          const parent = this.treeAdapter.getParentNode(openElement);
-          if (parent) {
-            return { parent, beforeElement: openElement };
-          }
-          return { parent: this.openElements.items[i - 1], beforeElement: null };
+          let parent = this.treeAdapter.getParentNode(openElement);
+          return parent ? { parent, beforeElement: openElement } : { parent: this.openElements.items[i - 1], beforeElement: null };
         }
         default:
       }
@@ -5361,23 +3825,18 @@ var Parser = class {
   }
   /** @protected */
   _fosterParentElement(element) {
-    const location = this._findFosterParentingLocation();
-    if (location.beforeElement) {
-      this.treeAdapter.insertBefore(location.parent, element, location.beforeElement);
-    } else {
-      this.treeAdapter.appendChild(location.parent, element);
-    }
+    let location = this._findFosterParentingLocation();
+    location.beforeElement ? this.treeAdapter.insertBefore(location.parent, element, location.beforeElement) : this.treeAdapter.appendChild(location.parent, element);
   }
   //Special elements
   /** @protected */
   _isSpecialElement(element, id) {
-    const ns = this.treeAdapter.getNamespaceURI(element);
+    let ns = this.treeAdapter.getNamespaceURI(element);
     return SPECIAL_ELEMENTS[ns].has(id);
   }
   /** @internal */
   onCharacter(token) {
-    this.skipNextNewLine = false;
-    if (this.tokenizer.inForeignNode) {
+    if (this.skipNextNewLine = !1, this.tokenizer.inForeignNode) {
       characterInForeignContent(this, token);
       return;
     }
@@ -5446,8 +3905,7 @@ var Parser = class {
   }
   /** @internal */
   onNullCharacter(token) {
-    this.skipNextNewLine = false;
-    if (this.tokenizer.inForeignNode) {
+    if (this.skipNextNewLine = !1, this.tokenizer.inForeignNode) {
       nullCharacterInForeignContent(this, token);
       return;
     }
@@ -5503,8 +3961,7 @@ var Parser = class {
   }
   /** @internal */
   onComment(token) {
-    this.skipNextNewLine = false;
-    if (this.currentNotInHTML) {
+    if (this.skipNextNewLine = !1, this.currentNotInHTML) {
       appendComment(this, token);
       return;
     }
@@ -5548,8 +4005,7 @@ var Parser = class {
   }
   /** @internal */
   onDoctype(token) {
-    this.skipNextNewLine = false;
-    switch (this.insertionMode) {
+    switch (this.skipNextNewLine = !1, this.insertionMode) {
       case InsertionMode.INITIAL: {
         doctypeInInitialMode(this, token);
         break;
@@ -5570,12 +4026,7 @@ var Parser = class {
   }
   /** @internal */
   onStartTag(token) {
-    this.skipNextNewLine = false;
-    this.currentToken = token;
-    this._processStartTag(token);
-    if (token.selfClosing && !token.ackSelfClosing) {
-      this._err(token, ERR.nonVoidHtmlElementStartTagWithTrailingSolidus);
-    }
+    this.skipNextNewLine = !1, this.currentToken = token, this._processStartTag(token), token.selfClosing && !token.ackSelfClosing && this._err(token, ERR.nonVoidHtmlElementStartTagWithTrailingSolidus);
   }
   /**
    * Processes a given start tag.
@@ -5589,11 +4040,7 @@ var Parser = class {
    * @protected
    */
   _processStartTag(token) {
-    if (this.shouldProcessStartTagTokenInForeignContent(token)) {
-      startTagInForeignContent(this, token);
-    } else {
-      this._startTagOutsideForeignContent(token);
-    }
+    this.shouldProcessStartTagTokenInForeignContent(token) ? startTagInForeignContent(this, token) : this._startTagOutsideForeignContent(token);
   }
   /** @protected */
   _startTagOutsideForeignContent(token) {
@@ -5691,13 +4138,7 @@ var Parser = class {
   }
   /** @internal */
   onEndTag(token) {
-    this.skipNextNewLine = false;
-    this.currentToken = token;
-    if (this.currentNotInHTML) {
-      endTagInForeignContent(this, token);
-    } else {
-      this._endTagOutsideForeignContent(token);
-    }
+    this.skipNextNewLine = !1, this.currentToken = token, this.currentNotInHTML ? endTagInForeignContent(this, token) : this._endTagOutsideForeignContent(token);
   }
   /** @protected */
   _endTagOutsideForeignContent(token) {
@@ -5857,14 +4298,10 @@ var Parser = class {
   }
   /** @internal */
   onWhitespaceCharacter(token) {
-    if (this.skipNextNewLine) {
-      this.skipNextNewLine = false;
-      if (token.chars.charCodeAt(0) === CODE_POINTS.LINE_FEED) {
-        if (token.chars.length === 1) {
-          return;
-        }
-        token.chars = token.chars.substr(1);
-      }
+    if (this.skipNextNewLine && (this.skipNextNewLine = !1, token.chars.charCodeAt(0) === CODE_POINTS.LINE_FEED)) {
+      if (token.chars.length === 1)
+        return;
+      token.chars = token.chars.substr(1);
     }
     if (this.tokenizer.inForeignNode) {
       this._insertCharacters(token);
@@ -5909,109 +4346,55 @@ var Parser = class {
 };
 function aaObtainFormattingElementEntry(p, token) {
   let formattingElementEntry = p.activeFormattingElements.getElementEntryInScopeWithTagName(token.tagName);
-  if (formattingElementEntry) {
-    if (!p.openElements.contains(formattingElementEntry.element)) {
-      p.activeFormattingElements.removeEntry(formattingElementEntry);
-      formattingElementEntry = null;
-    } else if (!p.openElements.hasInScope(token.tagID)) {
-      formattingElementEntry = null;
-    }
-  } else {
-    genericEndTagInBody(p, token);
-  }
-  return formattingElementEntry;
+  return formattingElementEntry ? p.openElements.contains(formattingElementEntry.element) ? p.openElements.hasInScope(token.tagID) || (formattingElementEntry = null) : (p.activeFormattingElements.removeEntry(formattingElementEntry), formattingElementEntry = null) : genericEndTagInBody(p, token), formattingElementEntry;
 }
 function aaObtainFurthestBlock(p, formattingElementEntry) {
-  let furthestBlock = null;
-  let idx = p.openElements.stackTop;
+  let furthestBlock = null, idx = p.openElements.stackTop;
   for (; idx >= 0; idx--) {
-    const element = p.openElements.items[idx];
-    if (element === formattingElementEntry.element) {
+    let element = p.openElements.items[idx];
+    if (element === formattingElementEntry.element)
       break;
-    }
-    if (p._isSpecialElement(element, p.openElements.tagIDs[idx])) {
-      furthestBlock = element;
-    }
+    p._isSpecialElement(element, p.openElements.tagIDs[idx]) && (furthestBlock = element);
   }
-  if (!furthestBlock) {
-    p.openElements.shortenToLength(Math.max(idx, 0));
-    p.activeFormattingElements.removeEntry(formattingElementEntry);
-  }
-  return furthestBlock;
+  return furthestBlock || (p.openElements.shortenToLength(Math.max(idx, 0)), p.activeFormattingElements.removeEntry(formattingElementEntry)), furthestBlock;
 }
 function aaInnerLoop(p, furthestBlock, formattingElement) {
-  let lastElement = furthestBlock;
-  let nextElement = p.openElements.getCommonAncestor(furthestBlock);
+  let lastElement = furthestBlock, nextElement = p.openElements.getCommonAncestor(furthestBlock);
   for (let i = 0, element = nextElement; element !== formattingElement; i++, element = nextElement) {
     nextElement = p.openElements.getCommonAncestor(element);
-    const elementEntry = p.activeFormattingElements.getElementEntry(element);
-    const counterOverflow = elementEntry && i >= AA_INNER_LOOP_ITER;
-    const shouldRemoveFromOpenElements = !elementEntry || counterOverflow;
-    if (shouldRemoveFromOpenElements) {
-      if (counterOverflow) {
-        p.activeFormattingElements.removeEntry(elementEntry);
-      }
-      p.openElements.remove(element);
-    } else {
-      element = aaRecreateElementFromEntry(p, elementEntry);
-      if (lastElement === furthestBlock) {
-        p.activeFormattingElements.bookmark = elementEntry;
-      }
-      p.treeAdapter.detachNode(lastElement);
-      p.treeAdapter.appendChild(element, lastElement);
-      lastElement = element;
-    }
+    let elementEntry = p.activeFormattingElements.getElementEntry(element), counterOverflow = elementEntry && i >= AA_INNER_LOOP_ITER;
+    !elementEntry || counterOverflow ? (counterOverflow && p.activeFormattingElements.removeEntry(elementEntry), p.openElements.remove(element)) : (element = aaRecreateElementFromEntry(p, elementEntry), lastElement === furthestBlock && (p.activeFormattingElements.bookmark = elementEntry), p.treeAdapter.detachNode(lastElement), p.treeAdapter.appendChild(element, lastElement), lastElement = element);
   }
   return lastElement;
 }
 function aaRecreateElementFromEntry(p, elementEntry) {
-  const ns = p.treeAdapter.getNamespaceURI(elementEntry.element);
-  const newElement = p.treeAdapter.createElement(elementEntry.token.tagName, ns, elementEntry.token.attrs);
-  p.openElements.replace(elementEntry.element, newElement);
-  elementEntry.element = newElement;
-  return newElement;
+  let ns = p.treeAdapter.getNamespaceURI(elementEntry.element), newElement = p.treeAdapter.createElement(elementEntry.token.tagName, ns, elementEntry.token.attrs);
+  return p.openElements.replace(elementEntry.element, newElement), elementEntry.element = newElement, newElement;
 }
 function aaInsertLastNodeInCommonAncestor(p, commonAncestor, lastElement) {
-  const tn = p.treeAdapter.getTagName(commonAncestor);
-  const tid = getTagID(tn);
-  if (p._isElementCausesFosterParenting(tid)) {
+  let tn = p.treeAdapter.getTagName(commonAncestor), tid = getTagID(tn);
+  if (p._isElementCausesFosterParenting(tid))
     p._fosterParentElement(lastElement);
-  } else {
-    const ns = p.treeAdapter.getNamespaceURI(commonAncestor);
-    if (tid === TAG_ID.TEMPLATE && ns === NS.HTML) {
-      commonAncestor = p.treeAdapter.getTemplateContent(commonAncestor);
-    }
-    p.treeAdapter.appendChild(commonAncestor, lastElement);
+  else {
+    let ns = p.treeAdapter.getNamespaceURI(commonAncestor);
+    tid === TAG_ID.TEMPLATE && ns === NS.HTML && (commonAncestor = p.treeAdapter.getTemplateContent(commonAncestor)), p.treeAdapter.appendChild(commonAncestor, lastElement);
   }
 }
 function aaReplaceFormattingElement(p, furthestBlock, formattingElementEntry) {
-  const ns = p.treeAdapter.getNamespaceURI(formattingElementEntry.element);
-  const { token } = formattingElementEntry;
-  const newElement = p.treeAdapter.createElement(token.tagName, ns, token.attrs);
-  p._adoptNodes(furthestBlock, newElement);
-  p.treeAdapter.appendChild(furthestBlock, newElement);
-  p.activeFormattingElements.insertElementAfterBookmark(newElement, token);
-  p.activeFormattingElements.removeEntry(formattingElementEntry);
-  p.openElements.remove(formattingElementEntry.element);
-  p.openElements.insertAfter(furthestBlock, newElement, token.tagID);
+  let ns = p.treeAdapter.getNamespaceURI(formattingElementEntry.element), { token } = formattingElementEntry, newElement = p.treeAdapter.createElement(token.tagName, ns, token.attrs);
+  p._adoptNodes(furthestBlock, newElement), p.treeAdapter.appendChild(furthestBlock, newElement), p.activeFormattingElements.insertElementAfterBookmark(newElement, token), p.activeFormattingElements.removeEntry(formattingElementEntry), p.openElements.remove(formattingElementEntry.element), p.openElements.insertAfter(furthestBlock, newElement, token.tagID);
 }
 function callAdoptionAgency(p, token) {
   for (let i = 0; i < AA_OUTER_LOOP_ITER; i++) {
-    const formattingElementEntry = aaObtainFormattingElementEntry(p, token);
-    if (!formattingElementEntry) {
+    let formattingElementEntry = aaObtainFormattingElementEntry(p, token);
+    if (!formattingElementEntry)
       break;
-    }
-    const furthestBlock = aaObtainFurthestBlock(p, formattingElementEntry);
-    if (!furthestBlock) {
+    let furthestBlock = aaObtainFurthestBlock(p, formattingElementEntry);
+    if (!furthestBlock)
       break;
-    }
     p.activeFormattingElements.bookmark = formattingElementEntry;
-    const lastElement = aaInnerLoop(p, furthestBlock, formattingElementEntry.element);
-    const commonAncestor = p.openElements.getCommonAncestor(formattingElementEntry.element);
-    p.treeAdapter.detachNode(lastElement);
-    if (commonAncestor)
-      aaInsertLastNodeInCommonAncestor(p, commonAncestor, lastElement);
-    aaReplaceFormattingElement(p, furthestBlock, formattingElementEntry);
+    let lastElement = aaInnerLoop(p, furthestBlock, formattingElementEntry.element), commonAncestor = p.openElements.getCommonAncestor(formattingElementEntry.element);
+    p.treeAdapter.detachNode(lastElement), commonAncestor && aaInsertLastNodeInCommonAncestor(p, commonAncestor, lastElement), aaReplaceFormattingElement(p, furthestBlock, formattingElementEntry);
   }
 }
 function appendComment(p, token) {
@@ -6024,61 +4407,36 @@ function appendCommentToDocument(p, token) {
   p._appendCommentNode(token, p.document);
 }
 function stopParsing(p, token) {
-  p.stopped = true;
-  if (token.location) {
-    const target = p.fragmentContext ? 0 : 2;
-    for (let i = p.openElements.stackTop; i >= target; i--) {
+  if (p.stopped = !0, token.location) {
+    let target = p.fragmentContext ? 0 : 2;
+    for (let i = p.openElements.stackTop; i >= target; i--)
       p._setEndLocation(p.openElements.items[i], token);
-    }
     if (!p.fragmentContext && p.openElements.stackTop >= 0) {
-      const htmlElement = p.openElements.items[0];
-      const htmlLocation = p.treeAdapter.getNodeSourceCodeLocation(htmlElement);
-      if (htmlLocation && !htmlLocation.endTag) {
-        p._setEndLocation(htmlElement, token);
-        if (p.openElements.stackTop >= 1) {
-          const bodyElement = p.openElements.items[1];
-          const bodyLocation = p.treeAdapter.getNodeSourceCodeLocation(bodyElement);
-          if (bodyLocation && !bodyLocation.endTag) {
-            p._setEndLocation(bodyElement, token);
-          }
-        }
+      let htmlElement = p.openElements.items[0], htmlLocation = p.treeAdapter.getNodeSourceCodeLocation(htmlElement);
+      if (htmlLocation && !htmlLocation.endTag && (p._setEndLocation(htmlElement, token), p.openElements.stackTop >= 1)) {
+        let bodyElement = p.openElements.items[1], bodyLocation = p.treeAdapter.getNodeSourceCodeLocation(bodyElement);
+        bodyLocation && !bodyLocation.endTag && p._setEndLocation(bodyElement, token);
       }
     }
   }
 }
 function doctypeInInitialMode(p, token) {
   p._setDocumentType(token);
-  const mode = token.forceQuirks ? DOCUMENT_MODE.QUIRKS : getDocumentMode(token);
-  if (!isConforming(token)) {
-    p._err(token, ERR.nonConformingDoctype);
-  }
-  p.treeAdapter.setDocumentMode(p.document, mode);
-  p.insertionMode = InsertionMode.BEFORE_HTML;
+  let mode = token.forceQuirks ? DOCUMENT_MODE.QUIRKS : getDocumentMode(token);
+  isConforming(token) || p._err(token, ERR.nonConformingDoctype), p.treeAdapter.setDocumentMode(p.document, mode), p.insertionMode = InsertionMode.BEFORE_HTML;
 }
 function tokenInInitialMode(p, token) {
-  p._err(token, ERR.missingDoctype, true);
-  p.treeAdapter.setDocumentMode(p.document, DOCUMENT_MODE.QUIRKS);
-  p.insertionMode = InsertionMode.BEFORE_HTML;
-  p._processToken(token);
+  p._err(token, ERR.missingDoctype, !0), p.treeAdapter.setDocumentMode(p.document, DOCUMENT_MODE.QUIRKS), p.insertionMode = InsertionMode.BEFORE_HTML, p._processToken(token);
 }
 function startTagBeforeHtml(p, token) {
-  if (token.tagID === TAG_ID.HTML) {
-    p._insertElement(token, NS.HTML);
-    p.insertionMode = InsertionMode.BEFORE_HEAD;
-  } else {
-    tokenBeforeHtml(p, token);
-  }
+  token.tagID === TAG_ID.HTML ? (p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.BEFORE_HEAD) : tokenBeforeHtml(p, token);
 }
 function endTagBeforeHtml(p, token) {
-  const tn = token.tagID;
-  if (tn === TAG_ID.HTML || tn === TAG_ID.HEAD || tn === TAG_ID.BODY || tn === TAG_ID.BR) {
-    tokenBeforeHtml(p, token);
-  }
+  let tn = token.tagID;
+  (tn === TAG_ID.HTML || tn === TAG_ID.HEAD || tn === TAG_ID.BODY || tn === TAG_ID.BR) && tokenBeforeHtml(p, token);
 }
 function tokenBeforeHtml(p, token) {
-  p._insertFakeRootElement();
-  p.insertionMode = InsertionMode.BEFORE_HEAD;
-  p._processToken(token);
+  p._insertFakeRootElement(), p.insertionMode = InsertionMode.BEFORE_HEAD, p._processToken(token);
 }
 function startTagBeforeHead(p, token) {
   switch (token.tagID) {
@@ -6087,29 +4445,19 @@ function startTagBeforeHead(p, token) {
       break;
     }
     case TAG_ID.HEAD: {
-      p._insertElement(token, NS.HTML);
-      p.headElement = p.openElements.current;
-      p.insertionMode = InsertionMode.IN_HEAD;
+      p._insertElement(token, NS.HTML), p.headElement = p.openElements.current, p.insertionMode = InsertionMode.IN_HEAD;
       break;
     }
-    default: {
+    default:
       tokenBeforeHead(p, token);
-    }
   }
 }
 function endTagBeforeHead(p, token) {
-  const tn = token.tagID;
-  if (tn === TAG_ID.HEAD || tn === TAG_ID.BODY || tn === TAG_ID.HTML || tn === TAG_ID.BR) {
-    tokenBeforeHead(p, token);
-  } else {
-    p._err(token, ERR.endTagWithoutMatchingOpenElement);
-  }
+  let tn = token.tagID;
+  tn === TAG_ID.HEAD || tn === TAG_ID.BODY || tn === TAG_ID.HTML || tn === TAG_ID.BR ? tokenBeforeHead(p, token) : p._err(token, ERR.endTagWithoutMatchingOpenElement);
 }
 function tokenBeforeHead(p, token) {
-  p._insertFakeElement(TAG_NAMES.HEAD, TAG_ID.HEAD);
-  p.headElement = p.openElements.current;
-  p.insertionMode = InsertionMode.IN_HEAD;
-  p._processToken(token);
+  p._insertFakeElement(TAG_NAMES.HEAD, TAG_ID.HEAD), p.headElement = p.openElements.current, p.insertionMode = InsertionMode.IN_HEAD, p._processToken(token);
 }
 function startTagInHead(p, token) {
   switch (token.tagID) {
@@ -6122,8 +4470,7 @@ function startTagInHead(p, token) {
     case TAG_ID.BGSOUND:
     case TAG_ID.LINK:
     case TAG_ID.META: {
-      p._appendElement(token, NS.HTML);
-      token.ackSelfClosing = true;
+      p._appendElement(token, NS.HTML), token.ackSelfClosing = !0;
       break;
     }
     case TAG_ID.TITLE: {
@@ -6131,12 +4478,7 @@ function startTagInHead(p, token) {
       break;
     }
     case TAG_ID.NOSCRIPT: {
-      if (p.options.scriptingEnabled) {
-        p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
-      } else {
-        p._insertElement(token, NS.HTML);
-        p.insertionMode = InsertionMode.IN_HEAD_NO_SCRIPT;
-      }
+      p.options.scriptingEnabled ? p._switchToTextParsing(token, TokenizerMode.RAWTEXT) : (p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_HEAD_NO_SCRIPT);
       break;
     }
     case TAG_ID.NOFRAMES:
@@ -6149,27 +4491,21 @@ function startTagInHead(p, token) {
       break;
     }
     case TAG_ID.TEMPLATE: {
-      p._insertTemplate(token);
-      p.activeFormattingElements.insertMarker();
-      p.framesetOk = false;
-      p.insertionMode = InsertionMode.IN_TEMPLATE;
-      p.tmplInsertionModeStack.unshift(InsertionMode.IN_TEMPLATE);
+      p._insertTemplate(token), p.activeFormattingElements.insertMarker(), p.framesetOk = !1, p.insertionMode = InsertionMode.IN_TEMPLATE, p.tmplInsertionModeStack.unshift(InsertionMode.IN_TEMPLATE);
       break;
     }
     case TAG_ID.HEAD: {
       p._err(token, ERR.misplacedStartTagForHeadElement);
       break;
     }
-    default: {
+    default:
       tokenInHead(p, token);
-    }
   }
 }
 function endTagInHead(p, token) {
   switch (token.tagID) {
     case TAG_ID.HEAD: {
-      p.openElements.pop();
-      p.insertionMode = InsertionMode.AFTER_HEAD;
+      p.openElements.pop(), p.insertionMode = InsertionMode.AFTER_HEAD;
       break;
     }
     case TAG_ID.BODY:
@@ -6182,29 +4518,15 @@ function endTagInHead(p, token) {
       templateEndTagInHead(p, token);
       break;
     }
-    default: {
+    default:
       p._err(token, ERR.endTagWithoutMatchingOpenElement);
-    }
   }
 }
 function templateEndTagInHead(p, token) {
-  if (p.openElements.tmplCount > 0) {
-    p.openElements.generateImpliedEndTagsThoroughly();
-    if (p.openElements.currentTagId !== TAG_ID.TEMPLATE) {
-      p._err(token, ERR.closingOfElementWithOpenChildElements);
-    }
-    p.openElements.popUntilTagNamePopped(TAG_ID.TEMPLATE);
-    p.activeFormattingElements.clearToLastMarker();
-    p.tmplInsertionModeStack.shift();
-    p._resetInsertionMode();
-  } else {
-    p._err(token, ERR.endTagWithoutMatchingOpenElement);
-  }
+  p.openElements.tmplCount > 0 ? (p.openElements.generateImpliedEndTagsThoroughly(), p.openElements.currentTagId !== TAG_ID.TEMPLATE && p._err(token, ERR.closingOfElementWithOpenChildElements), p.openElements.popUntilTagNamePopped(TAG_ID.TEMPLATE), p.activeFormattingElements.clearToLastMarker(), p.tmplInsertionModeStack.shift(), p._resetInsertionMode()) : p._err(token, ERR.endTagWithoutMatchingOpenElement);
 }
 function tokenInHead(p, token) {
-  p.openElements.pop();
-  p.insertionMode = InsertionMode.AFTER_HEAD;
-  p._processToken(token);
+  p.openElements.pop(), p.insertionMode = InsertionMode.AFTER_HEAD, p._processToken(token);
 }
 function startTagInHeadNoScript(p, token) {
   switch (token.tagID) {
@@ -6226,33 +4548,27 @@ function startTagInHeadNoScript(p, token) {
       p._err(token, ERR.nestedNoscriptInHead);
       break;
     }
-    default: {
+    default:
       tokenInHeadNoScript(p, token);
-    }
   }
 }
 function endTagInHeadNoScript(p, token) {
   switch (token.tagID) {
     case TAG_ID.NOSCRIPT: {
-      p.openElements.pop();
-      p.insertionMode = InsertionMode.IN_HEAD;
+      p.openElements.pop(), p.insertionMode = InsertionMode.IN_HEAD;
       break;
     }
     case TAG_ID.BR: {
       tokenInHeadNoScript(p, token);
       break;
     }
-    default: {
+    default:
       p._err(token, ERR.endTagWithoutMatchingOpenElement);
-    }
   }
 }
 function tokenInHeadNoScript(p, token) {
-  const errCode = token.type === TokenType.EOF ? ERR.openElementsLeftAfterEof : ERR.disallowedContentInNoscriptInHead;
-  p._err(token, errCode);
-  p.openElements.pop();
-  p.insertionMode = InsertionMode.IN_HEAD;
-  p._processToken(token);
+  let errCode = token.type === TokenType.EOF ? ERR.openElementsLeftAfterEof : ERR.disallowedContentInNoscriptInHead;
+  p._err(token, errCode), p.openElements.pop(), p.insertionMode = InsertionMode.IN_HEAD, p._processToken(token);
 }
 function startTagAfterHead(p, token) {
   switch (token.tagID) {
@@ -6261,14 +4577,11 @@ function startTagAfterHead(p, token) {
       break;
     }
     case TAG_ID.BODY: {
-      p._insertElement(token, NS.HTML);
-      p.framesetOk = false;
-      p.insertionMode = InsertionMode.IN_BODY;
+      p._insertElement(token, NS.HTML), p.framesetOk = !1, p.insertionMode = InsertionMode.IN_BODY;
       break;
     }
     case TAG_ID.FRAMESET: {
-      p._insertElement(token, NS.HTML);
-      p.insertionMode = InsertionMode.IN_FRAMESET;
+      p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_FRAMESET;
       break;
     }
     case TAG_ID.BASE:
@@ -6281,19 +4594,15 @@ function startTagAfterHead(p, token) {
     case TAG_ID.STYLE:
     case TAG_ID.TEMPLATE:
     case TAG_ID.TITLE: {
-      p._err(token, ERR.abandonedHeadElementChild);
-      p.openElements.push(p.headElement, TAG_ID.HEAD);
-      startTagInHead(p, token);
-      p.openElements.remove(p.headElement);
+      p._err(token, ERR.abandonedHeadElementChild), p.openElements.push(p.headElement, TAG_ID.HEAD), startTagInHead(p, token), p.openElements.remove(p.headElement);
       break;
     }
     case TAG_ID.HEAD: {
       p._err(token, ERR.misplacedStartTagForHeadElement);
       break;
     }
-    default: {
+    default:
       tokenAfterHead(p, token);
-    }
   }
 }
 function endTagAfterHead(p, token) {
@@ -6308,15 +4617,12 @@ function endTagAfterHead(p, token) {
       templateEndTagInHead(p, token);
       break;
     }
-    default: {
+    default:
       p._err(token, ERR.endTagWithoutMatchingOpenElement);
-    }
   }
 }
 function tokenAfterHead(p, token) {
-  p._insertFakeElement(TAG_NAMES.BODY, TAG_ID.BODY);
-  p.insertionMode = InsertionMode.IN_BODY;
-  modeInBody(p, token);
+  p._insertFakeElement(TAG_NAMES.BODY, TAG_ID.BODY), p.insertionMode = InsertionMode.IN_BODY, modeInBody(p, token);
 }
 function modeInBody(p, token) {
   switch (token.type) {
@@ -6348,252 +4654,122 @@ function modeInBody(p, token) {
   }
 }
 function whitespaceCharacterInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertCharacters(token);
+  p._reconstructActiveFormattingElements(), p._insertCharacters(token);
 }
 function characterInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertCharacters(token);
-  p.framesetOk = false;
+  p._reconstructActiveFormattingElements(), p._insertCharacters(token), p.framesetOk = !1;
 }
 function htmlStartTagInBody(p, token) {
-  if (p.openElements.tmplCount === 0) {
-    p.treeAdapter.adoptAttributes(p.openElements.items[0], token.attrs);
-  }
+  p.openElements.tmplCount === 0 && p.treeAdapter.adoptAttributes(p.openElements.items[0], token.attrs);
 }
 function bodyStartTagInBody(p, token) {
-  const bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
-  if (bodyElement && p.openElements.tmplCount === 0) {
-    p.framesetOk = false;
-    p.treeAdapter.adoptAttributes(bodyElement, token.attrs);
-  }
+  let bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
+  bodyElement && p.openElements.tmplCount === 0 && (p.framesetOk = !1, p.treeAdapter.adoptAttributes(bodyElement, token.attrs));
 }
 function framesetStartTagInBody(p, token) {
-  const bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
-  if (p.framesetOk && bodyElement) {
-    p.treeAdapter.detachNode(bodyElement);
-    p.openElements.popAllUpToHtmlElement();
-    p._insertElement(token, NS.HTML);
-    p.insertionMode = InsertionMode.IN_FRAMESET;
-  }
+  let bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
+  p.framesetOk && bodyElement && (p.treeAdapter.detachNode(bodyElement), p.openElements.popAllUpToHtmlElement(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_FRAMESET);
 }
 function addressStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._insertElement(token, NS.HTML);
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML);
 }
 function numberedHeaderStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  if (p.openElements.currentTagId !== void 0 && NUMBERED_HEADERS.has(p.openElements.currentTagId)) {
-    p.openElements.pop();
-  }
-  p._insertElement(token, NS.HTML);
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p.openElements.currentTagId !== void 0 && NUMBERED_HEADERS.has(p.openElements.currentTagId) && p.openElements.pop(), p._insertElement(token, NS.HTML);
 }
 function preStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._insertElement(token, NS.HTML);
-  p.skipNextNewLine = true;
-  p.framesetOk = false;
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML), p.skipNextNewLine = !0, p.framesetOk = !1;
 }
 function formStartTagInBody(p, token) {
-  const inTemplate = p.openElements.tmplCount > 0;
-  if (!p.formElement || inTemplate) {
-    if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-      p._closePElement();
-    }
-    p._insertElement(token, NS.HTML);
-    if (!inTemplate) {
-      p.formElement = p.openElements.current;
-    }
-  }
+  let inTemplate = p.openElements.tmplCount > 0;
+  (!p.formElement || inTemplate) && (p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML), inTemplate || (p.formElement = p.openElements.current));
 }
 function listItemStartTagInBody(p, token) {
-  p.framesetOk = false;
-  const tn = token.tagID;
+  p.framesetOk = !1;
+  let tn = token.tagID;
   for (let i = p.openElements.stackTop; i >= 0; i--) {
-    const elementId = p.openElements.tagIDs[i];
+    let elementId = p.openElements.tagIDs[i];
     if (tn === TAG_ID.LI && elementId === TAG_ID.LI || (tn === TAG_ID.DD || tn === TAG_ID.DT) && (elementId === TAG_ID.DD || elementId === TAG_ID.DT)) {
-      p.openElements.generateImpliedEndTagsWithExclusion(elementId);
-      p.openElements.popUntilTagNamePopped(elementId);
+      p.openElements.generateImpliedEndTagsWithExclusion(elementId), p.openElements.popUntilTagNamePopped(elementId);
       break;
     }
-    if (elementId !== TAG_ID.ADDRESS && elementId !== TAG_ID.DIV && elementId !== TAG_ID.P && p._isSpecialElement(p.openElements.items[i], elementId)) {
+    if (elementId !== TAG_ID.ADDRESS && elementId !== TAG_ID.DIV && elementId !== TAG_ID.P && p._isSpecialElement(p.openElements.items[i], elementId))
       break;
-    }
   }
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._insertElement(token, NS.HTML);
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML);
 }
 function plaintextStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._insertElement(token, NS.HTML);
-  p.tokenizer.state = TokenizerMode.PLAINTEXT;
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML), p.tokenizer.state = TokenizerMode.PLAINTEXT;
 }
 function buttonStartTagInBody(p, token) {
-  if (p.openElements.hasInScope(TAG_ID.BUTTON)) {
-    p.openElements.generateImpliedEndTags();
-    p.openElements.popUntilTagNamePopped(TAG_ID.BUTTON);
-  }
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
-  p.framesetOk = false;
+  p.openElements.hasInScope(TAG_ID.BUTTON) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(TAG_ID.BUTTON)), p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML), p.framesetOk = !1;
 }
 function aStartTagInBody(p, token) {
-  const activeElementEntry = p.activeFormattingElements.getElementEntryInScopeWithTagName(TAG_NAMES.A);
-  if (activeElementEntry) {
-    callAdoptionAgency(p, token);
-    p.openElements.remove(activeElementEntry.element);
-    p.activeFormattingElements.removeEntry(activeElementEntry);
-  }
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
-  p.activeFormattingElements.pushElement(p.openElements.current, token);
+  let activeElementEntry = p.activeFormattingElements.getElementEntryInScopeWithTagName(TAG_NAMES.A);
+  activeElementEntry && (callAdoptionAgency(p, token), p.openElements.remove(activeElementEntry.element), p.activeFormattingElements.removeEntry(activeElementEntry)), p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML), p.activeFormattingElements.pushElement(p.openElements.current, token);
 }
 function bStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
-  p.activeFormattingElements.pushElement(p.openElements.current, token);
+  p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML), p.activeFormattingElements.pushElement(p.openElements.current, token);
 }
 function nobrStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  if (p.openElements.hasInScope(TAG_ID.NOBR)) {
-    callAdoptionAgency(p, token);
-    p._reconstructActiveFormattingElements();
-  }
-  p._insertElement(token, NS.HTML);
-  p.activeFormattingElements.pushElement(p.openElements.current, token);
+  p._reconstructActiveFormattingElements(), p.openElements.hasInScope(TAG_ID.NOBR) && (callAdoptionAgency(p, token), p._reconstructActiveFormattingElements()), p._insertElement(token, NS.HTML), p.activeFormattingElements.pushElement(p.openElements.current, token);
 }
 function appletStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
-  p.activeFormattingElements.insertMarker();
-  p.framesetOk = false;
+  p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML), p.activeFormattingElements.insertMarker(), p.framesetOk = !1;
 }
 function tableStartTagInBody(p, token) {
-  if (p.treeAdapter.getDocumentMode(p.document) !== DOCUMENT_MODE.QUIRKS && p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._insertElement(token, NS.HTML);
-  p.framesetOk = false;
-  p.insertionMode = InsertionMode.IN_TABLE;
+  p.treeAdapter.getDocumentMode(p.document) !== DOCUMENT_MODE.QUIRKS && p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._insertElement(token, NS.HTML), p.framesetOk = !1, p.insertionMode = InsertionMode.IN_TABLE;
 }
 function areaStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._appendElement(token, NS.HTML);
-  p.framesetOk = false;
-  token.ackSelfClosing = true;
+  p._reconstructActiveFormattingElements(), p._appendElement(token, NS.HTML), p.framesetOk = !1, token.ackSelfClosing = !0;
 }
 function isHiddenInput(token) {
-  const inputType = getTokenAttr(token, ATTRS.TYPE);
+  let inputType = getTokenAttr(token, ATTRS.TYPE);
   return inputType != null && inputType.toLowerCase() === HIDDEN_INPUT_TYPE;
 }
 function inputStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._appendElement(token, NS.HTML);
-  if (!isHiddenInput(token)) {
-    p.framesetOk = false;
-  }
-  token.ackSelfClosing = true;
+  p._reconstructActiveFormattingElements(), p._appendElement(token, NS.HTML), isHiddenInput(token) || (p.framesetOk = !1), token.ackSelfClosing = !0;
 }
 function paramStartTagInBody(p, token) {
-  p._appendElement(token, NS.HTML);
-  token.ackSelfClosing = true;
+  p._appendElement(token, NS.HTML), token.ackSelfClosing = !0;
 }
 function hrStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._appendElement(token, NS.HTML);
-  p.framesetOk = false;
-  token.ackSelfClosing = true;
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._appendElement(token, NS.HTML), p.framesetOk = !1, token.ackSelfClosing = !0;
 }
 function imageStartTagInBody(p, token) {
-  token.tagName = TAG_NAMES.IMG;
-  token.tagID = TAG_ID.IMG;
-  areaStartTagInBody(p, token);
+  token.tagName = TAG_NAMES.IMG, token.tagID = TAG_ID.IMG, areaStartTagInBody(p, token);
 }
 function textareaStartTagInBody(p, token) {
-  p._insertElement(token, NS.HTML);
-  p.skipNextNewLine = true;
-  p.tokenizer.state = TokenizerMode.RCDATA;
-  p.originalInsertionMode = p.insertionMode;
-  p.framesetOk = false;
-  p.insertionMode = InsertionMode.TEXT;
+  p._insertElement(token, NS.HTML), p.skipNextNewLine = !0, p.tokenizer.state = TokenizerMode.RCDATA, p.originalInsertionMode = p.insertionMode, p.framesetOk = !1, p.insertionMode = InsertionMode.TEXT;
 }
 function xmpStartTagInBody(p, token) {
-  if (p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._closePElement();
-  }
-  p._reconstructActiveFormattingElements();
-  p.framesetOk = false;
-  p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
+  p.openElements.hasInButtonScope(TAG_ID.P) && p._closePElement(), p._reconstructActiveFormattingElements(), p.framesetOk = !1, p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
 }
 function iframeStartTagInBody(p, token) {
-  p.framesetOk = false;
-  p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
+  p.framesetOk = !1, p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
 }
 function rawTextStartTagInBody(p, token) {
   p._switchToTextParsing(token, TokenizerMode.RAWTEXT);
 }
 function selectStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
-  p.framesetOk = false;
-  p.insertionMode = p.insertionMode === InsertionMode.IN_TABLE || p.insertionMode === InsertionMode.IN_CAPTION || p.insertionMode === InsertionMode.IN_TABLE_BODY || p.insertionMode === InsertionMode.IN_ROW || p.insertionMode === InsertionMode.IN_CELL ? InsertionMode.IN_SELECT_IN_TABLE : InsertionMode.IN_SELECT;
+  p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML), p.framesetOk = !1, p.insertionMode = p.insertionMode === InsertionMode.IN_TABLE || p.insertionMode === InsertionMode.IN_CAPTION || p.insertionMode === InsertionMode.IN_TABLE_BODY || p.insertionMode === InsertionMode.IN_ROW || p.insertionMode === InsertionMode.IN_CELL ? InsertionMode.IN_SELECT_IN_TABLE : InsertionMode.IN_SELECT;
 }
 function optgroupStartTagInBody(p, token) {
-  if (p.openElements.currentTagId === TAG_ID.OPTION) {
-    p.openElements.pop();
-  }
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
+  p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.pop(), p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML);
 }
 function rbStartTagInBody(p, token) {
-  if (p.openElements.hasInScope(TAG_ID.RUBY)) {
-    p.openElements.generateImpliedEndTags();
-  }
-  p._insertElement(token, NS.HTML);
+  p.openElements.hasInScope(TAG_ID.RUBY) && p.openElements.generateImpliedEndTags(), p._insertElement(token, NS.HTML);
 }
 function rtStartTagInBody(p, token) {
-  if (p.openElements.hasInScope(TAG_ID.RUBY)) {
-    p.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.RTC);
-  }
-  p._insertElement(token, NS.HTML);
+  p.openElements.hasInScope(TAG_ID.RUBY) && p.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.RTC), p._insertElement(token, NS.HTML);
 }
 function mathStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  adjustTokenMathMLAttrs(token);
-  adjustTokenXMLAttrs(token);
-  if (token.selfClosing) {
-    p._appendElement(token, NS.MATHML);
-  } else {
-    p._insertElement(token, NS.MATHML);
-  }
-  token.ackSelfClosing = true;
+  p._reconstructActiveFormattingElements(), adjustTokenMathMLAttrs(token), adjustTokenXMLAttrs(token), token.selfClosing ? p._appendElement(token, NS.MATHML) : p._insertElement(token, NS.MATHML), token.ackSelfClosing = !0;
 }
 function svgStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  adjustTokenSVGAttrs(token);
-  adjustTokenXMLAttrs(token);
-  if (token.selfClosing) {
-    p._appendElement(token, NS.SVG);
-  } else {
-    p._insertElement(token, NS.SVG);
-  }
-  token.ackSelfClosing = true;
+  p._reconstructActiveFormattingElements(), adjustTokenSVGAttrs(token), adjustTokenXMLAttrs(token), token.selfClosing ? p._appendElement(token, NS.SVG) : p._insertElement(token, NS.SVG), token.ackSelfClosing = !0;
 }
 function genericStartTagInBody(p, token) {
-  p._reconstructActiveFormattingElements();
-  p._insertElement(token, NS.HTML);
+  p._reconstructActiveFormattingElements(), p._insertElement(token, NS.HTML);
 }
 function startTagInBody(p, token) {
   switch (token.tagID) {
@@ -6782,11 +4958,7 @@ function startTagInBody(p, token) {
       break;
     }
     case TAG_ID.NOSCRIPT: {
-      if (p.options.scriptingEnabled) {
-        rawTextStartTagInBody(p, token);
-      } else {
-        genericStartTagInBody(p, token);
-      }
+      p.options.scriptingEnabled ? rawTextStartTagInBody(p, token) : genericStartTagInBody(p, token);
       break;
     }
     case TAG_ID.PLAINTEXT: {
@@ -6803,107 +4975,59 @@ function startTagInBody(p, token) {
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD:
     case TAG_ID.CAPTION:
-    case TAG_ID.COLGROUP: {
+    case TAG_ID.COLGROUP:
       break;
-    }
-    default: {
+    default:
       genericStartTagInBody(p, token);
-    }
   }
 }
 function bodyEndTagInBody(p, token) {
-  if (p.openElements.hasInScope(TAG_ID.BODY)) {
-    p.insertionMode = InsertionMode.AFTER_BODY;
-    if (p.options.sourceCodeLocationInfo) {
-      const bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
-      if (bodyElement) {
-        p._setEndLocation(bodyElement, token);
-      }
-    }
+  if (p.openElements.hasInScope(TAG_ID.BODY) && (p.insertionMode = InsertionMode.AFTER_BODY, p.options.sourceCodeLocationInfo)) {
+    let bodyElement = p.openElements.tryPeekProperlyNestedBodyElement();
+    bodyElement && p._setEndLocation(bodyElement, token);
   }
 }
 function htmlEndTagInBody(p, token) {
-  if (p.openElements.hasInScope(TAG_ID.BODY)) {
-    p.insertionMode = InsertionMode.AFTER_BODY;
-    endTagAfterBody(p, token);
-  }
+  p.openElements.hasInScope(TAG_ID.BODY) && (p.insertionMode = InsertionMode.AFTER_BODY, endTagAfterBody(p, token));
 }
 function addressEndTagInBody(p, token) {
-  const tn = token.tagID;
-  if (p.openElements.hasInScope(tn)) {
-    p.openElements.generateImpliedEndTags();
-    p.openElements.popUntilTagNamePopped(tn);
-  }
+  let tn = token.tagID;
+  p.openElements.hasInScope(tn) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(tn));
 }
 function formEndTagInBody(p) {
-  const inTemplate = p.openElements.tmplCount > 0;
-  const { formElement } = p;
-  if (!inTemplate) {
-    p.formElement = null;
-  }
-  if ((formElement || inTemplate) && p.openElements.hasInScope(TAG_ID.FORM)) {
-    p.openElements.generateImpliedEndTags();
-    if (inTemplate) {
-      p.openElements.popUntilTagNamePopped(TAG_ID.FORM);
-    } else if (formElement) {
-      p.openElements.remove(formElement);
-    }
-  }
+  let inTemplate = p.openElements.tmplCount > 0, { formElement } = p;
+  inTemplate || (p.formElement = null), (formElement || inTemplate) && p.openElements.hasInScope(TAG_ID.FORM) && (p.openElements.generateImpliedEndTags(), inTemplate ? p.openElements.popUntilTagNamePopped(TAG_ID.FORM) : formElement && p.openElements.remove(formElement));
 }
 function pEndTagInBody(p) {
-  if (!p.openElements.hasInButtonScope(TAG_ID.P)) {
-    p._insertFakeElement(TAG_NAMES.P, TAG_ID.P);
-  }
-  p._closePElement();
+  p.openElements.hasInButtonScope(TAG_ID.P) || p._insertFakeElement(TAG_NAMES.P, TAG_ID.P), p._closePElement();
 }
 function liEndTagInBody(p) {
-  if (p.openElements.hasInListItemScope(TAG_ID.LI)) {
-    p.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.LI);
-    p.openElements.popUntilTagNamePopped(TAG_ID.LI);
-  }
+  p.openElements.hasInListItemScope(TAG_ID.LI) && (p.openElements.generateImpliedEndTagsWithExclusion(TAG_ID.LI), p.openElements.popUntilTagNamePopped(TAG_ID.LI));
 }
 function ddEndTagInBody(p, token) {
-  const tn = token.tagID;
-  if (p.openElements.hasInScope(tn)) {
-    p.openElements.generateImpliedEndTagsWithExclusion(tn);
-    p.openElements.popUntilTagNamePopped(tn);
-  }
+  let tn = token.tagID;
+  p.openElements.hasInScope(tn) && (p.openElements.generateImpliedEndTagsWithExclusion(tn), p.openElements.popUntilTagNamePopped(tn));
 }
 function numberedHeaderEndTagInBody(p) {
-  if (p.openElements.hasNumberedHeaderInScope()) {
-    p.openElements.generateImpliedEndTags();
-    p.openElements.popUntilNumberedHeaderPopped();
-  }
+  p.openElements.hasNumberedHeaderInScope() && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilNumberedHeaderPopped());
 }
 function appletEndTagInBody(p, token) {
-  const tn = token.tagID;
-  if (p.openElements.hasInScope(tn)) {
-    p.openElements.generateImpliedEndTags();
-    p.openElements.popUntilTagNamePopped(tn);
-    p.activeFormattingElements.clearToLastMarker();
-  }
+  let tn = token.tagID;
+  p.openElements.hasInScope(tn) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(tn), p.activeFormattingElements.clearToLastMarker());
 }
 function brEndTagInBody(p) {
-  p._reconstructActiveFormattingElements();
-  p._insertFakeElement(TAG_NAMES.BR, TAG_ID.BR);
-  p.openElements.pop();
-  p.framesetOk = false;
+  p._reconstructActiveFormattingElements(), p._insertFakeElement(TAG_NAMES.BR, TAG_ID.BR), p.openElements.pop(), p.framesetOk = !1;
 }
 function genericEndTagInBody(p, token) {
-  const tn = token.tagName;
-  const tid = token.tagID;
+  let tn = token.tagName, tid = token.tagID;
   for (let i = p.openElements.stackTop; i > 0; i--) {
-    const element = p.openElements.items[i];
-    const elementId = p.openElements.tagIDs[i];
+    let element = p.openElements.items[i], elementId = p.openElements.tagIDs[i];
     if (tid === elementId && (tid !== TAG_ID.UNKNOWN || p.treeAdapter.getTagName(element) === tn)) {
-      p.openElements.generateImpliedEndTagsWithExclusion(tid);
-      if (p.openElements.stackTop >= i)
-        p.openElements.shortenToLength(i);
+      p.openElements.generateImpliedEndTagsWithExclusion(tid), p.openElements.stackTop >= i && p.openElements.shortenToLength(i);
       break;
     }
-    if (p._isSpecialElement(element, elementId)) {
+    if (p._isSpecialElement(element, elementId))
       break;
-    }
   }
 }
 function endTagInBody(p, token) {
@@ -7003,39 +5127,23 @@ function endTagInBody(p, token) {
       templateEndTagInHead(p, token);
       break;
     }
-    default: {
+    default:
       genericEndTagInBody(p, token);
-    }
   }
 }
 function eofInBody(p, token) {
-  if (p.tmplInsertionModeStack.length > 0) {
-    eofInTemplate(p, token);
-  } else {
-    stopParsing(p, token);
-  }
+  p.tmplInsertionModeStack.length > 0 ? eofInTemplate(p, token) : stopParsing(p, token);
 }
 function endTagInText(p, token) {
   var _a2;
-  if (token.tagID === TAG_ID.SCRIPT) {
-    (_a2 = p.scriptHandler) === null || _a2 === void 0 ? void 0 : _a2.call(p, p.openElements.current);
-  }
-  p.openElements.pop();
-  p.insertionMode = p.originalInsertionMode;
+  token.tagID === TAG_ID.SCRIPT && ((_a2 = p.scriptHandler) === null || _a2 === void 0 || _a2.call(p, p.openElements.current)), p.openElements.pop(), p.insertionMode = p.originalInsertionMode;
 }
 function eofInText(p, token) {
-  p._err(token, ERR.eofInElementThatCanContainOnlyText);
-  p.openElements.pop();
-  p.insertionMode = p.originalInsertionMode;
-  p.onEof(token);
+  p._err(token, ERR.eofInElementThatCanContainOnlyText), p.openElements.pop(), p.insertionMode = p.originalInsertionMode, p.onEof(token);
 }
 function characterInTable(p, token) {
-  if (p.openElements.currentTagId !== void 0 && TABLE_STRUCTURE_TAGS.has(p.openElements.currentTagId)) {
-    p.pendingCharacterTokens.length = 0;
-    p.hasNonWhitespacePendingCharacterToken = false;
-    p.originalInsertionMode = p.insertionMode;
-    p.insertionMode = InsertionMode.IN_TABLE_TEXT;
-    switch (token.type) {
+  if (p.openElements.currentTagId !== void 0 && TABLE_STRUCTURE_TAGS.has(p.openElements.currentTagId))
+    switch (p.pendingCharacterTokens.length = 0, p.hasNonWhitespacePendingCharacterToken = !1, p.originalInsertionMode = p.insertionMode, p.insertionMode = InsertionMode.IN_TABLE_TEXT, token.type) {
       case TokenType.CHARACTER: {
         characterInTableText(p, token);
         break;
@@ -7045,59 +5153,32 @@ function characterInTable(p, token) {
         break;
       }
     }
-  } else {
+  else
     tokenInTable(p, token);
-  }
 }
 function captionStartTagInTable(p, token) {
-  p.openElements.clearBackToTableContext();
-  p.activeFormattingElements.insertMarker();
-  p._insertElement(token, NS.HTML);
-  p.insertionMode = InsertionMode.IN_CAPTION;
+  p.openElements.clearBackToTableContext(), p.activeFormattingElements.insertMarker(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_CAPTION;
 }
 function colgroupStartTagInTable(p, token) {
-  p.openElements.clearBackToTableContext();
-  p._insertElement(token, NS.HTML);
-  p.insertionMode = InsertionMode.IN_COLUMN_GROUP;
+  p.openElements.clearBackToTableContext(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_COLUMN_GROUP;
 }
 function colStartTagInTable(p, token) {
-  p.openElements.clearBackToTableContext();
-  p._insertFakeElement(TAG_NAMES.COLGROUP, TAG_ID.COLGROUP);
-  p.insertionMode = InsertionMode.IN_COLUMN_GROUP;
-  startTagInColumnGroup(p, token);
+  p.openElements.clearBackToTableContext(), p._insertFakeElement(TAG_NAMES.COLGROUP, TAG_ID.COLGROUP), p.insertionMode = InsertionMode.IN_COLUMN_GROUP, startTagInColumnGroup(p, token);
 }
 function tbodyStartTagInTable(p, token) {
-  p.openElements.clearBackToTableContext();
-  p._insertElement(token, NS.HTML);
-  p.insertionMode = InsertionMode.IN_TABLE_BODY;
+  p.openElements.clearBackToTableContext(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_TABLE_BODY;
 }
 function tdStartTagInTable(p, token) {
-  p.openElements.clearBackToTableContext();
-  p._insertFakeElement(TAG_NAMES.TBODY, TAG_ID.TBODY);
-  p.insertionMode = InsertionMode.IN_TABLE_BODY;
-  startTagInTableBody(p, token);
+  p.openElements.clearBackToTableContext(), p._insertFakeElement(TAG_NAMES.TBODY, TAG_ID.TBODY), p.insertionMode = InsertionMode.IN_TABLE_BODY, startTagInTableBody(p, token);
 }
 function tableStartTagInTable(p, token) {
-  if (p.openElements.hasInTableScope(TAG_ID.TABLE)) {
-    p.openElements.popUntilTagNamePopped(TAG_ID.TABLE);
-    p._resetInsertionMode();
-    p._processStartTag(token);
-  }
+  p.openElements.hasInTableScope(TAG_ID.TABLE) && (p.openElements.popUntilTagNamePopped(TAG_ID.TABLE), p._resetInsertionMode(), p._processStartTag(token));
 }
 function inputStartTagInTable(p, token) {
-  if (isHiddenInput(token)) {
-    p._appendElement(token, NS.HTML);
-  } else {
-    tokenInTable(p, token);
-  }
-  token.ackSelfClosing = true;
+  isHiddenInput(token) ? p._appendElement(token, NS.HTML) : tokenInTable(p, token), token.ackSelfClosing = !0;
 }
 function formStartTagInTable(p, token) {
-  if (!p.formElement && p.openElements.tmplCount === 0) {
-    p._insertElement(token, NS.HTML);
-    p.formElement = p.openElements.current;
-    p.openElements.pop();
-  }
+  !p.formElement && p.openElements.tmplCount === 0 && (p._insertElement(token, NS.HTML), p.formElement = p.openElements.current, p.openElements.pop());
 }
 function startTagInTable(p, token) {
   switch (token.tagID) {
@@ -7143,18 +5224,14 @@ function startTagInTable(p, token) {
       colgroupStartTagInTable(p, token);
       break;
     }
-    default: {
+    default:
       tokenInTable(p, token);
-    }
   }
 }
 function endTagInTable(p, token) {
   switch (token.tagID) {
     case TAG_ID.TABLE: {
-      if (p.openElements.hasInTableScope(TAG_ID.TABLE)) {
-        p.openElements.popUntilTagNamePopped(TAG_ID.TABLE);
-        p._resetInsertionMode();
-      }
+      p.openElements.hasInTableScope(TAG_ID.TABLE) && (p.openElements.popUntilTagNamePopped(TAG_ID.TABLE), p._resetInsertionMode());
       break;
     }
     case TAG_ID.TEMPLATE: {
@@ -7171,70 +5248,43 @@ function endTagInTable(p, token) {
     case TAG_ID.TFOOT:
     case TAG_ID.TH:
     case TAG_ID.THEAD:
-    case TAG_ID.TR: {
+    case TAG_ID.TR:
       break;
-    }
-    default: {
+    default:
       tokenInTable(p, token);
-    }
   }
 }
 function tokenInTable(p, token) {
-  const savedFosterParentingState = p.fosterParentingEnabled;
-  p.fosterParentingEnabled = true;
-  modeInBody(p, token);
-  p.fosterParentingEnabled = savedFosterParentingState;
+  let savedFosterParentingState = p.fosterParentingEnabled;
+  p.fosterParentingEnabled = !0, modeInBody(p, token), p.fosterParentingEnabled = savedFosterParentingState;
 }
 function whitespaceCharacterInTableText(p, token) {
   p.pendingCharacterTokens.push(token);
 }
 function characterInTableText(p, token) {
-  p.pendingCharacterTokens.push(token);
-  p.hasNonWhitespacePendingCharacterToken = true;
+  p.pendingCharacterTokens.push(token), p.hasNonWhitespacePendingCharacterToken = !0;
 }
 function tokenInTableText(p, token) {
   let i = 0;
-  if (p.hasNonWhitespacePendingCharacterToken) {
-    for (; i < p.pendingCharacterTokens.length; i++) {
+  if (p.hasNonWhitespacePendingCharacterToken)
+    for (; i < p.pendingCharacterTokens.length; i++)
       tokenInTable(p, p.pendingCharacterTokens[i]);
-    }
-  } else {
-    for (; i < p.pendingCharacterTokens.length; i++) {
+  else
+    for (; i < p.pendingCharacterTokens.length; i++)
       p._insertCharacters(p.pendingCharacterTokens[i]);
-    }
-  }
-  p.insertionMode = p.originalInsertionMode;
-  p._processToken(token);
+  p.insertionMode = p.originalInsertionMode, p._processToken(token);
 }
 var TABLE_VOID_ELEMENTS = /* @__PURE__ */ new Set([TAG_ID.CAPTION, TAG_ID.COL, TAG_ID.COLGROUP, TAG_ID.TBODY, TAG_ID.TD, TAG_ID.TFOOT, TAG_ID.TH, TAG_ID.THEAD, TAG_ID.TR]);
 function startTagInCaption(p, token) {
-  const tn = token.tagID;
-  if (TABLE_VOID_ELEMENTS.has(tn)) {
-    if (p.openElements.hasInTableScope(TAG_ID.CAPTION)) {
-      p.openElements.generateImpliedEndTags();
-      p.openElements.popUntilTagNamePopped(TAG_ID.CAPTION);
-      p.activeFormattingElements.clearToLastMarker();
-      p.insertionMode = InsertionMode.IN_TABLE;
-      startTagInTable(p, token);
-    }
-  } else {
-    startTagInBody(p, token);
-  }
+  let tn = token.tagID;
+  TABLE_VOID_ELEMENTS.has(tn) ? p.openElements.hasInTableScope(TAG_ID.CAPTION) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(TAG_ID.CAPTION), p.activeFormattingElements.clearToLastMarker(), p.insertionMode = InsertionMode.IN_TABLE, startTagInTable(p, token)) : startTagInBody(p, token);
 }
 function endTagInCaption(p, token) {
-  const tn = token.tagID;
+  let tn = token.tagID;
   switch (tn) {
     case TAG_ID.CAPTION:
     case TAG_ID.TABLE: {
-      if (p.openElements.hasInTableScope(TAG_ID.CAPTION)) {
-        p.openElements.generateImpliedEndTags();
-        p.openElements.popUntilTagNamePopped(TAG_ID.CAPTION);
-        p.activeFormattingElements.clearToLastMarker();
-        p.insertionMode = InsertionMode.IN_TABLE;
-        if (tn === TAG_ID.TABLE) {
-          endTagInTable(p, token);
-        }
-      }
+      p.openElements.hasInTableScope(TAG_ID.CAPTION) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(TAG_ID.CAPTION), p.activeFormattingElements.clearToLastMarker(), p.insertionMode = InsertionMode.IN_TABLE, tn === TAG_ID.TABLE && endTagInTable(p, token));
       break;
     }
     case TAG_ID.BODY:
@@ -7246,12 +5296,10 @@ function endTagInCaption(p, token) {
     case TAG_ID.TFOOT:
     case TAG_ID.TH:
     case TAG_ID.THEAD:
-    case TAG_ID.TR: {
+    case TAG_ID.TR:
       break;
-    }
-    default: {
+    default:
       endTagInBody(p, token);
-    }
   }
 }
 function startTagInColumnGroup(p, token) {
@@ -7261,61 +5309,45 @@ function startTagInColumnGroup(p, token) {
       break;
     }
     case TAG_ID.COL: {
-      p._appendElement(token, NS.HTML);
-      token.ackSelfClosing = true;
+      p._appendElement(token, NS.HTML), token.ackSelfClosing = !0;
       break;
     }
     case TAG_ID.TEMPLATE: {
       startTagInHead(p, token);
       break;
     }
-    default: {
+    default:
       tokenInColumnGroup(p, token);
-    }
   }
 }
 function endTagInColumnGroup(p, token) {
   switch (token.tagID) {
     case TAG_ID.COLGROUP: {
-      if (p.openElements.currentTagId === TAG_ID.COLGROUP) {
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE;
-      }
+      p.openElements.currentTagId === TAG_ID.COLGROUP && (p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE);
       break;
     }
     case TAG_ID.TEMPLATE: {
       templateEndTagInHead(p, token);
       break;
     }
-    case TAG_ID.COL: {
+    case TAG_ID.COL:
       break;
-    }
-    default: {
+    default:
       tokenInColumnGroup(p, token);
-    }
   }
 }
 function tokenInColumnGroup(p, token) {
-  if (p.openElements.currentTagId === TAG_ID.COLGROUP) {
-    p.openElements.pop();
-    p.insertionMode = InsertionMode.IN_TABLE;
-    p._processToken(token);
-  }
+  p.openElements.currentTagId === TAG_ID.COLGROUP && (p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE, p._processToken(token));
 }
 function startTagInTableBody(p, token) {
   switch (token.tagID) {
     case TAG_ID.TR: {
-      p.openElements.clearBackToTableBodyContext();
-      p._insertElement(token, NS.HTML);
-      p.insertionMode = InsertionMode.IN_ROW;
+      p.openElements.clearBackToTableBodyContext(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_ROW;
       break;
     }
     case TAG_ID.TH:
     case TAG_ID.TD: {
-      p.openElements.clearBackToTableBodyContext();
-      p._insertFakeElement(TAG_NAMES.TR, TAG_ID.TR);
-      p.insertionMode = InsertionMode.IN_ROW;
-      startTagInRow(p, token);
+      p.openElements.clearBackToTableBodyContext(), p._insertFakeElement(TAG_NAMES.TR, TAG_ID.TR), p.insertionMode = InsertionMode.IN_ROW, startTagInRow(p, token);
       break;
     }
     case TAG_ID.CAPTION:
@@ -7324,39 +5356,24 @@ function startTagInTableBody(p, token) {
     case TAG_ID.TBODY:
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD: {
-      if (p.openElements.hasTableBodyContextInTableScope()) {
-        p.openElements.clearBackToTableBodyContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE;
-        startTagInTable(p, token);
-      }
+      p.openElements.hasTableBodyContextInTableScope() && (p.openElements.clearBackToTableBodyContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE, startTagInTable(p, token));
       break;
     }
-    default: {
+    default:
       startTagInTable(p, token);
-    }
   }
 }
 function endTagInTableBody(p, token) {
-  const tn = token.tagID;
+  let tn = token.tagID;
   switch (token.tagID) {
     case TAG_ID.TBODY:
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD: {
-      if (p.openElements.hasInTableScope(tn)) {
-        p.openElements.clearBackToTableBodyContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE;
-      }
+      p.openElements.hasInTableScope(tn) && (p.openElements.clearBackToTableBodyContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE);
       break;
     }
     case TAG_ID.TABLE: {
-      if (p.openElements.hasTableBodyContextInTableScope()) {
-        p.openElements.clearBackToTableBodyContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE;
-        endTagInTable(p, token);
-      }
+      p.openElements.hasTableBodyContextInTableScope() && (p.openElements.clearBackToTableBodyContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE, endTagInTable(p, token));
       break;
     }
     case TAG_ID.BODY:
@@ -7366,22 +5383,17 @@ function endTagInTableBody(p, token) {
     case TAG_ID.HTML:
     case TAG_ID.TD:
     case TAG_ID.TH:
-    case TAG_ID.TR: {
+    case TAG_ID.TR:
       break;
-    }
-    default: {
+    default:
       endTagInTable(p, token);
-    }
   }
 }
 function startTagInRow(p, token) {
   switch (token.tagID) {
     case TAG_ID.TH:
     case TAG_ID.TD: {
-      p.openElements.clearBackToTableRowContext();
-      p._insertElement(token, NS.HTML);
-      p.insertionMode = InsertionMode.IN_CELL;
-      p.activeFormattingElements.insertMarker();
+      p.openElements.clearBackToTableRowContext(), p._insertElement(token, NS.HTML), p.insertionMode = InsertionMode.IN_CELL, p.activeFormattingElements.insertMarker();
       break;
     }
     case TAG_ID.CAPTION:
@@ -7391,47 +5403,27 @@ function startTagInRow(p, token) {
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD:
     case TAG_ID.TR: {
-      if (p.openElements.hasInTableScope(TAG_ID.TR)) {
-        p.openElements.clearBackToTableRowContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE_BODY;
-        startTagInTableBody(p, token);
-      }
+      p.openElements.hasInTableScope(TAG_ID.TR) && (p.openElements.clearBackToTableRowContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE_BODY, startTagInTableBody(p, token));
       break;
     }
-    default: {
+    default:
       startTagInTable(p, token);
-    }
   }
 }
 function endTagInRow(p, token) {
   switch (token.tagID) {
     case TAG_ID.TR: {
-      if (p.openElements.hasInTableScope(TAG_ID.TR)) {
-        p.openElements.clearBackToTableRowContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE_BODY;
-      }
+      p.openElements.hasInTableScope(TAG_ID.TR) && (p.openElements.clearBackToTableRowContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE_BODY);
       break;
     }
     case TAG_ID.TABLE: {
-      if (p.openElements.hasInTableScope(TAG_ID.TR)) {
-        p.openElements.clearBackToTableRowContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE_BODY;
-        endTagInTableBody(p, token);
-      }
+      p.openElements.hasInTableScope(TAG_ID.TR) && (p.openElements.clearBackToTableRowContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE_BODY, endTagInTableBody(p, token));
       break;
     }
     case TAG_ID.TBODY:
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD: {
-      if (p.openElements.hasInTableScope(token.tagID) || p.openElements.hasInTableScope(TAG_ID.TR)) {
-        p.openElements.clearBackToTableRowContext();
-        p.openElements.pop();
-        p.insertionMode = InsertionMode.IN_TABLE_BODY;
-        endTagInTableBody(p, token);
-      }
+      (p.openElements.hasInTableScope(token.tagID) || p.openElements.hasInTableScope(TAG_ID.TR)) && (p.openElements.clearBackToTableRowContext(), p.openElements.pop(), p.insertionMode = InsertionMode.IN_TABLE_BODY, endTagInTableBody(p, token));
       break;
     }
     case TAG_ID.BODY:
@@ -7440,36 +5432,22 @@ function endTagInRow(p, token) {
     case TAG_ID.COLGROUP:
     case TAG_ID.HTML:
     case TAG_ID.TD:
-    case TAG_ID.TH: {
+    case TAG_ID.TH:
       break;
-    }
-    default: {
+    default:
       endTagInTable(p, token);
-    }
   }
 }
 function startTagInCell(p, token) {
-  const tn = token.tagID;
-  if (TABLE_VOID_ELEMENTS.has(tn)) {
-    if (p.openElements.hasInTableScope(TAG_ID.TD) || p.openElements.hasInTableScope(TAG_ID.TH)) {
-      p._closeTableCell();
-      startTagInRow(p, token);
-    }
-  } else {
-    startTagInBody(p, token);
-  }
+  let tn = token.tagID;
+  TABLE_VOID_ELEMENTS.has(tn) ? (p.openElements.hasInTableScope(TAG_ID.TD) || p.openElements.hasInTableScope(TAG_ID.TH)) && (p._closeTableCell(), startTagInRow(p, token)) : startTagInBody(p, token);
 }
 function endTagInCell(p, token) {
-  const tn = token.tagID;
+  let tn = token.tagID;
   switch (tn) {
     case TAG_ID.TD:
     case TAG_ID.TH: {
-      if (p.openElements.hasInTableScope(tn)) {
-        p.openElements.generateImpliedEndTags();
-        p.openElements.popUntilTagNamePopped(tn);
-        p.activeFormattingElements.clearToLastMarker();
-        p.insertionMode = InsertionMode.IN_ROW;
-      }
+      p.openElements.hasInTableScope(tn) && (p.openElements.generateImpliedEndTags(), p.openElements.popUntilTagNamePopped(tn), p.activeFormattingElements.clearToLastMarker(), p.insertionMode = InsertionMode.IN_ROW);
       break;
     }
     case TAG_ID.TABLE:
@@ -7477,22 +5455,17 @@ function endTagInCell(p, token) {
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD:
     case TAG_ID.TR: {
-      if (p.openElements.hasInTableScope(tn)) {
-        p._closeTableCell();
-        endTagInRow(p, token);
-      }
+      p.openElements.hasInTableScope(tn) && (p._closeTableCell(), endTagInRow(p, token));
       break;
     }
     case TAG_ID.BODY:
     case TAG_ID.CAPTION:
     case TAG_ID.COL:
     case TAG_ID.COLGROUP:
-    case TAG_ID.HTML: {
+    case TAG_ID.HTML:
       break;
-    }
-    default: {
+    default:
       endTagInBody(p, token);
-    }
   }
 }
 function startTagInSelect(p, token) {
@@ -7502,44 +5475,22 @@ function startTagInSelect(p, token) {
       break;
     }
     case TAG_ID.OPTION: {
-      if (p.openElements.currentTagId === TAG_ID.OPTION) {
-        p.openElements.pop();
-      }
-      p._insertElement(token, NS.HTML);
+      p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.pop(), p._insertElement(token, NS.HTML);
       break;
     }
     case TAG_ID.OPTGROUP: {
-      if (p.openElements.currentTagId === TAG_ID.OPTION) {
-        p.openElements.pop();
-      }
-      if (p.openElements.currentTagId === TAG_ID.OPTGROUP) {
-        p.openElements.pop();
-      }
-      p._insertElement(token, NS.HTML);
+      p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.pop(), p.openElements.currentTagId === TAG_ID.OPTGROUP && p.openElements.pop(), p._insertElement(token, NS.HTML);
       break;
     }
     case TAG_ID.HR: {
-      if (p.openElements.currentTagId === TAG_ID.OPTION) {
-        p.openElements.pop();
-      }
-      if (p.openElements.currentTagId === TAG_ID.OPTGROUP) {
-        p.openElements.pop();
-      }
-      p._appendElement(token, NS.HTML);
-      token.ackSelfClosing = true;
+      p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.pop(), p.openElements.currentTagId === TAG_ID.OPTGROUP && p.openElements.pop(), p._appendElement(token, NS.HTML), token.ackSelfClosing = !0;
       break;
     }
     case TAG_ID.INPUT:
     case TAG_ID.KEYGEN:
     case TAG_ID.TEXTAREA:
     case TAG_ID.SELECT: {
-      if (p.openElements.hasInSelectScope(TAG_ID.SELECT)) {
-        p.openElements.popUntilTagNamePopped(TAG_ID.SELECT);
-        p._resetInsertionMode();
-        if (token.tagID !== TAG_ID.SELECT) {
-          p._processStartTag(token);
-        }
-      }
+      p.openElements.hasInSelectScope(TAG_ID.SELECT) && (p.openElements.popUntilTagNamePopped(TAG_ID.SELECT), p._resetInsertionMode(), token.tagID !== TAG_ID.SELECT && p._processStartTag(token));
       break;
     }
     case TAG_ID.SCRIPT:
@@ -7553,25 +5504,15 @@ function startTagInSelect(p, token) {
 function endTagInSelect(p, token) {
   switch (token.tagID) {
     case TAG_ID.OPTGROUP: {
-      if (p.openElements.stackTop > 0 && p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.tagIDs[p.openElements.stackTop - 1] === TAG_ID.OPTGROUP) {
-        p.openElements.pop();
-      }
-      if (p.openElements.currentTagId === TAG_ID.OPTGROUP) {
-        p.openElements.pop();
-      }
+      p.openElements.stackTop > 0 && p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.tagIDs[p.openElements.stackTop - 1] === TAG_ID.OPTGROUP && p.openElements.pop(), p.openElements.currentTagId === TAG_ID.OPTGROUP && p.openElements.pop();
       break;
     }
     case TAG_ID.OPTION: {
-      if (p.openElements.currentTagId === TAG_ID.OPTION) {
-        p.openElements.pop();
-      }
+      p.openElements.currentTagId === TAG_ID.OPTION && p.openElements.pop();
       break;
     }
     case TAG_ID.SELECT: {
-      if (p.openElements.hasInSelectScope(TAG_ID.SELECT)) {
-        p.openElements.popUntilTagNamePopped(TAG_ID.SELECT);
-        p._resetInsertionMode();
-      }
+      p.openElements.hasInSelectScope(TAG_ID.SELECT) && (p.openElements.popUntilTagNamePopped(TAG_ID.SELECT), p._resetInsertionMode());
       break;
     }
     case TAG_ID.TEMPLATE: {
@@ -7582,26 +5523,12 @@ function endTagInSelect(p, token) {
   }
 }
 function startTagInSelectInTable(p, token) {
-  const tn = token.tagID;
-  if (tn === TAG_ID.CAPTION || tn === TAG_ID.TABLE || tn === TAG_ID.TBODY || tn === TAG_ID.TFOOT || tn === TAG_ID.THEAD || tn === TAG_ID.TR || tn === TAG_ID.TD || tn === TAG_ID.TH) {
-    p.openElements.popUntilTagNamePopped(TAG_ID.SELECT);
-    p._resetInsertionMode();
-    p._processStartTag(token);
-  } else {
-    startTagInSelect(p, token);
-  }
+  let tn = token.tagID;
+  tn === TAG_ID.CAPTION || tn === TAG_ID.TABLE || tn === TAG_ID.TBODY || tn === TAG_ID.TFOOT || tn === TAG_ID.THEAD || tn === TAG_ID.TR || tn === TAG_ID.TD || tn === TAG_ID.TH ? (p.openElements.popUntilTagNamePopped(TAG_ID.SELECT), p._resetInsertionMode(), p._processStartTag(token)) : startTagInSelect(p, token);
 }
 function endTagInSelectInTable(p, token) {
-  const tn = token.tagID;
-  if (tn === TAG_ID.CAPTION || tn === TAG_ID.TABLE || tn === TAG_ID.TBODY || tn === TAG_ID.TFOOT || tn === TAG_ID.THEAD || tn === TAG_ID.TR || tn === TAG_ID.TD || tn === TAG_ID.TH) {
-    if (p.openElements.hasInTableScope(tn)) {
-      p.openElements.popUntilTagNamePopped(TAG_ID.SELECT);
-      p._resetInsertionMode();
-      p.onEndTag(token);
-    }
-  } else {
-    endTagInSelect(p, token);
-  }
+  let tn = token.tagID;
+  tn === TAG_ID.CAPTION || tn === TAG_ID.TABLE || tn === TAG_ID.TBODY || tn === TAG_ID.TFOOT || tn === TAG_ID.THEAD || tn === TAG_ID.TR || tn === TAG_ID.TD || tn === TAG_ID.TH ? p.openElements.hasInTableScope(tn) && (p.openElements.popUntilTagNamePopped(TAG_ID.SELECT), p._resetInsertionMode(), p.onEndTag(token)) : endTagInSelect(p, token);
 }
 function startTagInTemplate(p, token) {
   switch (token.tagID) {
@@ -7625,80 +5552,48 @@ function startTagInTemplate(p, token) {
     case TAG_ID.TBODY:
     case TAG_ID.TFOOT:
     case TAG_ID.THEAD: {
-      p.tmplInsertionModeStack[0] = InsertionMode.IN_TABLE;
-      p.insertionMode = InsertionMode.IN_TABLE;
-      startTagInTable(p, token);
+      p.tmplInsertionModeStack[0] = InsertionMode.IN_TABLE, p.insertionMode = InsertionMode.IN_TABLE, startTagInTable(p, token);
       break;
     }
     case TAG_ID.COL: {
-      p.tmplInsertionModeStack[0] = InsertionMode.IN_COLUMN_GROUP;
-      p.insertionMode = InsertionMode.IN_COLUMN_GROUP;
-      startTagInColumnGroup(p, token);
+      p.tmplInsertionModeStack[0] = InsertionMode.IN_COLUMN_GROUP, p.insertionMode = InsertionMode.IN_COLUMN_GROUP, startTagInColumnGroup(p, token);
       break;
     }
     case TAG_ID.TR: {
-      p.tmplInsertionModeStack[0] = InsertionMode.IN_TABLE_BODY;
-      p.insertionMode = InsertionMode.IN_TABLE_BODY;
-      startTagInTableBody(p, token);
+      p.tmplInsertionModeStack[0] = InsertionMode.IN_TABLE_BODY, p.insertionMode = InsertionMode.IN_TABLE_BODY, startTagInTableBody(p, token);
       break;
     }
     case TAG_ID.TD:
     case TAG_ID.TH: {
-      p.tmplInsertionModeStack[0] = InsertionMode.IN_ROW;
-      p.insertionMode = InsertionMode.IN_ROW;
-      startTagInRow(p, token);
+      p.tmplInsertionModeStack[0] = InsertionMode.IN_ROW, p.insertionMode = InsertionMode.IN_ROW, startTagInRow(p, token);
       break;
     }
-    default: {
-      p.tmplInsertionModeStack[0] = InsertionMode.IN_BODY;
-      p.insertionMode = InsertionMode.IN_BODY;
-      startTagInBody(p, token);
-    }
+    default:
+      p.tmplInsertionModeStack[0] = InsertionMode.IN_BODY, p.insertionMode = InsertionMode.IN_BODY, startTagInBody(p, token);
   }
 }
 function endTagInTemplate(p, token) {
-  if (token.tagID === TAG_ID.TEMPLATE) {
-    templateEndTagInHead(p, token);
-  }
+  token.tagID === TAG_ID.TEMPLATE && templateEndTagInHead(p, token);
 }
 function eofInTemplate(p, token) {
-  if (p.openElements.tmplCount > 0) {
-    p.openElements.popUntilTagNamePopped(TAG_ID.TEMPLATE);
-    p.activeFormattingElements.clearToLastMarker();
-    p.tmplInsertionModeStack.shift();
-    p._resetInsertionMode();
-    p.onEof(token);
-  } else {
-    stopParsing(p, token);
-  }
+  p.openElements.tmplCount > 0 ? (p.openElements.popUntilTagNamePopped(TAG_ID.TEMPLATE), p.activeFormattingElements.clearToLastMarker(), p.tmplInsertionModeStack.shift(), p._resetInsertionMode(), p.onEof(token)) : stopParsing(p, token);
 }
 function startTagAfterBody(p, token) {
-  if (token.tagID === TAG_ID.HTML) {
-    startTagInBody(p, token);
-  } else {
-    tokenAfterBody(p, token);
-  }
+  token.tagID === TAG_ID.HTML ? startTagInBody(p, token) : tokenAfterBody(p, token);
 }
 function endTagAfterBody(p, token) {
   var _a2;
   if (token.tagID === TAG_ID.HTML) {
-    if (!p.fragmentContext) {
-      p.insertionMode = InsertionMode.AFTER_AFTER_BODY;
-    }
-    if (p.options.sourceCodeLocationInfo && p.openElements.tagIDs[0] === TAG_ID.HTML) {
+    if (p.fragmentContext || (p.insertionMode = InsertionMode.AFTER_AFTER_BODY), p.options.sourceCodeLocationInfo && p.openElements.tagIDs[0] === TAG_ID.HTML) {
       p._setEndLocation(p.openElements.items[0], token);
-      const bodyElement = p.openElements.items[1];
-      if (bodyElement && !((_a2 = p.treeAdapter.getNodeSourceCodeLocation(bodyElement)) === null || _a2 === void 0 ? void 0 : _a2.endTag)) {
-        p._setEndLocation(bodyElement, token);
-      }
+      let bodyElement = p.openElements.items[1];
+      bodyElement && !(!((_a2 = p.treeAdapter.getNodeSourceCodeLocation(bodyElement)) === null || _a2 === void 0) && _a2.endTag) && p._setEndLocation(bodyElement, token);
     }
-  } else {
+  } else
     tokenAfterBody(p, token);
-  }
 }
 function tokenAfterBody(p, token) {
-  p.insertionMode = InsertionMode.IN_BODY;
-  modeInBody(p, token);
+  p.insertionMode = InsertionMode.IN_BODY, modeInBody(p, token);
 }
 function startTagInFrameset(p, token) {
   switch (token.tagID) {
@@ -7711,8 +5606,7 @@ function startTagInFrameset(p, token) {
       break;
     }
     case TAG_ID.FRAME: {
-      p._appendElement(token, NS.HTML);
-      token.ackSelfClosing = true;
+      p._appendElement(token, NS.HTML), token.ackSelfClosing = !0;
       break;
     }
     case TAG_ID.NOFRAMES: {
@@ -7723,12 +5617,7 @@ function startTagInFrameset(p, token) {
   }
 }
 function endTagInFrameset(p, token) {
-  if (token.tagID === TAG_ID.FRAMESET && !p.openElements.isRootHtmlElementCurrent()) {
-    p.openElements.pop();
-    if (!p.fragmentContext && p.openElements.currentTagId !== TAG_ID.FRAMESET) {
-      p.insertionMode = InsertionMode.AFTER_FRAMESET;
-    }
-  }
+  token.tagID === TAG_ID.FRAMESET && !p.openElements.isRootHtmlElementCurrent() && (p.openElements.pop(), !p.fragmentContext && p.openElements.currentTagId !== TAG_ID.FRAMESET && (p.insertionMode = InsertionMode.AFTER_FRAMESET));
 }
 function startTagAfterFrameset(p, token) {
   switch (token.tagID) {
@@ -7744,20 +5633,13 @@ function startTagAfterFrameset(p, token) {
   }
 }
 function endTagAfterFrameset(p, token) {
-  if (token.tagID === TAG_ID.HTML) {
-    p.insertionMode = InsertionMode.AFTER_AFTER_FRAMESET;
-  }
+  token.tagID === TAG_ID.HTML && (p.insertionMode = InsertionMode.AFTER_AFTER_FRAMESET);
 }
 function startTagAfterAfterBody(p, token) {
-  if (token.tagID === TAG_ID.HTML) {
-    startTagInBody(p, token);
-  } else {
-    tokenAfterAfterBody(p, token);
-  }
+  token.tagID === TAG_ID.HTML ? startTagInBody(p, token) : tokenAfterAfterBody(p, token);
 }
 function tokenAfterAfterBody(p, token) {
-  p.insertionMode = InsertionMode.IN_BODY;
-  modeInBody(p, token);
+  p.insertionMode = InsertionMode.IN_BODY, modeInBody(p, token);
 }
 function startTagAfterAfterFrameset(p, token) {
   switch (token.tagID) {
@@ -7773,56 +5655,37 @@ function startTagAfterAfterFrameset(p, token) {
   }
 }
 function nullCharacterInForeignContent(p, token) {
-  token.chars = REPLACEMENT_CHARACTER;
-  p._insertCharacters(token);
+  token.chars = REPLACEMENT_CHARACTER, p._insertCharacters(token);
 }
 function characterInForeignContent(p, token) {
-  p._insertCharacters(token);
-  p.framesetOk = false;
+  p._insertCharacters(token), p.framesetOk = !1;
 }
 function popUntilHtmlOrIntegrationPoint(p) {
-  while (p.treeAdapter.getNamespaceURI(p.openElements.current) !== NS.HTML && p.openElements.currentTagId !== void 0 && !p._isIntegrationPoint(p.openElements.currentTagId, p.openElements.current)) {
+  for (; p.treeAdapter.getNamespaceURI(p.openElements.current) !== NS.HTML && p.openElements.currentTagId !== void 0 && !p._isIntegrationPoint(p.openElements.currentTagId, p.openElements.current); )
     p.openElements.pop();
-  }
 }
 function startTagInForeignContent(p, token) {
-  if (causesExit(token)) {
-    popUntilHtmlOrIntegrationPoint(p);
-    p._startTagOutsideForeignContent(token);
-  } else {
-    const current = p._getAdjustedCurrentElement();
-    const currentNs = p.treeAdapter.getNamespaceURI(current);
-    if (currentNs === NS.MATHML) {
-      adjustTokenMathMLAttrs(token);
-    } else if (currentNs === NS.SVG) {
-      adjustTokenSVGTagName(token);
-      adjustTokenSVGAttrs(token);
-    }
-    adjustTokenXMLAttrs(token);
-    if (token.selfClosing) {
-      p._appendElement(token, currentNs);
-    } else {
-      p._insertElement(token, currentNs);
-    }
-    token.ackSelfClosing = true;
+  if (causesExit(token))
+    popUntilHtmlOrIntegrationPoint(p), p._startTagOutsideForeignContent(token);
+  else {
+    let current = p._getAdjustedCurrentElement(), currentNs = p.treeAdapter.getNamespaceURI(current);
+    currentNs === NS.MATHML ? adjustTokenMathMLAttrs(token) : currentNs === NS.SVG && (adjustTokenSVGTagName(token), adjustTokenSVGAttrs(token)), adjustTokenXMLAttrs(token), token.selfClosing ? p._appendElement(token, currentNs) : p._insertElement(token, currentNs), token.ackSelfClosing = !0;
   }
 }
 function endTagInForeignContent(p, token) {
   if (token.tagID === TAG_ID.P || token.tagID === TAG_ID.BR) {
-    popUntilHtmlOrIntegrationPoint(p);
-    p._endTagOutsideForeignContent(token);
+    popUntilHtmlOrIntegrationPoint(p), p._endTagOutsideForeignContent(token);
     return;
   }
   for (let i = p.openElements.stackTop; i > 0; i--) {
-    const element = p.openElements.items[i];
+    let element = p.openElements.items[i];
     if (p.treeAdapter.getNamespaceURI(element) === NS.HTML) {
       p._endTagOutsideForeignContent(token);
       break;
     }
-    const tagName = p.treeAdapter.getTagName(element);
+    let tagName = p.treeAdapter.getTagName(element);
     if (tagName.toLowerCase() === token.tagName) {
-      token.tagName = tagName;
-      p.openElements.shortenToLength(i);
+      token.tagName = tagName, p.openElements.shortenToLength(i);
       break;
     }
   }
@@ -7872,126 +5735,78 @@ var frame_hosts_default = {
 };
 
 // shared/video-timeline.mjs
-var TIMELINE_FORMAT = "brixon-feedback-timeline/1";
-var TIMELINE_LIMITS = { bytes: 1e6, segments: 500, entries: 2e3, words: 2e4 };
-var SHA = /^[a-f0-9]{64}$/;
-var ID = /^[A-Za-z0-9._-]{1,100}$/;
-var SEGMENT_KINDS = /* @__PURE__ */ new Set(["hook", "body", "cta", "scene"]);
+var TIMELINE_FORMAT = "brixon-feedback-timeline/1", TIMELINE_LIMITS = { bytes: 1e6, segments: 500, entries: 2e3, words: 2e4 }, SHA = /^[a-f0-9]{64}$/, ID = /^[A-Za-z0-9._-]{1,100}$/, SEGMENT_KINDS = /* @__PURE__ */ new Set(["hook", "body", "cta", "scene"]);
 function parseFps(text2) {
-  const match = typeof text2 === "string" && text2.match(/^(\d{1,6})(?:\/(\d{1,6}))?$/);
+  let match = typeof text2 == "string" && text2.match(/^(\d{1,6})(?:\/(\d{1,6}))?$/);
   if (!match) return null;
-  const num = Number(match[1]), den = Number(match[2] ?? 1);
-  if (!num || !den || num / den > 240) return null;
-  return { num, den, value: num / den };
+  let num = Number(match[1]), den = Number(match[2] ?? 1);
+  return !num || !den || num / den > 240 ? null : { num, den, value: num / den };
 }
-var finite = (value) => typeof value === "number" && Number.isFinite(value);
-var text = (value, max) => typeof value === "string" && value.length <= max && !/[\u0000-\u001f\u007f]/.test(value);
-var optionalText = (value, max) => value === void 0 || text(value, max);
-var rect = (value) => Array.isArray(value) && value.length === 4 && value.every((n) => finite(n) && n >= 0 && n <= 1) && value[0] < value[2] && value[1] < value[3];
+var finite = (value) => typeof value == "number" && Number.isFinite(value), text = (value, max) => typeof value == "string" && value.length <= max && !/[\u0000-\u001f\u007f]/.test(value), optionalText = (value, max) => value === void 0 || text(value, max), rect = (value) => Array.isArray(value) && value.length === 4 && value.every((n) => finite(n) && n >= 0 && n <= 1) && value[0] < value[2] && value[1] < value[3];
 function validateTimeline(value, expected = {}) {
-  const problems = [];
-  const fail = (message) => {
-    problems.push(message);
-    return problems;
-  };
-  if (!value || typeof value !== "object" || Array.isArray(value)) return fail("Timeline must be a JSON object.");
+  let problems = [], fail = (message) => (problems.push(message), problems);
+  if (!value || typeof value != "object" || Array.isArray(value)) return fail("Timeline must be a JSON object.");
   if (value.format !== TIMELINE_FORMAT) return fail(`format must be "${TIMELINE_FORMAT}".`);
-  const allowed = /* @__PURE__ */ new Set(["format", "variant", "source", "fps", "durationSeconds", "segments", "graphics", "sounds", "words"]);
-  for (const key of Object.keys(value)) if (!allowed.has(key)) problems.push(`Unknown field: ${key}.`);
-  const fps = parseFps(value.fps);
+  let allowed = /* @__PURE__ */ new Set(["format", "variant", "source", "fps", "durationSeconds", "segments", "graphics", "sounds", "words"]);
+  for (let key of Object.keys(value)) allowed.has(key) || problems.push(`Unknown field: ${key}.`);
+  let fps = parseFps(value.fps);
   if (!fps) return fail('fps must be a positive fraction such as "30/1".');
   if (!finite(value.durationSeconds) || value.durationSeconds <= 0) return fail("durationSeconds must be a positive number.");
-  const tolerance = 1 / fps.value + 1e-6, duration = value.durationSeconds;
-  if (expected.fps && parseFps(expected.fps)?.value !== fps.value) problems.push(`fps ${value.fps} does not match the video (${expected.fps}).`);
-  if (finite(expected.durationSeconds) && Math.abs(expected.durationSeconds - duration) > tolerance) problems.push(`durationSeconds ${duration} does not match the video (${expected.durationSeconds}).`);
-  if (value.variant !== void 0 && (typeof value.variant !== "object" || !value.variant || !optionalText(value.variant.id, 100) || !optionalText(value.variant.name, 200) || !optionalText(value.variant.studioVariantId, 100))) problems.push("variant must contain short texts id, name and studioVariantId.");
-  const source = value.source;
-  if (source !== void 0) {
-    if (typeof source !== "object" || !source) problems.push("source must be an object.");
+  let tolerance = 1 / fps.value + 1e-6, duration = value.durationSeconds;
+  expected.fps && parseFps(expected.fps)?.value !== fps.value && problems.push(`fps ${value.fps} does not match the video (${expected.fps}).`), finite(expected.durationSeconds) && Math.abs(expected.durationSeconds - duration) > tolerance && problems.push(`durationSeconds ${duration} does not match the video (${expected.durationSeconds}).`), value.variant !== void 0 && (typeof value.variant != "object" || !value.variant || !optionalText(value.variant.id, 100) || !optionalText(value.variant.name, 200) || !optionalText(value.variant.studioVariantId, 100)) && problems.push("variant must contain short texts id, name and studioVariantId.");
+  let source = value.source;
+  if (source !== void 0)
+    if (typeof source != "object" || !source) problems.push("source must be an object.");
     else {
-      for (const key of ["masterSha256", "reviewSha256", "scriptSha256"]) if (source[key] !== void 0 && !SHA.test(source[key])) problems.push(`source.${key} must be a SHA-256 hex digest.`);
-      if (source.exact !== void 0 && typeof source.exact !== "boolean") problems.push("source.exact must be true or false.");
-      for (const key of ["script", "run"]) if (!optionalText(source[key], 500)) problems.push(`source.${key} must be a short text.`);
+      for (let key of ["masterSha256", "reviewSha256", "scriptSha256"]) source[key] !== void 0 && !SHA.test(source[key]) && problems.push(`source.${key} must be a SHA-256 hex digest.`);
+      source.exact !== void 0 && typeof source.exact != "boolean" && problems.push("source.exact must be true or false.");
+      for (let key of ["script", "run"]) optionalText(source[key], 500) || problems.push(`source.${key} must be a short text.`);
     }
-  }
-  if (expected.reviewSha256 && source?.reviewSha256 !== expected.reviewSha256) problems.push("source.reviewSha256 does not match the uploaded video.");
-  const span = (entry, label) => {
-    if (!finite(entry.start) || !finite(entry.end) || entry.start < 0 || entry.start >= entry.end || entry.end > duration + tolerance) {
-      problems.push(`${label}: start and end must satisfy 0 <= start < end <= durationSeconds.`);
-      return false;
-    }
-    return true;
-  };
-  const list = (name, max) => {
-    const items = value[name];
-    if (items === void 0) return [];
-    if (!Array.isArray(items)) {
-      problems.push(`${name} must be an array.`);
-      return [];
-    }
-    if (items.length > max) problems.push(`${name} has more than ${max} entries.`);
-    return items.slice(0, max);
-  };
-  const unique = (items, name) => {
-    const ids = /* @__PURE__ */ new Set();
-    for (const [index, item] of items.entries()) {
-      if (!item || typeof item !== "object" || !ID.test(item.id ?? "")) {
+  expected.reviewSha256 && source?.reviewSha256 !== expected.reviewSha256 && problems.push("source.reviewSha256 does not match the uploaded video.");
+  let span = (entry, label) => !finite(entry.start) || !finite(entry.end) || entry.start < 0 || entry.start >= entry.end || entry.end > duration + tolerance ? (problems.push(`${label}: start and end must satisfy 0 <= start < end <= durationSeconds.`), !1) : !0, list = (name, max) => {
+    let items = value[name];
+    return items === void 0 ? [] : Array.isArray(items) ? (items.length > max && problems.push(`${name} has more than ${max} entries.`), items.slice(0, max)) : (problems.push(`${name} must be an array.`), []);
+  }, unique = (items, name) => {
+    let ids = /* @__PURE__ */ new Set();
+    for (let [index, item] of items.entries()) {
+      if (!item || typeof item != "object" || !ID.test(item.id ?? "")) {
         problems.push(`${name}[${index}].id must be a short identifier.`);
         continue;
       }
-      if (ids.has(item.id)) problems.push(`${name}: duplicate id ${item.id}.`);
-      ids.add(item.id);
+      ids.has(item.id) && problems.push(`${name}: duplicate id ${item.id}.`), ids.add(item.id);
     }
     return ids;
-  };
-  const segments = list("segments", TIMELINE_LIMITS.segments), graphics = list("graphics", TIMELINE_LIMITS.entries), sounds = list("sounds", TIMELINE_LIMITS.entries), words = list("words", TIMELINE_LIMITS.words);
-  if (graphics.length + sounds.length > TIMELINE_LIMITS.entries) problems.push(`graphics and sounds together have more than ${TIMELINE_LIMITS.entries} entries.`);
-  unique(segments, "segments");
-  unique(graphics, "graphics");
-  unique(sounds, "sounds");
+  }, segments = list("segments", TIMELINE_LIMITS.segments), graphics = list("graphics", TIMELINE_LIMITS.entries), sounds = list("sounds", TIMELINE_LIMITS.entries), words = list("words", TIMELINE_LIMITS.words);
+  graphics.length + sounds.length > TIMELINE_LIMITS.entries && problems.push(`graphics and sounds together have more than ${TIMELINE_LIMITS.entries} entries.`), unique(segments, "segments"), unique(graphics, "graphics"), unique(sounds, "sounds");
   let previousEnd = 0;
-  for (const [index, segment] of segments.entries()) {
-    if (!segment || typeof segment !== "object") continue;
-    const label = `segments[${index}]`;
-    if (!SEGMENT_KINDS.has(segment.kind)) problems.push(`${label}.kind must be hook, body, cta or scene.`);
-    if (!optionalText(segment.module, 100) || !optionalText(segment.label, 200)) problems.push(`${label}: module and label must be short texts.`);
-    if (segment.source !== void 0) {
-      const s = segment.source;
-      if (!s || typeof s !== "object" || s.sourceSha256 !== void 0 && !SHA.test(s.sourceSha256) || s.range !== void 0 && !(Array.isArray(s.range) && s.range.length === 2 && s.range.every(finite) && s.range[0] < s.range[1]) || !["take", "clip", "captureId"].every((key) => optionalText(s[key], 500))) problems.push(`${label}.source is invalid.`);
+  for (let [index, segment] of segments.entries()) {
+    if (!segment || typeof segment != "object") continue;
+    let label = `segments[${index}]`;
+    if (SEGMENT_KINDS.has(segment.kind) || problems.push(`${label}.kind must be hook, body, cta or scene.`), (!optionalText(segment.module, 100) || !optionalText(segment.label, 200)) && problems.push(`${label}: module and label must be short texts.`), segment.source !== void 0) {
+      let s = segment.source;
+      (!s || typeof s != "object" || s.sourceSha256 !== void 0 && !SHA.test(s.sourceSha256) || s.range !== void 0 && !(Array.isArray(s.range) && s.range.length === 2 && s.range.every(finite) && s.range[0] < s.range[1]) || !["take", "clip", "captureId"].every((key) => optionalText(s[key], 500))) && problems.push(`${label}.source is invalid.`);
     }
-    if (!span(segment, label)) continue;
-    if (Math.abs(segment.start - previousEnd) > tolerance) problems.push(`${label} must start where the previous segment ends (${previousEnd}).`);
-    previousEnd = segment.end;
+    span(segment, label) && (Math.abs(segment.start - previousEnd) > tolerance && problems.push(`${label} must start where the previous segment ends (${previousEnd}).`), previousEnd = segment.end);
   }
-  if (segments.length && Math.abs(previousEnd - duration) > tolerance) problems.push("Segments must cover the video up to durationSeconds.");
-  for (const [index, graphic] of graphics.entries()) {
-    if (!graphic || typeof graphic !== "object") continue;
-    span(graphic, `graphics[${index}]`);
-    if (graphic.rect !== void 0 && !rect(graphic.rect)) problems.push(`graphics[${index}].rect must be [x0, y0, x1, y1] in 0..1 with x0 < x1 and y0 < y1.`);
-    if (!optionalText(graphic.label, 200) || !optionalText(graphic.note, 500)) problems.push(`graphics[${index}]: label and note must be short texts.`);
-  }
-  for (const [index, sound] of sounds.entries()) {
-    if (!sound || typeof sound !== "object") continue;
-    span(sound, `sounds[${index}]`);
-    if (!optionalText(sound.sound, 200) || !optionalText(sound.label, 200)) problems.push(`sounds[${index}]: sound and label must be short texts.`);
-  }
-  for (const [index, word] of words.entries()) {
-    if (!word || typeof word !== "object" || !text(word.text, 200)) {
+  segments.length && Math.abs(previousEnd - duration) > tolerance && problems.push("Segments must cover the video up to durationSeconds.");
+  for (let [index, graphic] of graphics.entries())
+    !graphic || typeof graphic != "object" || (span(graphic, `graphics[${index}]`), graphic.rect !== void 0 && !rect(graphic.rect) && problems.push(`graphics[${index}].rect must be [x0, y0, x1, y1] in 0..1 with x0 < x1 and y0 < y1.`), (!optionalText(graphic.label, 200) || !optionalText(graphic.note, 500)) && problems.push(`graphics[${index}]: label and note must be short texts.`));
+  for (let [index, sound] of sounds.entries())
+    !sound || typeof sound != "object" || (span(sound, `sounds[${index}]`), (!optionalText(sound.sound, 200) || !optionalText(sound.label, 200)) && problems.push(`sounds[${index}]: sound and label must be short texts.`));
+  for (let [index, word] of words.entries()) {
+    if (!word || typeof word != "object" || !text(word.text, 200)) {
       problems.push(`words[${index}].text must be a short text.`);
       continue;
     }
-    span(word, `words[${index}]`);
-    if (word.module !== void 0 && !segments.some((segment) => segment.module === word.module || segment.id === word.module)) problems.push(`words[${index}].module refers to no segment.`);
+    span(word, `words[${index}]`), word.module !== void 0 && !segments.some((segment) => segment.module === word.module || segment.id === word.module) && problems.push(`words[${index}].module refers to no segment.`);
   }
   return problems;
 }
 
 // cli/files.mjs
-var limits = { files: 1e3, fileBytes: 1e8, totalBytes: 1024 * 1024 * 1024, textBytes: 25 * 1024 * 1024 };
-var types = { ".html": "text/html", ".htm": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif", ".webp": "image/webp", ".avif": "image/avif", ".ico": "image/x-icon", ".woff": "font/woff", ".woff2": "font/woff2", ".ttf": "font/ttf", ".otf": "font/otf", ".eot": "application/vnd.ms-fontobject", ".mp4": "video/mp4", ".m4v": "video/mp4", ".vtt": "text/vtt", ".webm": "video/webm", ".mp3": "audio/mpeg", ".ogg": "audio/ogg", ".wav": "audio/wav", ".pdf": "application/pdf", ".json": "application/json", ".csv": "text/csv", ".txt": "text/plain" };
-var sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
+var limits = { files: 1e3, fileBytes: 1e8, totalBytes: 1024 * 1024 * 1024, textBytes: 25 * 1024 * 1024 }, types = { ".html": "text/html", ".htm": "text/html", ".css": "text/css", ".js": "text/javascript", ".mjs": "text/javascript", ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".gif": "image/gif", ".webp": "image/webp", ".avif": "image/avif", ".ico": "image/x-icon", ".woff": "font/woff", ".woff2": "font/woff2", ".ttf": "font/ttf", ".otf": "font/otf", ".eot": "application/vnd.ms-fontobject", ".mp4": "video/mp4", ".m4v": "video/mp4", ".vtt": "text/vtt", ".webm": "video/webm", ".mp3": "audio/mpeg", ".ogg": "audio/ogg", ".wav": "audio/wav", ".pdf": "application/pdf", ".json": "application/json", ".csv": "text/csv", ".txt": "text/plain" }, sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 function safePath(value) {
-  if (typeof value !== "string" || !value || value.length > 512 || /[\\\u0000-\u001f\u007f?#:%]/.test(value) || value.startsWith("/")) throw new Error(`Unsafe file path: ${value}`);
+  if (typeof value != "string" || !value || value.length > 512 || /[\\\u0000-\u001f\u007f?#:%]/.test(value) || value.startsWith("/")) throw new Error(`Unsafe file path: ${value}`);
   if (value.split("/").some((part) => !part || part.startsWith(".") || /^(?:node_modules|private|secrets?)$/i.test(part) || /(?:^|[._-])(?:credentials?|secrets?|tokens?|private-key|env)(?:[._-]|$)/i.test(part))) throw new Error(`Unsafe file path: ${value}`);
   if (value.split("/")[0] === "__review") throw new Error(`Paths under __review/ are reserved: ${value}`);
   if (!types[path.posix.extname(value).toLowerCase()]) throw new Error(`Unsupported file type: ${value}`);
@@ -7999,35 +5814,31 @@ function safePath(value) {
 }
 async function readSafeFile(root, relative) {
   safePath(relative);
-  const base = path.resolve(root);
+  let base = path.resolve(root);
   if ((await lstat(base)).isSymbolicLink()) throw new Error(`Output root must not be a symlink: ${base}`);
   let current = base;
-  for (const part of relative.split("/")) {
-    current = path.join(current, part);
-    const stat2 = await lstat(current).catch((error) => {
+  for (let part of relative.split("/"))
+    if (current = path.join(current, part), (await lstat(current).catch((error) => {
       throw new Error(`Missing file: ${relative} (${error.code})`);
-    });
-    if (stat2.isSymbolicLink()) throw new Error(`Symlinks are not allowed: ${relative}`);
-  }
-  const actual = await realpath(current);
-  const actualRoot = await realpath(base);
+    })).isSymbolicLink()) throw new Error(`Symlinks are not allowed: ${relative}`);
+  let actual = await realpath(current), actualRoot = await realpath(base);
   if (!actual.startsWith(actualRoot + path.sep)) throw new Error(`File escapes output root: ${relative}`);
-  const stat = await lstat(actual);
+  let stat = await lstat(actual);
   if (!stat.isFile() || stat.size > limits.fileBytes) throw new Error(`Not a file or larger than ${limits.fileBytes} bytes: ${relative}`);
   if (/\.(html?|css|svg)$/i.test(relative) && stat.size > limits.textBytes) throw new Error(`HTML, CSS and SVG files must not exceed 25 MiB; move embedded images and fonts into separate asset files: ${relative}`);
-  const bytes = await readFile(actual);
+  let bytes = await readFile(actual);
   if (bytes.length > (/\.(html?|css|svg)$/i.test(relative) ? limits.textBytes : limits.fileBytes)) throw new Error(`File grew beyond the file size limit: ${relative}`);
   return bytes;
 }
 function resourcePath(reference, parent) {
-  const value = reference.trim();
+  let value = reference.trim();
   if (!value || value.startsWith("#")) return null;
   if (/^data:/i.test(value)) {
     if (!/^data:(?:image\/(?:png|jpeg|gif|webp|avif)|font\/(?:woff2?|ttf|otf));base64,[a-z0-9+/=\s]+$/i.test(value)) throw new Error(`Unsupported inline resource in ${parent}`);
     return null;
   }
   if (/^https:\/\//i.test(value)) {
-    const url = new URL(value);
+    let url = new URL(value);
     if (url.username || url.password) throw new Error(`Resource URL must not contain credentials in ${parent}`);
     return null;
   }
@@ -8041,49 +5852,39 @@ function resourcePath(reference, parent) {
     throw new Error(`Invalid resource encoding in ${parent}: ${value}`);
   }
   if (decoded.startsWith("/")) throw new Error(`Unsafe resource in ${parent}: ${value}`);
-  const combined = path.posix.join(path.posix.dirname(parent), decoded);
+  let combined = path.posix.join(path.posix.dirname(parent), decoded);
   return safePath(combined);
 }
 function cssUnescape(value) {
   return value.replace(/\\(?:([a-f0-9]{1,6})\s?|([^\r\n]))/gi, (_, hex, char) => hex ? String.fromCodePoint(parseInt(hex, 16) || 65533) : char);
 }
 function cssReferences(source) {
-  const css = cssUnescape(source.replace(/\/\*[\s\S]*?\*\//g, ""));
-  const found = [];
-  for (const match of css.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*?))\s*\)/gi)) found.push(match[1] ?? match[2] ?? match[3]);
-  for (const match of css.matchAll(/@import\s+(?:"([^"]*)"|'([^']*)')/gi)) found.push(match[1] ?? match[2]);
+  let css = cssUnescape(source.replace(/\/\*[\s\S]*?\*\//g, "")), found = [];
+  for (let match of css.matchAll(/url\(\s*(?:"([^"]*)"|'([^']*)'|([^)]*?))\s*\)/gi)) found.push(match[1] ?? match[2] ?? match[3]);
+  for (let match of css.matchAll(/@import\s+(?:"([^"]*)"|'([^']*)')/gi)) found.push(match[1] ?? match[2]);
   if (/\b(?:image-set|-webkit-image-set)\s*\(/i.test(css)) throw new Error("Use ordinary url() declarations instead of image-set() before publishing");
   return found;
 }
 function srcsetReferences(value) {
-  const values = [];
-  let remaining = value.trim();
-  while (remaining) {
-    const match = remaining.match(/^([^\s]+)(?:\s+[^,]*)?(?:,\s*|$)/);
+  let values = [], remaining = value.trim();
+  for (; remaining; ) {
+    let match = remaining.match(/^([^\s]+)(?:\s+[^,]*)?(?:,\s*|$)/);
     if (!match) throw new Error("Invalid srcset");
-    values.push(match[1].replace(/,+$/, ""));
-    remaining = remaining.slice(match[0].length).trim();
+    values.push(match[1].replace(/,+$/, "")), remaining = remaining.slice(match[0].length).trim();
   }
   return values;
 }
 function references(source, relative) {
-  const extension = path.posix.extname(relative).toLowerCase();
-  let refs = [];
-  if (extension === ".css") refs = cssReferences(source);
-  if ([".html", ".htm", ".svg"].includes(extension)) {
-    const walk = (node) => {
-      const attrs = Object.fromEntries((node.attrs ?? []).map((attr) => [attr.prefix ? `${attr.prefix}:${attr.name}` : attr.name, attr.value]));
+  let extension = path.posix.extname(relative).toLowerCase(), refs = [];
+  if (extension === ".css" && (refs = cssReferences(source)), [".html", ".htm", ".svg"].includes(extension)) {
+    let walk = (node) => {
+      let attrs = Object.fromEntries((node.attrs ?? []).map((attr) => [attr.prefix ? `${attr.prefix}:${attr.name}` : attr.name, attr.value]));
       if (node.tagName === "base") throw new Error(`Remove <base> before publishing: ${relative}`);
       if (node.tagName === "meta" && attrs["http-equiv"]?.toLowerCase() === "refresh") throw new Error(`Remove meta refresh before publishing: ${relative}`);
-      for (const attr of ["src", "poster", "background", "xlink:href"]) if (attrs[attr]) refs.push(attrs[attr]);
-      if (attrs.href && !["a", "area"].includes(node.tagName)) refs.push(attrs.href);
-      if (node.tagName === "object" && attrs.data) refs.push(attrs.data);
-      if (attrs.srcset) refs.push(...srcsetReferences(attrs.srcset));
-      if (attrs.imagesrcset) refs.push(...srcsetReferences(attrs.imagesrcset));
-      if (attrs.style) refs.push(...cssReferences(attrs.style));
-      if (node.tagName === "style") refs.push(...cssReferences((node.childNodes ?? []).map((child) => child.value ?? "").join("")));
-      for (const child of node.childNodes ?? []) walk(child);
-      if (node.content) walk(node.content);
+      for (let attr of ["src", "poster", "background", "xlink:href"]) attrs[attr] && refs.push(attrs[attr]);
+      attrs.href && !["a", "area"].includes(node.tagName) && refs.push(attrs.href), node.tagName === "object" && attrs.data && refs.push(attrs.data), attrs.srcset && refs.push(...srcsetReferences(attrs.srcset)), attrs.imagesrcset && refs.push(...srcsetReferences(attrs.imagesrcset)), attrs.style && refs.push(...cssReferences(attrs.style)), node.tagName === "style" && refs.push(...cssReferences((node.childNodes ?? []).map((child) => child.value ?? "").join("")));
+      for (let child of node.childNodes ?? []) walk(child);
+      node.content && walk(node.content);
     };
     walk(parse(source));
   }
@@ -8091,84 +5892,70 @@ function references(source, relative) {
 }
 var analytics = new RegExp(`(?:^|[./])(?:${frame_hosts_default.analytics.map((host) => host.replace(/\./g, "\\.")).join("|")})\\b`, "i");
 function scriptHosts(source, relative) {
-  const warnings = [];
-  const walk = (node) => {
+  let warnings = [], walk = (node) => {
     if (node.tagName === "script") {
-      const src = node.attrs?.find((attr) => attr.name === "src")?.value.trim() || "";
+      let src = node.attrs?.find((attr) => attr.name === "src")?.value.trim() || "";
       if (analytics.test(src) || analytics.test((node.childNodes ?? []).map((child) => child.value ?? "").join(""))) warnings.push(`Analytics script in ${relative} is removed when the page is reviewed`);
       else if (/^(?:https?:)?\/\//i.test(src) && (!/^https:/i.test(src) || !frame_hosts_default.scripts.includes(new URL(src).hostname))) throw new Error(`Interactive pages load scripts only from their own files, ${frame_hosts_default.scripts.join(", ")}: ${src} in ${relative}`);
     }
-    for (const child of node.childNodes ?? []) walk(child);
-    if (node.content) walk(node.content);
+    for (let child of node.childNodes ?? []) walk(child);
+    node.content && walk(node.content);
   };
-  walk(parse(source));
-  return warnings;
+  return walk(parse(source)), warnings;
 }
 async function inspectFiles(root, inputPages, warnings = []) {
   if (!inputPages.length) throw new Error("Select at least one page with --page key=relative.html");
   if (inputPages.length > 100) throw new Error("A collection supports at most 100 pages");
-  const seenKeys = /* @__PURE__ */ new Set();
-  const cache = /* @__PURE__ */ new Map();
-  let total = 0;
-  const visit = async (relative, closure) => {
-    if (closure.has(relative)) return;
-    closure.add(relative);
-    if (!cache.has(relative)) {
-      const bytes = await readSafeFile(root, relative);
-      total += bytes.length;
-      if (cache.size >= limits.files || total > limits.totalBytes) throw new Error("Upload exceeds the collection file or byte limit");
-      cache.set(relative, { info: { path: relative, sha256: sha256(bytes), size: bytes.length, contentType: types[path.posix.extname(relative).toLowerCase()] }, refs: /\.(?:html?|css|svg)$/i.test(relative) ? references(bytes.toString("utf8"), relative) : [] });
+  let seenKeys = /* @__PURE__ */ new Set(), cache = /* @__PURE__ */ new Map(), total = 0, visit = async (relative, closure) => {
+    if (!closure.has(relative)) {
+      if (closure.add(relative), !cache.has(relative)) {
+        let bytes = await readSafeFile(root, relative);
+        if (total += bytes.length, cache.size >= limits.files || total > limits.totalBytes) throw new Error("Upload exceeds the collection file or byte limit");
+        cache.set(relative, { info: { path: relative, sha256: sha256(bytes), size: bytes.length, contentType: types[path.posix.extname(relative).toLowerCase()] }, refs: /\.(?:html?|css|svg)$/i.test(relative) ? references(bytes.toString("utf8"), relative) : [] });
+      }
+      for (let ref of cache.get(relative).refs) await visit(ref, closure);
     }
-    for (const ref of cache.get(relative).refs) await visit(ref, closure);
-  };
-  const pages = [];
-  for (const page of inputPages) {
+  }, pages = [];
+  for (let page of inputPages) {
     if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(page.key) || seenKeys.has(page.key)) throw new Error(`Invalid or duplicate page key: ${page.key}`);
-    seenKeys.add(page.key);
-    safePath(page.path);
-    const title = page.title || page.key;
-    if (typeof title !== "string" || !title.trim() || title.length > 200) throw new Error(`Invalid page title: ${page.key}`);
+    seenKeys.add(page.key), safePath(page.path);
+    let title = page.title || page.key;
+    if (typeof title != "string" || !title.trim() || title.length > 200) throw new Error(`Invalid page title: ${page.key}`);
     if (page.kind === "video") {
       if (page.interactive || page.include?.length) throw new Error(`--interactive and --include are only for HTML pages: ${page.key}`);
-      const video = videoBlock(page.video, page.key);
-      const closure2 = /* @__PURE__ */ new Set();
-      for (const file of [page.path, video.poster, video.captions, video.timeline]) if (file !== void 0) await visit(safePath(file), closure2);
+      let video = videoBlock(page.video, page.key), closure2 = /* @__PURE__ */ new Set();
+      for (let file of [page.path, video.poster, video.captions, video.timeline]) file !== void 0 && await visit(safePath(file), closure2);
       if (closure2.size !== [page.path, video.poster, video.captions, video.timeline].filter(Boolean).length) throw new Error(`Video files of a page must differ: ${page.key}`);
-      await checkVideoFiles(root, page.path, video, cache.get(page.path).info, page.key);
-      pages.push({ key: page.key, title, kind: "video", path: page.path, files: [...closure2].sort(), video });
+      await checkVideoFiles(root, page.path, video, cache.get(page.path).info, page.key), pages.push({ key: page.key, title, kind: "video", path: page.path, files: [...closure2].sort(), video });
       continue;
     }
     if (page.kind !== void 0 && page.kind !== "html") throw new Error(`Unknown page kind: ${page.key}`);
     if (!/\.html?$/i.test(page.path)) throw new Error(`Page must be HTML: ${page.path}`);
     if (page.include?.length && !page.interactive) throw new Error(`--include is only for interactive pages: ${page.key}`);
-    const closure = /* @__PURE__ */ new Set();
+    let closure = /* @__PURE__ */ new Set();
     await visit(page.path, closure);
-    for (const file of page.include || []) await visit(safePath(file), closure);
-    if (page.interactive) warnings.push(...scriptHosts((await readSafeFile(root, page.path)).toString("utf8"), page.path));
-    pages.push({ key: page.key, title, path: page.path, files: [...closure].sort(), ...page.interactive ? { interactive: true } : {} });
+    for (let file of page.include || []) await visit(safePath(file), closure);
+    page.interactive && warnings.push(...scriptHosts((await readSafeFile(root, page.path)).toString("utf8"), page.path)), pages.push({ key: page.key, title, path: page.path, files: [...closure].sort(), ...page.interactive ? { interactive: !0 } : {} });
   }
   return { files: [...cache.values()].map((item) => item.info).sort((a, b) => a.path.localeCompare(b.path)), pages: pages.sort((a, b) => a.key.localeCompare(b.key)) };
 }
 var videoKeys = ["poster", "captions", "timeline", "durationSeconds", "width", "height", "fps", "codec", "audio"];
 function videoBlock(video, key) {
-  if (!video || typeof video !== "object" || Array.isArray(video) || Object.keys(video).some((name) => !videoKeys.includes(name))) throw new Error(`A video page needs a valid video block: ${key}`);
-  if (!parseFps(video.fps) || !(video.durationSeconds > 0) || !Number.isInteger(video.width) || !Number.isInteger(video.height) || typeof video.codec !== "string") throw new Error(`Video block lacks fps, duration, size or codec: ${key}`);
-  const checks = { poster: /\.(?:jpe?g|png|webp)$/i, captions: /\.vtt$/i, timeline: /\.json$/i };
-  for (const [name, pattern] of Object.entries(checks)) if (video[name] !== void 0 && (typeof video[name] !== "string" || !pattern.test(video[name]))) throw new Error(`Video ${name} has the wrong file type: ${key}`);
+  if (!video || typeof video != "object" || Array.isArray(video) || Object.keys(video).some((name) => !videoKeys.includes(name))) throw new Error(`A video page needs a valid video block: ${key}`);
+  if (!parseFps(video.fps) || !(video.durationSeconds > 0) || !Number.isInteger(video.width) || !Number.isInteger(video.height) || typeof video.codec != "string") throw new Error(`Video block lacks fps, duration, size or codec: ${key}`);
+  let checks = { poster: /\.(?:jpe?g|png|webp)$/i, captions: /\.vtt$/i, timeline: /\.json$/i };
+  for (let [name, pattern] of Object.entries(checks)) if (video[name] !== void 0 && (typeof video[name] != "string" || !pattern.test(video[name]))) throw new Error(`Video ${name} has the wrong file type: ${key}`);
   return Object.fromEntries(videoKeys.filter((name) => video[name] !== void 0).map((name) => [name, video[name]]));
 }
 async function mp4Boxes(file) {
-  const handle = await open(file, "r");
+  let handle = await open(file, "r");
   try {
-    const { size } = await handle.stat(), header = Buffer.alloc(16), boxes = [];
+    let { size } = await handle.stat(), header = Buffer.alloc(16), boxes = [];
     for (let offset = 0; offset + 8 <= size && boxes.length < 64; ) {
       await handle.read(header, 0, 16, offset);
       let length = header.readUInt32BE(0);
-      if (length === 1) length = Number(header.readBigUInt64BE(8));
-      else if (length === 0) length = size - offset;
-      if (length < 8) throw new Error("Invalid MP4 box size");
-      boxes.push(header.toString("latin1", 4, 8));
-      offset += length;
+      if (length === 1 ? length = Number(header.readBigUInt64BE(8)) : length === 0 && (length = size - offset), length < 8) throw new Error("Invalid MP4 box size");
+      boxes.push(header.toString("latin1", 4, 8)), offset += length;
     }
     return boxes;
   } finally {
@@ -8177,28 +5964,25 @@ async function mp4Boxes(file) {
 }
 function containerProblems(boxes, majorBrand) {
   if (boxes[0] !== "ftyp") return ["the file is not an MP4 container (no leading ftyp box)"];
-  const problems = [];
-  if (/^qt/.test(majorBrand ?? "")) problems.push("the container is QuickTime MOV, not MP4");
-  const moov = boxes.indexOf("moov"), mdat = boxes.indexOf("mdat");
-  if (moov < 0 || mdat >= 0 && mdat < moov) problems.push("moov is not before mdat (encode with -movflags +faststart)");
-  return problems;
+  let problems = [];
+  /^qt/.test(majorBrand ?? "") && problems.push("the container is QuickTime MOV, not MP4");
+  let moov = boxes.indexOf("moov"), mdat = boxes.indexOf("mdat");
+  return (moov < 0 || mdat >= 0 && mdat < moov) && problems.push("moov is not before mdat (encode with -movflags +faststart)"), problems;
 }
 async function checkVideoFiles(root, relative, video, info, key) {
   if (!/\.(?:mp4|m4v)$/i.test(relative)) throw new Error(`A video page needs an .mp4 or .m4v file: ${key}`);
-  const handle = await open(path.join(path.resolve(root), relative), "r");
-  let brand;
+  let handle = await open(path.join(path.resolve(root), relative), "r"), brand;
   try {
-    const head = Buffer.alloc(12);
-    await handle.read(head, 0, 12, 0);
-    brand = head.toString("latin1", 8, 12);
+    let head = Buffer.alloc(12);
+    await handle.read(head, 0, 12, 0), brand = head.toString("latin1", 8, 12);
   } finally {
     await handle.close();
   }
-  const problems = containerProblems(await mp4Boxes(path.join(path.resolve(root), relative)), brand);
+  let problems = containerProblems(await mp4Boxes(path.join(path.resolve(root), relative)), brand);
   if (problems.length) throw new Error(`Video ${relative} cannot be reviewed: ${problems.join("; ")}. Run inspect with --video ${key}=... --review-copy`);
   if (video.captions !== void 0 && !/^\uFEFF?WEBVTT(?:[ \t]|\r?\n|$)/.test((await readSafeFile(root, video.captions)).toString("utf8"))) throw new Error(`Captions must be WebVTT starting with WEBVTT: ${video.captions}`);
   if (video.timeline !== void 0) {
-    const bytes = await readSafeFile(root, video.timeline);
+    let bytes = await readSafeFile(root, video.timeline);
     if (bytes.length > TIMELINE_LIMITS.bytes) throw new Error(`Timeline exceeds 1 MB: ${video.timeline}`);
     let timeline;
     try {
@@ -8206,7 +5990,7 @@ async function checkVideoFiles(root, relative, video, info, key) {
     } catch {
       throw new Error(`Timeline is not valid JSON: ${video.timeline}`);
     }
-    const problems2 = validateTimeline(timeline, { durationSeconds: video.durationSeconds, fps: video.fps, reviewSha256: info.sha256 });
+    let problems2 = validateTimeline(timeline, { durationSeconds: video.durationSeconds, fps: video.fps, reviewSha256: info.sha256 });
     if (problems2.length) throw new Error(`Timeline ${video.timeline} does not match video ${relative}: ${problems2.join(" ")} Publish the page again with --video ${key}=... --timeline ${key}=...`);
   }
 }
@@ -8217,9 +6001,10 @@ import path2 from "node:path";
 import { randomUUID } from "node:crypto";
 var statePath = (directory) => path2.join(path2.resolve(directory), ".brixon-feedback.json");
 function submittedByLabel(value) {
-  if (value === void 0) return void 0;
-  if (typeof value !== "string" || /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(value) || !value.trim() || value.trim().length > 200) throw new Error("submittedBy requires a name or email with 1–200 characters and no control characters");
-  return value.trim();
+  if (value !== void 0) {
+    if (typeof value != "string" || /[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(value) || !value.trim() || value.trim().length > 200) throw new Error("submittedBy requires a name or email with 1–200 characters and no control characters");
+    return value.trim();
+  }
 }
 function reviewLink(value) {
   let url;
@@ -8228,60 +6013,55 @@ function reviewLink(value) {
   } catch {
     throw new Error("Use a complete review URL");
   }
-  const loopback = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
-  const match = url.pathname.match(/^\/collections\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\/?$/i);
+  let loopback = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname), match = url.pathname.match(/^\/collections\/([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})\/?$/i);
   if (!match || url.username || url.password || url.protocol !== "https:" && !(url.protocol === "http:" && loopback)) throw new Error("Use a valid review URL with a secure origin");
   return { reviewUrl: `${url.origin}/collections/${match[1]}`, collectionId: match[1], origin: url.origin };
 }
 var movedOrigins = { "https://feedback.brixontesting.com": "https://feedback.brixon.ai" };
 function sameReview(a, b) {
   try {
-    const [x, y] = [reviewLink(a), reviewLink(b)];
+    let [x, y] = [reviewLink(a), reviewLink(b)];
     return x.collectionId === y.collectionId && (movedOrigins[x.origin] ?? x.origin) === (movedOrigins[y.origin] ?? y.origin);
   } catch {
-    return false;
+    return !1;
   }
 }
 function matchesCollection(item, selector) {
-  if ([item.collectionId, item.collectionName, item.reviewUrl].includes(selector)) return true;
+  if ([item.collectionId, item.collectionName, item.reviewUrl].includes(selector)) return !0;
   try {
     return sameReview(selector, item.reviewUrl);
   } catch {
-    return false;
+    return !1;
   }
 }
 function assertPublicationBaseline(collection, manifest) {
-  const matches = manifest.schemaVersion === 1 ? manifest.projectId === collection.projectId && manifest.collectionId === collection.collectionId && !("reviewUrl" in manifest) : manifest.schemaVersion === 2 && !("projectId" in manifest) && !("collectionId" in manifest) && sameReview(manifest.reviewUrl, collection.reviewUrl);
-  if (!matches) throw new Error("Manifest does not match the mapped review URL or project");
+  if (!(manifest.schemaVersion === 1 ? manifest.projectId === collection.projectId && manifest.collectionId === collection.collectionId && !("reviewUrl" in manifest) : manifest.schemaVersion === 2 && !("projectId" in manifest) && !("collectionId" in manifest) && sameReview(manifest.reviewUrl, collection.reviewUrl))) throw new Error("Manifest does not match the mapped review URL or project");
   if (manifest.baseRevision !== collection.revision) throw new Error(`Manifest baseRevision does not match the local mapping: expected ${collection.revision}, received ${manifest.baseRevision}. No upload was sent. Regenerate the manifest from the saved mapping; for an upload that may already be published, resume through feedback_resume_upload and recover with finalize using the same upload ID`);
 }
 async function readState(file) {
   let raw;
   try {
-    const stat = await lstat2(file);
+    let stat = await lstat2(file);
     if (!stat.isFile() || stat.isSymbolicLink()) throw new Error("Local feedback state must be a regular file");
     raw = await readFile2(file, "utf8");
   } catch (error) {
     if (error.code === "ENOENT") return { schemaVersion: 1, activeCollectionId: null, collections: [] };
     throw error;
   }
-  const state = JSON.parse(raw);
+  let state = JSON.parse(raw);
   if (state.schemaVersion !== 1 || !Array.isArray(state.collections)) throw new Error("Unsupported local feedback state");
-  const collections = state.collections.map((item) => {
-    if (!["projectId", "collectionId", "collectionName", "root", "reviewUrl"].every((key) => typeof item[key] === "string" && item[key]) || !Number.isInteger(item.revision) || item.revision < 1 || !Array.isArray(item.files) || !Array.isArray(item.pages)) throw new Error("Invalid local source mapping");
+  let collections = state.collections.map((item) => {
+    if (!["projectId", "collectionId", "collectionName", "root", "reviewUrl"].every((key) => typeof item[key] == "string" && item[key]) || !Number.isInteger(item.revision) || item.revision < 1 || !Array.isArray(item.files) || !Array.isArray(item.pages)) throw new Error("Invalid local source mapping");
     if (reviewLink(item.reviewUrl).collectionId !== item.collectionId) throw new Error("Local source mapping has a mismatched review URL");
     if (item.folderId !== void 0 && item.folderId !== null && !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(item.folderId)) throw new Error("Local source mapping has an invalid folderId");
-    const files = item.files.map(({ path: filePath, sha256: hash, size, contentType }) => {
-      safePath(filePath);
-      if (!/^[a-f0-9]{64}$/.test(hash) || !Number.isInteger(size) || size < 0 || typeof contentType !== "string") throw new Error("Invalid local file fingerprint");
+    let files = item.files.map(({ path: filePath, sha256: hash, size, contentType }) => {
+      if (safePath(filePath), !/^[a-f0-9]{64}$/.test(hash) || !Number.isInteger(size) || size < 0 || typeof contentType != "string") throw new Error("Invalid local file fingerprint");
       return { path: filePath, sha256: hash, size, contentType };
-    });
-    const pages = item.pages.map(({ key, title, path: filePath, files: dependencies, versionId, number, interactive, kind, video }) => {
-      safePath(filePath);
-      if (typeof key !== "string" || typeof title !== "string" || typeof versionId !== "string" || !Number.isInteger(number) || number < 1 || !Array.isArray(dependencies) || !dependencies.includes(filePath) || dependencies.some((dependency) => !files.some((file2) => file2.path === dependency))) throw new Error("Invalid local page mapping");
-      if (interactive !== void 0 && interactive !== true) throw new Error("Invalid local page mapping");
+    }), pages = item.pages.map(({ key, title, path: filePath, files: dependencies, versionId, number, interactive, kind, video }) => {
+      if (safePath(filePath), typeof key != "string" || typeof title != "string" || typeof versionId != "string" || !Number.isInteger(number) || number < 1 || !Array.isArray(dependencies) || !dependencies.includes(filePath) || dependencies.some((dependency) => !files.some((file2) => file2.path === dependency))) throw new Error("Invalid local page mapping");
+      if (interactive !== void 0 && interactive !== !0) throw new Error("Invalid local page mapping");
       if (kind !== void 0 && (kind !== "video" || interactive)) throw new Error("Invalid local page mapping");
-      const media = kind === "video" ? videoBlock(video, key) : void 0;
+      let media = kind === "video" ? videoBlock(video, key) : void 0;
       if (kind !== "video" && video !== void 0) throw new Error("Invalid local page mapping");
       if (media && [media.poster, media.captions, media.timeline].some((file2) => file2 !== void 0 && !dependencies.includes(file2))) throw new Error("Invalid local page mapping");
       return { key, title, path: filePath, files: dependencies, versionId, number, ...interactive ? { interactive } : {}, ...media ? { kind, video: media } : {} };
@@ -8296,51 +6076,42 @@ function selectCollection(state, selector) {
     if (state.collections.length === 1) return state.collections[0];
     throw new Error(state.collections.length ? "Several local collections match; supply --collection with a known review URL or saved name" : "No local collection mapping; supply a review link and restore its source mapping");
   }
-  const key = selector || state.activeCollectionId;
-  const matches = state.collections.filter((item) => matchesCollection(item, key));
+  let key = selector || state.activeCollectionId, matches = state.collections.filter((item) => matchesCollection(item, key));
   if (matches.length !== 1) throw new Error(matches.length ? `Ambiguous collection: ${key}` : `No local source mapping for collection: ${key}`);
   return matches[0];
 }
 async function checkBaseline(collection, root = collection.root) {
-  const changed = [], missing = [];
-  for (const file of collection.files) {
+  let changed = [], missing = [];
+  for (let file of collection.files)
     try {
-      if (sha256(await readSafeFile(root, file.path)) !== file.sha256) changed.push(file.path);
+      sha256(await readSafeFile(root, file.path)) !== file.sha256 && changed.push(file.path);
     } catch (error) {
       missing.push({ path: file.path, error: error.message });
     }
-  }
-  const affected = /* @__PURE__ */ new Set([...changed, ...missing.map((file) => file.path)]);
+  let affected = /* @__PURE__ */ new Set([...changed, ...missing.map((file) => file.path)]);
   return { ok: affected.size === 0, collectionId: collection.collectionId, revision: collection.revision, changed, missing, affectedPages: collection.pages.filter((page) => page.files.some((file) => affected.has(file))).map((page) => page.key) };
 }
 async function mapCollection(file, selector, snapshot, root) {
-  const target = reviewLink(selector);
-  const remote = snapshot.collection;
-  const uuid = (value) => typeof value === "string" && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
-  if (!remote || remote.id !== target.collectionId || !sameReview(remote.reviewUrl, target.reviewUrl) || !uuid(remote.projectId) || !Number.isInteger(remote.revision) || remote.revision < 1 || typeof remote.name !== "string" || !remote.name.trim() || remote.name.length > 200 || remote.project != null && !uuid(remote.project.id) || !Array.isArray(snapshot.files) || !Array.isArray(snapshot.pages)) throw new Error("Collection snapshot does not match the selected review URL");
+  let target = reviewLink(selector), remote = snapshot.collection, uuid = (value) => typeof value == "string" && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
+  if (!remote || remote.id !== target.collectionId || !sameReview(remote.reviewUrl, target.reviewUrl) || !uuid(remote.projectId) || !Number.isInteger(remote.revision) || remote.revision < 1 || typeof remote.name != "string" || !remote.name.trim() || remote.name.length > 200 || remote.project != null && !uuid(remote.project.id) || !Array.isArray(snapshot.files) || !Array.isArray(snapshot.pages)) throw new Error("Collection snapshot does not match the selected review URL");
   if ((await readState(file)).collections.some((item) => item.collectionId === remote.id)) throw new Error("This collection already has a source mapping; do not replace its baseline");
-  const pages = snapshot.pages.map((page) => {
-    const versions = page.versions?.filter((version3) => version3.id === page.currentVersionId);
-    const version2 = versions?.[0];
+  let pages = snapshot.pages.map((page) => {
+    let versions = page.versions?.filter((version3) => version3.id === page.currentVersionId), version2 = versions?.[0];
     if (versions?.length !== 1 || !uuid(version2.id) || !Number.isInteger(version2.number) || version2.number < 1 || !Array.isArray(version2.files)) throw new Error("Collection snapshot has an invalid current page version");
-    const media = version2.kind === "video" ? videoBlock(version2.video, page.key) : void 0;
-    return { key: page.key, title: page.title, ...media ? { kind: "video" } : {}, path: version2.path, files: [...version2.files].sort(), ...media ? { video: media } : {}, ...version2.interactive ? { interactive: true } : {}, versionId: version2.id, number: version2.number };
-  }).sort((a, b) => a.key.localeCompare(b.key));
-  const inspected = await inspectFiles(root, pages.map((page) => page.interactive ? { ...page, include: page.files } : page));
-  const files = snapshot.files.map(({ path: filePath, sha256: hash, size, contentType }) => ({ path: filePath, sha256: hash, size, contentType })).sort((a, b) => a.path.localeCompare(b.path));
+    let media = version2.kind === "video" ? videoBlock(version2.video, page.key) : void 0;
+    return { key: page.key, title: page.title, ...media ? { kind: "video" } : {}, path: version2.path, files: [...version2.files].sort(), ...media ? { video: media } : {}, ...version2.interactive ? { interactive: !0 } : {}, versionId: version2.id, number: version2.number };
+  }).sort((a, b) => a.key.localeCompare(b.key)), inspected = await inspectFiles(root, pages.map((page) => page.interactive ? { ...page, include: page.files } : page)), files = snapshot.files.map(({ path: filePath, sha256: hash, size, contentType }) => ({ path: filePath, sha256: hash, size, contentType })).sort((a, b) => a.path.localeCompare(b.path));
   if (JSON.stringify(inspected.files) !== JSON.stringify(files) || JSON.stringify(inspected.pages) !== JSON.stringify(pages.map(({ versionId, number, ...page }) => page))) throw new Error("Local files or dependencies differ from the published snapshot; source mapping was not created");
-  const manifest = { schemaVersion: 2, collectionName: remote.name, ...inspected };
-  const publication = { projectId: remote.projectId, collectionId: remote.id, revision: remote.revision, reviewUrl: target.reviewUrl, pages, project: remote.project };
-  return recordPublication(file, manifest, publication, root, { newMapping: true });
+  let manifest = { schemaVersion: 2, collectionName: remote.name, ...inspected }, publication = { projectId: remote.projectId, collectionId: remote.id, revision: remote.revision, reviewUrl: target.reviewUrl, pages, project: remote.project };
+  return recordPublication(file, manifest, publication, root, { newMapping: !0 });
 }
-async function recordPublication(file, manifest, publication, root, { newMapping = false } = {}) {
-  await mkdir(path2.dirname(file), { recursive: true });
-  const lock = `${file}.lock`;
+async function recordPublication(file, manifest, publication, root, { newMapping = !1 } = {}) {
+  await mkdir(path2.dirname(file), { recursive: !0 });
+  let lock = `${file}.lock`;
   try {
     await mkdir(lock);
   } catch (error) {
-    if (error.code === "EEXIST") throw new Error(`Local source mapping is locked: ${lock}. Retry finalize after the other writer finishes; an interrupted writer's lock requires explicit recovery`);
-    throw error;
+    throw error.code === "EEXIST" ? new Error(`Local source mapping is locked: ${lock}. Retry finalize after the other writer finishes; an interrupted writer's lock requires explicit recovery`) : error;
   }
   try {
     return await writePublication(file, manifest, publication, root, newMapping);
@@ -8349,10 +6120,7 @@ async function recordPublication(file, manifest, publication, root, { newMapping
   }
 }
 async function writePublication(file, manifest, publication, root, newMapping) {
-  const state = await readState(file);
-  const index = state.collections.findIndex((item) => item.collectionId === publication.collectionId);
-  const folderId = publication.project !== void 0 ? publication.project?.id ?? null : manifest.folderId !== void 0 ? manifest.folderId : state.collections[index]?.folderId;
-  const collection = {
+  let state = await readState(file), index = state.collections.findIndex((item) => item.collectionId === publication.collectionId), folderId = publication.project !== void 0 ? publication.project?.id ?? null : manifest.folderId !== void 0 ? manifest.folderId : state.collections[index]?.folderId, collection = {
     projectId: publication.projectId,
     collectionId: publication.collectionId,
     collectionName: manifest.collectionName,
@@ -8361,39 +6129,28 @@ async function writePublication(file, manifest, publication, root, newMapping) {
     reviewUrl: publication.reviewUrl,
     root: path2.resolve(root),
     files: manifest.files.map(({ path: filePath, sha256: hash, size, contentType }) => ({ path: filePath, sha256: hash, size, contentType })),
-    pages: manifest.pages.map((page) => ({ key: page.key, title: page.title, path: page.path, files: page.files, versionId: publication.pages.find((version2) => version2.key === page.key).versionId, number: publication.pages.find((version2) => version2.key === page.key).number, ...page.interactive ? { interactive: true } : {}, ...page.kind === "video" ? { kind: "video", video: page.video } : {} })),
+    pages: manifest.pages.map((page) => ({ key: page.key, title: page.title, path: page.path, files: page.files, versionId: publication.pages.find((version2) => version2.key === page.key).versionId, number: publication.pages.find((version2) => version2.key === page.key).number, ...page.interactive ? { interactive: !0 } : {}, ...page.kind === "video" ? { kind: "video", video: page.video } : {} })),
     ...folderId === void 0 ? {} : { folderId }
   };
   if (newMapping && index >= 0) throw new Error("This collection already has a source mapping; do not replace its baseline");
   if (index >= 0 && state.collections[index].revision > collection.revision) throw new Error("A newer local publication is already recorded; do not replace its source mapping");
-  if (index < 0) state.collections.push(collection);
-  else state.collections[index] = collection;
-  state.activeCollectionId = collection.collectionId;
-  await mkdir(path2.dirname(file), { recursive: true });
-  const temporary = `${file}.${randomUUID()}.tmp`;
-  await writeFile(temporary, JSON.stringify(state, null, 2) + "\n", { mode: 384, flag: "wx" });
-  await rename(temporary, file);
-  return collection;
+  index < 0 ? state.collections.push(collection) : state.collections[index] = collection, state.activeCollectionId = collection.collectionId, await mkdir(path2.dirname(file), { recursive: !0 });
+  let temporary = `${file}.${randomUUID()}.tmp`;
+  return await writeFile(temporary, JSON.stringify(state, null, 2) + `
+`, { mode: 384, flag: "wx" }), await rename(temporary, file), collection;
 }
 
 // cli/config.mjs
 import { readFile as readFile3 } from "node:fs/promises";
 import os from "node:os";
 import path3 from "node:path";
-var NETWORK_KEYS = ["ca.mode", "ca.file", "proxy.mode", "proxy.url", "proxy.noProxy"];
-var NETWORK_DEFAULTS = { "ca.mode": "system", "proxy.mode": "env" };
-var SECTIONS = { ca: ["mode", "file"], proxy: ["mode", "url", "noProxy"] };
-var FLAGS = { proxy: "proxy.url", "no-proxy": "proxy.noProxy", "ca-file": "ca.file" };
-var ENVIRONMENT = { BRIXON_PROXY: "proxy.url", BRIXON_NO_PROXY: "proxy.noProxy", BRIXON_CA_FILE: "ca.file" };
-var networkFlags = Object.keys(FLAGS);
+var NETWORK_KEYS = ["ca.mode", "ca.file", "proxy.mode", "proxy.url", "proxy.noProxy"], NETWORK_DEFAULTS = { "ca.mode": "system", "proxy.mode": "env" }, SECTIONS = { ca: ["mode", "file"], proxy: ["mode", "url", "noProxy"] }, FLAGS = { proxy: "proxy.url", "no-proxy": "proxy.noProxy", "ca-file": "ca.file" }, ENVIRONMENT = { BRIXON_PROXY: "proxy.url", BRIXON_NO_PROXY: "proxy.noProxy", BRIXON_CA_FILE: "ca.file" }, networkFlags = Object.keys(FLAGS);
 function configPaths({ platform = process.platform, env = process.env, home = os.homedir() } = {}) {
-  if (platform === "win32") return { managed: "C:\\Program Files\\Brixon\\config.json", user: path3.win32.join(env.APPDATA || path3.win32.join(home, "AppData", "Roaming"), "Brixon", "config.json") };
-  if (platform === "darwin") return { managed: "/Library/Application Support/Brixon/config.json", user: path3.posix.join(home, "Library/Application Support/Brixon/config.json") };
-  return { managed: "/etc/brixon/config.json", user: path3.posix.join(env.XDG_CONFIG_HOME || path3.posix.join(home, ".config"), "brixon", "config.json") };
+  return platform === "win32" ? { managed: "C:\\Program Files\\Brixon\\config.json", user: path3.win32.join(env.APPDATA || path3.win32.join(home, "AppData", "Roaming"), "Brixon", "config.json") } : platform === "darwin" ? { managed: "/Library/Application Support/Brixon/config.json", user: path3.posix.join(home, "Library/Application Support/Brixon/config.json") } : { managed: "/etc/brixon/config.json", user: path3.posix.join(env.XDG_CONFIG_HOME || path3.posix.join(home, ".config"), "brixon", "config.json") };
 }
 function redactProxy(value) {
   try {
-    const url = new URL(value);
+    let url = new URL(value);
     return `${url.protocol}//${url.username || url.password ? "***@" : ""}${url.host}`;
   } catch {
     return "[invalid proxy URL]";
@@ -8405,7 +6162,7 @@ var networkValidators = {
     return value;
   },
   "ca.file": (value, { fromFile }) => {
-    if (typeof value !== "string" || !value.trim() || /[\0\r\n]/.test(value)) throw new Error("must be the path of a PEM file");
+    if (typeof value != "string" || !value.trim() || /[\0\r\n]/.test(value)) throw new Error("must be the path of a PEM file");
     if (fromFile && !(path3.isAbsolute(value) && (process.platform !== "win32" || /^(?:[a-zA-Z]:[\\/]|\\\\)/.test(value)))) throw new Error("must be an absolute path in a configuration file");
     return path3.resolve(value);
   },
@@ -8425,14 +6182,14 @@ var networkValidators = {
     return url.href;
   },
   "proxy.noProxy": (value) => {
-    const entries = (Array.isArray(value) ? value : typeof value === "string" ? value.split(",") : [null]).map((entry) => typeof entry === "string" ? entry.trim() : null);
+    let entries = (Array.isArray(value) ? value : typeof value == "string" ? value.split(",") : [null]).map((entry) => typeof entry == "string" ? entry.trim() : null);
     if (entries.some((entry) => entry === null || /[\s\0]/.test(entry))) throw new Error("must be a comma-separated list or an array of host names");
     return entries.filter(Boolean).join(",");
   }
 };
 function originList(value, { fromFile } = {}) {
   if (fromFile && !Array.isArray(value)) throw new Error("must be an array of origins");
-  const entries = Array.isArray(value) ? value : typeof value === "string" ? value.split(",").map((entry) => entry.trim()).filter(Boolean) : [];
+  let entries = Array.isArray(value) ? value : typeof value == "string" ? value.split(",").map((entry) => entry.trim()).filter(Boolean) : [];
   if (!entries.length || entries.length > 20) throw new Error("must list 1 to 20 origins");
   return [...new Set(entries.map((entry) => {
     let url;
@@ -8441,110 +6198,84 @@ function originList(value, { fromFile } = {}) {
     } catch {
       throw new Error("must contain origins such as https://host.example");
     }
-    const loopback = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
+    let loopback = ["localhost", "127.0.0.1", "[::1]"].includes(url.hostname);
     if (url.username || url.password || url.pathname !== "/" || url.search || url.hash || url.protocol !== "https:" && !(url.protocol === "http:" && loopback)) throw new Error(`must contain plain https origins (http only for localhost): ${url.host}`);
     return url.origin;
   }))];
 }
-var same = (a, b) => JSON.stringify(a) === JSON.stringify(b);
-var isSection = (value) => Boolean(value) && typeof value === "object" && !Array.isArray(value);
+var same = (a, b) => JSON.stringify(a) === JSON.stringify(b), isSection = (value) => !!value && typeof value == "object" && !Array.isArray(value);
 async function loadConfig({ tools = [], flags = {}, env = process.env, paths = configPaths({ env }), read = readFile3 } = {}) {
-  const names = tools.map((tool3) => tool3?.name);
-  const claimed = new Set(Object.keys(ENVIRONMENT));
-  for (const tool3 of tools) {
-    const keys = tool3?.keys && typeof tool3.keys === "object" ? Object.keys(tool3.keys) : null;
-    const variables2 = keys?.map((key) => tool3.keys[key]?.env).filter(Boolean);
-    if (!keys || typeof tool3.name !== "string" || !/^[a-z][a-zA-Z0-9]*$/.test(tool3.name) || Object.hasOwn(SECTIONS, tool3.name) || names.filter((name) => name?.toLowerCase() === tool3.name.toLowerCase()).length > 1 || keys.some((key) => typeof tool3.keys[key]?.validate !== "function" || keys.some((other) => other.startsWith(`${key}.`))) || variables2.some((variable, index) => claimed.has(variable) || variables2.indexOf(variable) !== index)) throw new Error("Invalid tool definition for the Brixon configuration");
-    for (const variable of variables2) claimed.add(variable);
+  let names = tools.map((tool3) => tool3?.name), claimed = new Set(Object.keys(ENVIRONMENT));
+  for (let tool3 of tools) {
+    let keys = tool3?.keys && typeof tool3.keys == "object" ? Object.keys(tool3.keys) : null, variables2 = keys?.map((key) => tool3.keys[key]?.env).filter(Boolean);
+    if (!keys || typeof tool3.name != "string" || !/^[a-z][a-zA-Z0-9]*$/.test(tool3.name) || Object.hasOwn(SECTIONS, tool3.name) || names.filter((name) => name?.toLowerCase() === tool3.name.toLowerCase()).length > 1 || keys.some((key) => typeof tool3.keys[key]?.validate != "function" || keys.some((other) => other.startsWith(`${key}.`))) || variables2.some((variable, index) => claimed.has(variable) || variables2.indexOf(variable) !== index)) throw new Error("Invalid tool definition for the Brixon configuration");
+    for (let variable of variables2) claimed.add(variable);
   }
-  const toolKeys = tools.flatMap((tool3) => Object.keys(tool3.keys).map((key) => ({ key: `${tool3.name}.${key}`, ...tool3.keys[key] })));
-  const validators = { ...networkValidators, ...Object.fromEntries(toolKeys.map((entry) => [entry.key, entry.validate])) };
-  const layer = (entries, label, origin = {}) => {
-    const values = /* @__PURE__ */ new Map();
-    for (const [key, raw, source] of entries) {
+  let toolKeys = tools.flatMap((tool3) => Object.keys(tool3.keys).map((key) => ({ key: `${tool3.name}.${key}`, ...tool3.keys[key] }))), validators = { ...networkValidators, ...Object.fromEntries(toolKeys.map((entry) => [entry.key, entry.validate])) }, layer = (entries, label, origin = {}) => {
+    let values = /* @__PURE__ */ new Map();
+    for (let [key, raw, source] of entries)
       try {
         values.set(key, { value: validators[key](raw, origin), source });
       } catch (error) {
         throw new Error(`${label ?? source}: ${key} ${error.message}`);
       }
-    }
-    for (const [detail, mode, implied] of [["ca.file", "ca.mode", "file"], ["proxy.url", "proxy.mode", "explicit"]]) if (values.has(detail) && !values.has(mode)) values.set(mode, { value: implied, source: values.get(detail).source });
+    for (let [detail, mode, implied] of [["ca.file", "ca.mode", "file"], ["proxy.url", "proxy.mode", "explicit"]]) values.has(detail) && !values.has(mode) && values.set(mode, { value: implied, source: values.get(detail).source });
     return values;
-  };
-  const fileLayer = async (name, file) => {
+  }, fileLayer = async (name, file) => {
     let text2;
     try {
       text2 = await read(file, "utf8");
     } catch (error) {
-      if (error.code === "ENOENT" || error.code === "ENOTDIR") return { present: false, otherSections: [], values: /* @__PURE__ */ new Map() };
+      if (error.code === "ENOENT" || error.code === "ENOTDIR") return { present: !1, otherSections: [], values: /* @__PURE__ */ new Map() };
       throw new Error(`The ${name} configuration ${file} cannot be read (${error.code ?? "error"})`);
     }
-    const label = `${name} configuration ${file}`;
-    let data;
+    let label = `${name} configuration ${file}`, data;
     try {
       data = JSON.parse(text2.replace(/^\uFEFF/, ""));
     } catch {
       throw new Error(`The ${label} is not valid JSON (UTF-8 expected)`);
     }
     if (!isSection(data)) throw new Error(`The ${label} must be a JSON object`);
-    const entries = [], otherSections = [];
-    const collect = (node, prefix) => {
-      for (const [child, entry] of Object.entries(node)) {
-        const key = `${prefix}.${child}`;
+    let entries = [], otherSections = [], collect = (node, prefix) => {
+      for (let [child, entry] of Object.entries(node)) {
+        let key = `${prefix}.${child}`;
         if (child.includes(".")) throw new Error(`${label}: unknown key ${key}; nest sections instead of dotted names`);
         if (toolKeys.some((known) => known.key === key)) entries.push([key, entry, name]);
         else if (isSection(entry) && toolKeys.some((known) => known.key.startsWith(`${key}.`))) collect(entry, key);
         else throw new Error(`${label}: unknown key ${key}`);
       }
     };
-    for (const [key, value] of Object.entries(data)) {
-      const known = Object.hasOwn(SECTIONS, key) || names.includes(key);
-      const intended = [...Object.keys(SECTIONS), ...names].find((section) => section !== key && section.toLowerCase() === key.toLowerCase());
+    for (let [key, value] of Object.entries(data)) {
+      let known = Object.hasOwn(SECTIONS, key) || names.includes(key), intended = [...Object.keys(SECTIONS), ...names].find((section) => section !== key && section.toLowerCase() === key.toLowerCase());
       if (intended) throw new Error(`${label}: unknown key ${key}; did you mean ${intended}?`);
       if (!isSection(value)) throw new Error(`${label}: ${known ? `${key} must be an object` : `unknown key ${key}`}`);
-      if (Object.hasOwn(SECTIONS, key)) {
-        for (const [child, entry] of Object.entries(value)) {
+      if (Object.hasOwn(SECTIONS, key))
+        for (let [child, entry] of Object.entries(value)) {
           if (!SECTIONS[key].includes(child)) throw new Error(`${label}: unknown key ${key}.${child}`);
           entries.push([`${key}.${child}`, entry, name]);
         }
-      } else if (names.includes(key)) collect(value, key);
-      else otherSections.push(key);
+      else names.includes(key) ? collect(value, key) : otherSections.push(key);
     }
-    return { present: true, otherSections, values: layer(entries, label, { fromFile: true }) };
-  };
-  const managed = await fileLayer("managed", paths.managed);
-  const user = await fileLayer("user", paths.user);
-  const flagLayer = layer(Object.entries(FLAGS).filter(([flag]) => flags[flag] !== void 0).map(([flag, key]) => [key, flags[flag], `flag --${flag}`]), null, { fromFlag: true });
-  const variables = { ...ENVIRONMENT, ...Object.fromEntries(toolKeys.filter((entry) => entry.env).map((entry) => [entry.env, entry.key])) };
-  const envLayer = layer(Object.entries(variables).filter(([name]) => env[name]).map(([name, key]) => [key, env[name], `env ${name}`]));
-  const defaults = { ...NETWORK_DEFAULTS, ...Object.fromEntries(toolKeys.filter((entry) => entry.default !== void 0).map((entry) => [entry.key, entry.default])) };
-  const settings = {}, sources = {}, ignored = [];
-  for (const key of [...NETWORK_KEYS, ...toolKeys.map((entry) => entry.key)]) {
-    const locked = managed.values.get(key);
-    const flag = flagLayer.get(key);
+    return { present: !0, otherSections, values: layer(entries, label, { fromFile: !0 }) };
+  }, managed = await fileLayer("managed", paths.managed), user = await fileLayer("user", paths.user), flagLayer = layer(Object.entries(FLAGS).filter(([flag]) => flags[flag] !== void 0).map(([flag, key]) => [key, flags[flag], `flag --${flag}`]), null, { fromFlag: !0 }), variables = { ...ENVIRONMENT, ...Object.fromEntries(toolKeys.filter((entry) => entry.env).map((entry) => [entry.env, entry.key])) }, envLayer = layer(Object.entries(variables).filter(([name]) => env[name]).map(([name, key]) => [key, env[name], `env ${name}`])), defaults = { ...NETWORK_DEFAULTS, ...Object.fromEntries(toolKeys.filter((entry) => entry.default !== void 0).map((entry) => [entry.key, entry.default])) }, settings = {}, sources = {}, ignored = [];
+  for (let key of [...NETWORK_KEYS, ...toolKeys.map((entry) => entry.key)]) {
+    let locked = managed.values.get(key), flag = flagLayer.get(key);
     if (locked && flag && !same(locked.value, flag.value)) throw new Error(`${flag.source.replace(/^flag /, "")} cannot change ${key}: it is locked by the managed configuration ${paths.managed}`);
-    const [winner, ...rest] = [locked, flag, envLayer.get(key), user.values.get(key)].filter(Boolean);
-    for (const entry of rest) if (!same(entry.value, winner.value)) ignored.push({ key, source: entry.source, reason: winner.source === "managed" ? "locked by the managed configuration" : `overridden by ${winner.source}` });
-    if (winner) {
-      settings[key] = winner.value;
-      sources[key] = winner.source;
-    } else if (defaults[key] !== void 0) {
-      settings[key] = defaults[key];
-      sources[key] = "default";
+    let [winner, ...rest] = [locked, flag, envLayer.get(key), user.values.get(key)].filter(Boolean);
+    for (let entry of rest) same(entry.value, winner.value) || ignored.push({ key, source: entry.source, reason: winner.source === "managed" ? "locked by the managed configuration" : `overridden by ${winner.source}` });
+    winner ? (settings[key] = winner.value, sources[key] = winner.source) : defaults[key] !== void 0 && (settings[key] = defaults[key], sources[key] = "default");
+  }
+  for (let [mode, value, detail] of [["ca.mode", "file", "ca.file"], ["proxy.mode", "explicit", "proxy.url"]])
+    if (settings[mode] === value) {
+      if (!settings[detail]) throw new Error(`${mode} is "${value}" (${sources[mode]}) but no ${detail} is set`);
+      if (sources[mode] === "managed" && sources[detail] !== "managed") throw new Error(`The managed configuration ${paths.managed} sets ${mode} "${value}" and must also set ${detail}`);
     }
-  }
-  for (const [mode, value, detail] of [["ca.mode", "file", "ca.file"], ["proxy.mode", "explicit", "proxy.url"]]) {
-    if (settings[mode] !== value) continue;
-    if (!settings[detail]) throw new Error(`${mode} is "${value}" (${sources[mode]}) but no ${detail} is set`);
-    if (sources[mode] === "managed" && sources[detail] !== "managed") throw new Error(`The managed configuration ${paths.managed} sets ${mode} "${value}" and must also set ${detail}`);
-  }
-  const described = (file, entry) => ({ path: file, present: entry.present, ...entry.otherSections.length ? { otherSections: entry.otherSections } : {} });
+  let described = (file, entry) => ({ path: file, present: entry.present, ...entry.otherSections.length ? { otherSections: entry.otherSections } : {} });
   return { settings, sources, ignored, files: { managed: described(paths.managed, managed), user: described(paths.user, user) } };
 }
 
 // cli/feedback-config.mjs
-var defaultOrigins = ["https://feedback.brixon.ai"];
-var defaultParallel = 4;
+var defaultOrigins = ["https://feedback.brixon.ai"], defaultParallel = 4;
 function parallel(value) {
   if (!Number.isInteger(value) || value < 1 || value > 6) throw new Error("must be an integer from 1 to 6");
   return value;
@@ -8564,46 +6295,37 @@ import http from "node:http";
 import tls from "node:tls";
 var nodeRequirement = ">=24.14";
 function nodeSupported(version2 = process.versions.node) {
-  const [major, minor] = version2.split(".").map(Number);
+  let [major, minor] = version2.split(".").map(Number);
   return major > 25 || major === 25 && minor >= 4 || major === 24 && minor >= 14;
 }
-function requireNode(program, version2 = process.versions.node) {
-  if (!nodeSupported(version2)) throw new Error(`${program} requires Node.js 24.14 or newer (current 24 LTS); this is Node.js ${version2}. Older versions cannot set the proxy and the trusted certificates inside the process. Install the current Node.js 24 LTS and retry; "${program} doctor" shows the details`);
+function requireNode(program2, doctor2, version2 = process.versions.node) {
+  if (!nodeSupported(version2)) throw new Error(`${program2} requires Node.js 24.14 or newer (current 24 LTS); this is Node.js ${version2}. Older versions cannot set the proxy and the trusted certificates inside the process. Install the current Node.js 24 LTS and retry; ${doctor2} shows the details`);
 }
-var transientCodes = /* @__PURE__ */ new Set(["ECONNRESET", "ECONNREFUSED", "ECONNABORTED", "ETIMEDOUT", "EPIPE", "EAI_AGAIN", "ENETUNREACH", "EHOSTUNREACH", "UND_ERR_SOCKET", "UND_ERR_CONNECT_TIMEOUT"]);
-var transientStatuses = /* @__PURE__ */ new Set([408, 429, 502, 503, 504]);
-var untrustedCodes = /* @__PURE__ */ new Set(["UNABLE_TO_VERIFY_LEAF_SIGNATURE", "UNABLE_TO_GET_ISSUER_CERT", "UNABLE_TO_GET_ISSUER_CERT_LOCALLY", "SELF_SIGNED_CERT_IN_CHAIN", "DEPTH_ZERO_SELF_SIGNED_CERT", "CERT_HAS_EXPIRED", "ERR_TLS_CERT_ALTNAME_INVALID"]);
+var transientCodes = /* @__PURE__ */ new Set(["ECONNRESET", "ECONNREFUSED", "ECONNABORTED", "ETIMEDOUT", "EPIPE", "EAI_AGAIN", "ENETUNREACH", "EHOSTUNREACH", "UND_ERR_SOCKET", "UND_ERR_CONNECT_TIMEOUT"]), transientStatuses = /* @__PURE__ */ new Set([408, 429, 502, 503, 504]), untrustedCodes = /* @__PURE__ */ new Set(["UNABLE_TO_VERIFY_LEAF_SIGNATURE", "UNABLE_TO_GET_ISSUER_CERT", "UNABLE_TO_GET_ISSUER_CERT_LOCALLY", "SELF_SIGNED_CERT_IN_CHAIN", "DEPTH_ZERO_SELF_SIGNED_CERT", "CERT_HAS_EXPIRED", "ERR_TLS_CERT_ALTNAME_INVALID"]);
 function networkFailure(error) {
-  const chain = [error?.cause, error, error?.cause?.cause].filter(Boolean);
-  const refused = chain.find((item) => item.code === "ERR_PROXY_TUNNEL" && Number.isInteger(item.statusCode));
+  let chain = [error?.cause, error, error?.cause?.cause].filter(Boolean), refused = chain.find((item) => item.code === "ERR_PROXY_TUNNEL" && Number.isInteger(item.statusCode));
   return {
-    code: chain.find((item) => typeof item.code === "string")?.code,
+    code: chain.find((item) => typeof item.code == "string")?.code,
     proxyStatus: refused ? String(refused.statusCode) : chain.map((item) => String(item.message ?? "").match(/Proxy response \((\d{3})\)/)?.[1]).find(Boolean)
   };
 }
-function failureHint({ code, proxyStatus }, program) {
-  if (untrustedCodes.has(code)) return `The server certificate is not trusted; behind TLS inspection the company certificate authority must be in the trusted store. Run "${program} doctor". `;
-  if (proxyStatus) return `The proxy refused the connection (HTTP ${proxyStatus})${proxyStatus === "407" ? "; proxies that require NTLM or Kerberos sign-in are not supported" : ""}. Run "${program} doctor". `;
-  if (code === "ERR_PROXY_TUNNEL") return `The proxy did not open the connection. Run "${program} doctor". `;
-  return "";
+function failureHint({ code, proxyStatus }, doctor2) {
+  return untrustedCodes.has(code) ? `The server certificate is not trusted; behind TLS inspection the company certificate authority must be in the trusted store. Run ${doctor2}. ` : proxyStatus ? `The proxy refused the connection (HTTP ${proxyStatus})${proxyStatus === "407" ? "; proxies that require NTLM or Kerberos sign-in are not supported" : ""}. Run ${doctor2}. ` : code === "ERR_PROXY_TUNNEL" ? `The proxy did not open the connection. Run ${doctor2}. ` : "";
 }
 function pemCertificates(text2, file) {
-  const blocks = text2.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g) ?? [];
+  let blocks = text2.match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g) ?? [];
   if (!blocks.length) throw new Error(`CA file contains no PEM certificate: ${file}`);
-  for (const [index, block] of blocks.entries()) {
+  for (let [index, block] of blocks.entries())
     try {
       new X509Certificate(block);
     } catch {
       throw new Error(`CA file contains an invalid certificate (entry ${index + 1}): ${file}`);
     }
-  }
   return blocks;
 }
 function trustedCertificates({ settings, sources }, { tlsImpl = tls, read = readFileSync } = {}) {
-  const mode = settings["ca.mode"];
-  const certificates = [...tlsImpl.getCACertificates("bundled")];
-  if (mode === "system") certificates.push(...tlsImpl.getCACertificates("system"));
-  if (mode === "file") {
+  let mode = settings["ca.mode"], certificates = [...tlsImpl.getCACertificates("bundled")];
+  if (mode === "system" && certificates.push(...tlsImpl.getCACertificates("system")), mode === "file") {
     let text2;
     try {
       text2 = read(settings["ca.file"], "utf8");
@@ -8612,37 +6334,106 @@ function trustedCertificates({ settings, sources }, { tlsImpl = tls, read = read
     }
     certificates.push(...pemCertificates(text2, settings["ca.file"]));
   }
-  const available = tlsImpl.getCACertificates("extra");
-  const extra = !available.length ? "not set" : mode === "bundled" ? 'ignored: ca.mode is "bundled"' : sources["ca.mode"] === "managed" ? "ignored: ca.mode is locked by the managed configuration" : "applied";
-  if (extra === "applied") certificates.push(...available);
-  return { certificates: [...new Set(certificates)], extra };
+  let available = tlsImpl.getCACertificates("extra"), extra = available.length ? mode === "bundled" ? 'ignored: ca.mode is "bundled"' : sources["ca.mode"] === "managed" ? "ignored: ca.mode is locked by the managed configuration" : "applied" : "not set";
+  return extra === "applied" && certificates.push(...available), { certificates: [...new Set(certificates)], extra };
 }
 function proxySettings({ settings, sources }, env = process.env) {
-  const mode = settings["proxy.mode"];
+  let mode = settings["proxy.mode"];
   if (mode === "none") return { mode };
   if (mode === "explicit") return { mode, https: settings["proxy.url"], http: settings["proxy.url"], source: sources["proxy.url"], noProxy: settings["proxy.noProxy"] };
-  const pick = (name) => {
-    for (const variable of [name, name.toUpperCase()]) if (env[variable]) return { value: /^[a-z][a-z0-9+.-]*:\/\//i.test(env[variable]) ? env[variable] : `http://${env[variable]}`, variable };
+  let pick = (name) => {
+    for (let variable of [name, name.toUpperCase()]) if (env[variable]) return { value: /^[a-z][a-z0-9+.-]*:\/\//i.test(env[variable]) ? env[variable] : `http://${env[variable]}`, variable };
     return {};
-  };
-  const https3 = pick("https_proxy"), plain = pick("http_proxy"), exceptions = env.no_proxy || env.NO_PROXY || void 0;
-  for (const proxy of [https3, plain]) if (proxy.value && !(URL.canParse(proxy.value) && ["http:", "https:"].includes(new URL(proxy.value).protocol))) throw new Error(`${proxy.variable} is not a valid http or https proxy URL`);
+  }, https3 = pick("https_proxy"), plain = pick("http_proxy"), exceptions = env.no_proxy || env.NO_PROXY || void 0;
+  for (let proxy of [https3, plain]) if (proxy.value && !(URL.canParse(proxy.value) && ["http:", "https:"].includes(new URL(proxy.value).protocol))) throw new Error(`${proxy.variable} is not a valid http or https proxy URL`);
   return { mode, https: https3.value, http: plain.value, source: https3.variable ? `env ${https3.variable}` : void 0, noProxy: settings["proxy.noProxy"] ?? exceptions };
 }
 function applyNetwork(config, { env = process.env, tlsImpl = tls, httpImpl = http } = {}) {
-  const trust = trustedCertificates(config, { tlsImpl });
+  let trust = trustedCertificates(config, { tlsImpl });
   tlsImpl.setDefaultCACertificates(trust.certificates);
-  const proxy = proxySettings(config, env);
+  let proxy = proxySettings(config, env);
   if (proxy.mode === "none") httpImpl.setGlobalProxyFromEnv({ http_proxy: "http://proxy.invalid", https_proxy: "http://proxy.invalid", no_proxy: "*" });
-  else if (proxy.https || proxy.http) {
+  else if (proxy.https || proxy.http)
     try {
       httpImpl.setGlobalProxyFromEnv({ http_proxy: proxy.http, https_proxy: proxy.https, no_proxy: proxy.noProxy || "no-exception.invalid" });
     } catch (error) {
       throw new Error(`The proxy address from ${proxy.source ?? "the environment"} cannot be used (${error.code ?? error.name})`);
     }
-  }
   return { trust, proxy };
 }
+
+// cli/edition.mjs
+var edition = "client";
+if (edition !== "client" && edition !== "team") throw new Error('This build of the Brixon CLI names an unknown edition; expected "client" or "team"');
+var program = "Brixon CLI", doctorCommand = "the doctor command of the Brixon CLI", videoOptions = ["video", "review-copy", "timeline", "captions", "include-page"], noVideo = "video pages are not part of this edition of the Brixon CLI", clientHelp = (version2) => `Brixon CLI ${version2}
+
+inspect --root DIR --page KEY=PATH [--page KEY=PATH ...] [--title KEY=TITLE] [--interactive KEY] [--include KEY=PATH] [--submitted-by NAME_OR_EMAIL]
+manifest --root DIR --name NAME --page KEY=PATH [...] [--interactive KEY] [--include KEY=PATH] [--campaign YYYY-qN-TOPIC] [--private] [--folder PROJECT_ID | --no-folder] [--new-series] [--submitted-by NAME_OR_EMAIL] [--page-order KEY,KEY,...]
+manifest [--collection ID|NAME|REVIEW_URL] [--root DIR] [--base-revision N]
+target [--collection ID|NAME|REVIEW_URL]
+map --collection REVIEW_URL --snapshot FILE --root DIR
+state
+check-baseline [--collection ID|NAME|REVIEW_URL] [--root DIR]
+round --feedback FILE [--collection ID|NAME|REVIEW_URL] [--comment ID ...]
+renew-round --round FILE --feedback FILE [--comment ID ...]
+check-claim --round FILE --claim FILE
+impact --manifest FILE [--round FILE]
+upload --manifest FILE [--root DIR] [--round FILE --claim FILE] [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
+finalize --manifest FILE [--root DIR] [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
+doctor [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
+put --file PATH [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
+
+All commands return JSON. --state FILE overrides the workspace .brixon-feedback.json.
+manifest writes JSON to stdout; save it outside the selected output directory.
+A review is one collection with one review URL; a project is a folder that groups reviews.
+The feedback_* tools named here belong to the Brixon Feedback connection of your AI client, which Brixon activates.
+Run manifest inside the repository the work belongs to: a new review carries the name of that repository, the
+service places it in a project from that name (without a repository it gets no project and stays private), and the
+answer to feedback_prepare_upload names the project and who can see the review.
+--campaign names an existing campaign folder of the repository (YYYY-qN-topic, for example 2026-q3-launch), so the
+review goes under that campaign; if --root lies inside a campaign folder, it is detected.
+--private makes the review private (owner, explicit shares and administrators only).
+--folder PROJECT_ID overrides the placement only when the person names a project; --no-folder publishes without one.
+Its manifest carries a new requestId, so resending it after an uncertain answer is safe.
+--new-series confirms a separate review after a possible_duplicate answer; never add it silently.
+Existing reviews retain their project; use feedback_update_project with its metadata revision to rename or move one.
+--submitted-by records informational uploader attribution, never access rights or authenticated identity.
+Successor manifests reuse the saved label unless explicitly overridden.
+Review discovery (feedback_list_projects), projects (feedback_list_folders) and agent identity (feedback_whoami) use
+the Brixon Feedback connection.
+An existing collection retains its pages and uses its last published local revision.
+--interactive KEY runs that page's own scripts for reviewers in an isolated frame (scripts only from its files and
+cdn.jsdelivr.net, cdnjs.cloudflare.com, unpkg.com; analytics is removed). --include KEY=PATH adds a file the page loads
+with fetch(), such as data.json, to an interactive page. Without --page a revision keeps both from the saved mapping.
+--page-order lists every selected page key once, in review order, for a new collection only.
+Existing collections retain their saved order; use feedback_set_page_order to change it.
+check-baseline exits 2 on changed/missing files.
+No command performs permanent authentication or saves an upload token.
+upload and finalize read the short-lived upload ticket JSON from stdin.
+finalize recovers an uncertain completion without uploading files again.
+An apply round uses --round FILE on manifest, impact, and upload; upload also requires --claim FILE.
+Network: upload and finalize trust the operating system certificate store in addition to the Node.js roots and use the
+proxy from HTTPS_PROXY/NO_PROXY. They send only to allowed origins (default https://feedback.brixon.ai), up to four files
+in parallel, and repeat a file transfer after a transient network error. The settings come from the Brixon
+configuration shared by all Brixon command-line tools (config.json: ca and proxy at the top level, this tool's keys
+under "feedback"). In order of precedence: the managed file (written by IT; its keys are locked),
+--proxy/--no-proxy/--ca-file, BRIXON_PROXY, BRIXON_NO_PROXY, BRIXON_CA_FILE and BRIXON_FEEDBACK_ALLOWED_ORIGINS,
+then the user file. Proxy credentials are accepted only from the environment.
+doctor reports the Node.js version, the effective settings with their origin, name resolution, proxy, the server
+certificate issuer, the upload endpoint and the targets of put as JSON without secrets; it exits 2 on a problem.
+put sends one local file to an upload URL that a Brixon MCP server prepared (for example a presigned storage URL).
+It reads the ticket JSON from hidden stdin: uploadUrl (required), expiresAt, contentType, method (PUT by default, or
+POST) and headers (optional); other fields are ignored. Pass the object that contains uploadUrl; where a tool
+returns several slots, pass one slot or its ticket per call. The file (jpg, jpeg, png, gif, webp, mp4, mov, pdf, doc,
+docx, ppt, pptx) is streamed with its exact length as the raw body of one request; form and multi-part uploads are
+refused. A PUT is repeated after a transient network error. The target must be https and listed in
+upload.allowedOrigins (BRIXON_UPLOAD_ALLOWED_ORIGINS); an expired ticket is refused. When the service refuses the
+file, the error repeats its answer as far as that is safe. The upload URL and the ticket headers are credentials
+and never appear in output.
+Result: {ok, file, bytes, method, status, contentType, origin, attempts}; "inferred" is added when a retry found the
+file already stored (HTTP 412 for a ticket with If-None-Match: *) after an earlier attempt had sent it completely.
+Node.js 24.14 or newer is required. Details: docs/setup.md of the brixon-ai-client-core plugin.
+`;
 
 // cli/upload.mjs
 var wait = (milliseconds) => new Promise((resolve2) => setTimeout(resolve2, milliseconds));
@@ -8653,81 +6444,68 @@ function ticketURL(value, pathname) {
   } catch {
     throw new Error("Upload ticket contains an invalid URL");
   }
-  const loopback = url.hostname === "localhost" || url.hostname === "127.0.0.1" || url.hostname === "[::1]";
+  let loopback = url.hostname === "localhost" || url.hostname === "127.0.0.1" || url.hostname === "[::1]";
   if (url.username || url.password || url.search || url.hash || url.protocol !== "https:" && !(url.protocol === "http:" && loopback) || url.pathname !== pathname) throw new Error("Upload ticket URL has an unsafe origin or endpoint");
   return url;
 }
 function validateInitialPageOrder(manifest) {
   if (manifest.pageOrder === void 0) return;
   if (manifest.schemaVersion !== 2 || manifest.reviewUrl !== void 0) throw new Error("pageOrder is only supported for a new collection; use feedback_set_page_order for an existing collection");
-  const order = manifest.pageOrder;
-  if (!Array.isArray(order) || !order.length || order.length > 100 || order.length !== manifest.pages.length || new Set(order).size !== order.length || order.some((key) => typeof key !== "string" || !/^[a-zA-Z0-9_-]{1,100}$/.test(key) || !manifest.pages.some((page) => page.key === key))) throw new Error("pageOrder must contain every page key exactly once");
+  let order = manifest.pageOrder;
+  if (!Array.isArray(order) || !order.length || order.length > 100 || order.length !== manifest.pages.length || new Set(order).size !== order.length || order.some((key) => typeof key != "string" || !/^[a-zA-Z0-9_-]{1,100}$/.test(key) || !manifest.pages.some((page) => page.key === key))) throw new Error("pageOrder must contain every page key exactly once");
 }
-async function upload({ manifest, ticket, root, stateFile, finalizeOnly = false, fetchImpl = fetch, allowedOrigins = defaultOrigins, parallel: parallel2 = defaultParallel, retryDelays = [1e3, 3e3, 8e3] }) {
-  const uuid = (value) => typeof value === "string" && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
-  const legacy = manifest.schemaVersion === 1;
-  const validDestination = legacy ? uuid(manifest.projectId) && (manifest.collectionId === void 0 || uuid(manifest.collectionId)) && !("reviewUrl" in manifest) : manifest.schemaVersion === 2 && !("projectId" in manifest) && !("collectionId" in manifest);
-  if (!validDestination || !Array.isArray(manifest.pages) || !Array.isArray(manifest.files) || typeof manifest.collectionName !== "string" || !manifest.collectionName.trim() || manifest.collectionName.length > 200) throw new Error("Invalid manifest; regenerate it with the current CLI");
-  submittedByLabel(manifest.submittedBy);
-  validateInitialPageOrder(manifest);
-  const existing = legacy ? manifest.collectionId : manifest.reviewUrl;
+async function upload({ manifest, ticket, root, stateFile, finalizeOnly = !1, fetchImpl = fetch, allowedOrigins = defaultOrigins, parallel: parallel2 = defaultParallel, retryDelays = [1e3, 3e3, 8e3] }) {
+  let uuid = (value) => typeof value == "string" && /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value), legacy = manifest.schemaVersion === 1;
+  if (!(legacy ? uuid(manifest.projectId) && (manifest.collectionId === void 0 || uuid(manifest.collectionId)) && !("reviewUrl" in manifest) : manifest.schemaVersion === 2 && !("projectId" in manifest) && !("collectionId" in manifest)) || !Array.isArray(manifest.pages) || !Array.isArray(manifest.files) || typeof manifest.collectionName != "string" || !manifest.collectionName.trim() || manifest.collectionName.length > 200) throw new Error("Invalid manifest; regenerate it with the current CLI");
+  submittedByLabel(manifest.submittedBy), validateInitialPageOrder(manifest);
+  let existing = legacy ? manifest.collectionId : manifest.reviewUrl;
   if ("folderId" in manifest && (legacy || existing)) throw new Error("Folder placement is only supported for a new project; use feedback_update_project to move an existing project");
   if (manifest.folderId !== void 0 && manifest.folderId !== null && !uuid(manifest.folderId)) throw new Error("Invalid folder ID in manifest; select an allowed folder through feedback_list_folders");
   if (("source" in manifest || "private" in manifest) && (legacy || existing)) throw new Error("source and private are only for a new review; a revision keeps its project and visibility");
   if (existing ? !Number.isInteger(manifest.baseRevision) || manifest.baseRevision < 1 : manifest.baseRevision !== void 0) throw new Error("An existing collection requires its published base revision");
-  const actual = await inspectFiles(root, manifest.pages.map((page) => page.interactive ? { ...page, include: page.files } : page));
-  const equivalent = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+  let actual = await inspectFiles(root, manifest.pages.map((page) => page.interactive ? { ...page, include: page.files } : page)), equivalent = (a, b) => JSON.stringify(a) === JSON.stringify(b);
   if (!equivalent(actual.files, manifest.files) || !equivalent(actual.pages, manifest.pages)) throw new Error("Manifest differs from local files or dependencies; regenerate it before preparing another upload");
   if (ticket?.code === "possible_duplicate") throw new Error(`Possible duplicate review; nothing was uploaded. Existing reviews with this name: ${(Array.isArray(ticket.candidates) ? ticket.candidates : []).map((item) => `"${item.name}" ${item.reviewUrl} in ${item.project ? `project ${item.project.path}` : "no project (unassigned)"}, revision ${item.revision}, updated ${item.updatedAt}`).join("; ")}. Ask the user: publish a revision of one of them (map it, then manifest --collection REVIEW_URL), or regenerate this manifest with --new-series if it is a separate series`);
-  if (!/^[a-zA-Z0-9_-]+$/.test(ticket.uploadId ?? "") || typeof ticket.uploadToken !== "string" || !ticket.uploadToken || /[\r\n]/.test(ticket.uploadToken)) throw new Error("Invalid upload ticket");
+  if (!/^[a-zA-Z0-9_-]+$/.test(ticket.uploadId ?? "") || typeof ticket.uploadToken != "string" || !ticket.uploadToken || /[\r\n]/.test(ticket.uploadToken)) throw new Error("Invalid upload ticket");
   if (!Number.isFinite(Date.parse(ticket.expiresAt))) throw new Error("Upload ticket has an invalid expiry");
   if (legacy && !ticket.reviewUrl) throw new Error(`Legacy upload ticket has no review URL. Call feedback_resume_upload ${JSON.stringify({ uploadId: ticket.uploadId })} through the configured MCP connection as the original actor, then retry with its renewed ticket and the unchanged manifest`);
   if (!finalizeOnly && Date.parse(ticket.expiresAt) <= Date.now()) throw new Error(`Upload ticket expired; resume upload ${ticket.uploadId} through MCP. Use finalize for an uncertain completed upload; never prepare a duplicate collection`);
-  const uploadURL = ticketURL(ticket.uploadUrl, `/api/uploads/${ticket.uploadId}/files/`);
-  const finalizeURL = ticketURL(ticket.finalizeUrl, `/api/uploads/${ticket.uploadId}/finalize`);
+  let uploadURL = ticketURL(ticket.uploadUrl, `/api/uploads/${ticket.uploadId}/files/`), finalizeURL = ticketURL(ticket.finalizeUrl, `/api/uploads/${ticket.uploadId}/finalize`);
   if (uploadURL.origin !== finalizeURL.origin) throw new Error("Upload and finalize URLs must have the same origin");
-  if (!allowedOrigins.includes(finalizeURL.origin)) throw new Error(`Upload ticket targets ${finalizeURL.origin}, which is not an allowed origin (${allowedOrigins.join(", ")}). Nothing was sent. If this Feedback host is intended, it must be listed in feedback.allowedOrigins of the Brixon configuration ("brixon-feedback doctor" shows the effective values); do not prepare a duplicate collection`);
-  const destination = reviewLink(ticket.reviewUrl);
-  ticketURL(ticket.reviewUrl, `/collections/${destination.collectionId}`);
-  if (destination.origin !== finalizeURL.origin || manifest.reviewUrl && !sameReview(manifest.reviewUrl, destination.reviewUrl) || legacy && manifest.collectionId && manifest.collectionId !== destination.collectionId) throw new Error("Upload ticket review URL does not match the manifest or upload origin");
-  const mapped = (await readState(stateFile)).collections.find((item) => item.collectionId === destination.collectionId);
-  if (existing && mapped && !finalizeOnly) assertPublicationBaseline(mapped, manifest);
-  if ("baseRevision" in ticket && (ticket.baseRevision ?? null) !== (manifest.baseRevision ?? null)) throw new Error(`Upload ticket was prepared with baseRevision ${ticket.baseRevision ?? "none"}, but this manifest has ${manifest.baseRevision ?? "none"}. Use the manifest sent to feedback_prepare_upload; nothing was sent`);
+  if (!allowedOrigins.includes(finalizeURL.origin)) throw new Error(`Upload ticket targets ${finalizeURL.origin}, which is not an allowed origin (${allowedOrigins.join(", ")}). Nothing was sent. If this Feedback host is intended, it must be listed in feedback.allowedOrigins of the Brixon configuration (${doctorCommand} shows the effective values); do not prepare a duplicate collection`);
+  let destination = reviewLink(ticket.reviewUrl);
+  if (ticketURL(ticket.reviewUrl, `/collections/${destination.collectionId}`), destination.origin !== finalizeURL.origin || manifest.reviewUrl && !sameReview(manifest.reviewUrl, destination.reviewUrl) || legacy && manifest.collectionId && manifest.collectionId !== destination.collectionId) throw new Error("Upload ticket review URL does not match the manifest or upload origin");
+  let mapped = (await readState(stateFile)).collections.find((item) => item.collectionId === destination.collectionId);
+  if (existing && mapped && !finalizeOnly && assertPublicationBaseline(mapped, manifest), "baseRevision" in ticket && (ticket.baseRevision ?? null) !== (manifest.baseRevision ?? null)) throw new Error(`Upload ticket was prepared with baseRevision ${ticket.baseRevision ?? "none"}, but this manifest has ${manifest.baseRevision ?? "none"}. Use the manifest sent to feedback_prepare_upload; nothing was sent`);
   if (!Number.isInteger(parallel2) || parallel2 < 1) throw new Error("parallel must be a positive integer");
-  let failed;
-  const request = async (url, options2, delays = []) => {
+  let failed, request = async (url, options2, delays = []) => {
     for (let attempt = 0; ; attempt++) {
-      const attempts = attempt ? ` after ${attempt + 1} attempts` : "";
-      let response2;
+      let attempts = attempt ? ` after ${attempt + 1} attempts` : "", response2;
       try {
         response2 = await fetchImpl(url, { ...options2, redirect: "error", headers: { Authorization: `Bearer ${ticket.uploadToken}`, ...options2.headers } });
       } catch (error) {
-        const failure2 = networkFailure(error), { code } = failure2;
+        let failure2 = networkFailure(error), { code } = failure2;
         if (attempt < delays.length && !failed && transientCodes.has(code)) {
           await wait(delays[attempt]);
           continue;
         }
         if (code === "UND_ERR_HEADERS_TIMEOUT") throw new Error(url === finalizeURL ? `Finalize for upload ${ticket.uploadId} did not respond in time (${code}); this is not a connection failure. The revision is not confirmed: call feedback_resume_upload through MCP and check for a result before retrying finalize; do not prepare a duplicate collection` : `File upload for ${ticket.uploadId} did not respond in time (${code}); this is not a connection failure. Resume this upload through MCP and rerun upload with the renewed ticket; do not prepare a duplicate collection`);
-        const hint = failureHint(failure2, "brixon-feedback");
+        let hint = failureHint(failure2, doctorCommand);
         throw new Error(`Upload connection failed for ${ticket.uploadId}${code ? ` (${code})` : ""}${attempts}. ${hint}Retry finalize after an uncertain completion or resume this upload through MCP; do not prepare a duplicate collection`);
       }
       if (attempt < delays.length && !failed && transientStatuses.has(response2.status)) {
         await response2.body?.cancel().catch(() => {
-        });
-        await wait(delays[attempt]);
+        }), await wait(delays[attempt]);
         continue;
       }
       if (!response2.ok) throw new Error(`Upload ${ticket.uploadId} failed (HTTP ${response2.status})${attempts}. No local mapping was updated. Retry finalize after an uncertain completion or resume this upload through MCP`);
       return response2;
     }
-  };
-  const files = finalizeOnly ? [] : manifest.files;
-  let next = 0;
-  const sendFiles = async () => {
-    while (!failed && next < files.length) {
-      const file = files[next++];
+  }, files = finalizeOnly ? [] : manifest.files, next = 0, sendFiles = async () => {
+    for (; !failed && next < files.length; ) {
+      let file = files[next++];
       try {
-        const bytes = await readSafeFile(root, file.path);
+        let bytes = await readSafeFile(root, file.path);
         if (bytes.length !== file.size || sha256(bytes) !== file.sha256) throw new Error(`File changed during upload: ${file.path}`);
         await request(new URL(file.path.split("/").map(encodeURIComponent).join("/"), uploadURL), { method: "PUT", body: bytes, headers: { "Content-Type": file.contentType } }, retryDelays);
       } catch (error) {
@@ -8735,45 +6513,30 @@ async function upload({ manifest, ticket, root, stateFile, finalizeOnly = false,
       }
     }
   };
-  await Promise.all(Array.from({ length: Math.min(parallel2, files.length) }, sendFiles));
-  if (failed) throw failed.error;
-  const response = await request(finalizeURL, { method: "POST" });
-  const recovery = `The revision may already be published; local mapping was not updated. Call feedback_resume_upload with reviewUrl ${destination.reviewUrl} and uploadId ${ticket.uploadId} through MCP and inspect its result. Verify the original prepared manifest, correct any mismatch (for an existing collection, baseRevision must equal the committed revision minus one), then rerun finalize with the same upload ID and its resumed ticket. Do not prepare a duplicate upload`;
-  const mismatch = (detail) => {
+  if (await Promise.all(Array.from({ length: Math.min(parallel2, files.length) }, sendFiles)), failed) throw failed.error;
+  let response = await request(finalizeURL, { method: "POST" }), recovery = `The revision may already be published; local mapping was not updated. Call feedback_resume_upload with reviewUrl ${destination.reviewUrl} and uploadId ${ticket.uploadId} through MCP and inspect its result. Verify the original prepared manifest, correct any mismatch (for an existing collection, baseRevision must equal the committed revision minus one), then rerun finalize with the same upload ID and its resumed ticket. Do not prepare a duplicate upload`, mismatch = (detail) => {
     throw new Error(`Finalize response does not match: ${detail}. ${recovery}`);
-  };
-  let result;
+  }, result;
   try {
     result = await response.json();
   } catch {
     throw new Error(`Finalize returned invalid JSON. ${recovery}`);
   }
-  const expectedRevision = (manifest.baseRevision ?? 0) + 1;
-  if (!result || typeof result !== "object" || Array.isArray(result)) mismatch("expected a publication object");
-  if (!uuid(result.projectId) || legacy && result.projectId !== manifest.projectId || mapped && result.projectId !== mapped.projectId) mismatch("projectId");
-  if (result.collectionId !== destination.collectionId) mismatch("collectionId");
-  if (result.reviewUrl !== destination.reviewUrl) mismatch("reviewUrl");
-  if (!Array.isArray(result.pages) || result.pages.length !== manifest.pages.length) mismatch("pages count");
-  if (result.pages.some((page) => !page || typeof page !== "object") || new Set(result.pages.map((page) => page.key)).size !== manifest.pages.length) mismatch("pages entries or duplicate keys");
-  for (const [index, page] of manifest.pages.entries()) {
-    const version2 = result.pages.find((item) => item.key === page.key);
-    if (!version2) mismatch(`pages[${index}].key`);
-    if (!uuid(version2.versionId)) mismatch(`pages[${index}].versionId`);
-    if (!Number.isInteger(version2.number) || version2.number < 1) mismatch(`pages[${index}].number`);
-    if (version2.path !== page.path) mismatch(`pages[${index}].path`);
-    if (!equivalent(version2.files, page.files)) mismatch(`pages[${index}].files`);
-    if (page.kind === "video") {
+  let expectedRevision = (manifest.baseRevision ?? 0) + 1;
+  (!result || typeof result != "object" || Array.isArray(result)) && mismatch("expected a publication object"), (!uuid(result.projectId) || legacy && result.projectId !== manifest.projectId || mapped && result.projectId !== mapped.projectId) && mismatch("projectId"), result.collectionId !== destination.collectionId && mismatch("collectionId"), result.reviewUrl !== destination.reviewUrl && mismatch("reviewUrl"), (!Array.isArray(result.pages) || result.pages.length !== manifest.pages.length) && mismatch("pages count"), (result.pages.some((page) => !page || typeof page != "object") || new Set(result.pages.map((page) => page.key)).size !== manifest.pages.length) && mismatch("pages entries or duplicate keys");
+  for (let [index, page] of manifest.pages.entries()) {
+    let version2 = result.pages.find((item) => item.key === page.key);
+    if (version2 || mismatch(`pages[${index}].key`), uuid(version2.versionId) || mismatch(`pages[${index}].versionId`), (!Number.isInteger(version2.number) || version2.number < 1) && mismatch(`pages[${index}].number`), version2.path !== page.path && mismatch(`pages[${index}].path`), equivalent(version2.files, page.files) || mismatch(`pages[${index}].files`), page.kind === "video") {
       let video;
       try {
         video = videoBlock(version2.video, page.key);
       } catch {
         mismatch(`pages[${index}].video`);
       }
-      if (version2.kind !== "video" || !equivalent(video, page.video)) mismatch(`pages[${index}].video`);
+      (version2.kind !== "video" || !equivalent(video, page.video)) && mismatch(`pages[${index}].video`);
     }
   }
-  if (result.project !== void 0 && result.project !== null && (!uuid(result.project.id) || typeof result.project.path !== "string")) mismatch("project");
-  if (result.revision !== expectedRevision) mismatch(`revision: expected ${expectedRevision} from manifest baseRevision, received ${Number.isInteger(result.revision) ? result.revision : "an invalid revision"}`);
+  result.project !== void 0 && result.project !== null && (!uuid(result.project.id) || typeof result.project.path != "string") && mismatch("project"), result.revision !== expectedRevision && mismatch(`revision: expected ${expectedRevision} from manifest baseRevision, received ${Number.isInteger(result.revision) ? result.revision : "an invalid revision"}`);
   let collection;
   try {
     collection = await recordPublication(stateFile, manifest, result, root);
@@ -8785,51 +6548,44 @@ async function upload({ manifest, ticket, root, stateFile, finalizeOnly = false,
 
 // cli/skills.mjs
 async function manageSkills() {
-  throw new Error("Feedback skills come with the brixon-ai-client-core plugin. Update the plugin through Claude Code or Codex; standalone skills install/check is unavailable in this bundled CLI.");
+  throw new Error("Skills come with the brixon-ai-client-core plugin; update the plugin through Claude Code or Codex.");
 }
 
 // cli/rounds.mjs
 function sameViewport(before, after) {
-  if (before == null || after == null) return before == null && after == null;
-  return before.mode === after.mode && before.width === after.width && before.height === after.height;
+  return before == null || after == null ? before == null && after == null : before.mode === after.mode && before.width === after.width && before.height === after.height;
 }
 function sameProjectSnapshot(before, after) {
-  const versions = (value) => value == null ? null : Object.entries(value).sort(([a], [b]) => a.localeCompare(b));
+  let versions = (value) => value == null ? null : Object.entries(value).sort(([a], [b]) => a.localeCompare(b));
   return (before.observedContentSequence ?? null) === (after.observedContentSequence ?? null) && JSON.stringify(versions(before.observedVersions)) === JSON.stringify(versions(after.observedVersions));
 }
 async function sharedSources(collection, comments, root) {
-  const sources = comments.map((comment) => {
-    const video = comment.annotation?.kind === "video" ? comment.annotation.video : comment.video;
+  let sources = comments.map((comment) => {
+    let video = comment.annotation?.kind === "video" ? comment.annotation.video : comment.video;
     return { commentId: comment.id, pageKey: comment.pageKey, sourceSha256: video?.scope === "source" ? video.source?.sourceSha256 : void 0 };
   }).filter((item) => item.sourceSha256);
   if (!sources.length) return [];
-  const used = /* @__PURE__ */ new Map();
-  for (const page of collection.pages) {
-    if (page.kind !== "video" || !page.video.timeline) continue;
-    try {
-      used.set(page.key, new Set((JSON.parse((await readSafeFile(root, page.video.timeline)).toString("utf8")).segments ?? []).map((segment) => segment?.source?.sourceSha256).filter(Boolean)));
-    } catch {
-    }
-  }
+  let used = /* @__PURE__ */ new Map();
+  for (let page of collection.pages)
+    if (!(page.kind !== "video" || !page.video.timeline))
+      try {
+        used.set(page.key, new Set((JSON.parse((await readSafeFile(root, page.video.timeline)).toString("utf8")).segments ?? []).map((segment) => segment?.source?.sourceSha256).filter(Boolean)));
+      } catch {
+      }
   return sources.map((item) => ({ ...item, pages: [...used].filter(([key, hashes]) => key !== item.pageKey && hashes.has(item.sourceSha256)).map(([key]) => key) }));
 }
 async function planRound(collection, feedback, selectedIds, root = collection.root, includePages = []) {
   if (!Array.isArray(feedback.comments)) throw new Error("Expected the JSON result of feedback_get_feedback");
-  const ids = /* @__PURE__ */ new Set();
-  for (const comment of feedback.comments) {
-    if (typeof comment.id !== "string" || ids.has(comment.id) || comment.collectionId !== collection.collectionId || !Number.isInteger(comment.revision) || !["open", "in_progress", "implemented"].includes(comment.status)) throw new Error("Feedback contains invalid, duplicate, or foreign comments");
+  let ids = /* @__PURE__ */ new Set();
+  for (let comment of feedback.comments) {
+    if (typeof comment.id != "string" || ids.has(comment.id) || comment.collectionId !== collection.collectionId || !Number.isInteger(comment.revision) || !["open", "in_progress", "implemented"].includes(comment.status)) throw new Error("Feedback contains invalid, duplicate, or foreign comments");
     if (comment.pageKey && !collection.pages.some((page) => page.key === comment.pageKey)) throw new Error(`Comment refers to an unmapped page: ${comment.id}`);
     ids.add(comment.id);
   }
   if (selectedIds && (selectedIds.some((id) => !ids.has(id)) || selectedIds.length !== new Set(selectedIds).size)) throw new Error("Selected comment IDs are missing or duplicated");
-  const baseline = await checkBaseline(collection, root);
-  const candidates = feedback.comments.filter((comment) => !selectedIds || selectedIds.includes(comment.id));
-  const pending = candidates.filter((comment) => comment.status === "open" || comment.status === "in_progress" && Date.parse(comment.claimExpiresAt) <= Date.now());
-  const deferred = pending.filter((comment) => !baseline.ok && (!comment.pageKey || baseline.affectedPages.includes(comment.pageKey)));
-  const comments = pending.filter((comment) => !deferred.includes(comment));
-  const sourcePages = await sharedSources(collection, comments, root);
+  let baseline = await checkBaseline(collection, root), candidates = feedback.comments.filter((comment) => !selectedIds || selectedIds.includes(comment.id)), pending = candidates.filter((comment) => comment.status === "open" || comment.status === "in_progress" && Date.parse(comment.claimExpiresAt) <= Date.now()), deferred = pending.filter((comment) => !baseline.ok && (!comment.pageKey || baseline.affectedPages.includes(comment.pageKey))), comments = pending.filter((comment) => !deferred.includes(comment)), sourcePages = await sharedSources(collection, comments, root);
   if (new Set(includePages).size !== includePages.length) throw new Error("--include-page names each page once");
-  for (const key of includePages) if (!sourcePages.some((item) => item.pages.includes(key))) throw new Error(`--include-page ${key} does not share the source of a selected comment with scope "source"; its timeline must name the same sourceSha256`);
+  for (let key of includePages) if (!sourcePages.some((item) => item.pages.includes(key))) throw new Error(`--include-page ${key} does not share the source of a selected comment with scope "source"; its timeline must name the same sourceSha256`);
   return {
     schemaVersion: 1,
     collectionId: collection.collectionId,
@@ -8850,92 +6606,65 @@ async function planRound(collection, feedback, selectedIds, root = collection.ro
 }
 function validateClaim(round, claim) {
   if (!round.ready || round.noOp || !round.baseline?.ok || !round.comments?.length) throw new Error("The round is not ready for a claim");
-  if (typeof claim.claimId !== "string" || !Number.isFinite(Date.parse(claim.expiresAt)) || Date.parse(claim.expiresAt) <= Date.now()) throw new Error("Feedback claim is missing or expired; fetch feedback again before continuing");
+  if (typeof claim.claimId != "string" || !Number.isFinite(Date.parse(claim.expiresAt)) || Date.parse(claim.expiresAt) <= Date.now()) throw new Error("Feedback claim is missing or expired; fetch feedback again before continuing");
   if (!Array.isArray(claim.comments) || claim.comments.length !== round.comments.length || new Set(claim.comments.map((comment) => comment.id)).size !== round.comments.length || round.comments.some((before) => !claim.comments.some((after) => after.id === before.id && after.collectionId === round.collectionId && after.revision === before.revision + 1 && after.body === before.body && after.versionId === before.versionId && sameViewport(before.viewport, after.viewport) && sameProjectSnapshot(before, after)))) throw new Error("Claim does not match the fixed feedback snapshot; do not edit files");
-  return { ok: true, reviewUrl: reviewLink(round.reviewUrl).reviewUrl, claimId: claim.claimId, expiresAt: claim.expiresAt, commentIds: round.comments.map((comment) => comment.id) };
+  return { ok: !0, reviewUrl: reviewLink(round.reviewUrl).reviewUrl, claimId: claim.claimId, expiresAt: claim.expiresAt, commentIds: round.comments.map((comment) => comment.id) };
 }
 function renewRound(round, feedback, selectedIds) {
   if (round.schemaVersion !== 1 || !round.baseline?.ok || !Array.isArray(round.comments) || !round.comments.length || !Array.isArray(feedback.comments)) throw new Error("Recovery requires the original clean round and fresh feedback");
-  const selected = selectedIds ? round.comments.filter((comment) => selectedIds.includes(comment.id)) : round.comments;
+  let selected = selectedIds ? round.comments.filter((comment) => selectedIds.includes(comment.id)) : round.comments;
   if (selectedIds && (new Set(selectedIds).size !== selectedIds.length || selected.length !== selectedIds.length)) throw new Error("Recovery may only select comments from the original round");
-  const comments = [], reserved = [];
-  for (const original of selected) {
-    const matches = feedback.comments.filter((comment) => comment.id === original.id);
-    const fresh = matches[0];
+  let comments = [], reserved = [];
+  for (let original of selected) {
+    let matches = feedback.comments.filter((comment) => comment.id === original.id), fresh = matches[0];
     if (matches.length !== 1 || fresh.collectionId !== round.collectionId) throw new Error(`Recovery feedback is missing or foreign: ${original.id}`);
     if (fresh.status === "implemented") continue;
-    for (const key of ["body", "pageKey", "versionId", "annotation"]) {
+    for (let key of ["body", "pageKey", "versionId", "annotation"])
       if (JSON.stringify(fresh[key] ?? null) !== JSON.stringify(original[key] ?? null)) throw new Error(`Feedback changed since this round (${original.id}, ${key}); review it before resuming the existing edits`);
-    }
     if (!sameProjectSnapshot(original, fresh)) throw new Error(`Feedback changed since this round (${original.id}, project snapshot); review it before resuming the existing edits`);
     if (!sameViewport(original.viewport, fresh.viewport)) throw new Error(`Feedback changed since this round (${original.id}, viewport); review it before resuming the existing edits`);
-    const replyFields = ({ id, body, author, createdAt }) => ({ id, body, author, createdAt });
+    let replyFields = ({ id, body, author, createdAt }) => ({ id, body, author, createdAt });
     if (JSON.stringify(fresh.replies?.map(replyFields) ?? null) !== JSON.stringify(original.replies?.map(replyFields) ?? null)) throw new Error(`Feedback changed since this round (${original.id}, replies); review it before resuming the existing edits`);
     if (!Number.isInteger(fresh.revision) || fresh.revision < original.revision) throw new Error("Recovery feedback has an invalid revision");
     if (fresh.status === "open" || fresh.status === "in_progress" && Date.parse(fresh.claimExpiresAt) <= Date.now()) comments.push(fresh);
     else if (fresh.status === "in_progress") reserved.push({ id: fresh.id, claimExpiresAt: fresh.claimExpiresAt });
     else throw new Error("Recovery feedback has an invalid status");
   }
-  return { ...round, recovery: true, noOp: comments.length === 0, ready: comments.length > 0, comments, claimInput: { reviewUrl: reviewLink(round.reviewUrl).reviewUrl, comments: comments.map(({ id, revision }) => ({ id, revision })) }, reserved };
+  return { ...round, recovery: !0, noOp: comments.length === 0, ready: comments.length > 0, comments, claimInput: { reviewUrl: reviewLink(round.reviewUrl).reviewUrl, comments: comments.map(({ id, revision }) => ({ id, revision })) }, reserved };
 }
 function publicationImpact(collection, manifest, round) {
-  assertPublicationBaseline(collection, manifest);
-  if (round && (round.schemaVersion !== 1 || round.collectionId !== collection.collectionId || round.projectId !== collection.projectId || !sameReview(round.reviewUrl, collection.reviewUrl) || round.baseRevision !== collection.revision || !Array.isArray(round.comments) || !round.baseline?.ok || !round.ready)) throw new Error("Round is stale, empty, or has unresolved baseline drift");
-  const previous = new Map(collection.files.map((file) => [file.path, file.sha256]));
-  const current = new Map(manifest.files.map((file) => [file.path, file.sha256]));
-  const changed = [...current].filter(([file, hash]) => previous.has(file) && previous.get(file) !== hash).map(([file]) => file);
-  const added = [...current.keys()].filter((file) => !previous.has(file));
-  const removed = [...previous.keys()].filter((file) => !current.has(file));
-  const touched = /* @__PURE__ */ new Set([...changed, ...added, ...removed]);
-  const affectedPages = manifest.pages.filter((page) => {
-    const before = collection.pages.find((old) => old.key === page.key);
-    return !before || before.path !== page.path || !!before.interactive !== !!page.interactive || JSON.stringify(before.video ?? null) !== JSON.stringify(page.video ?? null) || page.files.some((file) => touched.has(file)) || before.files.some((file) => touched.has(file)) || JSON.stringify([...before.files].sort()) !== JSON.stringify([...page.files].sort());
-  }).map((page) => page.key);
-  const justified = (key) => (round.sourcePages ?? []).some((item) => item.pages?.includes(key) && round.comments.some((comment) => {
-    const video = comment.annotation?.kind === "video" ? comment.annotation.video : comment.video;
+  if (assertPublicationBaseline(collection, manifest), round && (round.schemaVersion !== 1 || round.collectionId !== collection.collectionId || round.projectId !== collection.projectId || !sameReview(round.reviewUrl, collection.reviewUrl) || round.baseRevision !== collection.revision || !Array.isArray(round.comments) || !round.baseline?.ok || !round.ready)) throw new Error("Round is stale, empty, or has unresolved baseline drift");
+  let previous = new Map(collection.files.map((file) => [file.path, file.sha256])), current = new Map(manifest.files.map((file) => [file.path, file.sha256])), changed = [...current].filter(([file, hash]) => previous.has(file) && previous.get(file) !== hash).map(([file]) => file), added = [...current.keys()].filter((file) => !previous.has(file)), removed = [...previous.keys()].filter((file) => !current.has(file)), touched = /* @__PURE__ */ new Set([...changed, ...added, ...removed]), affectedPages = manifest.pages.filter((page) => {
+    let before = collection.pages.find((old) => old.key === page.key);
+    return !before || before.path !== page.path || !!before.interactive != !!page.interactive || JSON.stringify(before.video ?? null) !== JSON.stringify(page.video ?? null) || page.files.some((file) => touched.has(file)) || before.files.some((file) => touched.has(file)) || JSON.stringify([...before.files].sort()) !== JSON.stringify([...page.files].sort());
+  }).map((page) => page.key), justified = (key) => (round.sourcePages ?? []).some((item) => item.pages?.includes(key) && round.comments.some((comment) => {
+    let video = comment.annotation?.kind === "video" ? comment.annotation.video : comment.video;
     return comment.id === item.commentId && video?.scope === "source" && video.source?.sourceSha256 === item.sourceSha256;
   }));
   if (round?.includedPages !== void 0 && (!Array.isArray(round.includedPages) || round.includedPages.some((key) => !collection.pages.some((page) => page.key === key) || !justified(key)))) throw new Error("Round includes pages that share no source with its comments; plan the round again with --include-page");
-  const selectedPages = round ? [.../* @__PURE__ */ new Set([...round.comments.flatMap((comment) => comment.pageKey ? [comment.pageKey] : collection.pages.map((page) => page.key)), ...round.includedPages ?? []])] : [];
-  const selectedFiles = new Set(collection.pages.filter((page) => selectedPages.includes(page.key)).flatMap((page) => page.files));
-  const unrelatedFiles = round ? [...changed, ...removed].filter((file) => !selectedFiles.has(file)) : [];
-  const unrelatedAdded = round ? added.filter((file) => !manifest.pages.some((page) => selectedPages.includes(page.key) && page.files.includes(file))) : [];
-  const addedPages = manifest.pages.filter((page) => !collection.pages.some((old) => old.key === page.key)).map((page) => page.key);
+  let selectedPages = round ? [.../* @__PURE__ */ new Set([...round.comments.flatMap((comment) => comment.pageKey ? [comment.pageKey] : collection.pages.map((page) => page.key)), ...round.includedPages ?? []])] : [], selectedFiles = new Set(collection.pages.filter((page) => selectedPages.includes(page.key)).flatMap((page) => page.files)), unrelatedFiles = round ? [...changed, ...removed].filter((file) => !selectedFiles.has(file)) : [], unrelatedAdded = round ? added.filter((file) => !manifest.pages.some((page) => selectedPages.includes(page.key) && page.files.includes(file))) : [], addedPages = manifest.pages.filter((page) => !collection.pages.some((old) => old.key === page.key)).map((page) => page.key);
   return { collectionId: collection.collectionId, baseRevision: collection.revision, noOp: affectedPages.length === 0, changed, added, removed, affectedPages, selectedPages, sharedAssetPages: affectedPages.filter((key) => !selectedPages.includes(key)), unrelatedFiles: [...unrelatedFiles, ...unrelatedAdded], addedPages, withinRound: !round || !unrelatedFiles.length && !unrelatedAdded.length && !addedPages.length };
 }
 
 // cli/ticket.mjs
 async function readTicket(stream = process.stdin) {
-  const interactive = Boolean(stream.isTTY);
-  if (interactive) {
-    stream.setRawMode(true);
-    process.stderr.write("Ready for upload ticket JSON on hidden stdin; end with Enter.\n");
-  }
+  let interactive = !!stream.isTTY;
+  interactive && (stream.setRawMode(!0), process.stderr.write(`Ready for upload ticket JSON on hidden stdin; end with Enter.
+`));
   let input = "";
   try {
     await new Promise((resolve2, reject) => {
-      const finish = (error) => {
-        stream.off("data", data);
-        stream.off("end", end);
-        stream.off("error", fail);
-        stream.pause();
-        error ? reject(error) : resolve2();
-      };
-      const data = (chunk) => {
-        input += chunk.toString("utf8");
-        if (input.length > 32768) return finish(new Error("Upload ticket exceeds the input limit"));
+      let finish = (error) => {
+        stream.off("data", data), stream.off("end", end), stream.off("error", fail), stream.pause(), error ? reject(error) : resolve2();
+      }, data = (chunk) => {
+        if (input += chunk.toString("utf8"), input.length > 32768) return finish(new Error("Upload ticket exceeds the input limit"));
         if (interactive && /[\u0003\u0004]/.test(input)) return finish(new Error("Upload ticket input cancelled"));
-        if (interactive && /[\r\n]/.test(input)) finish();
-      };
-      const end = () => finish();
-      const fail = () => finish(new Error("Could not read upload ticket from stdin"));
-      stream.on("data", data);
-      stream.once("end", end);
-      stream.once("error", fail);
-      stream.resume();
+        interactive && /[\r\n]/.test(input) && finish();
+      }, end = () => finish(), fail = () => finish(new Error("Could not read upload ticket from stdin"));
+      stream.on("data", data), stream.once("end", end), stream.once("error", fail), stream.resume();
     });
   } finally {
-    if (interactive) stream.setRawMode(false);
+    interactive && stream.setRawMode(!1);
   }
   try {
     return JSON.parse(input);
@@ -8949,9 +6678,7 @@ import { execFile } from "node:child_process";
 import { readFile as readFile4, readdir, realpath as realpath2 } from "node:fs/promises";
 import path4 from "node:path";
 import { promisify } from "node:util";
-var run = promisify(execFile);
-var CAMPAIGN = /^\d{4}-q[1-4]-[a-z0-9-]+$/;
-var NAME = /^[A-Za-z0-9._-]+$/;
+var run = promisify(execFile), CAMPAIGN = /^\d{4}-q[1-4]-[a-z0-9-]+$/, NAME = /^[A-Za-z0-9._-]+$/;
 async function git(cwd, ...args) {
   try {
     return (await run("git", ["-C", cwd, ...args], { encoding: "utf8" })).stdout.trim() || null;
@@ -8960,44 +6687,39 @@ async function git(cwd, ...args) {
   }
 }
 function repoFromRemote(remote) {
-  const match = remote.trim().replace(/\/+$/, "").replace(/\.git$/, "").match(/([A-Za-z0-9._-]+)[/:]([A-Za-z0-9._-]+)$/);
+  let match = remote.trim().replace(/\/+$/, "").replace(/\.git$/, "").match(/([A-Za-z0-9._-]+)[/:]([A-Za-z0-9._-]+)$/);
   return match ? `${match[1]}/${match[2]}` : null;
 }
 async function campaignFolders(top) {
-  const found = /* @__PURE__ */ new Set(), entries = async (dir) => (await readdir(dir, { withFileTypes: true }).catch(() => [])).filter((entry) => entry.isDirectory() && !entry.name.startsWith(".") && entry.name !== "node_modules");
-  for (const entry of await entries(top)) {
-    if (CAMPAIGN.test(entry.name.toLowerCase())) found.add(entry.name.toLowerCase());
-    for (const child of await entries(path4.join(top, entry.name))) if (CAMPAIGN.test(child.name.toLowerCase())) found.add(child.name.toLowerCase());
+  let found = /* @__PURE__ */ new Set(), entries = async (dir) => (await readdir(dir, { withFileTypes: !0 }).catch(() => [])).filter((entry) => entry.isDirectory() && !entry.name.startsWith(".") && entry.name !== "node_modules");
+  for (let entry of await entries(top)) {
+    CAMPAIGN.test(entry.name.toLowerCase()) && found.add(entry.name.toLowerCase());
+    for (let child of await entries(path4.join(top, entry.name))) CAMPAIGN.test(child.name.toLowerCase()) && found.add(child.name.toLowerCase());
   }
   return found;
 }
 async function detectSource(cwd, root, campaign) {
-  const top = await git(cwd, "rev-parse", "--show-toplevel");
+  let top = await git(cwd, "rev-parse", "--show-toplevel");
   if (!top) {
     if (campaign !== void 0) throw new Error("--campaign requires running the CLI inside the git repository of the campaign");
     return null;
   }
-  const remote = await git(cwd, "remote", "get-url", "origin");
-  let repo = remote && repoFromRemote(remote);
+  let remote = await git(cwd, "remote", "get-url", "origin"), repo = remote && repoFromRemote(remote);
   if (!repo) {
-    const common = await git(cwd, "rev-parse", "--path-format=absolute", "--git-common-dir");
-    const name = path4.basename(common ? path4.dirname(common) : top);
+    let common = await git(cwd, "rev-parse", "--path-format=absolute", "--git-common-dir"), name = path4.basename(common ? path4.dirname(common) : top);
     repo = NAME.test(name) ? name : null;
   }
   if (!repo) {
     if (campaign !== void 0) throw new Error("--campaign needs a repository the CLI can name: add an origin remote or run it in a checkout whose folder is named after the repository");
     return null;
   }
-  const client = (await readFile4(path4.join(top, ".brixon.txt"), "utf8").catch(() => "")).match(/^client:[ \t]*([^\r\n]*?)[ \t]*$/m)?.[1];
-  const campaigns = await campaignFolders(top);
-  let id = campaign?.toLowerCase();
+  let client2 = (await readFile4(path4.join(top, ".brixon.txt"), "utf8").catch(() => "")).match(/^client:[ \t]*([^\r\n]*?)[ \t]*$/m)?.[1], campaigns = await campaignFolders(top), id = campaign?.toLowerCase();
   if (id !== void 0 && (!CAMPAIGN.test(id) || !campaigns.has(id))) throw new Error(`Unknown campaign ${campaign}: use a YYYY-qN-topic folder of this repository (${[...campaigns].sort().join(", ") || "none found"})`);
   if (id === void 0) {
-    const [realTop, realRoot] = await Promise.all([realpath2(top), realpath2(path4.resolve(cwd, root)).catch(() => null)]);
-    const inside2 = realRoot && path4.relative(realTop, realRoot);
-    if (inside2 && !inside2.startsWith("..") && !path4.isAbsolute(inside2)) id = inside2.split(path4.sep).map((part) => part.toLowerCase()).find((part) => CAMPAIGN.test(part));
+    let [realTop, realRoot] = await Promise.all([realpath2(top), realpath2(path4.resolve(cwd, root)).catch(() => null)]), inside2 = realRoot && path4.relative(realTop, realRoot);
+    inside2 && !inside2.startsWith("..") && !path4.isAbsolute(inside2) && (id = inside2.split(path4.sep).map((part) => part.toLowerCase()).find((part) => CAMPAIGN.test(part)));
   }
-  return { repo, ...client && client.length <= 80 && !/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(client) ? { client } : {}, ...id ? { campaign: id } : {} };
+  return { repo, ...client2 && client2.length <= 80 && !/[\u0000-\u001f\u007f-\u009f\u2028\u2029]/.test(client2) ? { client: client2 } : {}, ...id ? { campaign: id } : {} };
 }
 
 // cli/video.mjs
@@ -9007,68 +6729,41 @@ import { createReadStream } from "node:fs";
 import { lstat as lstat3, mkdir as mkdir2, readFile as readFile5, rename as rename2, rm, writeFile as writeFile2 } from "node:fs/promises";
 import path5 from "node:path";
 import { promisify as promisify2 } from "node:util";
-var WORK_DIR = "work/feedback-review";
-var REVIEW_TAG = "brixon-feedback-review/1";
-var execute = promisify2(execFile2);
-var STANDARD_RATES = ["24000/1001", "24/1", "25/1", "30000/1001", "30/1", "50/1", "60000/1001", "60/1"];
+var WORK_DIR = "work/feedback-review", REVIEW_TAG = "brixon-feedback-review/1", execute = promisify2(execFile2), STANDARD_RATES = ["24000/1001", "24/1", "25/1", "30000/1001", "30/1", "50/1", "60000/1001", "60/1"];
 async function tool(name, args) {
   try {
     return (await execute(name, args, { maxBuffer: 64 * 1024 * 1024 })).stdout;
   } catch (error) {
-    if (error.code === "ENOENT") throw new Error(`${name} is required for video pages but was not found on PATH. Install FFmpeg (macOS: brew install ffmpeg) and retry`);
-    throw new Error(`${name} failed: ${String(error.stderr || error.message).trim().split("\n").slice(-3).join(" ")}`);
+    throw error.code === "ENOENT" ? new Error(`${name} is required for video pages but was not found on PATH. Install FFmpeg (macOS: brew install ffmpeg) and retry`) : new Error(`${name} failed: ${String(error.stderr || error.message).trim().split(`
+`).slice(-3).join(" ")}`);
   }
 }
 async function fileHash(file) {
-  const hash = createHash2("sha256");
-  for await (const chunk of createReadStream(file)) hash.update(chunk);
+  let hash = createHash2("sha256");
+  for await (let chunk of createReadStream(file)) hash.update(chunk);
   return hash.digest("hex");
 }
 async function writeIfChanged(file, bytes) {
-  const current = await readFile5(file).catch(() => null);
+  let current = await readFile5(file).catch(() => null);
   if (current && current.equals(bytes)) return;
-  await mkdir2(path5.dirname(file), { recursive: true });
-  const temporary = `${file}.${randomUUID2()}.tmp`;
-  await writeFile2(temporary, bytes);
-  await rename2(temporary, file);
+  await mkdir2(path5.dirname(file), { recursive: !0 });
+  let temporary = `${file}.${randomUUID2()}.tmp`;
+  await writeFile2(temporary, bytes), await rename2(temporary, file);
 }
 var fraction = (value) => {
-  const fps = parseFps(value);
+  let fps = parseFps(value);
   return fps && `${fps.num}/${fps.den}`;
 };
 async function probeVideo(file) {
-  const probe = JSON.parse(await tool("ffprobe", ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file]));
-  const streams = probe.streams ?? [];
-  const videos = streams.filter((stream) => stream.codec_type === "video" && !stream.disposition?.attached_pic);
-  const audios = streams.filter((stream) => stream.codec_type === "audio");
-  const problems = [];
-  const { size } = await lstat3(file);
-  if (!/\.(?:mp4|m4v)$/i.test(file)) problems.push("the file is not an .mp4 or .m4v file");
-  else problems.push(...containerProblems(await mp4Boxes(file), probe.format?.tags?.major_brand));
-  if (size > limits.fileBytes) problems.push(`the file has ${Math.ceil(size / 1e6)} MB, more than 100 MB`);
-  if (videos.length !== 1) return { problems: [...problems, `the file needs exactly one video stream, found ${videos.length}`] };
-  const video = videos[0];
-  const rotation = Number(video.side_data_list?.find((item) => item.rotation !== void 0)?.rotation ?? video.tags?.rotate ?? 0);
-  const quarter = Math.abs(rotation) % 180 === 90;
-  const width = quarter ? video.height : video.width, height = quarter ? video.width : video.height;
-  const hdr = ["smpte2084", "arib-std-b67"].includes(video.color_transfer) || video.color_primaries === "bt2020" || /^bt2020/.test(video.color_space ?? "");
-  if (video.codec_name !== "h264") problems.push(`the video codec is ${video.codec_name}, not H.264`);
-  else if (!["High", "Main"].includes(video.profile)) problems.push(`the H.264 profile is ${video.profile}, not High or Main`);
-  if (video.pix_fmt !== "yuv420p") problems.push(`the pixel format is ${video.pix_fmt}, not 8-bit yuv420p`);
-  if (hdr) problems.push("the video is HDR (PQ/HLG or BT.2020), not SDR BT.709");
-  else if (["color_primaries", "color_transfer", "color_space"].some((key) => video[key] && !["bt709", "unknown"].includes(video[key]))) problems.push("the colours are not tagged BT.709");
-  if (rotation) problems.push("the video carries rotation metadata");
-  if (Math.min(width, height) > 1080) problems.push(`the shorter side has ${Math.min(width, height)} px, more than 1080`);
-  if (audios.length > 1) problems.push(`the file has ${audios.length} audio streams, at most one is allowed`);
-  else if (audios.length && audios[0].codec_name !== "aac") problems.push(`the audio codec is ${audios[0].codec_name}, not AAC`);
-  const [count, span] = String(video.avg_frame_rate ?? "").split("/").map(Number);
-  const rate = parseFps(fraction(video.r_frame_rate)), average = count > 0 && span > 0 ? { value: count / span } : null;
-  const durations = (await tool("ffprobe", ["-v", "error", "-select_streams", String(video.index), "-show_entries", "packet=duration", "-of", "csv=p=0", file])).split("\n").filter(Boolean).slice(0, -1).map(Number);
-  const constant = !!rate && !!average && Math.abs(rate.value - average.value) / rate.value < 0.01 && (!durations.length || Math.max(...durations) - Math.min(...durations) <= 1);
-  if (!constant) problems.push("the frame rate is variable, not constant");
-  const durationSeconds = Math.round(Number(video.duration ?? probe.format?.duration) * 1e3) / 1e3;
-  if (!(durationSeconds > 0)) problems.push("the duration is unknown");
-  return {
+  let probe = JSON.parse(await tool("ffprobe", ["-v", "error", "-print_format", "json", "-show_format", "-show_streams", file])), streams = probe.streams ?? [], videos = streams.filter((stream) => stream.codec_type === "video" && !stream.disposition?.attached_pic), audios = streams.filter((stream) => stream.codec_type === "audio"), problems = [], { size } = await lstat3(file);
+  if (/\.(?:mp4|m4v)$/i.test(file) ? problems.push(...containerProblems(await mp4Boxes(file), probe.format?.tags?.major_brand)) : problems.push("the file is not an .mp4 or .m4v file"), size > limits.fileBytes && problems.push(`the file has ${Math.ceil(size / 1e6)} MB, more than 100 MB`), videos.length !== 1) return { problems: [...problems, `the file needs exactly one video stream, found ${videos.length}`] };
+  let video = videos[0], rotation = Number(video.side_data_list?.find((item) => item.rotation !== void 0)?.rotation ?? video.tags?.rotate ?? 0), quarter = Math.abs(rotation) % 180 === 90, width = quarter ? video.height : video.width, height = quarter ? video.width : video.height, hdr = ["smpte2084", "arib-std-b67"].includes(video.color_transfer) || video.color_primaries === "bt2020" || /^bt2020/.test(video.color_space ?? "");
+  video.codec_name !== "h264" ? problems.push(`the video codec is ${video.codec_name}, not H.264`) : ["High", "Main"].includes(video.profile) || problems.push(`the H.264 profile is ${video.profile}, not High or Main`), video.pix_fmt !== "yuv420p" && problems.push(`the pixel format is ${video.pix_fmt}, not 8-bit yuv420p`), hdr ? problems.push("the video is HDR (PQ/HLG or BT.2020), not SDR BT.709") : ["color_primaries", "color_transfer", "color_space"].some((key) => video[key] && !["bt709", "unknown"].includes(video[key])) && problems.push("the colours are not tagged BT.709"), rotation && problems.push("the video carries rotation metadata"), Math.min(width, height) > 1080 && problems.push(`the shorter side has ${Math.min(width, height)} px, more than 1080`), audios.length > 1 ? problems.push(`the file has ${audios.length} audio streams, at most one is allowed`) : audios.length && audios[0].codec_name !== "aac" && problems.push(`the audio codec is ${audios[0].codec_name}, not AAC`);
+  let [count, span] = String(video.avg_frame_rate ?? "").split("/").map(Number), rate = parseFps(fraction(video.r_frame_rate)), average = count > 0 && span > 0 ? { value: count / span } : null, durations = (await tool("ffprobe", ["-v", "error", "-select_streams", String(video.index), "-show_entries", "packet=duration", "-of", "csv=p=0", file])).split(`
+`).filter(Boolean).slice(0, -1).map(Number), constant = !!rate && !!average && Math.abs(rate.value - average.value) / rate.value < 0.01 && (!durations.length || Math.max(...durations) - Math.min(...durations) <= 1);
+  constant || problems.push("the frame rate is variable, not constant");
+  let durationSeconds = Math.round(Number(video.duration ?? probe.format?.duration) * 1e3) / 1e3;
+  return durationSeconds > 0 || problems.push("the duration is unknown"), {
     problems,
     hdr,
     width,
@@ -9083,16 +6778,13 @@ async function probeVideo(file) {
   };
 }
 async function transcode(source, output, probe, fps, tag) {
-  const landscape = probe.width >= probe.height;
-  const short = Math.min(720, landscape ? probe.height : probe.width) & ~1;
-  const filters = [`fps=${fps}`];
+  let landscape = probe.width >= probe.height, short = Math.min(720, landscape ? probe.height : probe.width) & -2, filters = [`fps=${fps}`];
   if (probe.hdr) {
     if (!(await tool("ffmpeg", ["-hide_banner", "-filters"])).includes(" zscale ")) throw new Error("This HDR video needs tone mapping, but the installed ffmpeg has no zscale filter (libzimg). Export an SDR BT.709 master or use an ffmpeg build with zscale");
     filters.push("zscale=t=linear:npl=100,format=gbrpf32le,zscale=p=bt709,tonemap=tonemap=hable:desat=0,zscale=t=bt709:m=bt709:r=tv");
   }
   filters.push(`${landscape ? `scale=-2:${short}` : `scale=${short}:-2`}:out_color_matrix=bt709`, "format=yuv420p");
-  const temporary = path5.join(path5.dirname(output), `.${path5.basename(output)}.${randomUUID2()}.mp4`);
-  const encode = (rate) => tool("ffmpeg", [
+  let temporary = path5.join(path5.dirname(output), `.${path5.basename(output)}.${randomUUID2()}.mp4`), encode = (rate) => tool("ffmpeg", [
     "-nostdin",
     "-hide_banner",
     "-loglevel",
@@ -9137,35 +6829,33 @@ async function transcode(source, output, probe, fps, tag) {
     `comment=${tag}`,
     temporary
   ]);
-  await mkdir2(path5.dirname(output), { recursive: true });
+  await mkdir2(path5.dirname(output), { recursive: !0 });
   try {
-    await encode();
-    if ((await lstat3(temporary)).size > limits.fileBytes) {
-      const rate = Math.floor(9e7 * 8 / probe.meta.durationSeconds) - 128e3;
+    if (await encode(), (await lstat3(temporary)).size > limits.fileBytes) {
+      let rate = Math.floor(72e7 / probe.meta.durationSeconds) - 128e3;
       if (rate < 2e5) throw new Error("The video is too long for a 100 MB review copy");
       await encode(rate);
     }
     await rename2(temporary, output);
   } finally {
-    await rm(temporary, { force: true });
+    await rm(temporary, { force: !0 });
   }
 }
 async function poster(video, output, { durationSeconds, stream }) {
-  const temporary = path5.join(path5.dirname(output), `.${path5.basename(output)}.${randomUUID2()}.jpg`);
-  await mkdir2(path5.dirname(output), { recursive: true });
+  let temporary = path5.join(path5.dirname(output), `.${path5.basename(output)}.${randomUUID2()}.jpg`);
+  await mkdir2(path5.dirname(output), { recursive: !0 });
   try {
-    await tool("ffmpeg", ["-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-ss", durationSeconds > 1.5 ? "1" : "0", "-i", video, "-map", `0:${stream}`, "-frames:v", "1", "-q:v", "3", "-map_metadata", "-1", "-f", "image2", "-update", "1", temporary]);
-    await writeIfChanged(output, await readFile5(temporary));
+    await tool("ffmpeg", ["-nostdin", "-hide_banner", "-loglevel", "error", "-y", "-ss", durationSeconds > 1.5 ? "1" : "0", "-i", video, "-map", `0:${stream}`, "-frames:v", "1", "-q:v", "3", "-map_metadata", "-1", "-f", "image2", "-update", "1", temporary]), await writeIfChanged(output, await readFile5(temporary));
   } finally {
-    await rm(temporary, { force: true });
+    await rm(temporary, { force: !0 });
   }
 }
 async function workDirectory(root) {
   let current = path5.resolve(root);
   if ((await lstat3(current)).isSymbolicLink()) throw new Error(`Output root must not be a symlink: ${current}`);
-  for (const part of WORK_DIR.split("/")) {
+  for (let part of WORK_DIR.split("/")) {
     current = path5.join(current, part);
-    const stat = await lstat3(current).catch((error) => {
+    let stat = await lstat3(current).catch((error) => {
       if (error.code === "ENOENT") return null;
       throw error;
     });
@@ -9175,78 +6865,64 @@ async function workDirectory(root) {
   return current;
 }
 async function readInput(root, file, label, maxBytes) {
-  const absolute = path5.resolve(root, file);
-  const stat = await lstat3(absolute).catch(() => null);
+  let absolute = path5.resolve(root, file), stat = await lstat3(absolute).catch(() => null);
   if (!stat?.isFile()) throw new Error(`${label} is not a file: ${file}`);
   if (stat.size > maxBytes) throw new Error(`${label} exceeds ${maxBytes} bytes: ${file}`);
   return readFile5(absolute);
 }
 function inside(root, absolute) {
-  const relative = path5.relative(path5.resolve(root), absolute).split(path5.sep).join("/");
+  let relative = path5.relative(path5.resolve(root), absolute).split(path5.sep).join("/");
   try {
     return relative.startsWith("../") ? null : safePath(relative);
   } catch {
     return null;
   }
 }
-async function prepareVideo(root, { key, title, source, timeline, captions }, { reviewCopy = false } = {}, warnings = []) {
+async function prepareVideo(root, { key, title, source, timeline, captions }, { reviewCopy = !1 } = {}, warnings = []) {
   if (!/^[a-zA-Z0-9][a-zA-Z0-9_-]{0,79}$/.test(key)) throw new Error(`Invalid page key: ${key}`);
-  const input = path5.resolve(root, source);
+  let input = path5.resolve(root, source);
   if (!(await lstat3(input).catch(() => null))?.isFile()) throw new Error(`Video is not a file: ${source}`);
   let agentTimeline;
-  if (timeline !== void 0) {
+  if (timeline !== void 0)
     try {
       agentTimeline = JSON.parse((await readInput(root, timeline, "Timeline", TIMELINE_LIMITS.bytes)).toString("utf8"));
     } catch (error) {
       throw new Error(error instanceof SyntaxError ? `Timeline is not valid JSON: ${timeline}` : error.message);
     }
-  }
-  const checked = await probeVideo(input);
+  let checked = await probeVideo(input);
   if (checked.width === void 0 || !(checked.meta.durationSeconds > 0)) throw new Error(`Video ${source} cannot be reviewed: ${checked.problems.join("; ")}`);
-  const work = await workDirectory(root);
-  let file = input;
+  let work = await workDirectory(root), file = input;
   if (checked.problems.length) {
     if (!reviewCopy) throw new Error(`Video ${source} cannot be reviewed as it is: ${checked.problems.join("; ")}. Rerun with --review-copy to write an H.264/AAC MP4 review copy to ${WORK_DIR}/ (the master stays unchanged)`);
-    const fps = agentTimeline?.fps ? fraction(agentTimeline.fps) : checked.fps;
+    let fps = agentTimeline?.fps ? fraction(agentTimeline.fps) : checked.fps;
     if (!fps) throw new Error(`The frame rate of ${source} is unknown; supply a timeline with its fps`);
-    if (!checked.constant && !agentTimeline?.fps) warnings.push(`${source} has a variable frame rate; the review copy uses ${fps}`);
-    file = path5.join(work, `${key}.mp4`);
-    if (file === input) throw new Error(`The review copy would overwrite its source: ${source}`);
-    const tag = `${REVIEW_TAG} source-sha256=${await fileHash(input)} fps=${fps}`;
-    const existing = await lstat3(file).then(() => probeVideo(file)).catch(() => null);
-    if (existing?.tag !== tag || existing.problems.length) await transcode(input, file, checked, fps, tag);
-  } else if (!inside(root, input)) {
-    file = path5.join(work, `${key}${path5.extname(input).toLowerCase()}`);
-    await writeIfChanged(file, await readFile5(input));
-  }
-  const final = file === input ? checked : await probeVideo(file);
+    if (!checked.constant && !agentTimeline?.fps && warnings.push(`${source} has a variable frame rate; the review copy uses ${fps}`), file = path5.join(work, `${key}.mp4`), file === input) throw new Error(`The review copy would overwrite its source: ${source}`);
+    let tag = `${REVIEW_TAG} source-sha256=${await fileHash(input)} fps=${fps}`, existing = await lstat3(file).then(() => probeVideo(file)).catch(() => null);
+    (existing?.tag !== tag || existing.problems.length) && await transcode(input, file, checked, fps, tag);
+  } else inside(root, input) || (file = path5.join(work, `${key}${path5.extname(input).toLowerCase()}`), await writeIfChanged(file, await readFile5(input)));
+  let final = file === input ? checked : await probeVideo(file);
   if (final.problems.length) throw new Error(`The review copy of ${source} still fails: ${final.problems.join("; ")}`);
-  const relative = inside(root, file);
+  let relative = inside(root, file);
   if (!relative) throw new Error(`Video path cannot be uploaded: ${source}`);
-  const reviewSha256 = sha256(await readFile5(file));
-  const video = { poster: `${WORK_DIR}/${key}.jpg` };
-  await poster(file, path5.join(work, `${key}.jpg`), { durationSeconds: final.meta.durationSeconds, stream: final.stream });
-  if (captions !== void 0) {
-    const bytes = await readInput(root, captions, "Captions", 1e7);
+  let reviewSha256 = sha256(await readFile5(file)), video = { poster: `${WORK_DIR}/${key}.jpg` };
+  if (await poster(file, path5.join(work, `${key}.jpg`), { durationSeconds: final.meta.durationSeconds, stream: final.stream }), captions !== void 0) {
+    let bytes = await readInput(root, captions, "Captions", 1e7);
     if (!/\.vtt$/i.test(captions) || !/^﻿?WEBVTT(?:[ \t]|\r?\n|$)/.test(bytes.toString("utf8"))) throw new Error(`Captions must be a WebVTT .vtt file (convert SRT with: ffmpeg -i captions.srt captions.vtt): ${captions}`);
-    video.captions = `${WORK_DIR}/${key}.vtt`;
-    await writeIfChanged(path5.join(work, `${key}.vtt`), bytes);
+    video.captions = `${WORK_DIR}/${key}.vtt`, await writeIfChanged(path5.join(work, `${key}.vtt`), bytes);
   }
   if (agentTimeline !== void 0) {
-    const copy = agentTimeline && typeof agentTimeline === "object" && !Array.isArray(agentTimeline) ? { ...agentTimeline, source: agentTimeline.source === void 0 ? { reviewSha256 } : agentTimeline.source && typeof agentTimeline.source === "object" && !Array.isArray(agentTimeline.source) ? { ...agentTimeline.source, reviewSha256 } : agentTimeline.source } : agentTimeline;
-    const problems = validateTimeline(copy, { durationSeconds: final.meta.durationSeconds, fps: final.meta.fps, reviewSha256 });
+    let copy = agentTimeline && typeof agentTimeline == "object" && !Array.isArray(agentTimeline) ? { ...agentTimeline, source: agentTimeline.source === void 0 ? { reviewSha256 } : agentTimeline.source && typeof agentTimeline.source == "object" && !Array.isArray(agentTimeline.source) ? { ...agentTimeline.source, reviewSha256 } : agentTimeline.source } : agentTimeline, problems = validateTimeline(copy, { durationSeconds: final.meta.durationSeconds, fps: final.meta.fps, reviewSha256 });
     if (problems.length) throw new Error(`Timeline ${timeline} does not fit ${source}: ${problems.join(" ")}`);
-    video.timeline = `${WORK_DIR}/${key}.timeline.json`;
-    await writeIfChanged(path5.join(work, `${key}.timeline.json`), Buffer.from(JSON.stringify(copy, null, 2) + "\n"));
+    video.timeline = `${WORK_DIR}/${key}.timeline.json`, await writeIfChanged(path5.join(work, `${key}.timeline.json`), Buffer.from(JSON.stringify(copy, null, 2) + `
+`));
   }
   return { key, title: title || key, kind: "video", path: relative, video: { ...video, ...final.meta } };
 }
 async function refreshVideo(root, page) {
-  const file = path5.join(path5.resolve(root), ...page.path.split("/"));
-  const checked = await probeVideo(file);
+  let file = path5.join(path5.resolve(root), ...page.path.split("/")), checked = await probeVideo(file);
   if (checked.problems.length) throw new Error(`Video ${page.path} of page ${page.key} cannot be reviewed: ${checked.problems.join("; ")}. Publish it again with --video ${page.key}=... --review-copy`);
-  if (page.video.poster?.startsWith(`${WORK_DIR}/`)) await poster(file, path5.join(await workDirectory(root), page.video.poster.slice(WORK_DIR.length + 1)), { durationSeconds: checked.meta.durationSeconds, stream: checked.stream });
-  const { poster: posterFile, captions, timeline } = page.video;
+  page.video.poster?.startsWith(`${WORK_DIR}/`) && await poster(file, path5.join(await workDirectory(root), page.video.poster.slice(WORK_DIR.length + 1)), { durationSeconds: checked.meta.durationSeconds, stream: checked.stream });
+  let { poster: posterFile, captions, timeline } = page.video;
   return { ...page, video: { ...posterFile ? { poster: posterFile } : {}, ...captions ? { captions } : {}, ...timeline ? { timeline } : {}, ...checked.meta } };
 }
 
@@ -9268,16 +6944,16 @@ import { Readable, pipeline } from "node:stream";
 var defaultOrigins2 = [
   // Cloudflare R2, EU jurisdiction, Brixon account: presigned uploads of Meta Creative and LinkedIn Ads.
   "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com",
-  // Image Generation's upload slots. Meant to move to a Brixon domain before customers use it.
-  "https://image-mcp.brixon-group.workers.dev"
+  // Image Generation's upload slots. Meant to move to a Brixon domain before customers use it, so it is
+  // not a default in the client edition.
+  ...[]
 ];
 function httpsOrigins(value, origin) {
-  const origins = originList(value, origin);
+  let origins = originList(value, origin);
   if (origins.some((entry) => !entry.startsWith("https://"))) throw new Error("must contain https origins only");
   return origins;
 }
-var uploadTool = { name: "upload", keys: { allowedOrigins: { validate: httpsOrigins, default: defaultOrigins2, env: "BRIXON_UPLOAD_ALLOWED_ORIGINS" } } };
-var types2 = {
+var uploadTool = { name: "upload", keys: { allowedOrigins: { validate: httpsOrigins, default: defaultOrigins2, env: "BRIXON_UPLOAD_ALLOWED_ORIGINS" } } }, types2 = {
   jpg: "image/jpeg",
   jpeg: "image/jpeg",
   png: "image/png",
@@ -9290,13 +6966,11 @@ var types2 = {
   docx: "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
   ppt: "application/vnd.ms-powerpoint",
   pptx: "application/vnd.openxmlformats-officedocument.presentationml.presentation"
-};
-var reservedHeaders = /* @__PURE__ */ new Set(["host", "content-length", "transfer-encoding", "connection", "keep-alive", "expect", "upgrade", "te", "trailer", "proxy-authorization", "proxy-connection"]);
-var connectCodes = /* @__PURE__ */ new Set(["ECONNREFUSED", "EAI_AGAIN", "ENETUNREACH", "EHOSTUNREACH"]);
-var rawBodyOnly = "This command sends the file as the raw body of one request; form uploads, several parts and resumable uploads are not supported";
-var wait2 = (milliseconds) => new Promise((resolve2) => setTimeout(resolve2, milliseconds));
+}, reservedHeaders = /* @__PURE__ */ new Set(["host", "content-length", "transfer-encoding", "connection", "keep-alive", "expect", "upgrade", "te", "trailer", "proxy-authorization", "proxy-connection"]), connectCodes = /* @__PURE__ */ new Set(["ECONNREFUSED", "EAI_AGAIN", "ENETUNREACH", "EHOSTUNREACH"]), rawBodyOnly = "This command sends the file as the raw body of one request; form uploads, several parts and resumable uploads are not supported", wait2 = (milliseconds) => new Promise((resolve2) => setTimeout(resolve2, milliseconds));
 function uploadTarget(ticket, allowedOrigins, now = Date.now()) {
-  if (!ticket || typeof ticket !== "object" || Array.isArray(ticket) || typeof ticket.uploadUrl !== "string") throw new Error("Upload ticket needs an uploadUrl; pass the result of the prepare-upload tool unchanged");
+  let object = (value) => !!value && typeof value == "object" && !Array.isArray(value);
+  if (object(ticket) && typeof ticket.uploadUrl != "string" && object(ticket.ticket) && (ticket = ticket.ticket), !object(ticket) || typeof ticket.uploadUrl != "string")
+    throw new Error(Array.isArray(ticket?.slots) ? "This result holds several upload slots; pass one slot or its ticket per call, with the file that belongs to it" : typeof ticket?.upload_url == "string" ? "This is the older result shape (upload_url); pass the ticket object that contains uploadUrl" : "Upload ticket needs an uploadUrl: pass the object that contains uploadUrl; where a tool returns slots, pass one slot or its ticket");
   let url;
   try {
     url = new URL(ticket.uploadUrl);
@@ -9304,55 +6978,72 @@ function uploadTarget(ticket, allowedOrigins, now = Date.now()) {
     throw new Error("Upload ticket contains an invalid uploadUrl");
   }
   if (url.protocol !== "https:" || url.username || url.password || url.hash) throw new Error("Upload ticket uploadUrl must be a plain https address");
-  if (!allowedOrigins.includes(url.origin)) throw new Error(`Upload ticket targets ${url.origin}, which is not an allowed origin (${allowedOrigins.join(", ")}). Nothing was sent. If this host is intended, it must be listed in upload.allowedOrigins of the Brixon configuration ("brixon-feedback doctor" shows the effective values)`);
-  const method = ticket.method ?? "PUT";
+  if (!allowedOrigins.includes(url.origin)) throw new Error(`Upload ticket targets ${url.origin}, which is not an allowed origin (${allowedOrigins.join(", ")}). Nothing was sent. If this host is intended, it must be listed in upload.allowedOrigins of the Brixon configuration (${doctorCommand} shows the effective values)`);
+  let method = ticket.method ?? "PUT";
   if (method !== "PUT" && method !== "POST") throw new Error(`Upload ticket method must be PUT or POST. ${rawBodyOnly}`);
   if (["fields", "parts", "partNumber", "partUrls", "uploadUrls"].some((field) => ticket[field] != null)) throw new Error(`Upload ticket asks for a form or multi-part upload. ${rawBodyOnly}`);
   let expires;
   if (ticket.expiresAt != null) {
-    if (typeof ticket.expiresAt !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/i.test(ticket.expiresAt) || !Number.isFinite(expires = Date.parse(ticket.expiresAt.toUpperCase()))) throw new Error("Upload ticket has an invalid expiresAt; expected a time with its zone such as 2026-11-12T09:30:00Z");
+    if (typeof ticket.expiresAt != "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(?::\d{2}(?:\.\d+)?)?(?:Z|[+-]\d{2}:?\d{2})$/i.test(ticket.expiresAt) || !Number.isFinite(expires = Date.parse(ticket.expiresAt.toUpperCase()))) throw new Error("Upload ticket has an invalid expiresAt; expected a time with its zone such as 2026-11-12T09:30:00Z");
     if (expires <= now) throw new Error(`Upload ticket expired at ${new Date(expires).toISOString()}; nothing was sent. Request a new upload ticket`);
   }
-  const headers = {};
-  let contentType = ticket.contentType ?? void 0;
+  let headers = {}, contentType = ticket.contentType ?? void 0;
   if (ticket.headers != null) {
-    if (typeof ticket.headers !== "object" || Array.isArray(ticket.headers) || Object.keys(ticket.headers).length > 20) throw new Error("Upload ticket headers must be an object of up to 20 header names and values");
-    const seen = /* @__PURE__ */ new Set();
-    for (const [name, value] of Object.entries(ticket.headers)) {
-      const lower = name.toLowerCase();
+    if (typeof ticket.headers != "object" || Array.isArray(ticket.headers) || Object.keys(ticket.headers).length > 20) throw new Error("Upload ticket headers must be an object of up to 20 header names and values");
+    let seen = /* @__PURE__ */ new Set();
+    for (let [name, value] of Object.entries(ticket.headers)) {
+      let lower = name.toLowerCase();
       if (seen.has(lower)) throw new Error(`Upload ticket names the ${reservedHeaders.has(lower) || /^[a-z0-9-]+$/.test(lower) ? lower : "same"} header twice`);
-      seen.add(lower);
-      if (!/^[A-Za-z0-9!#$%&'*+.^_`|~-]+$/.test(name) || typeof value !== "string" || value.length > 8192 || !/^[\t\x20-\x7e]+$/.test(value)) throw new Error("Upload ticket has a header with an invalid name or value");
+      if (seen.add(lower), !/^[A-Za-z0-9!#$%&'*+.^_`|~-]+$/.test(name) || typeof value != "string" || value.length > 8192 || !/^[\t\x20-\x7e]+$/.test(value)) throw new Error("Upload ticket has a header with an invalid name or value");
       if (reservedHeaders.has(lower)) throw new Error(`Upload ticket must not set the ${lower} header; the command sets it itself`);
       if (lower !== "content-type") headers[name] = value;
       else if (contentType === void 0) contentType = value;
       else if (contentType !== value) throw new Error("Upload ticket names two different content types");
     }
   }
-  if (contentType !== void 0 && (typeof contentType !== "string" || !/^[\w.+-]+\/[\w.+-]+(?:; ?[\w-]+=(?:[\w.+-]+|"[\w.+ -]*"))*$/.test(contentType))) throw new Error("Upload ticket has an invalid contentType");
+  if (contentType !== void 0 && (typeof contentType != "string" || !/^[\w.+-]+\/[\w.+-]+(?:; ?[\w-]+=(?:[\w.+-]+|"[\w.+ -]*"))*$/.test(contentType))) throw new Error("Upload ticket has an invalid contentType");
   if (/^multipart\//i.test(contentType ?? "")) throw new Error(`Upload ticket asks for a multipart upload. ${rawBodyOnly}`);
   return { url, method, headers, expires, contentType };
 }
+function serviceMessage({ body = "", type = "" }, target) {
+  let text2, storage = !1;
+  if (/html/i.test(type) || /<html|<!doctype/i.test(body)) return { storage };
+  if (/json/i.test(type) || /^\s*\{/.test(body))
+    try {
+      let answer = JSON.parse(body);
+      text2 = [answer?.error?.message, answer?.error, answer?.message].find((value) => typeof value == "string");
+    } catch {
+      return { storage };
+    }
+  else /xml/i.test(type) || /^\s*</.test(body) ? (storage = !0, text2 = body.match(/<Code>([A-Za-z0-9]{1,60})<\/Code>/)?.[1]) : (!type || /^text\/plain/i.test(type)) && !body.includes("�") && (text2 = body);
+  let clean = typeof text2 == "string" ? text2.replace(/[^\p{L}\p{N} .,:;'()/_+%!?-]+/gu, " ").replace(/\s+/g, " ").trim() : "", decoded = (value) => {
+    try {
+      return decodeURIComponent(value);
+    } catch {
+      return value;
+    }
+  }, pieces = (values) => values.flatMap((value) => [value, decoded(value)]).flatMap((value) => [value, ...value.split(/[\s,;=/.&?:]+/)]).map((value) => value.toLowerCase()).filter((value) => value.length >= 4), query = target.url.search.slice(1).split("&").map((pair) => pair.split("=")), lower = clean.toLowerCase(), repeats = pieces(query.map(([name]) => name)).some((name) => lower.includes(name)) || pieces([...target.url.pathname.split("/"), ...query.map(([, ...value]) => value.join("=")), ...Object.values(target.headers)]).some((piece) => lower.includes(piece) || piece.length >= 12 && Array.from({ length: piece.length - 7 }, (_, index) => piece.slice(index, index + 8)).some((part) => lower.includes(part)));
+  return !clean || repeats || /\/\/|www\./i.test(clean) ? { storage } : { text: clean.slice(0, 200), storage };
+}
 async function openSource(file) {
-  const name = path6.basename(path6.resolve(file)), extension = path6.extname(name).slice(1).toLowerCase();
+  let name = path6.basename(path6.resolve(file)), extension = path6.extname(name).slice(1).toLowerCase();
   if (name.startsWith(".") || /(?:^|[._-])(?:credentials?|secrets?|tokens?|private-key|env)(?:[._-]|$)/i.test(name)) throw new Error(`Refusing to upload a hidden file or a file named like a secret: ${name}`);
   if (!Object.hasOwn(types2, extension)) throw new Error(`Unsupported file type: ${name}. put sends ${Object.keys(types2).join(", ")}`);
-  const link = await lstat4(file).catch((error) => {
+  let link = await lstat4(file).catch((error) => {
     throw new Error(`File cannot be read (${error.code}): ${name}`);
   });
   if (link.isSymbolicLink()) throw new Error(`Symlinks are not uploaded: ${name}`);
   if (!link.isFile()) throw new Error(`Not a regular file: ${name}`);
-  const handle = await open2(file, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0)).catch((error) => {
+  let handle = await open2(file, constants.O_RDONLY | (constants.O_NOFOLLOW ?? 0)).catch((error) => {
     throw new Error(`File cannot be read (${error.code}): ${name}`);
   });
   try {
-    const stat = await handle.stat();
+    let stat = await handle.stat();
     if (!stat.isFile()) throw new Error(`Not a regular file: ${name}`);
     if (!stat.size) throw new Error(`File is empty: ${name}`);
     return { handle, name, size: stat.size, modified: stat.mtimeMs, type: types2[extension] };
   } catch (error) {
-    await handle.close();
-    throw error;
+    throw await handle.close(), error;
   }
 }
 function fileBody(source) {
@@ -9360,107 +7051,92 @@ function fileBody(source) {
   return new Readable({
     highWaterMark: 64 * 1024,
     read() {
-      const length = Math.min(this.readableHighWaterMark, source.size - position);
+      let length = Math.min(this.readableHighWaterMark, source.size - position);
       if (length <= 0) return this.push(null);
       source.handle.read(Buffer.allocUnsafe(length), 0, length, position).then(({ bytesRead, buffer }) => {
-        position += bytesRead;
-        this.push(bytesRead ? buffer.subarray(0, bytesRead) : null);
+        position += bytesRead, this.push(bytesRead ? buffer.subarray(0, bytesRead) : null);
       }, (error) => this.destroy(error));
     }
   });
 }
 function send(target, source, contentType, idleTimeout, requestOptions, progress) {
   return new Promise((resolve2, reject) => {
-    let sent = 0, status, bodySent = false, settled = false, watchdog;
-    const settle = (finish, value) => {
-      if (!settled) {
-        settled = true;
-        clearTimeout(watchdog);
-        finish(value);
+    let sent = 0, status, bodySent = !1, settled = !1, refused = !1, watchdog, settle = (finish, value) => {
+      settled || (settled = !0, clearTimeout(watchdog), finish(value));
+    }, request = https.request(target.url, { ...requestOptions, method: target.method, headers: { ...target.headers, "Content-Length": source.size, "Content-Type": contentType } }), alive = (limit = idleTimeout) => {
+      settled || refused || (clearTimeout(watchdog), watchdog = setTimeout(() => {
+        let stalled = Object.assign(new Error("No data was exchanged in time"), { code: "ETIMEDOUT" });
+        settle(reject, stalled), request.destroy(stalled);
+      }, limit));
+    };
+    alive(), request.on("error", (error) => {
+      refused || settle(reject, error);
+    }), request.on("response", (response) => {
+      if (status = response.statusCode, status < 200 || status >= 300) {
+        refused = !0;
+        let chunks = [], size = 0, done = () => {
+          settle(resolve2, { status, body: Buffer.concat(chunks).toString("utf8"), type: String(response.headers["content-type"] ?? "") }), request.destroy();
+        };
+        response.on("data", (chunk) => {
+          chunks.push(chunk.subarray(0, 4096 - size)), (size += chunk.length) >= 4096 && done();
+        });
+        for (let event of ["end", "close", "error"]) response.once(event, done);
+        clearTimeout(watchdog), watchdog = setTimeout(done, 2e3);
+        return;
       }
-    };
-    const request = https.request(target.url, { ...requestOptions, method: target.method, headers: { ...target.headers, "Content-Length": source.size, "Content-Type": contentType } });
-    const alive = (limit = idleTimeout) => {
-      if (settled) return;
-      clearTimeout(watchdog);
-      watchdog = setTimeout(() => {
-        const stalled = Object.assign(new Error("No data was exchanged in time"), { code: "ETIMEDOUT" });
-        settle(reject, stalled);
-        request.destroy(stalled);
-      }, limit);
-    };
-    alive();
-    request.on("error", (error) => settle(reject, error));
-    request.on("response", (response) => {
-      status = response.statusCode;
-      response.resume();
-      if (status < 200 || status >= 300) {
-        settle(resolve2, status);
-        request.destroy();
-      } else if (bodySent) settle(resolve2, status);
-      else response.once("close", () => {
-        if (sent < source.size) request.destroy(Object.assign(new Error("Answered before the file was sent"), { code: "EARLY_ANSWER" }));
+      response.resume(), bodySent ? settle(resolve2, { status }) : response.once("close", () => {
+        sent < source.size && request.destroy(Object.assign(new Error("Answered before the file was sent"), { code: "EARLY_ANSWER" }));
       });
     });
-    const stream = fileBody(source);
+    let stream = fileBody(source);
     stream.on("data", (chunk) => {
-      sent += chunk.length;
-      alive();
-    });
-    pipeline(stream, request, (error) => {
-      if (error) return settle(reject, error);
-      if (sent !== source.size) return request.destroy(Object.assign(new Error("File changed"), { code: "FILE_CHANGED" }));
-      bodySent = progress.delivered = true;
-      alive(idleTimeout * 5);
-      if (status !== void 0) settle(resolve2, status);
+      sent += chunk.length, alive();
+    }), pipeline(stream, request, (error) => {
+      if (!refused) {
+        if (error) return settle(reject, error);
+        if (sent !== source.size) return request.destroy(Object.assign(new Error("File changed"), { code: "FILE_CHANGED" }));
+        bodySent = progress.delivered = !0, alive(idleTimeout * 5), status !== void 0 && settle(resolve2, { status });
+      }
     });
   });
 }
 async function put({ file, ticket, allowedOrigins = defaultOrigins2, retryDelays = [1e3, 3e3, 8e3], idleTimeout = 12e4, requestOptions = {}, now = Date.now }) {
-  const target = uploadTarget(ticket, allowedOrigins, now());
-  const source = await openSource(file);
+  let target = uploadTarget(ticket, allowedOrigins, now()), source = await openSource(file);
   try {
-    const contentType = target.contentType ?? source.type;
-    const destination = `Upload of ${source.name} to ${target.url.origin}`;
-    const onlyIfAbsent = Object.entries(target.headers).some(([name, value]) => name.toLowerCase() === "if-none-match" && value.trim() === "*");
-    let unanswered = false;
-    const unchanged = async () => {
-      const after = await source.handle.stat();
+    let contentType = target.contentType ?? source.type, destination = `Upload of ${source.name} to ${target.url.origin}`, onlyIfAbsent = Object.entries(target.headers).some(([name, value]) => name.toLowerCase() === "if-none-match" && value.trim() === "*"), unanswered = !1, unchanged = async () => {
+      let after = await source.handle.stat();
       if (after.size !== source.size || after.mtimeMs !== source.modified) throw new Error(`File changed during upload: ${source.name}. Upload it again`);
     };
     for (let attempt = 0; ; attempt++) {
-      const attempts = attempt ? ` after ${attempt + 1} attempts` : "";
-      const pause = () => attempt < retryDelays.length && !(target.expires <= now() + retryDelays[attempt]);
-      const progress = { delivered: false };
-      let status;
+      let attempts = attempt ? ` after ${attempt + 1} attempts` : "", pause = () => attempt < retryDelays.length && !(target.expires <= now() + retryDelays[attempt]), progress = { delivered: !1 }, answer;
       try {
-        status = await send(target, source, contentType, idleTimeout, requestOptions, progress);
+        answer = await send(target, source, contentType, idleTimeout, requestOptions, progress);
       } catch (error) {
-        const failure2 = networkFailure(error);
-        if (progress.delivered) unanswered = true;
-        if (failure2.code === "FILE_CHANGED") throw new Error(`File changed during upload: ${source.name}`);
+        let failure2 = networkFailure(error);
+        if (progress.delivered && (unanswered = !0), failure2.code === "FILE_CHANGED") throw new Error(`File changed during upload: ${source.name}`);
         if (failure2.code === "EARLY_ANSWER") throw new Error(`${destination} failed: the service answered before the whole file was sent. Request a new upload ticket`);
         if ((target.method === "PUT" ? transientCodes : connectCodes).has(failure2.code) && pause()) {
           await wait2(retryDelays[attempt]);
           continue;
         }
-        const advice = onlyIfAbsent && unanswered ? "The file may already be stored; this ticket would then be refused. Check with the service before uploading again" : target.method === "PUT" || connectCodes.has(failure2.code) ? "The same upload ticket can be used again until it expires" : "The request may have reached the service; check there before sending the file again";
-        throw new Error(`${destination} failed${failure2.code ? ` (${failure2.code})` : ""}${attempts}. ${failureHint(failure2, "brixon-feedback")}${advice}`);
+        let advice = onlyIfAbsent && unanswered ? "The file may already be stored; this ticket would then be refused. Check with the service before uploading again" : target.method === "PUT" || connectCodes.has(failure2.code) ? "The same upload ticket can be used again until it expires" : "The request may have reached the service; check there before sending the file again";
+        throw new Error(`${destination} failed${failure2.code ? ` (${failure2.code})` : ""}${attempts}. ${failureHint(failure2, doctorCommand)}${advice}`);
       }
+      let { status } = answer;
       if (target.method === "PUT" && transientStatuses.has(status) && pause()) {
         await wait2(retryDelays[attempt]);
         continue;
       }
       if (status === 412 && onlyIfAbsent) {
-        if (unanswered) {
-          await unchanged();
-          return { ok: true, file: source.name, bytes: source.size, method: target.method, status, contentType, origin: target.url.origin, attempts: attempt + 1, inferred: "No answer came back after the whole file had been sent; the next attempt found a file at the address (HTTP 412), which is taken to be this one" };
-        }
+        if (unanswered)
+          return await unchanged(), { ok: !0, file: source.name, bytes: source.size, method: target.method, status, contentType, origin: target.url.origin, attempts: attempt + 1, inferred: "No answer came back after the whole file had been sent; the next attempt found a file at the address (HTTP 412), which is taken to be this one" };
         throw new Error(`${destination} failed (HTTP 412)${attempts}: the address already holds a file, so this ticket has been used. Request a new upload ticket`);
       }
-      if (status < 200 || status >= 300) throw new Error(`${destination} failed (HTTP ${status})${attempts}.${status >= 300 && status < 400 ? " Redirects are not followed." : ""} Request a new upload ticket if the ticket has expired or was prepared for another file`);
-      await unchanged();
-      return { ok: true, file: source.name, bytes: source.size, method: target.method, status, contentType, origin: target.url.origin, attempts: attempt + 1 };
+      if (status < 200 || status >= 300) {
+        let said = serviceMessage(answer, target), advice = (said.storage ? /^(?:EntityTooLarge|EntityTooSmall|BadDigest|InvalidDigest)$/.test(said.text ?? "") : [400, 413, 415].includes(status)) ? "The service refused the file or its type; the upload ticket may still be valid for a corrected file" : "Request a new upload ticket if the ticket has expired or was prepared for another file";
+        throw new Error(`${destination} failed (HTTP ${status})${attempts}.${status >= 300 && status < 400 ? " Redirects are not followed." : ""} ${advice}${said.text ? `. Answer of the service: "${said.text}"` : ""}`);
+      }
+      return await unchanged(), { ok: !0, file: source.name, bytes: source.size, method: target.method, status, contentType, origin: target.url.origin, attempts: attempt + 1 };
     }
   } finally {
     await source.handle.close();
@@ -9468,20 +7144,16 @@ async function put({ file, ticket, allowedOrigins = defaultOrigins2, retryDelays
 }
 
 // cli/doctor.mjs
-var execute2 = promisify3(execFile3);
-var TIMEOUT = 1e4;
-var failure = (error) => {
-  const { code, proxyStatus } = networkFailure(error);
-  return { ok: false, error: proxyStatus ? `PROXY_HTTP_${proxyStatus}` : String(code ?? error?.name ?? "failed") };
-};
-var timeout = () => Object.assign(new Error("Timed out"), { code: "ETIMEDOUT" });
+var execute2 = promisify3(execFile3), TIMEOUT = 1e4, failure = (error) => {
+  let { code, proxyStatus } = networkFailure(error);
+  return { ok: !1, error: proxyStatus ? `PROXY_HTTP_${proxyStatus}` : String(code ?? error?.name ?? "failed") };
+}, timeout = () => Object.assign(new Error("Timed out"), { code: "ETIMEDOUT" });
 async function resolve(hostname) {
   let timer;
   try {
-    const found = await Promise.race([dns.lookup(hostname, { all: true }), new Promise((_, reject) => {
+    return { ok: !0, addresses: (await Promise.race([dns.lookup(hostname, { all: !0 }), new Promise((_, reject) => {
       timer = setTimeout(() => reject(timeout()), TIMEOUT);
-    })]);
-    return { ok: true, addresses: found.map((entry) => entry.address) };
+    })])).map((entry) => entry.address) };
   } catch (error) {
     return failure(error);
   } finally {
@@ -9490,39 +7162,29 @@ async function resolve(hostname) {
 }
 function bypassesProxy(hostname, port, noProxy = "") {
   return noProxy.split(/[,\s]+/).filter(Boolean).some((entry) => {
-    if (entry === "*") return true;
-    const [, host, entryPort] = entry.match(/^(.+?)(?::(\d+))?$/);
-    const name = host.replace(/^\*?\./, "").toLowerCase();
+    if (entry === "*") return !0;
+    let [, host, entryPort] = entry.match(/^(.+?)(?::(\d+))?$/), name = host.replace(/^\*?\./, "").toLowerCase();
     return (!entryPort || entryPort === String(port)) && (hostname === name || hostname.endsWith(`.${name}`));
   });
 }
 function tunnel(proxy, host, port) {
   return new Promise((resolveSocket, reject) => {
-    const secure = proxy.protocol === "https:";
-    const credentials = proxy.username || proxy.password ? { "Proxy-Authorization": `Basic ${Buffer.from(`${decodeURIComponent(proxy.username)}:${decodeURIComponent(proxy.password)}`).toString("base64")}` } : {};
-    const request = (secure ? https2 : http2).request({ host: proxy.hostname, port: proxy.port || (secure ? 443 : 80), method: "CONNECT", path: `${host}:${port}`, agent: false, timeout: TIMEOUT, headers: { Host: `${host}:${port}`, ...credentials } });
+    let secure = proxy.protocol === "https:", credentials = proxy.username || proxy.password ? { "Proxy-Authorization": `Basic ${Buffer.from(`${decodeURIComponent(proxy.username)}:${decodeURIComponent(proxy.password)}`).toString("base64")}` } : {}, request = (secure ? https2 : http2).request({ host: proxy.hostname, port: proxy.port || (secure ? 443 : 80), method: "CONNECT", path: `${host}:${port}`, agent: !1, timeout: TIMEOUT, headers: { Host: `${host}:${port}`, ...credentials } });
     request.once("connect", (response, socket) => {
       if (response.statusCode === 200) return resolveSocket(socket);
-      socket.destroy();
-      reject(Object.assign(new Error("Proxy refused the tunnel"), { code: `PROXY_HTTP_${response.statusCode}` }));
-    });
-    request.once("timeout", () => request.destroy(timeout()));
-    request.once("error", reject);
-    request.end();
+      socket.destroy(), reject(Object.assign(new Error("Proxy refused the tunnel"), { code: `PROXY_HTTP_${response.statusCode}` }));
+    }), request.once("timeout", () => request.destroy(timeout())), request.once("error", reject), request.end();
   });
 }
 var distinguishedName = (name) => [name?.O, name?.CN].flat().filter(Boolean).join(" / ") || void 0;
 async function certificate(host, port, proxy, ca) {
   try {
-    const socket = proxy ? await tunnel(proxy, host, port) : void 0;
+    let socket = proxy ? await tunnel(proxy, host, port) : void 0;
     return await new Promise((resolveResult, reject) => {
-      const secure = tls2.connect({ ...socket ? { socket } : { host, port }, servername: net.isIP(host) ? void 0 : host, rejectUnauthorized: false, ...ca ? { ca } : {} });
-      secure.setTimeout(TIMEOUT, () => secure.destroy(timeout()));
-      secure.once("error", reject);
-      secure.once("secureConnect", () => {
-        const peer = secure.getPeerCertificate(true);
-        let top = peer;
-        while (top.issuerCertificate && top.issuerCertificate !== top) top = top.issuerCertificate;
+      let secure = tls2.connect({ ...socket ? { socket } : { host, port }, servername: net.isIP(host) ? void 0 : host, rejectUnauthorized: !1, ...ca ? { ca } : {} });
+      secure.setTimeout(TIMEOUT, () => secure.destroy(timeout())), secure.once("error", reject), secure.once("secureConnect", () => {
+        let peer = secure.getPeerCertificate(!0), top = peer;
+        for (; top.issuerCertificate && top.issuerCertificate !== top; ) top = top.issuerCertificate;
         resolveResult({
           ok: secure.authorized,
           via: proxy ? "proxy" : "direct",
@@ -9532,8 +7194,7 @@ async function certificate(host, port, proxy, ca) {
           validTo: peer.valid_to,
           chainEndsAt: distinguishedName(top.subject),
           ...secure.authorized ? {} : { error: String(secure.authorizationError) }
-        });
-        secure.destroy();
+        }), secure.destroy();
       });
     });
   } catch (error) {
@@ -9541,15 +7202,14 @@ async function certificate(host, port, proxy, ca) {
   }
 }
 async function inspectedCertificate(host, port, proxy) {
-  const result = await certificate(host, port, proxy);
+  let result = await certificate(host, port, proxy);
   if (!result.subject) return result;
-  const publicChain = (await certificate(host, port, proxy, tls2.getCACertificates("bundled"))).ok;
+  let publicChain = (await certificate(host, port, proxy, tls2.getCACertificates("bundled"))).ok;
   return { ...result, publicChain, tlsInspection: publicChain ? "not detected" : "likely: the public Node.js root certificates alone do not accept this chain" };
 }
 async function uploadEndpoint(origin) {
   try {
-    const response = await fetch(`${origin}/api/uploads/00000000-0000-4000-8000-000000000000/finalize`, { method: "POST", redirect: "manual", signal: AbortSignal.timeout(TIMEOUT) });
-    const reached = response.status === 401 && (await response.json().catch(() => null))?.error === "Upload grant is missing.";
+    let response = await fetch(`${origin}/api/uploads/00000000-0000-4000-8000-000000000000/finalize`, { method: "POST", redirect: "manual", signal: AbortSignal.timeout(TIMEOUT) }), reached = response.status === 401 && (await response.json().catch(() => null))?.error === "Upload grant is missing.";
     return { ok: reached, status: response.status, ...reached ? {} : { note: "Expected HTTP 401 from the Feedback upload endpoint; a different answer usually comes from a proxy, gateway or sign-in page in between" } };
   } catch (error) {
     return failure(error);
@@ -9557,55 +7217,45 @@ async function uploadEndpoint(origin) {
 }
 async function tool2(name) {
   try {
-    return { found: true, version: (await execute2(name, ["-version"], { timeout: TIMEOUT })).stdout.split("\n")[0].trim().slice(0, 200) };
+    return { found: !0, version: (await execute2(name, ["-version"], { timeout: TIMEOUT })).stdout.split(`
+`)[0].trim().slice(0, 200) };
   } catch (error) {
-    return { found: false, ...error.code === "ENOENT" ? {} : { error: String(error.code ?? "failed") } };
+    return { found: !1, ...error.code === "ENOENT" ? {} : { error: String(error.code ?? "failed") } };
   }
 }
 async function doctor({ flags = {}, env = process.env, version: version2, paths } = {}) {
-  const report = { ok: false, cli: version2, node: { version: process.versions.node, required: nodeRequirement, ok: nodeSupported(), platform: process.platform, arch: process.arch } };
-  const ffmpeg = async () => ({ note: "Needed only for video pages", ffmpeg: await tool2("ffmpeg"), ffprobe: await tool2("ffprobe") });
-  let config;
+  let report = { ok: !1, ...{ cli: `${program} ${version2}`, edition }, node: { version: process.versions.node, required: nodeRequirement, ok: nodeSupported(), platform: process.platform, arch: process.arch } }, ffmpeg = async () => ({}), config;
   try {
     config = await loadConfig({ tools: [feedbackTool, uploadTool], flags, env, ...paths ? { paths } : {} });
   } catch (error) {
-    return { ...report, config: { error: error.message }, ffmpeg: await ffmpeg() };
+    return { ...report, config: { error: error.message }, ...await ffmpeg() };
   }
-  const shown = (keys, prefix = "") => Object.fromEntries(keys.map((key) => [key, prefix + key]).filter(([, key]) => config.settings[key] !== void 0).map(([name, key]) => [name, { value: key === "proxy.url" ? redactProxy(config.settings[key]) : config.settings[key], source: config.sources[key] }]));
-  report.config = { files: config.files, shared: shown(NETWORK_KEYS), feedback: shown(Object.keys(feedbackTool.keys), `${feedbackTool.name}.`), upload: shown(Object.keys(uploadTool.keys), `${uploadTool.name}.`), ignored: config.ignored };
-  if (!report.node.ok) return { ...report, network: { skipped: "This Node.js version cannot apply the proxy and certificate settings" }, ffmpeg: await ffmpeg() };
+  let shown = (keys, prefix = "") => Object.fromEntries(keys.map((key) => [key, prefix + key]).filter(([, key]) => config.settings[key] !== void 0).map(([name, key]) => [name, { value: key === "proxy.url" ? redactProxy(config.settings[key]) : config.settings[key], source: config.sources[key] }]));
+  if (report.config = { files: config.files, shared: shown(NETWORK_KEYS), feedback: shown(Object.keys(feedbackTool.keys), `${feedbackTool.name}.`), upload: shown(Object.keys(uploadTool.keys), `${uploadTool.name}.`), ignored: config.ignored }, !report.node.ok) return { ...report, network: { skipped: "This Node.js version cannot apply the proxy and certificate settings" }, ...await ffmpeg() };
   let applied;
   try {
     applied = applyNetwork(config, { env });
   } catch (error) {
-    return { ...report, network: { error: error.message }, ffmpeg: await ffmpeg() };
+    return { ...report, network: { error: error.message }, ...await ffmpeg() };
   }
-  const { trust, proxy } = applied;
-  const unverified = env.NODE_TLS_REJECT_UNAUTHORIZED === "0";
-  report.certificates = { mode: config.settings["ca.mode"], ...config.settings["ca.mode"] === "file" ? { file: config.settings["ca.file"] } : {}, trusted: trust.certificates.length, nodeExtraCaCerts: trust.extra, ...unverified ? { verification: "disabled by NODE_TLS_REJECT_UNAUTHORIZED=0; remove this variable" } : {} };
-  report.proxy = { mode: proxy.mode, ...proxy.https ? { url: redactProxy(proxy.https), source: proxy.source } : {}, ...proxy.noProxy === void 0 ? {} : { noProxy: proxy.noProxy } };
-  const connection = async (origin) => {
-    const url = new URL(origin), secure = url.protocol === "https:", host = url.hostname.replace(/^\[|\]$/g, ""), port = Number(url.port || (secure ? 443 : 80));
-    const address = secure ? proxy.https : proxy.http;
-    const via = address && !bypassesProxy(url.hostname, port, proxy.noProxy) ? new URL(address) : null;
+  let { trust, proxy } = applied, unverified = env.NODE_TLS_REJECT_UNAUTHORIZED === "0";
+  report.certificates = { mode: config.settings["ca.mode"], ...config.settings["ca.mode"] === "file" ? { file: config.settings["ca.file"] } : {}, trusted: trust.certificates.length, nodeExtraCaCerts: trust.extra, ...unverified ? { verification: "disabled by NODE_TLS_REJECT_UNAUTHORIZED=0; remove this variable" } : {} }, report.proxy = { mode: proxy.mode, ...proxy.https ? { url: redactProxy(proxy.https), source: proxy.source } : {}, ...proxy.noProxy === void 0 ? {} : { noProxy: proxy.noProxy } };
+  let connection = async (origin) => {
+    let url = new URL(origin), secure = url.protocol === "https:", host = url.hostname.replace(/^\[|\]$/g, ""), port = Number(url.port || (secure ? 443 : 80)), address = secure ? proxy.https : proxy.http, via = address && !bypassesProxy(url.hostname, port, proxy.noProxy) ? new URL(address) : null;
     return {
       origin,
       dns: { ...await resolve(host), ...via ? { note: "With a proxy, local name resolution of the target is not required" } : {} },
-      proxy: via ? { used: true, dns: await resolve(via.hostname) } : { used: false },
+      proxy: via ? { used: !0, dns: await resolve(via.hostname) } : { used: !1 },
       ...secure ? { tls: await inspectedCertificate(host, port, via) } : {}
     };
   };
   report.origins = await Promise.all(config.settings["feedback.allowedOrigins"].map(async (origin) => ({ ...await connection(origin), uploadEndpoint: await uploadEndpoint(origin) })));
-  const targets = await Promise.all(config.settings["upload.allowedOrigins"].map(connection));
-  report.upload = { ok: targets.every((item) => item.tls?.ok !== false), note: "Targets of the put command; needed only where a Brixon tool uploads files with it", origins: targets };
-  report.ffmpeg = await ffmpeg();
-  report.ok = !unverified && report.upload.ok && report.origins.every((item) => item.uploadEndpoint.ok && item.tls?.ok !== false);
-  return report;
+  let targets = await Promise.all(config.settings["upload.allowedOrigins"].map(connection));
+  return report.upload = { ok: targets.every((item) => item.tls?.ok !== !1), note: "Targets of the put command; needed only where a Brixon tool uploads files with it", origins: targets }, Object.assign(report, await ffmpeg()), report.ok = !unverified && report.upload.ok && report.origins.every((item) => item.uploadEndpoint.ok && item.tls?.ok !== !1), report;
 }
 
 // cli/index.mjs
-var { version } = JSON.parse(await readFile6(new URL("../feedback/package.json", import.meta.url), "utf8"));
-var help = `brixon-feedback ${version}
+var { version } = JSON.parse(await readFile6(new URL("../feedback/package.json", import.meta.url), "utf8")), help = `brixon-feedback ${version}
 
 inspect --root DIR --page KEY=PATH [--page KEY=PATH ...] [--video KEY=PATH ...] [--title KEY=TITLE] [--interactive KEY] [--include KEY=PATH] [--submitted-by NAME_OR_EMAIL]
         [--review-copy] [--timeline KEY=FILE] [--captions KEY=FILE.vtt]
@@ -9623,7 +7273,7 @@ upload --manifest FILE [--root DIR] [--round FILE --claim FILE] [--proxy URL] [-
 finalize --manifest FILE [--root DIR] [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
 doctor [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
 put --file PATH [--proxy URL] [--no-proxy HOSTS] [--ca-file PEM]
-skills install|check: unavailable in this bundle; update the brixon-ai-client-core plugin instead
+skills install|check [--target both|codex|claude] [--scope project|user] [--directory DIR]
 
 All commands return JSON. --state FILE overrides the workspace .brixon-feedback.json.
 manifest writes JSON to stdout; save it outside the selected output directory.
@@ -9660,7 +7310,7 @@ round --include-page KEY lets an apply round also change a sibling video that sh
 comment with scope "source" (proven by both pages' timelines).
 --page-order lists every selected page key once, in review order, for a new collection only.
 Existing collections retain their saved order; use feedback_set_page_order to change it.
-check-baseline exits 2 on changed/missing files. Standalone skill installation/checking is unavailable here.
+check-baseline exits 2 on changed/missing files; skills check exits 2 when outdated.
 No command performs permanent authentication or saves an upload token.
 upload and finalize read the short-lived upload ticket JSON from stdin.
 finalize recovers an uncertain completion without uploading files again.
@@ -9676,119 +7326,121 @@ doctor reports the Node.js version, the effective settings with their origin, na
 certificate issuer, the upload endpoint, the targets of put and FFmpeg as JSON without secrets; it exits 2 on a problem.
 put sends one local file to an upload URL that a Brixon MCP server prepared (for example a presigned storage URL).
 It reads the ticket JSON from hidden stdin: uploadUrl (required), expiresAt, contentType, method (PUT by default, or
-POST) and headers (optional); other fields are ignored, so the result of the prepare-upload tool can be passed
-unchanged. The file (jpg, jpeg, png, gif, webp, mp4, mov, pdf, doc, docx, ppt, pptx) is streamed with its exact length
-as the raw body of one request; form and multi-part uploads are refused. A PUT is repeated after a transient network
-error. The target must be https and listed in upload.allowedOrigins (BRIXON_UPLOAD_ALLOWED_ORIGINS); an expired
-ticket is refused. The upload URL and the ticket headers are credentials and never appear in output.
+POST) and headers (optional); other fields are ignored. Pass the object that contains uploadUrl; where a tool
+returns several slots, pass one slot or its ticket per call. The file (jpg, jpeg, png, gif, webp, mp4, mov, pdf, doc,
+docx, ppt, pptx) is streamed with its exact length as the raw body of one request; form and multi-part uploads are
+refused. A PUT is repeated after a transient network error. The target must be https and listed in
+upload.allowedOrigins (BRIXON_UPLOAD_ALLOWED_ORIGINS); an expired ticket is refused. When the service refuses the
+file, the error repeats its answer as far as that is safe. The upload URL and the ticket headers are credentials
+and never appear in output.
 Result: {ok, file, bytes, method, status, contentType, origin, attempts}; "inferred" is added when a retry found the
 file already stored (HTTP 412 for a ticket with If-None-Match: *) after an earlier attempt had sent it completely.
-Node.js 24.14 or newer is required. Details: docs/setup.md of the brixon-ai-client-core plugin.
+Node.js 24.14 or newer is required. Details are in the administration guide for the Node operating mode.
 `;
 function options(args) {
-  const result = {};
+  let result = {};
   for (let index = 0; index < args.length; index++) {
-    const key = args[index];
+    let key = args[index];
     if (["--no-folder", "--new-series", "--private", "--review-copy"].includes(key)) {
       if (result[key.slice(2)]) throw new Error(`Repeated option: ${key}`);
-      result[key.slice(2)] = true;
+      result[key.slice(2)] = !0;
       continue;
     }
     if (!key.startsWith("--") || args[index + 1] === void 0 || args[index + 1].startsWith("--")) throw new Error(`Expected --option VALUE, got ${key.split("=")[0]}`);
-    const name = key.slice(2);
+    let name = key.slice(2);
     if (!["root", "page", "title", "name", "collection", "base-revision", "state", "manifest", "target", "scope", "directory", "feedback", "round", "claim", "comment", "snapshot", "folder", "submitted-by", "page-order", "campaign", "interactive", "include", "video", "timeline", "captions", "include-page", "file", ...networkFlags].includes(name)) throw new Error(`Unknown option: ${key}`);
-    const value = args[++index];
+    let value = args[++index];
     if (["page", "title", "comment", "interactive", "include", "video", "timeline", "captions", "include-page"].includes(name)) (result[name] ??= []).push(value);
-    else if (result[name] !== void 0) throw new Error(`Repeated option: ${key}`);
-    else result[name] = value;
+    else {
+      if (result[name] !== void 0) throw new Error(`Repeated option: ${key}`);
+      result[name] = value;
+    }
   }
   return result;
 }
 function keyValues(values = []) {
   return values.map((value) => {
-    const split = value.indexOf("=");
+    let split = value.indexOf("=");
     if (split < 1 || split === value.length - 1) throw new Error(`Expected KEY=VALUE: ${value}`);
     return [value.slice(0, split), value.slice(split + 1)];
   });
 }
 async function videosFromOptions(root, opts, warnings) {
-  const titles = Object.fromEntries(keyValues(opts.title)), videos = keyValues(opts.video);
-  const extra = (name) => {
-    const pairs = keyValues(opts[name]);
-    for (const [key] of pairs) if (pairs.filter(([other]) => other === key).length > 1 || !videos.some(([video]) => video === key)) throw new Error(`--${name} names each selected --video key once: ${key}`);
+  let titles = Object.fromEntries(keyValues(opts.title)), videos = keyValues(opts.video), extra = (name) => {
+    let pairs = keyValues(opts[name]);
+    for (let [key] of pairs) if (pairs.filter(([other]) => other === key).length > 1 || !videos.some(([video]) => video === key)) throw new Error(`--${name} names each selected --video key once: ${key}`);
     return Object.fromEntries(pairs);
-  };
-  const keys = [...videos.map(([key]) => key), ...keyValues(opts.page).map(([key]) => key)];
-  if (new Set(keys).size !== keys.length) throw new Error(`Duplicate page key in --page/--video: ${keys.find((key, index) => keys.indexOf(key) !== index)}`);
-  const timelines = extra("timeline"), captions = extra("captions");
-  const pages = [];
-  for (const [key, source] of videos) pages.push(await prepareVideo(root, { key, title: titles[key], source, timeline: timelines[key], captions: captions[key] }, { reviewCopy: !!opts["review-copy"] }, warnings));
+  }, keys = [...videos.map(([key]) => key), ...keyValues(opts.page).map(([key]) => key)];
+  if (new Set(keys).size !== keys.length) throw new Error(`Duplicate page key in ${"--page"}: ${keys.find((key, index) => keys.indexOf(key) !== index)}`);
+  let timelines = extra("timeline"), captions = extra("captions"), pages = [];
+  for (let [key, source] of videos) pages.push(await prepareVideo(root, { key, title: titles[key], source, timeline: timelines[key], captions: captions[key] }, { reviewCopy: !!opts["review-copy"] }, warnings));
   return pages;
 }
 function pagesFromOptions(opts) {
-  const titles = Object.fromEntries(keyValues(opts.title)), interactive = new Set(opts.interactive || []), include = keyValues(opts.include);
-  const pages = keyValues(opts.page).map(([key, file]) => ({ key, path: file, title: titles[key] || key, ...interactive.has(key) ? { interactive: true } : {}, ...include.some(([page]) => page === key) ? { include: include.filter(([page]) => page === key).map(([, file2]) => file2) } : {} }));
-  for (const key of [...interactive, ...include.map(([key2]) => key2)]) if (!pages.some((page) => page.key === key)) throw new Error(`--interactive and --include name a selected page key: ${key}`);
+  let titles = Object.fromEntries(keyValues(opts.title)), interactive = new Set(opts.interactive || []), include = keyValues(opts.include), pages = keyValues(opts.page).map(([key, file]) => ({ key, path: file, title: titles[key] || key, ...interactive.has(key) ? { interactive: !0 } : {}, ...include.some(([page]) => page === key) ? { include: include.filter(([page]) => page === key).map(([, file2]) => file2) } : {} }));
+  for (let key of [...interactive, ...include.map(([key2]) => key2)]) if (!pages.some((page) => page.key === key)) throw new Error(`--interactive and --include name a selected page key: ${key}`);
   return pages;
 }
 async function readRound(filename, stateFile) {
-  const round = JSON.parse(await readFile6(filename, "utf8"));
-  const state = await readState(stateFile);
-  const mapped = state.collections.find((item) => item.collectionId === round.collectionId);
+  let round = JSON.parse(await readFile6(filename, "utf8")), mapped = (await readState(stateFile)).collections.find((item) => item.collectionId === round.collectionId);
   if (round.reviewUrl === void 0) {
     if (round.schemaVersion !== 1 || !mapped || mapped.projectId !== round.projectId || round.claimInput?.collectionId !== round.collectionId || !Array.isArray(round.claimInput.comments)) throw new Error("Legacy round requires its exact saved collection and project mapping");
-    const reviewUrl = reviewLink(mapped.reviewUrl).reviewUrl;
+    let reviewUrl = reviewLink(mapped.reviewUrl).reviewUrl;
     return { ...round, reviewUrl, claimInput: { reviewUrl, comments: round.claimInput.comments } };
   }
-  const target = reviewLink(round.reviewUrl);
+  let target = reviewLink(round.reviewUrl);
   if (target.collectionId !== round.collectionId || reviewLink(round.claimInput?.reviewUrl).reviewUrl !== target.reviewUrl || mapped && (mapped.projectId !== round.projectId || !sameReview(mapped.reviewUrl, target.reviewUrl))) throw new Error("Round review URL does not match its saved collection and project mapping");
   return round;
 }
 async function main() {
-  const [command, ...args] = process.argv.slice(2);
-  if (!command || command === "--help" || command === "help") return process.stdout.write(help);
-  if (command === "--version") return process.stdout.write(`${version}
+  let [command, ...args] = process.argv.slice(2);
+  if (!command || command === "--help" || command === "help") return process.stdout.write(clientHelp(version));
+  if (command === "--version") return process.stdout.write(`${program} ${version}
 `);
-  if (command !== "doctor") requireNode("brixon-feedback");
-  const skillAction = command === "skills" ? args.shift() : null;
-  const opts = options(args);
+  command !== "doctor" && requireNode(program, doctorCommand);
+  let skillAction = command === "skills" ? args.shift() : null, opts = options(args);
+  if (!0) {
+    for (let flag of videoOptions) if (opts[flag] !== void 0) throw new Error(`--${flag} is not available: ${noVideo}`);
+  }
+  if (command === "skills") throw new Error("Skills come with the Brixon plugin; this edition of the Brixon CLI does not install them");
+  let withoutVideo = (pages) => {
+    if (Array.isArray(pages) && pages.some((page) => page?.kind === "video" || page?.versions?.some?.((item) => item?.kind === "video"))) throw new Error(`This review contains video pages; ${noVideo}`);
+  };
   if (opts["page-order"] !== void 0 && command !== "manifest") throw new Error("--page-order is supported only by manifest for a new collection");
   if (opts["submitted-by"] !== void 0 && !["inspect", "manifest"].includes(command)) throw new Error("--submitted-by is supported only by inspect and manifest");
-  for (const flag of ["video", "review-copy", "timeline", "captions"]) if (opts[flag] !== void 0 && !["inspect", "manifest"].includes(command)) throw new Error(`--${flag} is supported only by inspect and manifest`);
+  for (let flag of ["video", "review-copy", "timeline", "captions"]) if (opts[flag] !== void 0 && !["inspect", "manifest"].includes(command)) throw new Error(`--${flag} is supported only by inspect and manifest`);
   if (!opts.video && (opts["review-copy"] || opts.timeline || opts.captions)) throw new Error("--review-copy, --timeline and --captions require the video pages with --video KEY=PATH");
   if (opts["include-page"] !== void 0 && command !== "round") throw new Error("--include-page is supported only by round");
-  for (const flag of ["folder", "no-folder", "new-series", "campaign", "private"]) if (opts[flag] !== void 0 && command !== "manifest") throw new Error(`--${flag} is supported only by manifest for a new review`);
+  for (let flag of ["folder", "no-folder", "new-series", "campaign", "private"]) if (opts[flag] !== void 0 && command !== "manifest") throw new Error(`--${flag} is supported only by manifest for a new review`);
   if (opts.folder !== void 0 && opts["no-folder"]) throw new Error("Choose either --folder PROJECT_ID or --no-folder");
-  for (const flag of networkFlags) if (opts[flag] !== void 0 && !["upload", "finalize", "doctor", "put"].includes(command)) throw new Error(`--${flag} is supported only by upload, finalize, put and doctor`);
+  for (let flag of networkFlags) if (opts[flag] !== void 0 && !["upload", "finalize", "doctor", "put"].includes(command)) throw new Error(`--${flag} is supported only by upload, finalize, put and doctor`);
   if (opts.file !== void 0 && command !== "put") throw new Error("--file is supported only by put");
   if (opts.folder !== void 0 && !/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(opts.folder)) throw new Error("--folder requires an existing folder ID from feedback_list_folders");
-  const localState = path7.resolve(opts.state || statePath(process.cwd()));
-  let result;
+  let localState = path7.resolve(opts.state || statePath(process.cwd())), result;
   if (command === "skills") {
     if (!["install", "check"].includes(skillAction)) throw new Error("Use skills install or skills check");
-    result = await manageSkills({ action: skillAction, ...opts });
-    if (!result.ok) process.exitCode = 2;
+    result = await manageSkills({ action: skillAction, ...opts }), result.ok || (process.exitCode = 2);
   } else if (command === "put") {
     if (!opts.file) throw new Error("Supply --file PATH");
-    const config = await loadConfig({ tools: [uploadTool], flags: opts });
+    let config = await loadConfig({ tools: [uploadTool], flags: opts });
     applyNetwork(config);
     try {
       result = await put({ file: opts.file, ticket: await readTicket(), allowedOrigins: config.settings["upload.allowedOrigins"] });
     } finally {
       setTimeout(() => process.exit(), 2e3).unref();
     }
-  } else if (command === "doctor") {
-    result = await doctor({ flags: opts, version });
-    if (!result.ok) process.exitCode = 2;
-  } else if (command === "state") result = await readState(localState);
+  } else if (command === "doctor")
+    result = await doctor({ flags: opts, version }), result.ok || (process.exitCode = 2);
+  else if (command === "state") result = await readState(localState);
   else if (command === "target") result = selectCollection(await readState(localState), opts.collection);
   else if (command === "map") {
     if (!opts.collection || !opts.snapshot || !opts.root) throw new Error("Supply --collection REVIEW_URL, --snapshot FILE from get_collection, and --root DIR");
-    result = await mapCollection(localState, opts.collection, JSON.parse(await readFile6(opts.snapshot, "utf8")), opts.root);
+    let snapshot = JSON.parse(await readFile6(opts.snapshot, "utf8"));
+    withoutVideo(snapshot?.pages), result = await mapCollection(localState, opts.collection, snapshot, opts.root);
   } else if (command === "round") {
     if (!opts.feedback) throw new Error("Supply --feedback FILE containing the MCP feedback result");
-    result = await planRound(selectCollection(await readState(localState), opts.collection), JSON.parse(await readFile6(opts.feedback, "utf8")), opts.comment, opts.root ? path7.resolve(opts.root) : void 0, opts["include-page"]);
-    if (!result.noOp && !result.ready) process.exitCode = 2;
+    let collection = selectCollection(await readState(localState), opts.collection);
+    withoutVideo(collection.pages), result = await planRound(collection, JSON.parse(await readFile6(opts.feedback, "utf8")), opts.comment, opts.root ? path7.resolve(opts.root) : void 0, opts["include-page"]), !result.noOp && !result.ready && (process.exitCode = 2);
   } else if (command === "check-claim") {
     if (!opts.round || !opts.claim) throw new Error("Supply --round FILE and --claim FILE");
     result = validateClaim(await readRound(opts.round, localState), JSON.parse(await readFile6(opts.claim, "utf8")));
@@ -9797,82 +7449,74 @@ async function main() {
     result = renewRound(await readRound(opts.round, localState), JSON.parse(await readFile6(opts.feedback, "utf8")), opts.comment);
   } else if (command === "impact") {
     if (!opts.manifest) throw new Error("Supply --manifest FILE");
-    const manifest = JSON.parse(await readFile6(opts.manifest, "utf8"));
-    const round = opts.round ? await readRound(opts.round, localState) : void 0;
-    result = publicationImpact(selectCollection(await readState(localState), manifest.schemaVersion === 1 ? manifest.collectionId : manifest.reviewUrl), manifest, round);
-    if (!result.withinRound) process.exitCode = 2;
-  } else if (command === "check-baseline") {
-    result = await checkBaseline(selectCollection(await readState(localState), opts.collection), opts.root);
-    if (!result.ok) process.exitCode = 2;
-  } else if (command === "inspect" || command === "manifest") {
+    let manifest = JSON.parse(await readFile6(opts.manifest, "utf8")), round = opts.round ? await readRound(opts.round, localState) : void 0;
+    result = publicationImpact(selectCollection(await readState(localState), manifest.schemaVersion === 1 ? manifest.collectionId : manifest.reviewUrl), manifest, round), result.withinRound || (process.exitCode = 2);
+  } else if (command === "check-baseline")
+    result = await checkBaseline(selectCollection(await readState(localState), opts.collection), opts.root), result.ok || (process.exitCode = 2);
+  else if (command === "inspect" || command === "manifest") {
     let previous;
     if (command === "manifest" && (opts.collection || !opts.page && !opts.video)) {
-      const state = await readState(localState);
+      let state = await readState(localState);
       previous = selectCollection(state, opts.collection);
     }
     if (previous && (opts.folder !== void 0 || opts["no-folder"])) throw new Error("Move an existing review through feedback_update_project with its current metadata revision; --folder and --no-folder are only for new reviews");
     if (previous && (opts.campaign !== void 0 || opts.private)) throw new Error("--campaign and --private are only for a new review; a revision keeps its project and visibility");
     if (previous && opts["new-series"]) throw new Error("--new-series is only for a new review; a revision keeps its review URL");
     if (previous && opts["page-order"] !== void 0) throw new Error("--page-order is only supported for a new collection; use feedback_set_page_order for an existing collection");
-    const root = opts.root || previous?.root;
+    withoutVideo(previous?.pages);
+    let root = opts.root || previous?.root;
     if (!root) throw new Error("Supply --root with the explicitly selected output directory");
     if (!opts.page && (opts.interactive || opts.include)) throw new Error("--interactive and --include require the pages with --page KEY=PATH");
-    const warnings = [];
-    let pages;
+    let warnings = [], pages;
     if (opts.page || opts.video) pages = [...opts.page ? pagesFromOptions(opts) : [], ...await videosFromOptions(root, opts, warnings)];
     else if (previous) {
       pages = [];
-      for (const page of previous.pages) pages.push(page.kind === "video" ? await refreshVideo(root, page) : page.interactive ? { ...page, include: page.files.filter((file) => file !== page.path) } : page);
+      for (let page of previous.pages) pages.push(page.kind === "video" ? await refreshVideo(root, page) : page.interactive ? { ...page, include: page.files.filter((file) => file !== page.path) } : page);
     }
-    if (!pages?.length) throw new Error("Select pages explicitly with --page KEY=PATH or --video KEY=PATH");
+    if (!pages?.length) throw new Error("Select pages explicitly with --page KEY=PATH");
     if (previous && previous.pages.some((page) => !pages.some((next) => next.key === page.key))) throw new Error("Publication must retain every existing page key");
-    const submittedBy = submittedByLabel(opts["submitted-by"] ?? previous?.submittedBy);
-    const inspected = { ...await inspectFiles(root, pages, warnings), ...submittedBy === void 0 ? {} : { submittedBy } };
+    let submittedBy = submittedByLabel(opts["submitted-by"] ?? previous?.submittedBy), inspected = { ...await inspectFiles(root, pages, warnings), ...submittedBy === void 0 ? {} : { submittedBy } };
     if (command === "inspect") result = { ...inspected, warnings };
     else {
-      const collectionName = opts.name || previous?.collectionName;
+      let collectionName = opts.name || previous?.collectionName;
       if (!collectionName?.trim() || collectionName.length > 200) throw new Error("A collection requires --name with 1–200 characters");
-      const placement = previous ? {} : { source: await detectSource(process.cwd(), root, opts.campaign), ...opts.folder !== void 0 ? { folderId: opts.folder.toLowerCase() } : opts["no-folder"] ? { folderId: null } : {}, ...opts.private ? { private: true } : {} };
-      result = { schemaVersion: 2, collectionName, ...inspected, ...previous ? {} : { ...placement, requestId: randomUUID3(), ...opts["new-series"] ? { newSeries: true } : {} } };
-      if (opts["page-order"] !== void 0) result.pageOrder = opts["page-order"].split(",").map((key) => key.trim());
-      validateInitialPageOrder(result);
-      if (previous) {
-        const revision = opts["base-revision"] === void 0 ? previous.revision : Number(opts["base-revision"]);
+      let placement = previous ? {} : { source: await detectSource(process.cwd(), root, opts.campaign), ...opts.folder !== void 0 ? { folderId: opts.folder.toLowerCase() } : opts["no-folder"] ? { folderId: null } : {}, ...opts.private ? { private: !0 } : {} };
+      if (result = { schemaVersion: 2, collectionName, ...inspected, ...previous ? {} : { ...placement, requestId: randomUUID3(), ...opts["new-series"] ? { newSeries: !0 } : {} } }, opts["page-order"] !== void 0 && (result.pageOrder = opts["page-order"].split(",").map((key) => key.trim())), validateInitialPageOrder(result), previous) {
+        let revision = opts["base-revision"] === void 0 ? previous.revision : Number(opts["base-revision"]);
         if (!Number.isInteger(revision) || revision < 1 || revision !== previous.revision) throw new Error("Base revision must match the saved source mapping");
-        result.reviewUrl = reviewLink(previous.reviewUrl).reviewUrl;
-        result.baseRevision = revision;
+        result.reviewUrl = reviewLink(previous.reviewUrl).reviewUrl, result.baseRevision = revision;
       } else if (opts["base-revision"]) throw new Error("--base-revision requires a mapped existing collection");
-      for (const warning of warnings) process.stderr.write(JSON.stringify({ warning }) + "\n");
+      for (let warning of warnings) process.stderr.write(JSON.stringify({ warning }) + `
+`);
       if (opts.round) {
         if (!previous) throw new Error("A feedback round requires an existing mapped collection");
-        const impact = publicationImpact(previous, result, await readRound(opts.round, localState));
+        let impact = publicationImpact(previous, result, await readRound(opts.round, localState));
         if (!impact.withinRound) throw new Error(`Changes outside the feedback round: ${[...impact.unrelatedFiles, ...impact.addedPages].join(", ")}`);
         if (impact.noOp) throw new Error("No changed page content; do not publish this feedback round");
       }
     }
   } else if (command === "upload" || command === "finalize") {
     if (!opts.manifest) throw new Error("Supply --manifest FILE");
-    const manifest = JSON.parse(await readFile6(opts.manifest, "utf8"));
-    const state = await readState(localState);
-    const selector = manifest.schemaVersion === 1 ? manifest.collectionId : manifest.reviewUrl;
-    const mapped = selector ? state.collections.find((item) => matchesCollection(item, selector)) : null;
-    const root = opts.root || mapped?.root;
+    let manifest = JSON.parse(await readFile6(opts.manifest, "utf8"));
+    withoutVideo(manifest?.pages);
+    let state = await readState(localState), selector = manifest.schemaVersion === 1 ? manifest.collectionId : manifest.reviewUrl, mapped = selector ? state.collections.find((item) => matchesCollection(item, selector)) : null, root = opts.root || mapped?.root;
     if (!root) throw new Error("Supply --root DIR for this new collection");
     if (opts.round) {
       if (!opts.claim || !mapped) throw new Error("A feedback upload requires its mapped collection and --claim FILE");
-      const round = await readRound(opts.round, localState);
+      let round = await readRound(opts.round, localState);
       validateClaim(round, JSON.parse(await readFile6(opts.claim, "utf8")));
-      const impact = publicationImpact(mapped, manifest, round);
+      let impact = publicationImpact(mapped, manifest, round);
       if (!impact.withinRound || impact.noOp) throw new Error("Upload has no changes or contains changes outside the feedback round");
     }
-    const config = await loadConfig({ tools: [feedbackTool], flags: opts });
+    let config = await loadConfig({ tools: [feedbackTool], flags: opts });
     applyNetwork(config);
-    const ticket = await readTicket();
+    let ticket = await readTicket();
     result = await upload({ manifest, ticket, root, stateFile: localState, finalizeOnly: command === "finalize", allowedOrigins: config.settings["feedback.allowedOrigins"], parallel: config.settings["feedback.uploads.parallel"] });
   } else throw new Error(`Unknown command: ${command}; use --help`);
-  process.stdout.write(JSON.stringify(result, null, 2) + "\n");
+  process.stdout.write(JSON.stringify(result, null, 2) + `
+`);
 }
 main().catch((error) => {
-  process.stderr.write(JSON.stringify({ error: error.message }) + "\n");
-  process.exitCode = 1;
+  process.stderr.write(JSON.stringify({ error: error.message }) + `
+`), process.exitCode = 1;
 });

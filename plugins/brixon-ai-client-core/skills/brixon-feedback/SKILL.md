@@ -26,8 +26,9 @@ instruction always wins: verify the files locally and return their paths.
   network, the certificate or the Node.js version, run `node "$BRIXON_CLI" doctor` and show the
   person its report; the plugin's `docs/setup.md` explains the settings their IT can make.
 
-Video pages are not part of the customer offering: do not use `--video`, `--timeline`,
-`--captions` or `--review-copy`.
+Video pages are not available in this CLI. It refuses the video options, and it refuses to
+publish to or apply feedback for a review that contains video pages: report that to the person.
+The link of such a review and read-only questions about it still work.
 
 ## Terms
 

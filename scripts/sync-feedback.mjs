@@ -29,40 +29,48 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
   const { nodeRequirement } = await import(pathToFileURL(path.join(source, 'cli/network.mjs')));
   const nodeMajor = /^>=(\d+)\.\d+$/.exec(nodeRequirement)?.[1];
   if (!nodeMajor) throw new Error(`Review the Node.js requirement of the source CLI: ${nodeRequirement}`);
-  const adapted = { index: 0, skills: 0 };
+  // Clients get the client edition of the CLI: the source decides what that leaves out.
+  const edition = 'client';
+  // What differs in this distribution: where the package record lives, where the setup notes are, and the
+  // edition as a fixed value, so that the bundler can leave out what only the other edition uses.
+  const adapters = {
+    'index.mjs': [["new URL('../package.json', import.meta.url)", "new URL('../feedback/package.json', import.meta.url)"]],
+    'edition.mjs': [
+      ['Details are in the administration guide for the Node operating mode.', 'Details: docs/setup.md of the brixon-ai-client-core plugin.'],
+      // Declared first and as a plain value: only then does the bundler carry it into the other modules.
+      ["export const client = edition === 'client';", ''],
+      ['/* global __BRIXON_CLI_EDITION__ */', `export const client = ${edition === 'client'};`],
+    ],
+  };
+  const adapted = [];
   const bundled = await build({
     absWorkingDir: source, entryPoints: ['cli/index.mjs'], outfile: 'cli/index.mjs',
     bundle: true, platform: 'node', format: 'esm', target: `node${nodeMajor}`,
+    define: { __BRIXON_CLI_EDITION__: JSON.stringify(edition) }, minifySyntax: true,
     write: false, charset: 'utf8', legalComments: 'inline', metafile: true,
     plugins: [{ name: 'core-package-location', setup(builder) {
-      builder.onLoad({ filter: /cli[\\/](index|skills)\.mjs$/ }, async ({ path: filename }) => {
+      builder.onLoad({ filter: /cli[\\/](index|edition|skills)\.mjs$/ }, async ({ path: filename }) => {
         let contents = await readFile(filename, 'utf8');
-        if (path.basename(filename) === 'skills.mjs') {
+        const name = path.basename(filename);
+        adapted.push(name);
+        // Skills come with the plugin; the installer of the source is left out.
+        if (name === 'skills.mjs') {
           if (!contents.includes('export async function manageSkills(')) throw new Error(`Review marketplace skill adapter: ${filename}`);
-          adapted.skills += 1;
           return { contents: `export async function manageSkills() {
-            throw new Error('Feedback skills come with the brixon-ai-client-core plugin. Update the plugin through Claude Code or Codex; standalone skills install/check is unavailable in this bundled CLI.');
+            throw new Error('Skills come with the brixon-ai-client-core plugin; update the plugin through Claude Code or Codex.');
           }`, loader: 'js' };
         }
-        adapted.index += 1;
-        for (const [before, after] of [
-          ["new URL('../package.json', import.meta.url)", "new URL('../feedback/package.json', import.meta.url)"],
-          ['skills install|check [--target both|codex|claude] [--scope project|user] [--directory DIR]',
-            'skills install|check: unavailable in this bundle; update the brixon-ai-client-core plugin instead'],
-          ['check-baseline exits 2 on changed/missing files; skills check exits 2 when outdated.',
-            'check-baseline exits 2 on changed/missing files. Standalone skill installation/checking is unavailable here.'],
-          // The source points to its own administration guide; the plugin ships its setup notes instead.
-          ['Details are in the administration guide for the Node operating mode.', 'Details: docs/setup.md of the brixon-ai-client-core plugin.'],
-        ]) {
-          if (contents.split(before).length !== 2) throw new Error(`Review client-core distribution adapter: ${filename}`);
+        for (const [before, after] of adapters[name]) {
+          if (contents.split(before).length !== 2) throw new Error(`Review client-core distribution adapter: ${filename} must contain exactly once: ${before}`);
           contents = contents.replace(before, after);
         }
         return { contents, loader: 'js' };
       });
     } }],
   });
-  if (adapted.index !== 1 || adapted.skills !== 1) {
-    throw new Error(`Expected one index and one skills distribution adapter; got ${JSON.stringify(adapted)}`);
+  // A source without editions has no cli/edition.mjs and stops here.
+  if (adapted.sort().join(',') !== 'edition.mjs,index.mjs,skills.mjs') {
+    throw new Error(`Expected one index, one edition and one skills distribution adapter; got ${JSON.stringify(adapted)}. The source CLI must read __BRIXON_CLI_EDITION__ in cli/edition.mjs`);
   }
   const bundledPackages = new Set();
   const cliInputs = [];
@@ -101,10 +109,10 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
   output.set('feedback/THIRD-PARTY-NOTICES.md', notices.trimEnd() + '\n');
   output.set('feedback/upstream.json', JSON.stringify({
     source: 'Brixon Feedback CLI',
-    commit: git('rev-parse', 'HEAD'), version: pkg.version,
+    commit: git('rev-parse', 'HEAD'), version: pkg.version, edition,
     lockfileSha256: sha256(await read('package-lock.json')), esbuildVersion,
     ownership: { runtime: 'generated-from-upstream', skills: 'marketplace-owned; excluded from sync' },
-    adapters: ['core-package-location', 'disable-marketplace-standalone-skill-installer', 'plugin-setup-notes-location'],
+    adapters: ['core-package-location', 'disable-marketplace-standalone-skill-installer', 'plugin-setup-notes-location', 'fixed-edition'],
     sourceFiles: Object.fromEntries(await Promise.all(cliInputs.sort()
       .map(async name => [name, sha256(await read(name))]))),
     artifacts: Object.fromEntries([...output].map(([name, content]) => [name, sha256(content)])),
