@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
 
 // Only runtime artifacts are generated. Skills and references belong to this marketplace.
-// The CLI holds no credentials: uploads use a short-lived ticket from the Feedback MCP.
+// The CLI holds no credentials: uploads use a short-lived ticket from the MCP server that prepared them.
 export async function syncFeedback(sourceArg, { destination = fileURLToPath(new URL('../plugins/brixon-ai-client-core/', import.meta.url)), check = false } = {}) {
   const source = await realpath(sourceArg);
   const read = relative => readFile(path.join(source, relative), 'utf8');
@@ -25,10 +25,14 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
     }
   }
   const { build, version: esbuildVersion } = await import(pathToFileURL(path.join(source, 'node_modules/esbuild/lib/main.js')));
+  // The CLI states the Node.js versions it runs on; the package and the build target follow it.
+  const { nodeRequirement } = await import(pathToFileURL(path.join(source, 'cli/network.mjs')));
+  const nodeMajor = /^>=(\d+)\.\d+$/.exec(nodeRequirement)?.[1];
+  if (!nodeMajor) throw new Error(`Review the Node.js requirement of the source CLI: ${nodeRequirement}`);
   const adapted = { index: 0, skills: 0 };
   const bundled = await build({
     absWorkingDir: source, entryPoints: ['cli/index.mjs'], outfile: 'cli/index.mjs',
-    bundle: true, platform: 'node', format: 'esm', target: 'node22',
+    bundle: true, platform: 'node', format: 'esm', target: `node${nodeMajor}`,
     write: false, charset: 'utf8', legalComments: 'inline', metafile: true,
     plugins: [{ name: 'core-package-location', setup(builder) {
       builder.onLoad({ filter: /cli[\\/](index|skills)\.mjs$/ }, async ({ path: filename }) => {
@@ -47,6 +51,8 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
             'skills install|check: unavailable in this bundle; update the brixon-ai-client-core plugin instead'],
           ['check-baseline exits 2 on changed/missing files; skills check exits 2 when outdated.',
             'check-baseline exits 2 on changed/missing files. Standalone skill installation/checking is unavailable here.'],
+          // The source points to its own administration guide; the plugin ships its setup notes instead.
+          ['Details are in the administration guide for the Node operating mode.', 'Details: docs/setup.md of the brixon-ai-client-core plugin.'],
         ]) {
           if (contents.split(before).length !== 2) throw new Error(`Review client-core distribution adapter: ${filename}`);
           contents = contents.replace(before, after);
@@ -84,7 +90,7 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
   output.set('cli/index.mjs', bundled.outputFiles[0].text);
   output.set('feedback/package.json', JSON.stringify({
     name: '@brixon/feedback', version: pkg.version, private: true, type: 'module',
-    engines: { node: '>=22' }, bin: { 'brixon-feedback': '../cli/index.mjs' },
+    engines: { node: nodeRequirement }, bin: { 'brixon-feedback': '../cli/index.mjs' },
   }, null, 2) + '\n');
 
   let notices = '# Third-party licenses\n\nThe bundled CLI includes the following packages.\n';
@@ -98,7 +104,7 @@ export async function syncFeedback(sourceArg, { destination = fileURLToPath(new 
     commit: git('rev-parse', 'HEAD'), version: pkg.version,
     lockfileSha256: sha256(await read('package-lock.json')), esbuildVersion,
     ownership: { runtime: 'generated-from-upstream', skills: 'marketplace-owned; excluded from sync' },
-    adapters: ['core-package-location', 'disable-marketplace-standalone-skill-installer'],
+    adapters: ['core-package-location', 'disable-marketplace-standalone-skill-installer', 'plugin-setup-notes-location'],
     sourceFiles: Object.fromEntries(await Promise.all(cliInputs.sort()
       .map(async name => [name, sha256(await read(name))]))),
     artifacts: Object.fromEntries([...output].map(([name, content]) => [name, sha256(content)])),

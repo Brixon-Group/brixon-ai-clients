@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdtemp, mkdir, readFile, writeFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import { pathToFileURL } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { syncFeedback } from './sync-feedback.mjs';
 
@@ -35,6 +35,16 @@ test('sync owns runtime artifacts only and preserves marketplace skills and refe
   assert.equal(upstream.sourceSkills, undefined);
   assert.ok(Object.keys(upstream.artifacts).every(name => !name.startsWith('skills/')));
   assert.ok(upstream.sourceFiles['cli/skills.mjs']);
+  // Modules the CLI shares with the service and the upload command are part of the record.
+  assert.ok(upstream.sourceFiles['shared/frame-hosts.json']);
+  assert.ok(upstream.sourceFiles['cli/put.mjs']);
+  assert.match(upstream.commit, /^[0-9a-f]{40}$/);
+});
+
+test('the package states the Node.js requirement of the source CLI', enabled, async () => {
+  const { nodeRequirement } = await import(pathToFileURL(path.join(source, 'cli/network.mjs')));
+  const pkg = JSON.parse(await readFile(path.join(destination, 'feedback/package.json'), 'utf8'));
+  assert.equal(pkg.engines.node, nodeRequirement);
 });
 
 test('check is reproducible and leaves independent reference edits intact', enabled, async () => {
@@ -56,6 +66,8 @@ test('bundled standalone install and check refuse without project or home writes
   const help = spawnSync(process.execPath, [cli, '--help'], { cwd: project, encoding: 'utf8' });
   assert.equal(help.status, 0, help.stderr);
   assert.match(help.stdout, /skills install\|check: unavailable in this bundle/);
+  assert.match(help.stdout, /Details: docs\/setup\.md of the brixon-ai-client-core plugin\./);
+  assert.match(help.stdout, /^put --file PATH/m);
   for (const action of ['install', 'check']) for (const scope of ['project', 'user']) {
     const result = spawnSync(process.execPath, [cli, 'skills', action, '--target', 'both', '--scope', scope, '--directory', project], {
       cwd: project, env: { PATH: '/usr/bin:/bin', HOME: home }, encoding: 'utf8', timeout: 10000,
@@ -86,4 +98,27 @@ test('bundled manifest and mapped target remain usable without network', enabled
   const selected = command(['target', '--collection', reviewUrl]);
   assert.equal(selected.status, 0, selected.stderr);
   assert.equal(JSON.parse(selected.stdout).reviewUrl, reviewUrl);
+});
+
+// Runs without a source checkout: the build committed to this repository starts and names its commands.
+test('the committed CLI starts and reports the version of its package', async () => {
+  const plugin = fileURLToPath(new URL('../plugins/brixon-ai-client-core/', import.meta.url));
+  const { version } = JSON.parse(await readFile(path.join(plugin, 'feedback/package.json'), 'utf8'));
+  const run = args => spawnSync(process.execPath, [path.join(plugin, 'cli/index.mjs'), ...args], { encoding: 'utf8', timeout: 10000 });
+  const reported = run(['--version']);
+  assert.equal(reported.status, 0, reported.stderr);
+  assert.equal(reported.stdout.trim(), version);
+  const help = run(['--help']);
+  assert.equal(help.status, 0, help.stderr);
+  for (const command of ['upload --manifest', 'doctor', 'put --file PATH']) assert.ok(help.stdout.includes(`\n${command}`), command);
+});
+
+// --version and --help return before the Node.js check; this runs a real command of the committed build.
+test('the committed CLI runs a local command in an empty folder', async () => {
+  const plugin = fileURLToPath(new URL('../plugins/brixon-ai-client-core/', import.meta.url));
+  const folder = await mkdtemp(path.join(os.tmpdir(), 'feedback-cli-smoke-'));
+  const result = spawnSync(process.execPath, [path.join(plugin, 'cli/index.mjs'), 'state'], { cwd: folder, encoding: 'utf8', timeout: 10000 });
+  assert.equal(result.status, 0, result.stderr);
+  assert.deepEqual(JSON.parse(result.stdout).collections, []);
+  assert.deepEqual(await readdir(folder), []);
 });

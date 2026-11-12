@@ -13,6 +13,8 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 | `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center |
 | `build-brandos` | Builds a complete BrandOS from your material: all documents of the Brand Center standard, gaps marked, an evidence list and targeted questions. With the MCP it saves drafts; without it, it writes files in the same structure for you to paste into Brand Center |
 | `off-brand-report` | Turns "that doesn't sound like us" into a change request that Brand Center tries to apply and publish automatically (licence-dependent) |
+| `brixon-feedback` | Publishes finished pages and social-post batches as one review in Brixon Feedback, returns the review link, reads the comments and applies one round of feedback. Needs the Brixon Feedback connection (see below) |
+| `brixon-upload` | Sends a local file to a Brixon tool that prepared an upload address for it, such as Meta Creative, LinkedIn Ads or Image Generation: with the Brixon CLI, or with curl where Node.js is not available. Needs the connection to that tool (see below) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
 | `github-workflow` | Handles Git and GitHub for you: branches, commits, pull requests, merges |
 | `setup-rules` | Codex only: writes the working rules into your global Codex instructions |
@@ -25,6 +27,20 @@ instructions win where they conflict.
 
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
+
+## Brixon CLI for reviews and uploads
+
+The plugin carries the Brixon CLI as one file (`cli/index.mjs`). Your AI uses it to transfer
+review files to Brixon Feedback and to send a local file to an upload address that a Brixon tool
+prepared. It holds no key: every transfer uses a short-lived ticket from the tool.
+
+- It needs Node.js 24 LTS, version 24.14 or newer, on your computer. Nothing else is installed.
+- In a company network, your IT can set proxy and certificates once in a `config.json` and check
+  the result with the `doctor` command. Paths, keys and the hosts a firewall must allow are in
+  the [setup notes](plugins/brixon-ai-client-core/docs/setup.md).
+- The connections to Brixon Feedback and to the upload tools are not part of this plugin yet.
+  They are available on activation by Brixon. Until then the two skills say that the connection
+  is missing instead of publishing anything.
 
 ## Install
 
