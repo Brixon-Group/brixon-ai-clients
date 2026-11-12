@@ -8,6 +8,7 @@
   },
   "homepage": "https://brand-center.brixongroup.com",
   "repository": "https://github.com/Brixon-Group/brixon-ai-clients",
+  "license": "MIT",
   "keywords": [
     "brixon",
     "brand",

@@ -80,6 +80,14 @@ AI tool by hand.
 In Codex: `codex plugin marketplace upgrade brixon-ai-clients`, then ask for the `setup-rules`
 skill again so the rules block is current.
 
+## Licence of this repository
+
+The files in this repository are under the MIT License, see [LICENSE](LICENSE). The bundled CLI
+includes third-party packages under their own licences, listed in
+[THIRD-PARTY-NOTICES.md](plugins/brixon-ai-client-core/feedback/THIRD-PARTY-NOTICES.md). This is
+separate from your Brand Center licence: the Brixon services the plugin connects to are not part
+of this repository.
+
 ## Support
 
 Questions about your licence or the plugin: hello@brixongroup.com
