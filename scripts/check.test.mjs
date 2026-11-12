@@ -34,6 +34,12 @@ test('internal paths and secrets are reported', async () => {
   assert.ok(errors.some(error => error.includes('internal repository')));
 });
 
+test('internal repository names written with a wildcard are reported', async () => {
+  const root = await copy();
+  await writeFile(path.join(root, 'notes.md'), 'SYS' + 'TEM-* and MANAGE' + 'MENT-* repositories\n');
+  assert.ok((await check(root)).some(error => error.includes('internal repository')));
+});
+
 test('environment files are reported', async () => {
   const root = await copy();
   await writeFile(path.join(root, '.env.local'), 'X=1\n');
@@ -74,5 +80,15 @@ test('a bundled CLI without an upstream record is reported', async () => {
   const root = await copy();
   await mkdir(path.join(root, plugin, 'cli'), { recursive: true });
   await writeFile(path.join(root, plugin, 'cli/index.mjs'), 'cli\n');
+  await rm(path.join(root, plugin, 'feedback/upstream.json'), { force: true });
   assert.ok((await check(root)).some(error => error.includes('has no feedback/upstream.json')));
+});
+
+test('an upstream record without its source commit is reported', async () => {
+  const root = await copy();
+  const record = path.join(root, plugin, 'feedback/upstream.json');
+  const data = JSON.parse(await readFile(record, 'utf8'));
+  data.commit = 'main';
+  await writeFile(record, JSON.stringify(data));
+  assert.ok((await check(root)).some(error => error.includes('needs the full source commit')));
 });

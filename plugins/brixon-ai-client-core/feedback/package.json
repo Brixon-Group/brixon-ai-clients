@@ -1,0 +1,12 @@
+{
+  "name": "@brixon/feedback",
+  "version": "0.3.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.14"
+  },
+  "bin": {
+    "brixon-feedback": "../cli/index.mjs"
+  }
+}

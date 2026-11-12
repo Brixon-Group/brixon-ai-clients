@@ -12,7 +12,7 @@ const forbidden = [
   [/Brixon-Git-Folder/, 'internal folder name'],
   [/internal-mcp\.brixon\.ai|brixon-internal-mcp/, 'internal MCP portal'],
   [/brixon-marketplace/, 'internal marketplace'],
-  [/\b(SYSTEM|MANAGEMENT)-[A-Z][\w-]+/, 'internal repository'],
+  [/\b(SYSTEM|MANAGEMENT)-(\*|[A-Z][\w-]+)/, 'internal repository'],
   [/-----BEGIN [A-Z ]*PRIVATE KEY-----/, 'private key'],
   [/\b(ghp|gho|ghs|github_pat)_[A-Za-z0-9_]{20,}/, 'GitHub token'],
   [/\bsk-(ant-)?[A-Za-z0-9_-]{20,}/, 'API key'],
@@ -76,8 +76,11 @@ export async function check(root) {
       errors.push(`${where}: cli/index.mjs has no feedback/upstream.json; build it with scripts/sync-feedback.mjs`);
     }
     if (await exists(upstream)) {
-      const artifacts = Object.entries((await json(upstream))?.artifacts ?? {});
+      const record = await json(upstream);
+      const artifacts = Object.entries(record?.artifacts ?? {});
       if (!artifacts.length) errors.push(`${where}: feedback/upstream.json lists no artifacts`);
+      // The commit is what makes a published build traceable to its source.
+      if (record?.artifacts?.['cli/index.mjs'] && !/^[0-9a-f]{40}$/.test(record.commit ?? '')) errors.push(`${where}: feedback/upstream.json needs the full source commit; run scripts/sync-feedback.mjs`);
       for (const [relative, hash] of artifacts) {
         const content = await readFile(file(path.join(source, relative))).catch(() => null);
         if (!content || createHash('sha256').update(content).digest('hex') !== hash) {

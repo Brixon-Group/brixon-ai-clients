@@ -1,0 +1,39 @@
+{
+  "source": "Brixon Feedback CLI",
+  "commit": "3a317b5912b4f007740d86123303e29d71959524",
+  "version": "0.3.0",
+  "lockfileSha256": "c686809507de5a9ebcacb3d24496b8e151adf8a2197b266ca3fc8e7f854c561f",
+  "esbuildVersion": "0.28.2",
+  "ownership": {
+    "runtime": "generated-from-upstream",
+    "skills": "marketplace-owned; excluded from sync"
+  },
+  "adapters": [
+    "core-package-location",
+    "disable-marketplace-standalone-skill-installer",
+    "plugin-setup-notes-location"
+  ],
+  "sourceFiles": {
+    "cli/config.mjs": "d4cb9c52106e5fac9a276148229aa05ae7f5d549e5b2fd3cb408d54981f5f58b",
+    "cli/doctor.mjs": "211330d07d0094525a69f72090213b8922a6016e9b0f7d395fda2530696178a8",
+    "cli/feedback-config.mjs": "0edabd1c465c1b31e8116b983706a9c44967d3a75ec61f89fafb0d6491631a56",
+    "cli/files.mjs": "6e14b365431125495344808b06988a1c326b565024c25b40ebe3299efe990ebc",
+    "cli/index.mjs": "e55fe9a5f0b838898c0ce67f4e2d817a2f2cfeb8dac03b9a0d72ce7eab956dec",
+    "cli/network.mjs": "4c6fdc7ffb0c6d04c0a5b17fa0f5ebecf769cd27e5d42f7e18be22132e749914",
+    "cli/put.mjs": "9aad24cb9b14a5e2d18b13f5a2014927ad352c3353d92423337e8909fd60be48",
+    "cli/rounds.mjs": "3168300b383e925f46954fe7cbb056712c46c5d0fced5af0357d4b3ef6a82126",
+    "cli/skills.mjs": "ddb8fad6bcd6922f8649cc8a137473da006b743198320190536639ba6df43626",
+    "cli/source.mjs": "3a0c6e92b71ec8a5867f26b9c8ed3ff6ea8fe5f8ba29230da7b4494c83450ac5",
+    "cli/state.mjs": "8d7ad3a26a7e8d9b636af7871aa01b7b527985826caf36d68ddee29a0c2cb87a",
+    "cli/ticket.mjs": "ebe015f56a25fd5dea663ef4b203a0874ed8eeb973f88f85950d92671ffce3a7",
+    "cli/upload.mjs": "07e0366db2cb7f041bc06c2e064a05f6492b07aa2dbe80e3af2ccbb42f2c1b7b",
+    "cli/video.mjs": "793e39ac6a69619f5d3456480e06cab84be68fd9994bb7c95d82da3200be86cb",
+    "shared/frame-hosts.json": "f79b5cd17c04083b9fbfededcab0a20910f3819d774d58f4303910ba09939202",
+    "shared/video-timeline.mjs": "1cfc0ab947d54a73a91cbd0072f084fb43bb201c8e3ff6aaae37cbcfd5c3b043"
+  },
+  "artifacts": {
+    "cli/index.mjs": "ee2dc1a96401525bba0eb2beca79c05de6da81ead053542ef5c6e150e2d5fb06",
+    "feedback/package.json": "13c30992ff0c91b6e361f76d29b6eeed268d394ebded0eae16124ced83ac3515",
+    "feedback/THIRD-PARTY-NOTICES.md": "05579162124222244e84210a738ca3c5ae8516d2d823ab4da69c2a89798fe444"
+  }
+}
