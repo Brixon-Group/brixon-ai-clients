@@ -48,10 +48,20 @@ Which hosts you need depends on what you use: `feedback.brixon.ai` for reviews, 
 host only where a Brixon tool uploads files with `put`. `doctor` checks all hosts on the lists,
 so a blocked host shows up as a finding even if you do not use it.
 
-**Image Generation** uploads reference images to a host of its own. That host is not a built-in
-default. When Brixon activates Image Generation for you, Brixon names the host; allow it in the
-firewall and add it to `upload.allowedOrigins` (section 3). Until then the CLI refuses tickets
-for it with `not an allowed origin`, and `doctor` does not check it.
+**Image Generation** uploads reference images to a host of its own, which is not a built-in
+default:
+
+| Host | Used by | For |
+|---|---|---|
+| `image-mcp.brixon.ai` | `put`, `doctor` | Reference images for Image Generation. Needed only once Brixon has activated Image Generation for you |
+
+When Brixon activates Image Generation, allow this host in the firewall on port 443 and add
+`https://image-mcp.brixon.ai` to `upload.allowedOrigins` (section 3). Until then the CLI refuses
+tickets for it with `not an allowed origin`, and `doctor` does not check it.
+
+The AI passes the file's exact size when it asks Meta Creative or LinkedIn Ads for a ticket.
+Such a ticket is bound to that size and to the content type of the file, is valid for a few
+minutes and can be used once; the upload slots of Image Generation are single-use too.
 
 ## 3. The configuration file
 
@@ -68,9 +78,10 @@ Node.js root certificates, takes the proxy from `HTTPS_PROXY`, and sends to the 
 | Linux | `/etc/brixon/config.json` | `~/.config/brixon/config.json` (or under `XDG_CONFIG_HOME`) |
 
 The managed file must be readable by standard users and writable only with administrator
-rights; the CLI does not check the file permissions itself. Encoding is UTF-8. Files in the
-working folder or in a repository are never read, so a project cannot redirect the CLI or its
-proxy.
+rights; the CLI does not check the file permissions itself. Encoding is UTF-8, with or without a
+byte order mark; UTF-16 with a byte order mark, as Windows PowerShell writes it, is read as
+well. Files in the working folder or in a repository are never read, so a project cannot
+redirect the CLI or its proxy.
 
 ### Precedence
 
@@ -114,15 +125,15 @@ Section `upload`, for `put`:
 | `upload.allowedOrigins` | List of 1 to 20 `https` origins | the storage host in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
 
 A list you set replaces the default instead of adding to it. To add a host, for example the one
-Brixon names for Image Generation, list the storage host as well. Put it into the user file, or
-into the managed file if that file already sets the key (a managed key is locked):
+of Image Generation, list the storage host as well. Put it into the user file, or into the
+managed file if that file already sets the key (a managed key is locked):
 
 ```json
 {
   "upload": {
     "allowedOrigins": [
       "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com",
-      "https://host-brixon-named.example"
+      "https://image-mcp.brixon.ai"
     ]
   }
 }
@@ -205,8 +216,8 @@ account name.
 | `config.ignored` | Values that do not apply, with the reason |
 | `certificates` | Mode, PEM file, number of trusted certificates, handling of `NODE_EXTRA_CA_CERTS` |
 | `proxy` | Mode, address without credentials, source, exceptions |
-| `origins[]` | For each Feedback host: name resolution, whether the proxy is used, the certificate that arrives (`tls`), and `uploadEndpoint`, a call of the upload endpoint without a ticket. The service itself is expected to answer with HTTP 401; nothing is created |
-| `upload` | The same for each host of `put`, without a test call, because these hosts accept signed addresses only |
+| `origins[]` | For each Feedback host: the host (`origin`) and its own verdict (`ok`), name resolution, whether the proxy is used, the certificate that arrives (`tls`), and `uploadEndpoint`, a call of the upload endpoint without a ticket. The service itself is expected to answer with HTTP 401; nothing is created |
+| `upload` | One verdict (`ok`) for the hosts of `put` and, for each of them, name resolution, proxy and certificate. There is no test call, because these hosts accept signed addresses only |
 
 `tlsInspection: "likely …"` together with `tls.ok: true` is the normal picture behind TLS
 inspection: the chain ends at the company certificate authority, and that authority is trusted.
@@ -224,11 +235,13 @@ What decides whether reviews can be published is `uploadEndpoint.ok`.
 | `ECONNREFUSED`, `ETIMEDOUT` | The direct way to the internet is blocked, or the proxy address is wrong | Check proxy address and port |
 | `uploadEndpoint.status` is not 401 | A web filter, gateway or sign-in page answers in place of the service | Allow the host in web filter and data-loss prevention; check category blocks for file uploads |
 | `which is not an allowed origin` | A ticket names a host that is not on the allow-list | Check the host; add it to `feedback.allowedOrigins` or `upload.allowedOrigins` only on purpose |
-| `put`: `failed (HTTP 400)`, `(HTTP 413)` or `(HTTP 415)` with `The service refused the file or its type` | The receiving service does not accept this file, for example its size or format. Where it is safe, the message repeats the service's answer in quotation marks | Correct the file; the ticket may still be valid |
+| `put`: `failed (HTTP 412)`, `the address already holds a file` | The ticket has been used. Tickets that are bound to a file can be used once; a second upload to the same address is refused | Nothing to change in the network. The AI requests a new ticket if the file is not there yet |
+| `put`: `failed (HTTP 403)` | The storage refused the request: the file's size or type differs from what the ticket was prepared for, the ticket expired, or the request was changed on the way | Request a new ticket for the exact file. If it happens for every upload, check whether a proxy or gateway alters uploads to the host |
+| `put`: `failed (HTTP 400)`, `(HTTP 413)` or `(HTTP 415)` with `The service refused the file or its type` | The receiving service does not accept this file, for example its size or format. Where it is safe, the message repeats the service's answer in quotation marks | Correct the file. A ticket bound to a size does not fit the corrected file; the AI requests a new one |
 | `put`: `the service answered before the whole file was sent` | A proxy or gateway answers the upload itself or cuts it off, for example at a size limit | Check size limits and data-loss prevention rules for the host |
 | `certificates.verification: disabled by NODE_TLS_REJECT_UNAUTHORIZED=0` | This variable switches off certificate checks in Node.js | Remove the variable and provide the company certificate authority properly |
 | `it is locked by the managed configuration` | The key is set in the managed file | Leave the option out; change the managed file |
-| `is not valid JSON`, `unknown key` | Error in a configuration file | Correct the file; use UTF-8, not UTF-16 |
+| `is not valid JSON`, `unknown key` | Error in a configuration file | Correct the file; save it as UTF-8, or as UTF-16 with a byte order mark |
 
 ## 6. What the CLI reads, sends and stores
 
@@ -251,9 +264,9 @@ What decides whether reviews can be published is `uploadEndpoint.ok`.
   `2026-q1-topic`. The repository name, that client value and that
   folder name are sent as the source of the review. Nothing of this is read outside a Git
   repository.
-- The only other program it starts is `git`, to read that repository name. The file still
-  contains the code for video pages, which would start `ffmpeg` and `ffprobe`; this edition
-  refuses the options and reviews that lead there, so that code does not run.
+- The only other program it starts is `git`, to read that repository name. Video pages are not
+  part of this edition: it refuses the options and reviews that lead there, and the file is
+  built without the code that starts `ffmpeg` and `ffprobe`.
 
 ## 7. Check the file
 
@@ -282,14 +295,22 @@ Publishing reviews in Brixon Feedback has no such fallback; it needs the CLI as 
 
 ## 9. Limits and what has not been tested
 
-- The CLI has not been tested on Windows yet, and not behind a real TLS inspection, an NTLM or
-  Kerberos proxy, or a proxy that is itself reached over HTTPS. Run `doctor` on one computer in
-  your network before a rollout and send Brixon the report if it shows a finding.
-- The automated tests of the CLI ran on macOS only. The Linux paths follow the same code but
-  have not been tried on a Linux computer.
-- `put` has been tested against a local HTTPS storage only, not yet against a real signed
-  storage address of Meta Creative or LinkedIn Ads, and not against a service that needs `POST`
-  or its own headers.
+- The CLI has not been tested behind a real TLS inspection, an NTLM or Kerberos proxy, or a
+  proxy that is itself reached over HTTPS. Run `doctor` on one computer in your network before
+  a rollout and send Brixon the report if it shows a finding.
+- The automated tests of the CLI run on macOS, on Linux and, since the build in this plugin
+  version, on a Windows Server test computer with Windows PowerShell 5.1, PowerShell 7 and the
+  command prompt. Not tested on Windows: a Windows 11 computer in a company network, a ticket
+  typed by hand into a terminal, Git Bash, and a computer without `git`. The file in this
+  plugin itself has been run on macOS and Linux only.
+- On Windows the CLI reads the ticket and the JSON files it is given as UTF-8 or as UTF-16 with
+  a byte order mark, and accepts page paths with backslashes. When its output is redirected or
+  read by another program there, it writes characters outside ASCII as `\uXXXX`; the content is
+  the same. A file in another encoding, such as Windows-1252, is not recognised.
+- `put` has been tested against a local HTTPS storage only, including a ticket with headers, a
+  ticket that was already used (HTTP 412) and a refused upload (HTTP 403). It has not been
+  tested against a real signed storage address of Meta Creative or LinkedIn Ads or against the
+  upload host of Image Generation.
 - PAC files and WPAD are not supported.
 - On Windows the managed file is always on `C:\Program Files`, also when the system drive
   differs.

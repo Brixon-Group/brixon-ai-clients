@@ -1,9 +1,9 @@
 {
   "source": "Brixon Feedback CLI",
-  "commit": "46a89706253ac18f8622c6ecab716ea7bc3ebab8",
+  "commit": "9d956d8ac4d7039811a3fa0bb5dd323d74fa5fc1",
   "version": "0.3.0",
   "edition": "client",
-  "lockfileSha256": "c686809507de5a9ebcacb3d24496b8e151adf8a2197b266ca3fc8e7f854c561f",
+  "lockfileSha256": "6ef11d5cb54853351278e587b41aee7ed65b4ca782d9c8abbb65771bb533e520",
   "esbuildVersion": "0.28.2",
   "ownership": {
     "runtime": "generated-from-upstream",
@@ -11,31 +11,31 @@
   },
   "adapters": [
     "core-package-location",
-    "disable-marketplace-standalone-skill-installer",
-    "plugin-setup-notes-location",
-    "fixed-edition"
+    "plugin-setup-notes-location"
   ],
   "sourceFiles": {
-    "cli/config.mjs": "d4cb9c52106e5fac9a276148229aa05ae7f5d549e5b2fd3cb408d54981f5f58b",
-    "cli/doctor.mjs": "8261407901e0031f831d297b88409ec639daf95e42704e469ecfd65e781d41c3",
-    "cli/edition.mjs": "3cd0246467183eecdeb8c37c2c3173aa859557451a2a52bccc3be4b395fb5c30",
-    "cli/feedback-config.mjs": "0edabd1c465c1b31e8116b983706a9c44967d3a75ec61f89fafb0d6491631a56",
+    "cli/config.mjs": "40d325219dd6316f5060d1ae2dd809106edfedc7ae2dc1e31b3a8684e3159f43",
+    "cli/doctor.mjs": "7a258db5e758e755d4780a7c36d7b4bd982c77a95153a9413bda3996b91c9ec7",
+    "cli/edition.mjs": "aa8de4a646c033d20dca484a2c3776b56cdfc96a779aad883df2968961703274",
+    "cli/feedback-config.mjs": "f6a0917e8d01a5504738b89e8b152fb9a1bcdbe16352a137fd2d1fbb71cbd621",
     "cli/files.mjs": "6e14b365431125495344808b06988a1c326b565024c25b40ebe3299efe990ebc",
-    "cli/index.mjs": "b5825308279b3805894a52ecbed4675176da5d1c4860404c5f33284ce7ade550",
-    "cli/network.mjs": "c64fb8ddd47919ae1389e7d7eba177b6db6817a5b454cd2a69de8329b46ab38c",
-    "cli/put.mjs": "580c2b3b56a0c52e8096aa9852a4bbe152f42b7c88de7a5250a63c02a2af8864",
+    "cli/index.mjs": "3179ae22c3153d695ece87cf3812c12580a0ca3a0a88a383014df509325af652",
+    "cli/network.mjs": "154e8670df3b004321722cd0c42c94648e5a78b1f109c1ebfaed2a34282d2f6c",
+    "cli/put.mjs": "9a5fbe96d5aa34cce6610fc8e6fd03dd6ba9c39ea4e186f873240d1429ee8fab",
     "cli/rounds.mjs": "3168300b383e925f46954fe7cbb056712c46c5d0fced5af0357d4b3ef6a82126",
     "cli/skills.mjs": "ddb8fad6bcd6922f8649cc8a137473da006b743198320190536639ba6df43626",
     "cli/source.mjs": "3a0c6e92b71ec8a5867f26b9c8ed3ff6ea8fe5f8ba29230da7b4494c83450ac5",
-    "cli/state.mjs": "8d7ad3a26a7e8d9b636af7871aa01b7b527985826caf36d68ddee29a0c2cb87a",
-    "cli/ticket.mjs": "ebe015f56a25fd5dea663ef4b203a0874ed8eeb973f88f85950d92671ffce3a7",
+    "cli/state.mjs": "7ef5e468f454cebf4dcdd4a6757daff982d7442ff93a450cdba06eb9d1a37a3a",
+    "cli/text.mjs": "c1a007cb8db18b5f15a63fc4a61cf6e17139c4dfc8677642a7c4412adc4f6305",
+    "cli/ticket.mjs": "1d52c6b49e628a052c1c9b4b4328117a2bf0268d7b98a7587f9ea589f1800280",
     "cli/upload.mjs": "6c97fb2f702ae1cd55c74718a344c0f13eecfbaf5045e721be7b6409927fec34",
     "cli/video.mjs": "793e39ac6a69619f5d3456480e06cab84be68fd9994bb7c95d82da3200be86cb",
+    "scripts/cli-bundle.mjs": "311d3c41f57b6fd82be201a570a40f506c1493d289bf13adffa2c94ba242876b",
     "shared/frame-hosts.json": "f79b5cd17c04083b9fbfededcab0a20910f3819d774d58f4303910ba09939202",
     "shared/video-timeline.mjs": "1cfc0ab947d54a73a91cbd0072f084fb43bb201c8e3ff6aaae37cbcfd5c3b043"
   },
   "artifacts": {
-    "cli/index.mjs": "0a0d5447b4caaf2d48a1121e063e6cf77baefa72ee965c323395dee6f485dd73",
+    "cli/index.mjs": "eb71b2fd573e7e3d647cc3290cc0429dba1738294d553f33d6490ea9f4b3417f",
     "feedback/package.json": "13c30992ff0c91b6e361f76d29b6eeed268d394ebded0eae16124ced83ac3515",
     "feedback/THIRD-PARTY-NOTICES.md": "05579162124222244e84210a738ca3c5ae8516d2d823ab4da69c2a89798fe444"
   }

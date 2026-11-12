@@ -10,7 +10,7 @@
     {
       "name": "brixon-ai-client-core",
       "description": "Brixon AI Client Core: Brand Center MCP plus skills to load, fill and report on your brand, review work independently and save it to GitHub, and the Brixon CLI with skills for reviews in Brixon Feedback and file uploads to Brixon tools (their connections come on activation by Brixon).",
-      "version": "0.6.1",
+      "version": "0.6.2",
       "author": {
         "name": "Brixon Group",
         "email": "hello@brixongroup.com"

@@ -54,11 +54,21 @@ The sync, its test and the CLI itself need Node.js 24.14 or newer.
 - Do not add an MCP server to the manifests before clients can sign in to it. The `brixon-feedback`
   and `brixon-upload` skills state that their connections come on activation by Brixon; change
   that wording together with the manifest entry.
-- Clients get the client edition of the CLI: the sync builds it with `__BRIXON_CLI_EDITION__`
-  set to `client`, lets the bundler drop the branches that depend on the edition, and records the
-  edition in `upstream.json`. Code that is merely unused in this edition, such as the video
-  module, stays in the file. The check runs the committed build
-  and fails unless it reports itself as `Brixon CLI` and its help has no video options.
+- Clients get the client edition of the CLI. The source builds it in two passes and exports them
+  from its `scripts/cli-bundle.mjs`; the sync uses those exports (`clientPass`,
+  `finishClientBundle`) and records the edition in `upstream.json`. The file then holds nothing
+  that only the other edition uses and no comment except the bundler's own `@__PURE__` marker.
+- The check and the sync both fail on a file that breaks this rule (`clientArtifactProblems` in
+  `scripts/check.mjs`): names of Brixon's own setup, the other edition by name, any other
+  comment. The check also runs the committed build and fails unless it reports itself as
+  `Brixon CLI` and its help has no video options. Never loosen the rule to let a build pass;
+  the fix belongs in the source.
+- The client edition does not treat a review link on an earlier address of the service as the
+  same review as the link on `feedback.brixon.ai`.
 - Video pages are not part of the client offering; the skills do not describe them.
-- The upload host of Image Generation is not a default of the client edition. Do not list it in
-  `docs/setup.md` until it is final.
+- The upload host of Image Generation (`image-mcp.brixon.ai`) is not a default of the client
+  edition. `docs/setup.md` and the `brixon-upload` skill name it as the host a client adds to
+  `upload.allowedOrigins` when Brixon activates Image Generation; keep both in line with the
+  server.
+- The `brixon-upload` skill describes what the upload tools expect (`size`, single-use tickets,
+  what HTTP 412 and 403 mean). Update it when the servers change, also without a new CLI build.
