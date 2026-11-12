@@ -21,6 +21,123 @@ const forbidden = [
   [/\bAKIA[0-9A-Z]{16}\b/, 'AWS key'],
 ];
 
+// What the bundled CLI must not contain: names of Brixon's own setup, the other edition by name, and comments,
+// which carry notes of the source. A term may be wrapped across a line or written as a pattern with a backslash.
+// The last four are one phrase of each part that only the other edition has.
+const artifactTerms = [
+  /brixontesting/i, /workers\\?\.dev/i, /internal\\?-mcp/i, /MCP[\s-]+portal/i, /image\\?-mcp/i, /team\s+edition/i, /(["'`])team\1/i,
+  /ffprobe/i, /skills\s+install/i, /brixon-feedback\s+doctor/i, /--video\s+KEY=PATH/i,
+];
+// The bundler writes this marker itself wherever it prints code with line breaks; it carries nothing of the source.
+const pureMarker = '/* @__PURE__ */';
+const hashbang = '#!/usr/bin/env node';
+// A keyword stands alone: it is not the end of a longer name and not a property.
+const alone = String.raw`(?<![\w$.#\u0080-\uffff])`;
+// A slash after one of these starts a pattern, not a division.
+const beforePattern = new RegExp(String.raw`(?:^|[(,=:[!&|?{};+\-*%<>~^/]|\.\.\.|${alone}(?:return|typeof|case|in|delete|void|throw|new|else|do|instanceof|yield|await))$`);
+const beforeCondition = new RegExp(`${alone}(?:if|while|for|with)$`), loopOf = new RegExp(`${alone}of$`);
+
+// The comments of a script as [start, end] pairs, or null where the text cannot be followed. It reads strings,
+// templates and patterns only as far as needed to tell a comment from "//" inside them.
+function commentsIn(text) {
+  // `parens` holds, for each open parenthesis, the keyword it follows (if, while, for, with) or ''.
+  const found = [], templates = [], parens = [];
+  // `code` is the end of the code read so far, with one space for any run of white space; `condition` says
+  // whether the parenthesis closed last belonged to such a keyword, after which a statement begins.
+  let depth = 0, code = '', condition = false, at = text.startsWith(`${hashbang}\n`) ? hashbang.length : 0;
+  // After x++ a slash divides. Otherwise it starts a pattern where a value is expected.
+  const startsPattern = () => {
+    const before = code.trimEnd();
+    if (/(?:\+\+|--)$/.test(before)) return false;
+    return beforePattern.test(before) || condition && before.endsWith(')') || parens.at(-1) === 'for' && loopOf.test(before);
+  };
+  // The end of a quoted run that starts at `from`; -1 where it does not end.
+  const quoted = (from, quote) => {
+    for (let index = from; index < text.length; index++) {
+      if (text[index] === '\\') index++;
+      else if (text[index] === quote) return index + 1;
+      else if (text[index] === '\n' && quote !== '`') return -1;
+      else if (quote === '`' && text[index] === '$' && text[index + 1] === '{') return index + 2;
+    }
+    return -1;
+  };
+  // Reads on inside a template; false where it does not end.
+  const template = from => {
+    const end = quoted(from, '`');
+    if (end < 0) return false;
+    if (text[end - 1] === '{') { templates.push(depth); depth++; code = '{'; } else code = 'x';
+    at = end;
+    return true;
+  };
+  while (at < text.length) {
+    const char = text[at], next = text[at + 1];
+    if (/\s/.test(char)) {
+      if (!code.endsWith(' ')) code += ' ';
+      at++;
+    } else if (char === '/' && next === '/') {
+      const end = text.indexOf('\n', at);
+      found.push([at, end < 0 ? text.length : end]);
+      at = end < 0 ? text.length : end;
+    } else if (char === '/' && next === '*') {
+      const end = text.indexOf('*/', at + 2);
+      if (end < 0) return null;
+      found.push([at, end + 2]);
+      at = end + 2;
+    } else if (char === '"' || char === "'") {
+      at = quoted(at + 1, char);
+      if (at < 0) return null;
+      code = 'x';
+    } else if (char === '`') {
+      if (!template(at + 1)) return null;
+    } else if (char === '/' && startsPattern()) {
+      let inClass = false, index = at + 1;
+      for (; index < text.length && (inClass || text[index] !== '/'); index++) {
+        if (text[index] === '\n') return null;
+        if (text[index] === '\\') index++;
+        else if (text[index] === '[') inClass = true;
+        else if (text[index] === ']') inClass = false;
+      }
+      if (index >= text.length) return null;
+      at = index + 1;
+      code = 'x';
+    } else {
+      if (char === '(') parens.push(beforeCondition.exec(code.trimEnd())?.[0] ?? '');
+      if (char === ')') condition = Boolean(parens.pop());
+      if (char === '{') depth++;
+      if (char === '}') {
+        depth--;
+        // The closing brace of ${…} leads back into its template.
+        if (templates.at(-1) === depth) {
+          templates.pop();
+          if (!template(at + 1)) return null;
+          continue;
+        }
+      }
+      code = (code + char).slice(-12);
+      at++;
+    }
+  }
+  return templates.length ? null : found;
+}
+
+/** What the client edition of the bundled CLI must not contain: one entry per finding, with its line. */
+export function clientArtifactProblems(text) {
+  const line = index => text.slice(0, index).split('\n').length;
+  const problems = [];
+  for (const pattern of artifactTerms) {
+    const match = pattern.exec(text);
+    if (match) problems.push(`${pattern} in line ${line(match.index)}`);
+  }
+  const unread = 'it cannot be read far enough to find its comments';
+  const comments = commentsIn(text);
+  if (!comments) return [...problems, unread];
+  const own = comments.filter(([start, end]) => text.slice(start, end) !== pureMarker);
+  for (const [start] of own.slice(0, 10)) problems.push(`a comment in line ${line(start)}`);
+  // Every marker in the text must have been met as a comment; otherwise the reading above lost its place.
+  if (comments.length - own.length !== text.split(pureMarker).length - 1) problems.push(unread);
+  return problems;
+}
+
 export async function check(root) {
   const errors = [];
   const file = relative => path.join(root, relative);
@@ -106,6 +223,10 @@ export async function check(root) {
       const video = help?.match(/--video|--timeline|--captions|--review-copy|ffmpeg|ffprobe/i)?.[0];
       if (video) wrong.push(`its help mentions ${video}`);
       if (wrong.length) errors.push(`${where}: cli/index.mjs is not the client edition of the CLI (${wrong.join('; ')}); build it with scripts/sync-feedback.mjs`);
+      // The file itself goes to customers: nothing of Brixon's own setup, nothing of the other edition, no comment.
+      const text = await readFile(cli, 'utf8').catch(() => null);
+      const problems = text === null ? [] : clientArtifactProblems(text);
+      if (problems.length) errors.push(`${where}: cli/index.mjs contains what the client edition must not (${problems.join('; ')}); build it with scripts/sync-feedback.mjs`);
     }
   }
 

@@ -6,6 +6,7 @@ import os from 'node:os';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawnSync } from 'node:child_process';
 import { syncFeedback } from './sync-feedback.mjs';
+import { clientArtifactProblems } from './check.mjs';
 
 // Supply an isolated clean, pinned source with exact lockfile dependencies.
 // Never use a live project, user home or dirty upstream checkout for this suite.
@@ -39,6 +40,8 @@ test('sync owns runtime artifacts only and preserves marketplace skills and refe
   assert.ok(upstream.sourceFiles['shared/frame-hosts.json']);
   assert.ok(upstream.sourceFiles['cli/put.mjs']);
   assert.ok(upstream.sourceFiles['cli/edition.mjs']);
+  // The build of the client edition belongs to the source, so it is part of the record too.
+  assert.ok(upstream.sourceFiles['scripts/cli-bundle.mjs']);
   assert.match(upstream.commit, /^[0-9a-f]{40}$/);
   assert.equal(upstream.edition, 'client');
 });
@@ -72,8 +75,13 @@ test('bundled standalone install and check refuse without project or home writes
   assert.doesNotMatch(help.stdout, /--video|--timeline|--captions|--review-copy|ffmpeg|ffprobe/i);
   const { version } = JSON.parse(await readFile(path.join(destination, 'feedback/package.json'), 'utf8'));
   assert.equal(spawnSync(process.execPath, [cli, '--version'], { encoding: 'utf8' }).stdout.trim(), `Brixon CLI ${version}`);
-  // Branches of the other edition are removed from the file, not only skipped.
-  assert.doesNotMatch(await readFile(cli, 'utf8'), /workers\.dev/);
+  // What only the other edition uses is removed from the file, not only skipped, and no comment is left:
+  // by this repository's rule and by the rule of the source.
+  const text = await readFile(cli, 'utf8');
+  assert.doesNotMatch(text, /workers\.dev/);
+  assert.deepEqual(clientArtifactProblems(text), []);
+  const { clientBundleProblems } = await import(pathToFileURL(path.join(source, 'scripts/cli-bundle.mjs')));
+  assert.deepEqual(await clientBundleProblems(text), []);
   assert.match(help.stdout, /Details: docs\/setup\.md of the brixon-ai-client-core plugin\./);
   assert.match(help.stdout, /^put --file PATH/m);
   for (const action of ['install', 'check']) for (const scope of ['project', 'user']) {
@@ -86,6 +94,28 @@ test('bundled standalone install and check refuse without project or home writes
     assert.deepEqual(await readdir(project), ['owner.txt']);
     assert.deepEqual(await readdir(home), []);
   }
+});
+
+// This repository finds comments without a parser. The source finds them with one; on the built file with a
+// comment put in at many places, both must come to the same verdict.
+test('the comment rule of this repository agrees with the parser of the source', enabled, async () => {
+  const { clientBundleProblems } = await import(pathToFileURL(path.join(source, 'scripts/cli-bundle.mjs')));
+  const text = await readFile(cli, 'utf8');
+  let seed = 20261112;
+  const random = () => (seed = (seed * 1103515245 + 12345) % 2147483648) / 2147483648;
+  let inCode = 0, elsewhere = 0;
+  for (let round = 0; round < 40; round++) {
+    const at = Math.floor(random() * text.length);
+    const changed = `${text.slice(0, at)}${round % 2 ? '/* note */' : '// note\n'}${text.slice(at)}`;
+    const there = await clientBundleProblems(changed);
+    // Text put into a pattern or a name can break the file; then there is no verdict of the parser to compare.
+    if (there.some(problem => problem.includes('does not parse'))) continue;
+    const here = clientArtifactProblems(changed).length > 0;
+    assert.equal(here, there.length > 0, `a comment put in at offset ${at}`);
+    if (here) inCode++; else elsewhere++;
+  }
+  // The places are spread over code and over strings: both verdicts occur.
+  assert.ok(inCode > 0 && elsewhere > 0, `${inCode} in code, ${elsewhere} elsewhere`);
 });
 
 test('bundled manifest and mapped target remain usable without network', enabled, async () => {
@@ -127,6 +157,8 @@ test('the committed CLI is the client edition and reports the version of its pac
   assert.ok(report.config.error);
   assert.equal(report.cli, `Brixon CLI ${version}`);
   assert.equal(report.edition, 'client');
+  // The file goes to customers as it is: nothing of Brixon's own setup or of the other edition, and no comment.
+  assert.deepEqual(clientArtifactProblems(await readFile(path.join(plugin, 'cli/index.mjs'), 'utf8')), []);
 });
 
 // --version and --help return before the Node.js check; this runs a real command of the committed build.

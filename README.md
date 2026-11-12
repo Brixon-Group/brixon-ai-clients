@@ -39,9 +39,14 @@ itself as `Brixon CLI` with its own version number, which is independent of the 
 - In a company network, your IT can set proxy and certificates once in a `config.json` and check
   the result with the `doctor` command. Paths, keys and the hosts a firewall must allow are in
   the [setup notes](plugins/brixon-ai-client-core/docs/setup.md).
+- By default the CLI sends only to `feedback.brixon.ai` and to Brixon's file storage. The upload
+  host of Image Generation, `image-mcp.brixon.ai`, is added in the `config.json` when Brixon
+  activates Image Generation for you.
 - The connections to Brixon Feedback and to the upload tools are not part of this plugin yet.
   They are available on activation by Brixon. Until then the two skills say that the connection
   is missing instead of publishing anything.
+- After an update of a Brixon server, a running AI session may still hold the earlier tool
+  description. Reconnecting the tool refreshes it; if that does not help, start a new session.
 
 ## Install
 
@@ -74,6 +79,14 @@ AI tool by hand.
 
 In Codex: `codex plugin marketplace upgrade brixon-ai-clients`, then ask for the `setup-rules`
 skill again so the rules block is current.
+
+## Licence of this repository
+
+The files in this repository are under the MIT License, see [LICENSE](LICENSE). The bundled CLI
+includes third-party packages under their own licences, listed in
+[THIRD-PARTY-NOTICES.md](plugins/brixon-ai-client-core/feedback/THIRD-PARTY-NOTICES.md). This is
+separate from your Brand Center licence: the Brixon services the plugin connects to are not part
+of this repository.
 
 ## Support
 
