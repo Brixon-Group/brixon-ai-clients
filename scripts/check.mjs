@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Checks that the marketplace is consistent and safe to publish: this repository is public.
 import { readFile, readdir, stat } from 'node:fs/promises';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -12,6 +12,7 @@ const forbidden = [
   [/Brixon-Git-Folder/, 'internal folder name'],
   [/internal-mcp\.brixon\.ai|brixon-internal-mcp/, 'internal MCP portal'],
   [/brixon-marketplace/, 'internal marketplace'],
+  [/\b[\w-]+\.workers\.dev\b/, 'provisional host name'],
   [/\b(SYSTEM|MANAGEMENT)-(\*|[A-Z][\w-]+)/, 'internal repository'],
   [/-----BEGIN [A-Z ]*PRIVATE KEY-----/, 'private key'],
   [/\b(ghp|gho|ghs|github_pat)_[A-Za-z0-9_]{20,}/, 'GitHub token'],
@@ -87,6 +88,24 @@ export async function check(root) {
           errors.push(`${where}: ${relative} does not match feedback/upstream.json; run scripts/sync-feedback.mjs`);
         }
       }
+      // Clients get the client edition. The record alone could be wrong, so the build itself is asked.
+      const cli = file(path.join(source, 'cli/index.mjs'));
+      const ask = argument => {
+        const result = spawnSync(process.execPath, [cli, argument], { encoding: 'utf8', timeout: 10000, killSignal: 'SIGKILL' });
+        if (result.status === 0 && result.stdout) return result.stdout;
+        const reason = result.error?.code ?? result.signal ?? `exit ${result.status}`;
+        // Node prints the source line first and its own version last; the line with the error says why.
+        const lines = (result.stderr ?? '').trim().split('\n');
+        errors.push(`${where}: cli/index.mjs did not run with ${argument} on Node.js ${process.versions.node} (${reason}): ${(lines.find(line => /Error/.test(line)) ?? lines[0]).trim().slice(0, 200)}`);
+        return null;
+      };
+      const reported = ask('--version'), help = ask('--help');
+      const wrong = [];
+      if (record?.edition !== 'client') wrong.push(`feedback/upstream.json records edition ${JSON.stringify(record?.edition)}`);
+      if (reported !== null && reported.trim() !== `Brixon CLI ${record?.version}`) wrong.push(`--version printed ${JSON.stringify(reported.trim().slice(0, 60))}, expected "Brixon CLI ${record?.version}"`);
+      const video = help?.match(/--video|--timeline|--captions|--review-copy|ffmpeg|ffprobe/i)?.[0];
+      if (video) wrong.push(`its help mentions ${video}`);
+      if (wrong.length) errors.push(`${where}: cli/index.mjs is not the client edition of the CLI (${wrong.join('; ')}); build it with scripts/sync-feedback.mjs`);
     }
   }
 

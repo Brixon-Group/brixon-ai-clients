@@ -13,9 +13,9 @@ what it may do.
 
 The CLI is the file `../../cli/index.mjs` relative to the skill's folder (`BRIXON_CLI`). It
 checks and transfers files; it does not sign in and stores no key. It needs Node.js 24.14 or
-newer. Messages of the CLI call it `brixon-feedback`; that is this file, so
-`"brixon-feedback doctor"` in a message means `node "$BRIXON_CLI" doctor`. Updates come with the
-plugin; `skills install` and `skills check` are not available in this build.
+newer. It reports itself as `Brixon CLI`; where one of its messages says "the doctor command of
+the Brixon CLI", run `node "$BRIXON_CLI" doctor`. Updates come with the plugin; the CLI installs
+no skills.
 
 Only `upload`, `finalize`, `put` and `doctor` use the network. `upload` and `finalize` send to
 `https://feedback.brixon.ai` and nowhere else unless the configuration lists another origin.
@@ -39,12 +39,13 @@ than this CLI: report that. Never remove the field.
 
 ## Upload ticket
 
-`feedback_prepare_upload` returns a short-lived ticket. Pass that JSON unchanged to the stdin of
-`upload` or `finalize`, in the same command, for example:
+`feedback_prepare_upload` returns a short-lived ticket. Pass it as JSON to the stdin of `upload`
+or `finalize`, in the same command. Write it as one line: the object with its fields and values
+unchanged, and nothing else from the tool's result. For example:
 
 ```sh
 node "$BRIXON_CLI" upload --manifest "$MANIFEST_FILE" --root "$OUTPUT_DIR" <<'TICKET'
-{ ...ticket JSON exactly as returned... }
+{"uploadId":"...", ...the remaining fields of the ticket... }
 TICKET
 ```
 

@@ -3,8 +3,9 @@
 For the people who set up or approve this plugin in a company network: client management, IT
 security, or the person installing it on their own computer.
 
-The plugin carries one command-line program, the Brixon CLI (`cli/index.mjs`, called
-`brixon-feedback` in its own messages). Your AI uses it for two things:
+The plugin carries one command-line program, the Brixon CLI (`cli/index.mjs`). It reports
+itself as `Brixon CLI` with its own version number, which is independent of the plugin's
+version. Your AI uses it for two things:
 
 - publishing finished pages as a review in Brixon Feedback (`upload`, `finalize`);
 - sending one local file to an upload address that a Brixon tool prepared, for example Meta
@@ -24,8 +25,7 @@ checked and approved before that.
 | Network | HTTPS to the hosts in section 2, directly or through the company proxy |
 | Certificates | Behind TLS inspection: the company certificate authority in the operating system's certificate store, or as a PEM file |
 
-Your company distributes Node.js itself. FFmpeg is not needed: video pages are not part of the
-customer offering, and `doctor` lists FFmpeg for information only.
+Your company distributes Node.js itself. No other program is needed.
 
 ## 2. Hosts to allow
 
@@ -36,7 +36,6 @@ defaults:
 |---|---|---|
 | `feedback.brixon.ai` | `upload`, `finalize`, `doctor` | Review files for Brixon Feedback |
 | `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Meta Creative and LinkedIn Ads |
-| `image-mcp.brixon-group.workers.dev` | `put`, `doctor` | Reference images for Image Generation. This host name is provisional and is planned to move to a Brixon domain. Allow it only when Brixon activates Image Generation for you and confirms the host |
 
 If a ticket names another host, the CLI stops before it sends anything. It opens no port,
 follows no redirects, sends no usage data and does not update itself. With a proxy configured,
@@ -45,9 +44,14 @@ connections go through it with `CONNECT`.
 The hosts for sign-in and for the AI's connections to the Brixon tools are separate from this
 list.
 
-Which hosts you need depends on what you use: `feedback.brixon.ai` for reviews, the other two
-only where a Brixon tool uploads files with `put`. `doctor` checks all hosts on the lists, so a
-blocked host shows up as a finding even if you do not use it.
+Which hosts you need depends on what you use: `feedback.brixon.ai` for reviews, the storage
+host only where a Brixon tool uploads files with `put`. `doctor` checks all hosts on the lists,
+so a blocked host shows up as a finding even if you do not use it.
+
+**Image Generation** uploads reference images to a host of its own. That host is not a built-in
+default. When Brixon activates Image Generation for you, Brixon names the host; allow it in the
+firewall and add it to `upload.allowedOrigins` (section 3). Until then the CLI refuses tickets
+for it with `not an allowed origin`, and `doctor` does not check it.
 
 ## 3. The configuration file
 
@@ -107,7 +111,22 @@ Section `upload`, for `put`:
 
 | Key | Values | Default | Environment variable |
 |---|---|---|---|
-| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the two `put` hosts in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
+| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the storage host in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
+
+A list you set replaces the default instead of adding to it. To add a host, for example the one
+Brixon names for Image Generation, list the storage host as well. Put it into the user file, or
+into the managed file if that file already sets the key (a managed key is locked):
+
+```json
+{
+  "upload": {
+    "allowedOrigins": [
+      "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com",
+      "https://host-brixon-named.example"
+    ]
+  }
+}
+```
 
 **Certificates (`ca.mode`).** `system`: the Node.js root certificates plus the operating
 system's store, so a company certificate authority distributed by group policy, Intune or Jamf
@@ -145,7 +164,7 @@ Managed file for a network with TLS inspection and a fixed proxy without sign-in
 ```
 
 The two `allowedOrigins` entries lock the hosts the CLI may send to. Without them in the managed
-file, an environment variable or the user file can add hosts. Sections are nested objects;
+file, an environment variable or the user file can set a different list. Sections are nested objects;
 dotted names such as `"feedback.allowedOrigins"` at the top level are rejected.
 
 Managed file when the company certificate authority is not in the operating system's store and
@@ -179,7 +198,7 @@ account name.
 
 | Field | Meaning |
 |---|---|
-| `ok`, `cli` | Overall result and the version of the CLI |
+| `ok`, `cli`, `edition` | Overall result, name and version of the CLI (for example `Brixon CLI 0.3.0`) and its edition (`client`) |
 | `node` | Version found and required, platform |
 | `config.files` | Paths of the managed and the user file, whether each exists, and `otherSections` |
 | `config.shared`, `config.feedback`, `config.upload` | The effective value of every key and where it comes from: `managed`, `flag --…`, `env …`, `user` or `default` |
@@ -187,8 +206,7 @@ account name.
 | `certificates` | Mode, PEM file, number of trusted certificates, handling of `NODE_EXTRA_CA_CERTS` |
 | `proxy` | Mode, address without credentials, source, exceptions |
 | `origins[]` | For each Feedback host: name resolution, whether the proxy is used, the certificate that arrives (`tls`), and `uploadEndpoint`, a call of the upload endpoint without a ticket. The service itself is expected to answer with HTTP 401; nothing is created |
-| `upload` | The same for the `put` hosts, without a test call, because these hosts accept signed addresses only |
-| `ffmpeg` | Whether `ffmpeg` and `ffprobe` are installed; for information only |
+| `upload` | The same for each host of `put`, without a test call, because these hosts accept signed addresses only |
 
 `tlsInspection: "likely …"` together with `tls.ok: true` is the normal picture behind TLS
 inspection: the chain ends at the company certificate authority, and that authority is trusted.
@@ -206,6 +224,7 @@ What decides whether reviews can be published is `uploadEndpoint.ok`.
 | `ECONNREFUSED`, `ETIMEDOUT` | The direct way to the internet is blocked, or the proxy address is wrong | Check proxy address and port |
 | `uploadEndpoint.status` is not 401 | A web filter, gateway or sign-in page answers in place of the service | Allow the host in web filter and data-loss prevention; check category blocks for file uploads |
 | `which is not an allowed origin` | A ticket names a host that is not on the allow-list | Check the host; add it to `feedback.allowedOrigins` or `upload.allowedOrigins` only on purpose |
+| `put`: `failed (HTTP 400)`, `(HTTP 413)` or `(HTTP 415)` with `The service refused the file or its type` | The receiving service does not accept this file, for example its size or format. Where it is safe, the message repeats the service's answer in quotation marks | Correct the file; the ticket may still be valid |
 | `put`: `the service answered before the whole file was sent` | A proxy or gateway answers the upload itself or cuts it off, for example at a size limit | Check size limits and data-loss prevention rules for the host |
 | `certificates.verification: disabled by NODE_TLS_REJECT_UNAUTHORIZED=0` | This variable switches off certificate checks in Node.js | Remove the variable and provide the company certificate authority properly |
 | `it is locked by the managed configuration` | The key is set in the managed file | Leave the option out; change the managed file |
@@ -232,8 +251,9 @@ What decides whether reviews can be published is `uploadEndpoint.ok`.
   `2026-q1-topic`. The repository name, that client value and that
   folder name are sent as the source of the review. Nothing of this is read outside a Git
   repository.
-- The only other programs it starts are `git`, to read that repository name, and, for
-  `doctor` and video pages, `ffmpeg` and `ffprobe` if present.
+- The only other program it starts is `git`, to read that repository name. The file still
+  contains the code for video pages, which would start `ffmpeg` and `ffprobe`; this edition
+  refuses the options and reviews that lead there, so that code does not run.
 
 ## 7. Check the file
 
@@ -253,8 +273,12 @@ the two included open-source packages are in `feedback/THIRD-PARTY-NOTICES.md`.
 
 Tools that prepare an upload address also return a `curl` command for the same upload. The AI
 uses it when Node.js is not available. curl does not read `config.json`, does not repeat a
-failed transfer and does not check the address against an allow-list. Publishing reviews in
-Brixon Feedback has no such fallback; it needs the CLI.
+failed transfer and does not check the address against an allow-list; the AI checks the host
+and the command itself before it runs it. Without Node.js it sends only to the storage host in
+section 2: a host added in `config.json`, such as the one for Image Generation, needs the CLI.
+With a Node.js that is too old for uploads, `doctor` still runs, and the AI accepts the hosts
+that report lists.
+Publishing reviews in Brixon Feedback has no such fallback; it needs the CLI as well.
 
 ## 9. Limits and what has not been tested
 

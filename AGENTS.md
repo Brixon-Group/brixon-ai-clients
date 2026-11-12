@@ -45,7 +45,8 @@ The sync, its test and the CLI itself need Node.js 24.14 or newer.
 - Release only a build whose `upstream.json` commit is on the Feedback tool's main branch. A build
   from a work branch is for review; sync again from main before the version goes out.
 - The Node.js requirement comes from the CLI itself (currently 24.14). Keep `docs/setup.md`, the
-  README and the skills in line with it when it changes.
+  README, the skills and `node-version` in `.github/workflows/check.yml` in line with it when it
+  changes.
 - Skills find the CLI as `../../cli/index.mjs` relative to their own folder. The CLI holds no
   credentials; uploads use a short-lived ticket from the MCP server that prepared them.
 - After a sync, read the new help text and the default origins (`doctor` shows them) and update
@@ -53,4 +54,11 @@ The sync, its test and the CLI itself need Node.js 24.14 or newer.
 - Do not add an MCP server to the manifests before clients can sign in to it. The `brixon-feedback`
   and `brixon-upload` skills state that their connections come on activation by Brixon; change
   that wording together with the manifest entry.
+- Clients get the client edition of the CLI: the sync builds it with `__BRIXON_CLI_EDITION__`
+  set to `client`, lets the bundler drop the branches that depend on the edition, and records the
+  edition in `upstream.json`. Code that is merely unused in this edition, such as the video
+  module, stays in the file. The check runs the committed build
+  and fails unless it reports itself as `Brixon CLI` and its help has no video options.
 - Video pages are not part of the client offering; the skills do not describe them.
+- The upload host of Image Generation is not a default of the client edition. Do not list it in
+  `docs/setup.md` until it is final.
