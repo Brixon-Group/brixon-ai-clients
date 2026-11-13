@@ -98,6 +98,8 @@ Reading never changes the brand. For lasting changes:
   Brand Center, only where this licence allows editing).
 - To report something wrong or off-brand in the published brand, use the `off-brand-report`
   skill.
-- To upload new logos, images or fonts (editor seats), call `get_upload_url` for the brand, or
-  open [Brand Center](https://brand-center.brixongroup.com) and upload there after personal
-  sign-in.
+- To upload a new logo, image, icon or font from this computer (seats whose role allows uploads,
+  on licences with MCP editing), use `prepare_asset_upload` and `finalize_asset_upload` with the
+  `brixon-upload` skill. Uploading in the portal works as well: call `get_upload_url` for the
+  brand, or open [Brand Center](https://brands.brixon.ai) and upload there after signing in with
+  your personal Brixon login.
