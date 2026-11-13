@@ -1,6 +1,6 @@
 ---
 name: brixon-upload
-description: "Send one local file (image, video, PDF or Office document) to a Brixon tool that prepared an upload address for it, such as Brand Center, Meta Creative, LinkedIn Ads or Image Generation. Use whenever the result of a Brixon tool contains an upload ticket with `uploadUrl` for a local file: preferably with the Brixon CLI command `put` (Node.js), otherwise with the curl command from that result. Publishing a review in Brixon Feedback uses the `brixon-feedback` skill instead."
+description: "Send one local file (image, logo, font, video, PDF or Office document) to a Brixon tool that prepared an upload address for it, such as Brand Center, Meta Creative, LinkedIn Ads or Image Generation. Use whenever the result of a Brixon tool contains an upload ticket with `uploadUrl` for a local file: preferably with the Brixon CLI command `put` (Node.js), otherwise with the curl command from that result. Publishing a review in Brixon Feedback uses the `brixon-feedback` skill instead."
 ---
 
 # Upload a local file to a Brixon tool
@@ -75,8 +75,8 @@ from the ticket's result (for example its `source` or `reference_id`).
 exact `size` and the asset details (`id`, `kind`, `description`, as in the portal upload) and
 returns `upload_id` and `ticket`. Pass `ticket` to `put`, then call `finalize_asset_upload` with
 the brand and `upload_id`: only that call checks the file and publishes it, or before a brand's
-first publication puts it into its inbox. Of Brand Center's formats the CLI sends PNG, JPG and
-WebP; for SVG, AVIF and font files use the portal (`get_upload_url`). An upload needs your
+first publication puts it into its inbox. `put` sends the file to `brands.brixon.ai`; formats are
+SVG, PNG, JPG, WebP, AVIF, WOFF, WOFF2, TTF and OTF, up to 20 MB. An upload needs your
 personal sign-in and a role that allows uploads; the brand's daily upload limit applies.
 
 | Message | What to do |

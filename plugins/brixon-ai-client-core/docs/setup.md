@@ -35,7 +35,8 @@ defaults:
 | Host | Used by | For |
 |---|---|---|
 | `feedback.brixon.ai` | `upload`, `finalize`, `doctor` | Review files for Brixon Feedback |
-| `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Brand Center, Meta Creative and LinkedIn Ads |
+| `brands.brixon.ai` | `put`, `doctor` | Uploads of logos, images, icons and fonts to Brixon Brand Center |
+| `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Meta Creative and LinkedIn Ads |
 
 If a ticket names another host, the CLI stops before it sends anything. It opens no port,
 follows no redirects, sends no usage data and does not update itself. With a proxy configured,
@@ -122,16 +123,17 @@ Section `upload`, for `put`:
 
 | Key | Values | Default | Environment variable |
 |---|---|---|---|
-| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the storage host in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
+| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the `put` hosts in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
 
 A list you set replaces the default instead of adding to it. To add a host, for example the one
-of Image Generation, list the storage host as well. Put it into the user file, or into the
+of Image Generation, list the `put` hosts of section 2 as well. Put it into the user file, or into the
 managed file if that file already sets the key (a managed key is locked):
 
 ```json
 {
   "upload": {
     "allowedOrigins": [
+      "https://brands.brixon.ai",
       "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com",
       "https://image-mcp.brixon.ai"
     ]
@@ -169,7 +171,7 @@ Managed file for a network with TLS inspection and a fixed proxy without sign-in
   "proxy": { "mode": "explicit", "url": "http://proxy.company.example:8080", "noProxy": "" },
   "feedback": { "allowedOrigins": ["https://feedback.brixon.ai"] },
   "upload": {
-    "allowedOrigins": ["https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com"]
+    "allowedOrigins": ["https://brands.brixon.ai", "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com"]
   }
 }
 ```
