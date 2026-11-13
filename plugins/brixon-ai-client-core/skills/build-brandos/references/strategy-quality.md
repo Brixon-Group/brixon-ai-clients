@@ -62,13 +62,14 @@ Use this to judge material, to formulate proposals and to explain to the person 
 
 ## Design (`guidelines/design.md`, image prompts)
 
-**Strong:** two to five principles with practical consequences ("viel Weißraum: pro Folie eine Aussage"), signature elements actually in use, imagery described from real examples, roles of fonts and colors in words.
+**Strong:** two to five principles with practical consequences ("viel Weißraum: pro Folie eine Aussage"), signature elements actually in use, imagery described from real examples, roles of fonts and colors in words, logo rules that say which variant stands on which background and what is not allowed.
 
 **Challenge:**
 
 - Principles that are only adjectives ("clean, modern").
 - Imagery that contradicts the positioning (stock photos of handshakes for a brand that claims to be hands-on and real).
-- Exact colors or fonts read from a website and treated as decided. Ask; exact values are set up by Brixon.
+- A logo section that only says a logo exists. Ask for variants, backgrounds and what is not allowed; what nobody can answer stays an open point.
+- Exact colors or fonts read from a website and treated as decided. Record them in the design values with their source and ask the owner to confirm; Brixon sets up the confirmed values.
 
 ## Channels (`guidelines/channels/*.md`)
 

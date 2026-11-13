@@ -6,6 +6,7 @@ expected_outcome: |
   into channel files with a profile; TODO(gap) replaced by GAP lines; the approved claim reduced to ID, title
   and text in claims.md without status/evidence/approved fields, with the German wording left as a reported
   gap rather than translated by the agent; typography and color split; fonts and hex values not turned into
-  tokens.css. Nothing is invented beyond the guide.
+  tokens.css but recorded for Brixon in a design values table with the old guide as source, no confirmation
+  by a person and no guessed role; no logo rule invented, the missing logo rules marked as open. Nothing is invented beyond the guide.
 context:
   scaffold_script: place-files.sh

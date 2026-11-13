@@ -84,7 +84,7 @@ Was die Person zu anderen Teilen gesagt oder geliefert hat, mit Quelle.
 
 ## Für die Übergabe
 
-Logos, Schriften, Bilder zum Hochladen; Farben und Schriften für Brixon; Entscheidungen, die offen sind.
+Logos, Schriften, Bilder zum Hochladen; im Teil Gestaltung die Tabelle `Designwerte für Brixon`; Entscheidungen, die offen sind.
 ```
 
 English labels: `Status: in progress | done | abandoned`, `Edited by`, `Started`, `Part`, `Numbers`, `Brand Center: not transferred yet`, `Basis` / `Based on`: `–`, or the `base_revision` when the part started from text read with `get_brand_draft`, for example after a failed save, sections `Progress`, `Sources`, `Open questions`, `For other parts`, `For the handover`. Source states and columns are those of [evidence.md](evidence.md). The file is the source list and question list of this part; never cite it inside a brand document. Never mention number blocks or file names to the person; to them it is "eine Notiz, dass du gerade an den Zielgruppen arbeitest".

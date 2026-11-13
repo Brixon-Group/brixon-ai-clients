@@ -28,6 +28,29 @@ instructions win where they conflict.
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
 
+### What `build-brandos` can work from
+
+Hand it what you already have, as links, files or pasted text:
+
+- your website (the home page and up to 12 linked pages);
+- sales material: pitch deck, offers and proposals, price list, product sheets;
+- what customers wrote: emails, reviews, chat messages;
+- notes or transcripts of interviews, workshops and sales calls;
+- texts you published: newsletters, social posts, blog articles;
+- proof: case studies, references, certificates, awards;
+- existing brand documents: a brand book, style guide or tone-of-voice guide;
+- design material: brand book pages, screenshots of your website, slides or posts, the colors
+  and fonts you use, the logo variants that exist.
+
+From the design material it finds out and writes down your design guidance in words:
+principles, imagery, the roles of fonts and colors, image prompts, and your logo rules
+(variants, backgrounds, minimum size, placement, what is not allowed). Your exact colors and
+fonts go into one list with the source of each value; you confirm it, and Brixon sets them up.
+What nobody can answer stays an open point instead of a guess. Logo, font and image files are
+never copied into the documents; it lists them for the upload in Brand Center. Which file
+types your AI can open depends on the AI client; it names a file it could not read instead of
+guessing.
+
 ## Brixon CLI for reviews and uploads
 
 The plugin carries the Brixon CLI as one file (`cli/index.mjs`). Your AI uses it to transfer
