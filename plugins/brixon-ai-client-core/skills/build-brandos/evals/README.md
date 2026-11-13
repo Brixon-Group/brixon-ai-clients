@@ -10,6 +10,8 @@ Five test cases in the skill-creator / `claude plugin eval` format. The brands i
 | `parallel-part-taken` | Several colleagues in one shared local folder: a part someone else is working on stays untouched, the agent takes a free part with its own progress file and number block, and notes what belongs to the taken part for its editor |
 | `guides-and-challenges-customer` | Leading a customer without Brand Center knowledge: plain language, pushing back on generic positioning, an "everyone" audience and an unsupported superlative, keeping its own proposals and unapproved figures out of the documents |
 
+The graders `10-design-values-recorded` and `11-no-logo-rule-invented` of `existing-guide-to-standard` (added 2026-11-13, with the design values table and the logo rules) have not been run yet.
+
 `parallel-part-taken` (added 2026-11-13) has not been run yet: the eval run on that day stopped on the eval account's usage limit before the agent started. Run it with `--scaffold`, because its folder comes from `place-files.sh`.
 
 ## Results, iteration 2 (2026-11-11, customer-guidance revision against the previous skill)
