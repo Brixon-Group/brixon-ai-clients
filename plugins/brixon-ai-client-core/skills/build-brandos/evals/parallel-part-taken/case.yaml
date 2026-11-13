@@ -1,0 +1,10 @@
+schema_version: "1.1"
+name: parallel-part-taken
+expected_outcome: |
+  Three colleagues build one brand in a shared local folder. The part the person asks for (audiences) is taken
+  by a colleague's progress file, so the agent leaves audiences.md and the colleague's progress file unchanged,
+  takes the free part the person named as fallback (offers), creates its own progress file before writing, uses
+  a fresh number block, writes only the offers entry from the person's own statements, and records what belongs
+  to the taken part for the colleague instead of writing it there.
+context:
+  scaffold_script: place-files.sh

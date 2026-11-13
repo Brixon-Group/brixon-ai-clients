@@ -69,6 +69,6 @@ Not writable through the editor or `save_brand_draft`. Every published snapshot 
 - Formats: SVG, PNG, JPEG, WebP, AVIF, WOFF/WOFF2, TTF, OTF, up to 20 MB. A description is required; fonts also need family and licence or use notes. Tags help search; reuse existing tags.
 - Before the first publication: uploads go into an asset inbox only for customer brands with an install contract in force; otherwise Brand Center answers "Publish a brand snapshot before uploading files".
 - Descriptions describe only visible content. Do not infer identities, approvals or rights.
-- Never copy binaries into the brand folder or into Git. In mode C list them in the handover: file, kind, proposed description, proposed tags, licence status.
+- Never copy logos, fonts or images into the brand folder or into Git. When working with local files, note them in the progress file of the part, and the handover lists them in `source-material/handover.md`: file, kind, proposed description, proposed tags, licence status.
 
 After publication, agents read assets through `get_logos`, `get_fonts`, `get_images`, `search_assets`, `get_asset`, colors through `get_colors`, and components through `get_ui_library`/`get_ui_component`.
