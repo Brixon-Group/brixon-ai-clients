@@ -1,6 +1,6 @@
 ---
 name: brixon-upload
-description: "Send one local file (image, video, PDF or Office document) to a Brixon tool that prepared an upload address for it, such as Meta Creative, LinkedIn Ads or Image Generation. Use whenever the result of a Brixon tool contains an upload ticket with `uploadUrl` for a local file: preferably with the Brixon CLI command `put` (Node.js), otherwise with the curl command from that result. Publishing a review in Brixon Feedback uses the `brixon-feedback` skill instead."
+description: "Send one local file (image, video, PDF or Office document) to a Brixon tool that prepared an upload address for it, such as Brand Center, Meta Creative, LinkedIn Ads or Image Generation. Use whenever the result of a Brixon tool contains an upload ticket with `uploadUrl` for a local file: preferably with the Brixon CLI command `put` (Node.js), otherwise with the curl command from that result. Publishing a review in Brixon Feedback uses the `brixon-feedback` skill instead."
 ---
 
 # Upload a local file to a Brixon tool
@@ -15,8 +15,8 @@ not available in this session, say so; do not look for another way to get the fi
 
 ## Before you ask for a ticket
 
-- **Always pass the file's size.** Where the preparing tool takes `size` (Meta Creative and
-  LinkedIn Ads), pass the exact size of the file in bytes. Read it from the file, for example
+- **Always pass the file's size.** Where the preparing tool takes `size` (Brand Center's
+  `prepare_asset_upload`, Meta Creative and LinkedIn Ads), pass the exact size of the file in bytes. Read it from the file, for example
   with `wc -c < "$FILE"` or, in PowerShell, `(Get-Item $FILE).Length`; never estimate or round
   it. The ticket is then bound to this size and to the file's content type.
 - **A ticket is for one file, once.** A ticket bound to a size is valid for a few minutes and
@@ -70,6 +70,14 @@ In PowerShell, pipe a single-quoted here-string (`@' ... '@ | node ...`).
 
 Then continue as the tool's result describes: usually a second tool call that takes the handle
 from the ticket's result (for example its `source` or `reference_id`).
+
+**Brand Center.** `prepare_asset_upload` takes the brand, the file name with its extension, the
+exact `size` and the asset details (`id`, `kind`, `description`, as in the portal upload) and
+returns `upload_id` and `ticket`. Pass `ticket` to `put`, then call `finalize_asset_upload` with
+the brand and `upload_id`: only that call checks the file and publishes it, or before a brand's
+first publication puts it into its inbox. Of Brand Center's formats the CLI sends PNG, JPG and
+WebP; for SVG, AVIF and font files use the portal (`get_upload_url`). An upload needs your
+personal sign-in and a role that allows uploads; the brand's daily upload limit applies.
 
 | Message | What to do |
 |---|---|

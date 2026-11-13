@@ -35,7 +35,7 @@ defaults:
 | Host | Used by | For |
 |---|---|---|
 | `feedback.brixon.ai` | `upload`, `finalize`, `doctor` | Review files for Brixon Feedback |
-| `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Meta Creative and LinkedIn Ads |
+| `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Brand Center, Meta Creative and LinkedIn Ads |
 
 If a ticket names another host, the CLI stops before it sends anything. It opens no port,
 follows no redirects, sends no usage data and does not update itself. With a proxy configured,
