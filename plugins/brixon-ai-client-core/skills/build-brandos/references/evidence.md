@@ -32,7 +32,7 @@ How to keep only what the material supports. Built from Brand Center's own rules
 
 ## Source list and open questions
 
-One Markdown file per brand, kept outside the brand documents (in mode C: `evidence/quellenliste-<brand>.md`, see [local-mode.md](local-mode.md)). Keep it current after each chapter; show it to the person in full only when they ask (in a chat without files, give it once per chapter as one block to save, see [conversation.md](conversation.md#what-the-person-sees-after-each-chapter)).
+Kept outside the brand documents: with a local folder, in the progress file of each part (`source-material/progress/`, see [parallel-work.md](parallel-work.md#the-progress-file)), so that several people never write into the same list; in mode A without a folder, one source list per brand, given as a block to save. Keep it current after each chapter; show it to the person in full only when they ask (in a chat without files, give it once per chapter as one block to save, see [conversation.md](conversation.md#what-the-person-sees-after-each-chapter)).
 
 ```markdown
 | Path#section | Statement (short) | State | ID | Source |

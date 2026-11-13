@@ -36,6 +36,8 @@ When you show a file in the chat (a client without a file system), the person se
 | mode A | "Ich kann direkt in euren Entwurf im Brand Center speichern." | "I can save straight into your draft in Brand Center." |
 | mode B | "Ich kann eure Marke im Brand Center lesen, aber nicht speichern. Ihr bekommt die Texte als Dateien." | "I can read your brand but not save to it; you get the texts as files." |
 | mode C | "Ich habe heute keine Verbindung zu eurem Brand Center. Ihr bekommt die Texte als Dateien, die ihr später übernehmt." | "I have no connection to your Brand Center today; you get the texts as files." |
+| save failed, local fallback | "Das Speichern im Brand Center hat gerade nicht geklappt. Ich lege das Kapitel in eurem Ordner ab; nichts geht verloren, wir übertragen es später." | "Saving to Brand Center didn't work just now. I'm putting the chapter in your folder; nothing is lost, we transfer it later." |
+| progress file | "eine Notiz, dass du gerade an X arbeitest" (never mention number blocks or file names) | "a note that you are working on X right now" |
 | tokens, design map, UI library | "Brixon richtet eure genauen Farben, Schriften und Bausteine ein." | "Brixon sets up your exact colors, fonts and components." |
 | install sprint | euer Einführungsprojekt mit Brixon (or the name the person uses) | your onboarding project with Brixon |
 | Brand Check | only when you actually prepare Brand Check questions (step 7): eine kurze Abfrage im Brand Center, in der euer Team einzelne Aussagen bestätigt oder korrigiert. Promise no automatic questions. | a short check where your team confirms or corrects statements |
