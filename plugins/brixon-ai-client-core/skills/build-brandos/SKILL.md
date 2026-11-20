@@ -32,7 +32,7 @@ If a save in mode A fails because of the connection, the sign-in, the licence or
 
 In modes B and C, and for anything written locally after a failed save, the first message and the final handover say plainly that the texts are a local draft, not yet saved in or published to Brand Center (wording in [references/conversation.md](references/conversation.md#what-the-person-sees-after-each-chapter)). Never suggest that something was saved, checked by Brand Center or published.
 
-Never call `report_brand_issue` from this skill: it starts an automatic change that Brand Center publishes itself, while this skill only prepares drafts for a person to publish. Never invent tool names, parameters or fields. [references/mcp.md](references/mcp.md) lists what exists today and what is only planned.
+Never call `report_brand_issue` from this skill: it records an issue for the brand team, while this skill writes open points into the draft as `GAP:` lines for a person to review and publish. Never invent tool names, parameters or fields. [references/mcp.md](references/mcp.md) lists what exists today and what is only planned.
 
 ## 2. Rules that hold in every mode
 
@@ -51,7 +51,7 @@ Never call `report_brand_issue` from this skill: it starts an automatic change t
 
 Open with a short orientation and the one sentence on how you work today, as in [references/conversation.md](references/conversation.md#opening-the-work). Keep the first message light.
 
-You need, from the person or the draft: the brand's name, the slug (propose it from the name), the brand language (German or English, the only two Brand Center allows; propose the obvious one), the owner (who decides about the brand), and whether brand documents already exist (an earlier BrandOS, a brand book, a Brand Center brand). If they exist, read them and carry them over instead of starting again. If a local brand folder exists, read its brand documents and every file in `source-material/progress/` first and continue from there.
+You need, from the person or the draft: the brand's name, the slug (propose it from the name), the brand language (German or English, the only two Brand Center allows; propose the obvious one), the owner (who decides about the brand), and whether brand documents already exist (an earlier BrandOS, a brand book, a Brand Center brand). If the brand does not exist in Brand Center yet and `create_brand` is in your tool list, create it once the person has confirmed name and language (see [references/mcp.md](references/mcp.md#create_brand)); you are then in mode A. If they exist, read them and carry them over instead of starting again. If a local brand folder exists, read its brand documents and every file in `source-material/progress/` first and continue from there.
 
 Ask whether others work on the brand at the same time. If so, or if `source-material/progress/` already holds files, read [references/parallel-work.md](references/parallel-work.md) now: each person takes one free part, and you write only that part.
 

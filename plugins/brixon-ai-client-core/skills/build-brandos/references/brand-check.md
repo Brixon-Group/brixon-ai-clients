@@ -10,7 +10,7 @@ Brand Center shows team members cards, each with one statement from the publishe
 
 | Brand type | Source of questions |
 |---|---|
-| Customer brand built by the server generation | Generated automatically when a published revision is read: every bullet marked `*(Interpretation · source)*` becomes one question, topic = nearest heading, at most 40 open at a time, each statement asked once. |
+| Customer brand built by the former server generation (switched off since November 2026) | Generated automatically when a published revision is read: every bullet marked `*(Interpretation · source)*` becomes one question, topic = nearest heading, at most 40 open at a time, each statement asked once. |
 | Brixon-managed brand | Imported with `import_brand_check_questions` by a personal editor or an explicitly granted service. |
 
 Brand documents written with this skill carry no interpretation markers (inferences stay in the source list), so for customer brands they do not produce generated questions. What the skill can do instead:

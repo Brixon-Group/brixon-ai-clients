@@ -1,6 +1,6 @@
 # Evidence: reading, states, verification, review
 
-How to keep only what the material supports. Built from Brand Center's own rules: the `fill_brand` method (method version 2026-11-09) and the checks Brand Center's own generation applies to statements.
+How to keep only what the material supports. Built from Brand Center's own rules: the `fill_brand` method (method version 2026-11-20) and the checks Brand Center's former generation applied to statements.
 
 ## Contents
 
@@ -8,7 +8,7 @@ How to keep only what the material supports. Built from Brand Center's own rules
 - [Evidence states](#evidence-states)
 - [Source list and open questions](#source-list-and-open-questions)
 - [Verification checklist](#verification-checklist)
-- [How the server generation decides](#how-the-server-generation-decides)
+- [How the former server generation decided](#how-the-former-server-generation-decided)
 - [Questions worth asking](#questions-worth-asking)
 - [Fresh-reader review](#fresh-reader-review)
 
@@ -64,9 +64,9 @@ Run before saving each chapter. A sentence that fails a check is removed or rewr
 8. **Generic test.** Would the sentence also be true for three named competitors? Then it says nothing about this brand; sharpen it from the material or mark the gap.
 9. **No placeholders.** No `TODO`, no `<…>`, no empty heading, no dates or campaigns, no notes about AI, tools or process.
 
-## How the server generation decides
+## How the former server generation decided
 
-Useful as the standard of proof. Brand Center's own generation (used for customer brands built from uploaded material) lets the model propose statements with a status (`confirmed` or `interpretation`), sources and a quote, then keeps a statement only if:
+Useful as the standard of proof. Brand Center's own generation (used for customer brands built from uploaded material until it was switched off in November 2026) let the model propose statements with a status (`confirmed` or `interpretation`), sources and a quote, then kept a statement only if:
 
 - its cited sources exist (at most three);
 - every number in it appears in the cited sources;
