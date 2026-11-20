@@ -108,9 +108,9 @@ pages.
 
 Send once. On an error, show the message and do not resend with a new `external_id`; for
 licence, role or daily-limit errors, give the person the drafted issue and point them to Brand
-Center.
+Center. After an error, stop here.
 
-Then tell the person:
+Only when the result returns the issue with its number, tell the person:
 
 - that the issue is recorded in Brand Center under its number, and that the brand changes only
   when someone responsible for it decides and changes it there,

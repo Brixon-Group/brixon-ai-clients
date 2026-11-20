@@ -88,7 +88,7 @@ Ask at most four questions per chapter, the ones that unlock required sections f
 1. three real customer situations;
 2. three competitors or alternatives the customer is compared with;
 3. the actual pricing logic, or "not decided yet";
-4. three sentences customers really wrote (emails, reviews, chat).
+4. three sentences the brand itself wrote (website, emails, posts); sentences customers wrote count as evidence for audience language and objections, not for the voice.
 
 For empty fields, Brand Center's own questionnaire (at most 8 questions) asks about the same topics: essence, audiences, offers, positioning, tone, claims, non-negotiables, approval triggers, message pillars, vocabulary, imagery and alternatives. Good questions are concrete and answerable in one or two sentences: "Which three companies do customers compare you with before signing?" rather than "What is your positioning?". Name who can answer (role) so the person can forward it.
 
