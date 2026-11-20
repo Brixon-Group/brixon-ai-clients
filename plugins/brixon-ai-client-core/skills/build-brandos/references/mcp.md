@@ -6,7 +6,7 @@ State of the Brand Center MCP server, November 2026. Tool names may carry a clie
 
 | Group | Tools and prompts | Available to |
 |---|---|---|
-| Read | `list_brands`, `get_brand_context`, `get_brand_document`, `get_image_prompts`, `get_colors`, `get_fonts`, `get_images`, `get_logos`, `search_assets`, `get_asset`, `get_ui_library`, `get_ui_component`, `get_video_library`, `get_video_style`, `get_brand_bundle`, `get_upload_url`, `list_brand_issues`, `get_brand_issue` | every connection with read access to the brand |
+| Read | `list_brands`, `get_brand_context`, `get_brand_document`, `get_image_prompts`, `get_colors`, `get_fonts`, `get_images`, `get_logos`, `search_assets`, `get_asset`, `get_ui_library`, `get_ui_component`, `get_video_library`, `get_video_style`, `get_brand_bundle`, `get_design_contexts`, `get_upload_url`, `list_brand_issues`, `get_brand_issue` | every connection with read access to the brand |
 | Brand Check | `get_brand_check_status`, `import_brand_check_questions` | registered on every connection; the server allows import only for personal editors or explicitly granted services of a Brixon-managed brand |
 | Draft writing | `get_brand_draft`, `save_brand_draft` | seats whose licence allows editing through the AI |
 | Filling method | prompt `fill_brand`; the same text in the `method` field of `get_brand_draft` | customer seats whose licence allows editing through the AI |
@@ -61,7 +61,7 @@ What they do, so you can explain it: `prepare_asset_upload` takes `brand`, `file
 
 ### `get_upload_url`
 
-Parameter: `brand`. Opens the personal upload flow in the portal; grants no write access itself.
+Parameter: `brand`. Opens the personal upload flow in the portal; grants no write access itself. Works only for a published brand; before the first publication, point the person to <https://brand-center.brixongroup.com> instead.
 
 ### `import_brand_check_questions`, `get_brand_check_status`
 
