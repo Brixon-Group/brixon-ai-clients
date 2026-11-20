@@ -39,6 +39,7 @@ When you show a file in the chat (a client without a file system), the person se
 | save failed, local fallback | "Das Speichern im Brand Center hat gerade nicht geklappt. Ich lege das Kapitel in eurem Ordner ab; nichts geht verloren, wir übertragen es später." | "Saving to Brand Center didn't work just now. I'm putting the chapter in your folder; nothing is lost, we transfer it later." |
 | progress file | "eine Notiz, dass du gerade an X arbeitest" (never mention number blocks or file names) | "a note that you are working on X right now" |
 | tokens, design map, UI library | "Brixon richtet eure genauen Farben, Schriften und Bausteine ein." | "Brixon sets up your exact colors, fonts and components." |
+| design values table | "eine Liste eurer genauen Farben und Schriften, mit Quelle; ihr bestätigt sie, Brixon richtet sie ein" | "a list of your exact colors and fonts with their source; you confirm it, Brixon sets them up" |
 | install sprint | euer Einführungsprojekt mit Brixon (or the name the person uses) | your onboarding project with Brixon |
 | Brand Check | only when you actually prepare Brand Check questions (step 7): eine kurze Abfrage im Brand Center, in der euer Team einzelne Aussagen bestätigt oder korrigiert. Promise no automatic questions. | a short check where your team confirms or corrects statements |
 

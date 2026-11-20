@@ -28,7 +28,7 @@ The folder has the same layout as a brand in Brand Center, so the brand document
   source-material/                        ← working files, never transferred to Brand Center
     inbox/                                ← new material anyone adds: website exports, decks, emails, notes (no logos, fonts or images)
     progress/                             ← one file per part someone started (see parallel-work.md)
-    handover.md                           ← written at the handover: assets to upload, design evidence for Brixon, open decisions
+    handover.md                           ← written at the handover: assets to upload, design values for Brixon, open decisions
 ```
 
 This is the layout of a brand source in Brand Center. Only three kinds of path are ever transferred: `BRAND.md`, `guidelines/**.md`, `resources/documents/**.md`. Everything under `source-material/` stays with the customer and Brixon.
