@@ -72,8 +72,9 @@ Quote the one or two passages that actually decide the case, not every nearby li
 
 ## 4. Draft the issue and wait for confirmation
 
-Check `list_brand_issues` for the brand first. If an open issue already describes the same
-problem, show it to the person and do not report it a second time.
+Check `list_brand_issues` for the brand first, following `next_cursor` with the same filters
+until you find a match or the list ends. If an open issue already describes the same problem,
+show it to the person and do not report it a second time.
 
 Show the person this draft, in their language:
 
