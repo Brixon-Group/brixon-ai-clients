@@ -66,7 +66,7 @@ Run before saving each chapter. A sentence that fails a check is removed or rewr
 
 ## How the former server generation decided
 
-Useful as the standard of proof. Brand Center's own generation (used for customer brands built from uploaded material until it was switched off in November 2026) let the model propose statements with a status (`confirmed` or `interpretation`), sources and a quote, then kept a statement only if:
+Useful as the standard of proof. Brand Center's own server generation (used for earlier customer brands built from uploaded material) let the model propose statements with a status (`confirmed` or `interpretation`), sources and a quote, then kept a statement only if:
 
 - its cited sources exist (at most three);
 - every number in it appears in the cited sources;
