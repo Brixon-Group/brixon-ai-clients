@@ -120,9 +120,9 @@ Not writable through the editor or `save_brand_draft`. Every published snapshot 
 
 ## Assets: logos, fonts, images
 
-- Route: the person uploads in the Brand Center portal with their personal sign-in; the MCP tool `get_upload_url` (parameter `brand`) only opens that upload flow and grants no write access. Shared or service connections cannot upload.
+- Route: the person uploads in the Brand Center portal with their personal sign-in; the MCP tool `get_upload_url` (parameter `brand`) only opens that upload flow for a published brand and grants no write access; before the first publication, the person opens <https://brand-center.brixongroup.com>. Shared or service connections cannot upload. This plugin version does not upload through `prepare_asset_upload` and `finalize_asset_upload`, even where they are in your tool list (see [mcp.md](mcp.md#prepare_asset_upload-finalize_asset_upload)).
 - Formats: SVG, PNG, JPEG, WebP, AVIF, WOFF/WOFF2, TTF, OTF, up to 20 MB. A description is required; fonts also need family and licence or use notes. Tags help search; reuse existing tags.
-- Before the first publication: uploads go into an asset inbox only for customer brands with an install contract in force; otherwise Brand Center answers "Publish a brand snapshot before uploading files".
+- Before the first publication: where Brand Center keeps an asset inbox for the brand, uploads wait there and are taken over at the first publication; otherwise it answers "Publish a brand snapshot before uploading files", and the person uploads after the first publication. After publication, every upload goes live at once.
 - Descriptions describe only visible content. Do not infer identities, approvals or rights.
 - Never copy logos, fonts or images into the brand folder or into Git. When working with local files, note them in the progress file of the part, and the handover lists them in `source-material/handover.md`: file, kind, proposed description, proposed tags, licence status. For a logo, the kind names the variant (for example "logo, negative, horizontal"), so the list shows which variants exist and which are missing.
 

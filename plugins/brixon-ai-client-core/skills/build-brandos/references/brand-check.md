@@ -4,13 +4,13 @@ Sources: Brand Center's Brand Check and the Brand Center MCP tool descriptions.
 
 ## What Brand Check is
 
-Brand Center shows team members cards, each with one statement from the published brand, its topic and a "view source" link. Answers: **Stimmt noch** (confirm, 3 points), **Bitte ändern** (correction text, 10 points pending until the change is applied) or **Weiß ich nicht** (skip, remembered per person and review round). Confirmed statements and accepted or rejected corrections are closed; a correction without a decision becomes checkable again after 28 days if its source is unchanged. No MCP tool answers questions, awards points or resolves corrections.
+Brand Center shows team members cards, each with one statement from the published brand, its topic and a "view source" link. Answers: **Stimmt noch** (confirm, 3 points), **Bitte ändern** (correction text, 10 points pending until the change is applied) or **Weiß ich nicht** (skip, remembered per person and review round). Confirmed statements and accepted or rejected corrections are closed; a correction without a decision becomes checkable again after 28 days if its source is unchanged. No MCP tool answers questions. Corrections are decided when an issue that carries them is closed with `close_brand_issue` (needs a role that may publish the brand): `fixed` awards their points. This skill does not close issues.
 
 ## Where questions come from
 
 | Brand type | Source of questions |
 |---|---|
-| Customer brand built by the server generation | Generated automatically when a published revision is read: every bullet marked `*(Interpretation · source)*` becomes one question, topic = nearest heading, at most 40 open at a time, each statement asked once. |
+| Customer brand built by Brand Center's server generation (earlier customer brands) | Generated automatically when a published revision is read: every bullet marked `*(Interpretation · source)*` becomes one question, topic = nearest heading, at most 40 open at a time, each statement asked once. |
 | Brixon-managed brand | Imported with `import_brand_check_questions` by a personal editor or an explicitly granted service. |
 
 Brand documents written with this skill carry no interpretation markers (inferences stay in the source list), so for customer brands they do not produce generated questions. What the skill can do instead:

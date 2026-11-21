@@ -33,7 +33,8 @@ own instructions and the project's instructions (`CLAUDE.md`, `AGENTS.md`) win w
   Never invent metrics, promises or personal experiences to make copy stronger.
 - Language, market and tone follow the brief and the brand, not the language of the conversation.
 - When the person says a result does not fit the brand or a brand rule is wrong ("that doesn't
-  sound like us"), offer the `off-brand-report` skill so the brand itself gets corrected.
+  sound like us"), offer the `off-brand-report` skill, which records it as an issue in Brand
+  Center for the people responsible for the brand.
 - Drafting and revising need no approval. Publishing, sending, spending and changing access need
   the person's authorization for that specific action.
 
