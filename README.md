@@ -10,9 +10,9 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 | Skill | What it does |
 |---|---|
 | `brand-context` | Loads your brand (voice, facts, design tokens, assets, UI components) before brand-facing work |
-| `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center |
+| `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center, using your own AI and the filling method Brand Center provides. You create the brand and upload logos, fonts and images in Brand Center, and you publish there |
 | `build-brandos` | Builds a complete BrandOS from your material: all documents of the Brand Center standard, gaps marked, an evidence list and targeted questions. With the MCP it saves drafts; without it, or when saving fails, it writes the files locally in Brand Center's own layout and later transfers them without overwriting changes made in Brand Center. Several colleagues can build in parallel in one shared folder: each takes one part (for example voice, audiences or offers), and a part someone is working on stays blocked for the others until it is done |
-| `off-brand-report` | Turns "that doesn't sound like us" into a change request that Brand Center tries to apply and publish automatically (licence-dependent) |
+| `off-brand-report` | Turns "that doesn't sound like us" into a precise issue for your brand in Brand Center, where the people responsible for the brand decide and change it (licence-dependent) |
 | `brixon-feedback` | Publishes finished pages and social-post batches as one review in Brixon Feedback, returns the review link, reads the comments and applies one round of feedback. Needs the Brixon Feedback connection (see below) |
 | `brixon-upload` | Sends a local file to a Brixon tool that prepared an upload address for it, such as Brand Center, Meta Creative, LinkedIn Ads or Image Generation: with the Brixon CLI, or with curl where Node.js is not available (curl only for Brixon's default storage host). Needs the connection to that tool (see below) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
@@ -27,6 +27,29 @@ instructions win where they conflict.
 
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
+
+### What `build-brandos` can work from
+
+Hand it what you already have, as links, files or pasted text:
+
+- your website (the home page and up to 12 linked pages);
+- sales material: pitch deck, offers and proposals, price list, product sheets;
+- what customers wrote: emails, reviews, chat messages;
+- notes or transcripts of interviews, workshops and sales calls;
+- texts you published: newsletters, social posts, blog articles;
+- proof: case studies, references, certificates, awards;
+- existing brand documents: a brand book, style guide or tone-of-voice guide;
+- design material: brand book pages, screenshots of your website, slides or posts, the colors
+  and fonts you use, the logo variants that exist.
+
+From the design material it finds out and writes down your design guidance in words:
+principles, imagery, the roles of fonts and colors, image prompts, and your logo rules
+(variants, backgrounds, minimum size, placement, what is not allowed). Your exact colors and
+fonts go into one list with the source of each value; you confirm it, and Brixon sets them up.
+What nobody can answer stays an open point instead of a guess. Logo, font and image files are
+never copied into the documents; it lists them for the upload in Brand Center. Which file
+types your AI can open depends on the AI client; it names a file it could not read instead of
+guessing.
 
 ## Brixon CLI for reviews and uploads
 

@@ -21,18 +21,18 @@ Look at the tools you actually have (names may carry a client prefix, in Claude 
 | Mode (internal only) | When | How you read | How you write |
 |---|---|---|---|
 | **A: draft access** | `get_brand_draft` and `save_brand_draft` exist | `get_brand_draft` (published text, saved draft, version, base revision, catalog with section descriptions) | `save_brand_draft` once per chapter, with `expected_version` and `base_revision` from the last read |
-| **B: read only** | Brand Center tools such as `get_brand_context` exist, but no `get_brand_draft` | `get_brand_context` and `get_brand_document` for the published state | as in mode C; nothing is saved in Brand Center |
+| **B: read only** | Brand Center tools such as `get_brand_context` exist, but no `get_brand_draft` (if the brand was created or the licence changed during this chat, the person reconnects first; the tool list is fixed when the connection starts) | `get_brand_context` and `get_brand_document` for the published state | as in mode C; nothing is saved in Brand Center |
 | **C: no connection** | no Brand Center tools | the person's uploads, the local brand folder and the person's answers | local files in the Brand Center layout (see [references/local-mode.md](references/local-mode.md)) |
 
 Tell the person in one plain sentence what this means for them (the sentences per mode are in [references/conversation.md](references/conversation.md#plain-language)). Never name the mode letter.
 
-In mode A, if `get_brand_draft` returns a `method` field, or the `fill_brand` prompt is available, that text is Brand Center's own filling method: follow it. This skill agrees with it and adds the guidance, local files, design, Brand Check and review. A proposal the person confirms counts as their answer. Where the two differ, the server method wins.
+In mode A, if `get_brand_draft` returns a `method` field, or the `fill_brand` prompt is available, that text is Brand Center's own filling method: follow it. This skill agrees with it and adds the guidance, local files, design, Brand Check and review. A proposal the person confirms counts as their answer. Where the two differ, the server method wins, with one exception: files go through the Brand Center portal, never through `prepare_asset_upload` or `finalize_asset_upload` (see [references/design-and-assets.md](references/design-and-assets.md#assets-logos-fonts-images)).
 
 If a save in mode A fails because of the connection, the sign-in, the licence or the server, switch to local files for that chapter as described in [references/local-mode.md](references/local-mode.md), tell the person in one plain sentence, and continue; transfer later.
 
 In modes B and C, and for anything written locally after a failed save, the first message and the final handover say plainly that the texts are a local draft, not yet saved in or published to Brand Center (wording in [references/conversation.md](references/conversation.md#what-the-person-sees-after-each-chapter)). Never suggest that something was saved, checked by Brand Center or published.
 
-Never call `report_brand_issue` from this skill: it starts an automatic change that Brand Center publishes itself, while this skill only prepares drafts for a person to publish. Never invent tool names, parameters or fields. [references/mcp.md](references/mcp.md) lists what exists today and what is only planned.
+Never call `report_brand_issue` from this skill: it records an issue for the brand team, while this skill writes open points into the draft as `GAP:` lines for a person to review and publish. Never invent tool names, parameters or fields. [references/mcp.md](references/mcp.md) lists what exists today and what is only planned.
 
 ## 2. Rules that hold in every mode
 
@@ -51,11 +51,25 @@ Never call `report_brand_issue` from this skill: it starts an automatic change t
 
 Open with a short orientation and the one sentence on how you work today, as in [references/conversation.md](references/conversation.md#opening-the-work). Keep the first message light.
 
-You need, from the person or the draft: the brand's name, the slug (propose it from the name), the brand language (German or English, the only two Brand Center allows; propose the obvious one), the owner (who decides about the brand), and whether brand documents already exist (an earlier BrandOS, a brand book, a Brand Center brand). If they exist, read them and carry them over instead of starting again. If a local brand folder exists, read its brand documents and every file in `source-material/progress/` first and continue from there.
+You need, from the person or the draft: the brand's name, the slug (propose it from the name), the brand language (German or English, the only two Brand Center allows; propose the obvious one), the owner (who decides about the brand), and whether brand documents already exist (an earlier BrandOS, a brand book, a Brand Center brand). If the brand does not exist in Brand Center yet (`list_brands` shows none for it) and the person wants it there: with `create_brand` in your tool list, create it only on the person's request and after they confirmed name and language, then work with the brand ID it returns (see [references/mcp.md](references/mcp.md#create_brand)); you are then in mode A. In Brand Center, `brand:` in the frontmatter of `BRAND.md` is always that brand ID (as `get_brand_draft` shows it); the slug only names the local folder. Without that tool, the person creates the brand in Brand Center; with a connection, continue once `list_brands` shows it after a reconnect, and without one, keep working locally. If they exist, read them and carry them over instead of starting again. If a local brand folder exists, read its brand documents and every file in `source-material/progress/` first and continue from there.
 
 Ask whether others work on the brand at the same time. If so, or if `source-material/progress/` already holds files, read [references/parallel-work.md](references/parallel-work.md) now: each person takes one free part, and you write only that part.
 
-Ask for the material: website, pitch deck, offers, customer emails, interviews, old guidelines, logos and fonts. Further languages for claims are asked in chapter 5.
+Ask for the material, and name a few examples from the table so the person knows what helps. It can come as a link, a file or pasted text. Further languages for claims are asked in chapter 5.
+
+| Material | Examples | What it feeds |
+|---|---|---|
+| Website | the home page and up to 12 linked pages, such as about, services, prices | core, audiences, offers, voice; a first look at the design |
+| Sales material | pitch deck, company presentation, offers and proposals, price list, product sheets | positioning and offers; prices and figures become claim candidates |
+| Customers' own words | emails, reviews, chat messages | the sentences customers actually wrote; objections and language of the audiences |
+| Conversations | notes or transcripts of interviews, workshops, sales calls | strategy, audiences, voice |
+| Texts the brand published | newsletters, social posts, blog articles | voice and its examples, channels |
+| Proof | case studies, references, certificates, awards | claim candidates, each with its source |
+| Existing brand documents | brand book, style guide, tone-of-voice guide, an earlier BrandOS, a brand already in Brand Center | carried over into the standard instead of starting again |
+| Design material | brand book pages, screenshots of the website, slides or posts, colors and fonts the person names, the logo variants that exist | design guidance in words (principles, imagery, logo rules, roles of fonts and colors) and image prompts; exact values go into the design values table for Brixon |
+| Logos, fonts, images | logo files, font files, photos, illustrations | never copied or stored with the documents: logo files are read for their variants and colors, then all are listed for the upload in Brand Center |
+
+Which file types you can open depends on the AI client; for a file you cannot read, ask for another form such as a PDF or pasted text.
 
 ### Step 1: Read the material and start the source list
 
@@ -75,18 +89,18 @@ Read everything supplied before drafting. For each usable statement add a row to
 
 When several people work in parallel, the order is a recommendation: each person works through the part they took, core and strategy ideally first.
 
-Per chapter, lead as described in [references/conversation.md](references/conversation.md#leading-each-chapter) (why it matters, what the material says, at most four questions, a recommendation, the one or two challenges that matter most per [references/strategy-quality.md](references/strategy-quality.md)). Everything else goes into the open questions. Over the whole run, always ask for these four, because material rarely contains them: three real customer situations; three competitors or alternatives the customer is compared with; the pricing logic, or "not decided yet"; three sentences customers actually wrote.
+Per chapter, lead as described in [references/conversation.md](references/conversation.md#leading-each-chapter) (why it matters, what the material says, at most four questions, a recommendation, the one or two challenges that matter most per [references/strategy-quality.md](references/strategy-quality.md)). Everything else goes into the open questions. Over the whole run, always ask for these four, because material rarely contains them: three real customer situations; three competitors or alternatives the customer is compared with; the pricing logic, or "not decided yet"; three sentences the brand itself wrote (website, emails, posts). Sentences customers wrote are evidence for audience language and objections, not for the brand's voice.
 
 ### Step 3: Write, check, save, per chapter
 
 1. Draft only the documents of this chapter, from source rows that are `supported` or `confirmed`.
 2. Check the draft against section 2 and the verification checklist in [references/evidence.md](references/evidence.md): every number appears in the source, no price outside claims, no link the source lacks, no sentence that would also fit three competitors.
-3. Save. Mode A: one `save_brand_draft` call per chapter with the complete new text of each changed document; on a version conflict someone else saved first: read again; if the other save changed one of your documents, show the person what changed and ask, otherwise redo your chapter on the fresh text; never overwrite. If the save fails because of the connection, the sign-in, the licence or the server, write the chapter locally (see [references/local-mode.md](references/local-mode.md)). Then read the returned report and tell the person, in plain words, what still prevents publication and which required parts are only marked as open. Modes B and C: write or output the complete files (see [references/local-mode.md](references/local-mode.md)), and update the progress file of the part.
+3. Save. Mode A: before the first save, tell the person which brand and which chapters you save to its draft in Brand Center and wait for their go-ahead, unless their request already said so; when they only asked for an audit, do not save. Then one `save_brand_draft` call per chapter with the complete new text of each changed document; on a version conflict someone else saved first: read again; if the other save changed one of your documents, show the person what changed and ask, otherwise redo your chapter on the fresh text; never overwrite. If the save fails because of the connection, the sign-in, the licence or the server, write the chapter locally (see [references/local-mode.md](references/local-mode.md)). Then read the returned report and tell the person, in plain words, what still prevents publication and which required parts are only marked as open. Modes B and C: write or output the complete files (see [references/local-mode.md](references/local-mode.md)), and update the progress file of the part.
 4. Report to the person in the shape described in [references/conversation.md](references/conversation.md#what-the-person-sees-after-each-chapter): what now stands, where you disagree or propose something, what is open and who can answer it, which files changed, and what comes next.
 
 ### Step 4: Design, assets and image prompts
 
-Fill `guidelines/design.md` and the image prompts from what the material shows, and route everything that is not text to its own place: exact colors, fonts and UI building blocks are set up by Brixon; logos, fonts and images go through the Brand Center upload. Read [references/design-and-assets.md](references/design-and-assets.md) before this chapter.
+When the design part is yours, find out the brand's design facts instead of waiting for them: the logo rules (variants, backgrounds, minimum size and clear space, placement, what is not allowed), the fonts and the colors, each with its source. Record them in two places: the rules and roles in words in `guidelines/design.md`, together with the image prompts, and the exact values in the design values table for Brixon. Route what is not text to its own place: tokens and UI building blocks are set up by Brixon from the confirmed values; logos, fonts and images go through the Brand Center upload. Where to look, what to ask and the table format: [references/design-and-assets.md](references/design-and-assets.md); read it before this chapter.
 
 ### Step 5: Completeness check
 
@@ -102,7 +116,7 @@ Turn interpretations and unconfirmed statements into questions the owner can ans
 
 ### Step 8: Hand over
 
-Tell the person what happens next and who does it, in plain steps: review and publish in Brand Center (mode A: the draft is already there; local files: transfer them as in [references/local-mode.md](references/local-mode.md#getting-the-files-into-brand-center), never over what someone saved in Brand Center meanwhile), upload logos, fonts and images, send design sources to Brixon, answer the open questions (each with the role that can). Give your honest view of the draft in two or three sentences: what is strong, and the one or two open points that matter most. If the connection has the onboarding-sprint tools, finish with the next sprint step (see [references/sprint.md](references/sprint.md)).
+Tell the person what happens next and who does it, in plain steps: review and publish in Brand Center (mode A: the draft is already there; local files: transfer them as in [references/local-mode.md](references/local-mode.md#getting-the-files-into-brand-center), never over what someone saved in Brand Center meanwhile), upload logos, fonts and images, have the design values confirmed and pass them to Brixon, answer the open questions (each with the role that can). Give your honest view of the draft in two or three sentences: what is strong, and the one or two open points that matter most. If the connection has the onboarding-sprint tools, finish with the next sprint step (see [references/sprint.md](references/sprint.md)).
 
 ## 4. Reference map
 
