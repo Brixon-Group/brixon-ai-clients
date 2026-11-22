@@ -12,8 +12,9 @@ version. Your AI uses it for two things:
   Creative, LinkedIn Ads or Image Generation (`put`).
 
 Sign-in, reviews, comments and everything else run through the AI's connections to the Brixon
-tools, not through the CLI. Those connections are available on activation by Brixon; Brixon
-tells you their addresses and sign-in when it activates them. The CLI and these notes can be
+tools, not through the CLI. Except for Brand Center, which the plugin connects at
+`brands.brixon.ai` with the sign-in of your Brixon AI invitation, those connections are available
+on activation by Brixon; Brixon tells you their addresses and sign-in when it activates them. The CLI and these notes can be
 checked and approved before that.
 
 ## 1. Requirements
@@ -35,7 +36,6 @@ defaults:
 | Host | Used by | For |
 |---|---|---|
 | `feedback.brixon.ai` | `upload`, `finalize`, `doctor` | Review files for Brixon Feedback |
-| `brands.brixon.ai` | `put`, `doctor` | Uploads of logos, images, icons and fonts to Brixon Brand Center |
 | `20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com` | `put`, `doctor` | Brixon's file storage at Cloudflare R2 in the EU: uploads for Meta Creative and LinkedIn Ads |
 
 If a ticket names another host, the CLI stops before it sends anything. It opens no port,
@@ -123,17 +123,16 @@ Section `upload`, for `put`:
 
 | Key | Values | Default | Environment variable |
 |---|---|---|---|
-| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the `put` hosts in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
+| `upload.allowedOrigins` | List of 1 to 20 `https` origins | the storage host in section 2 | `BRIXON_UPLOAD_ALLOWED_ORIGINS` (separated by commas) |
 
 A list you set replaces the default instead of adding to it. To add a host, for example the one
-of Image Generation, list the `put` hosts of section 2 as well. Put it into the user file, or into the
+of Image Generation, list the storage host as well. Put it into the user file, or into the
 managed file if that file already sets the key (a managed key is locked):
 
 ```json
 {
   "upload": {
     "allowedOrigins": [
-      "https://brands.brixon.ai",
       "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com",
       "https://image-mcp.brixon.ai"
     ]
@@ -171,7 +170,7 @@ Managed file for a network with TLS inspection and a fixed proxy without sign-in
   "proxy": { "mode": "explicit", "url": "http://proxy.company.example:8080", "noProxy": "" },
   "feedback": { "allowedOrigins": ["https://feedback.brixon.ai"] },
   "upload": {
-    "allowedOrigins": ["https://brands.brixon.ai", "https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com"]
+    "allowedOrigins": ["https://20f261d7a31cca523c1ab1bc4d8e1942.eu.r2.cloudflarestorage.com"]
   }
 }
 ```
