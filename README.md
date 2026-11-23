@@ -17,13 +17,11 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 | `brixon-upload` | Sends a local file to a Brixon tool that prepared an upload address for it, such as Meta Creative, LinkedIn Ads or Image Generation: with the Brixon CLI, or with curl where Node.js is not available (curl only for Brixon's default storage host). Needs the connection to that tool (see below) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
 | `github-workflow` | Handles Git and GitHub for you: branches, commits, pull requests, merges |
-| `setup-rules` | Codex only: writes the working rules into your global Codex instructions |
+| `setup-rules` | For Codex, which is not supported yet (see [Install](#install)): writes the working rules into your global Codex instructions |
 
 It also brings working rules for your AI: invent nothing, load your brand before brand-facing
 work, ask before deleting or sending, keep secrets out of files. Claude Code loads them at every
-session start. In Codex, ask once for the `setup-rules` skill ("set up the Brixon rules"); it adds
-them as a marked block to your global `AGENTS.md` and leaves the rest of the file alone. Your own
-instructions win where they conflict.
+session start. Your own instructions win where they conflict.
 
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
@@ -80,12 +78,9 @@ In Claude Code:
 /plugin install brixon-ai-client-core@brixon-ai-clients
 ```
 
-In Codex:
-
-```
-codex plugin marketplace add https://github.com/Brixon-Group/brixon-ai-clients.git
-codex plugin add brixon-ai-client-core@brixon-ai-clients
-```
+Codex is not supported yet. The Brixon sign-in (Auth0) that Brand Center uses is not yet set up
+for Codex, so Codex cannot connect to Brand Center. Until Brixon announces Codex support, use Claude
+Code.
 
 On first use of a Brand Center tool, your browser opens the Brixon sign-in. Sign in with the
 email address your invitation to Brixon AI went to, using the sign-in your organisation has (for
@@ -94,16 +89,13 @@ Brixon AI Portal; without it, the sign-in gives you no access to Brand Center. N
 secret is stored in this repository.
 
 The MCP address is `https://brands.brixon.ai/mcp` if you want to add it to another
-AI tool by hand.
+AI tool by hand (not Codex, see above).
 
 ## Updates
 
 ```
 /plugin marketplace update brixon-ai-clients
 ```
-
-In Codex: `codex plugin marketplace upgrade brixon-ai-clients`, then ask for the `setup-rules`
-skill again so the rules block is current.
 
 ## Licence of this repository
 
