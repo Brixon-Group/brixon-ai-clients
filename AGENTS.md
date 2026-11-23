@@ -1,6 +1,8 @@
 # Maintaining this marketplace
 
-This repository is public and installed by Brixon AI clients in Claude Code and Codex.
+This repository is public and installed by Brixon AI clients in Claude Code. Codex is deferred:
+the Brixon sign-in (Auth0) that Brand Center uses has no client for Codex. Keep the Codex catalog
+and manifest consistent, but do not document a Codex setup as working until that client exists.
 
 ## Layout
 

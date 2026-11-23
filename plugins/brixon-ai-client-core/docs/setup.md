@@ -12,8 +12,9 @@ version. Your AI uses it for two things:
   Creative, LinkedIn Ads or Image Generation (`put`).
 
 Sign-in, reviews, comments and everything else run through the AI's connections to the Brixon
-tools, not through the CLI. Those connections are available on activation by Brixon; Brixon
-tells you their addresses and sign-in when it activates them. The CLI and these notes can be
+tools, not through the CLI. Except for Brand Center, which the plugin connects at
+`brands.brixon.ai` with the sign-in of your Brixon AI invitation, those connections are available
+on activation by Brixon; Brixon tells you their addresses and sign-in when it activates them. The CLI and these notes can be
 checked and approved before that.
 
 ## 1. Requirements

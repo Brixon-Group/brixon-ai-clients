@@ -1,7 +1,7 @@
 # Brixon AI Clients
 
 Plugin marketplace for clients of Brixon AI. It brings your brand from
-[Brixon Brand Center](https://brand-center.brixongroup.com) into Claude Code.
+[Brixon Brand Center](https://brands.brixon.ai) into Claude Code.
 
 ## Plugin: Brixon AI Client Core
 
@@ -10,20 +10,18 @@ Plugin marketplace for clients of Brixon AI. It brings your brand from
 | Skill | What it does |
 |---|---|
 | `brand-context` | Loads your brand (voice, facts, design tokens, assets, UI components) before brand-facing work |
-| `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center, using your own AI and the filling method Brand Center provides. You create the brand and upload logos, fonts and images in Brand Center, and you publish there |
+| `fill-brand` | Fills or maintains your brand documents with you, section by section, as drafts in Brand Center, using your own AI and the filling method Brand Center provides. It creates the brand through your AI where your licence allows it, otherwise you create it in Brand Center; you upload logos, fonts and images and publish in Brand Center |
 | `build-brandos` | Builds a complete BrandOS from your material: all documents of the Brand Center standard, gaps marked, an evidence list and targeted questions. With the MCP it saves drafts; without it, or when saving fails, it writes the files locally in Brand Center's own layout and later transfers them without overwriting changes made in Brand Center. Several colleagues can build in parallel in one shared folder: each takes one part (for example voice, audiences or offers), and a part someone is working on stays blocked for the others until it is done |
 | `off-brand-report` | Turns "that doesn't sound like us" into a precise issue for your brand in Brand Center, where the people responsible for the brand decide and change it (licence-dependent) |
 | `brixon-feedback` | Publishes finished pages and social-post batches as one review in Brixon Feedback, returns the review link, reads the comments and applies one round of feedback. Needs the Brixon Feedback connection (see below) |
 | `brixon-upload` | Sends a local file to a Brixon tool that prepared an upload address for it, such as Meta Creative, LinkedIn Ads or Image Generation: with the Brixon CLI, or with curl where Node.js is not available (curl only for Brixon's default storage host). Needs the connection to that tool (see below) |
 | `neutral-review` | Gets an independent second opinion on a text, design, document or code change |
 | `github-workflow` | Handles Git and GitHub for you: branches, commits, pull requests, merges |
-| `setup-rules` | Codex only: writes the working rules into your global Codex instructions |
+| `setup-rules` | For Codex, which is not supported yet (see [Install](#install)): writes the working rules into your global Codex instructions |
 
 It also brings working rules for your AI: invent nothing, load your brand before brand-facing
 work, ask before deleting or sending, keep secrets out of files. Claude Code loads them at every
-session start. In Codex, ask once for the `setup-rules` skill ("set up the Brixon rules"); it adds
-them as a marked block to your global `AGENTS.md` and leaves the rest of the file alone. Your own
-instructions win where they conflict.
+session start. Your own instructions win where they conflict.
 
 What the MCP offers depends on your Brand Center licence. Filling drafts needs a licence that
 allows editing through your AI; publishing always happens in Brand Center.
@@ -80,28 +78,24 @@ In Claude Code:
 /plugin install brixon-ai-client-core@brixon-ai-clients
 ```
 
-In Codex:
+Codex is not supported yet. The Brixon sign-in (Auth0) that Brand Center uses is not yet set up
+for Codex, so Codex cannot connect to Brand Center. Until Brixon announces Codex support, use Claude
+Code.
 
-```
-codex plugin marketplace add https://github.com/Brixon-Group/brixon-ai-clients.git
-codex plugin add brixon-ai-client-core@brixon-ai-clients
-```
+On first use of a Brand Center tool, your browser opens the Brixon sign-in. Sign in with the
+email address your invitation to Brixon AI went to, using the sign-in your organisation has (for
+example a code sent to that address). The invitation comes from your organisation's team in the
+Brixon AI Portal; without it, the sign-in gives you no access to Brand Center. No API key is needed; nothing
+secret is stored in this repository.
 
-On first use of a Brand Center tool, your browser opens the Brand Center sign-in. Sign in with
-the email address of your Brand Center licence. No API key is needed; nothing secret is stored in
-this repository.
-
-The MCP address is `https://brand-center.brixongroup.com/mcp` if you want to add it to another
-AI tool by hand.
+The MCP address is `https://brands.brixon.ai/mcp` if you want to add it to another
+AI tool by hand (not Codex, see above).
 
 ## Updates
 
 ```
 /plugin marketplace update brixon-ai-clients
 ```
-
-In Codex: `codex plugin marketplace upgrade brixon-ai-clients`, then ask for the `setup-rules`
-skill again so the rules block is current.
 
 ## Licence of this repository
 

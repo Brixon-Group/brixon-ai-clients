@@ -1,6 +1,6 @@
 ---
 name: setup-rules
-description: "Codex only: install, update or remove the Brixon AI working rules in your global Codex instructions (AGENTS.md in your Codex home). Use when the person asks to set up or update the Brixon rules in Codex, after a plugin update, or when Codex does not seem to follow them. In Claude Code the plugin loads the rules by itself at every session start; this skill is not needed there."
+description: "Codex only (Codex is not supported yet; the skill says so first): install, update or remove the Brixon AI working rules in your global Codex instructions (AGENTS.md in your Codex home). Use when the person asks to set up or update the Brixon rules in Codex, after a plugin update, or when Codex does not seem to follow them. In Claude Code the plugin loads the rules by itself at every session start; this skill is not needed there."
 ---
 
 # Set up the Brixon AI working rules in Codex
@@ -13,6 +13,10 @@ person's consent, and touches nothing else in the file.
 ## 1. Check the host
 
 If this is Claude Code, say that the rules load automatically there and stop.
+
+In Codex, say first that Codex is not supported yet: the Brixon sign-in (Auth0) that Brand Center
+uses is not yet set up for Codex, so the Brand Center tools cannot connect there. The working rules
+can still be set up; continue only if the person wants that.
 
 ## 2. Read the rules
 

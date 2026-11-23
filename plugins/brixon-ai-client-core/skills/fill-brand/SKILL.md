@@ -8,22 +8,29 @@ description: "Fill or maintain a brand in Brixon Brand Center with the person, s
 This skill carries no method of its own. The method lives in Brand Center and is versioned
 there, so this skill and the `fill_brand` prompt always say the same thing.
 
-Brand Center is at <https://brand-center.brixongroup.com>. The person signs in there with the
-email address of their licence; this plugin connects your AI to the same address.
+Brand Center is at <https://brands.brixon.ai>. The person signs in there, and in your AI's
+connection to it, with the email address their Brixon AI invitation went to (the invitation
+comes from their organisation's team in the Brixon AI Portal). This plugin connects your AI to
+the same address.
 
 1. Check the connection. If no Brand Center tools are in your tool list, the connection is not
-   signed in yet: ask the person to sign in to it with the email address of their licence (in
-   Claude Code: `/mcp`, then the Brand Center server) and to start again. Your tool list is
+   signed in yet: ask the person to sign in to it with the address of their invitation (in
+   Claude Code: `/mcp`, then the Brand Center server; the browser opens the Brixon sign-in) and
+   to start again. If the sign-in is refused, or completes but the connection still offers no
+   Brand Center tools or refuses every call, the address used is probably not a member of an organisation
+   with a Brand Center licence: ask the person to sign in again with the invited address, or to
+   ask their team's admin in the Brixon AI Portal for an invitation. Your tool list is
    fixed when the connection starts: if the person creates a brand or gets a new licence during
-   this chat, they reconnect (in Claude Code: `/mcp`) or start a new chat before you go on. If
-   the person has no brand yet and is not signed in, they can create it in Brand Center first
-   and sign in afterwards, which saves the reconnect.
+   this chat, they reconnect (in Claude Code: `/mcp`) or start a new chat before you go on.
 2. Find the brand with `list_brands`: the one the person names, or the one the Brand Center
    instructions name for this licence. If several are possible, ask which one.
 3. If the person has no brand for this yet:
-   - If `create_brand` is not in your tool list, the person creates the brand in Brand Center.
-     Wait until they say it exists, ask them to reconnect as in step 1, then call `list_brands`
-     again.
+   - If `create_brand` is not in your tool list, this connection cannot create a brand. In Brand
+     Center, creating one takes an editor role and a licence with a brand limit and editing
+     through the AI. If the person has those, their organisation may have limited this
+     connection's tools, or their rights changed after it started: they create the brand in
+     Brand Center. Otherwise someone with those rights does. Once the person says it exists, ask
+     them to reconnect as in step 1, then call `list_brands` again.
    - If `create_brand` is in your tool list, use it only when the person asks for a new brand.
      Show them the name and the language (German or English) you would create it with and wait
      for their yes. Pass a new random UUID as `request_id` and reuse it only to retry this same
@@ -31,7 +38,8 @@ email address of their licence; this plugin connects your AI to the same address
      toward the workspace's brand limit.
 4. Check that `get_brand_draft` and `save_brand_draft` are in your tool list. If they are
    missing even after a reconnect, or a call for this brand is refused, the licence or the
-   person's role does not allow editing this brand through your AI. Say so. If `list_brands`
+   person's role does not allow editing this brand, or their organisation has limited this
+   connection's tools. Say so. If `list_brands`
    shows `can_edit_draft: true` for the brand, the person can edit the draft in Brand Center
    themselves; otherwise point them to someone who may edit it there. Stop here.
 5. Call `get_brand_draft` for that brand. Follow `method.text` from its result from the start,

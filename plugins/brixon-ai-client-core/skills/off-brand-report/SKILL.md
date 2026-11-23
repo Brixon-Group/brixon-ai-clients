@@ -20,10 +20,10 @@ in Brand Center. So the issue must say exactly what should be true, and the pers
 it before you send it.
 
 If `report_brand_issue` is not among the tools, this sign-in cannot report issues through the AI
-(it needs a personal sign-in with a role in the brand). Say so, show the drafted issue, and point
-the person to
-[Brand Center](https://brand-center.brixongroup.com), where they can edit the brand themselves
-(or use the `fill-brand` skill if this licence allows editing drafts).
+(it needs a personal sign-in with a role in the brand, and the organisation may have limited
+this connection's tools). Say so, show the drafted issue, and point the person to
+[Brand Center](https://brands.brixon.ai), where someone whose role and licence allow editing the
+brand can change it (or use the `fill-brand` skill with such a sign-in).
 
 ## 1. Confirm it is a brand-fit complaint
 
